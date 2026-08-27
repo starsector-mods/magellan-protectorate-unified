@@ -1,0 +1,70 @@
+{
+	"baseHullId":"magellan_modularfrigate",
+	"skinHullId":"magellan_modularfrigate_defense_yellowtail",
+	"hullName":"Terschad-D [TMC]",
+	"hullDesignation":"Defense Frigate",
+	"descriptionId":"magellan_modularfrigate",
+	"descriptionPrefix":"This ship has been configured as a defense frigate, with powerful anti-fighter weapons.",
+	"tags":["magellan_yellowtail", "magellan_yellowtail_bp", "no_dealer"],
+	"tech":"Tichel Mercantile Concern",
+    "fleetPoints":5,
+    "ordnancePoints":45,
+    "baseValueMult":0.8,
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_modularfrigate_defense_yellowtail.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["armoredweapons", "rugged"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"mount": "HIDDEN",
+      		"type": "DECORATIVE"
+    	},
+		"WS0002":{
+      		"type": "COMPOSITE",
+      		"size": "MEDIUM",
+      		"angle": 0,
+      		"arc": 360
+    	},
+		"WS0003":{
+      		"type": "MISSILE",
+      		"arc": 240
+    	},
+		"WS0005":{
+      		"type": "SYSTEM",
+      		"mount": "HIDDEN",
+      		"arc": 0
+    	},
+		"WS0006":{
+      		"type": "ENERGY",
+      		"mount": "TURRET",
+      		"angle": 60,
+      		"arc": 150
+
+    	},
+		"WS0007":{
+      		"type": "ENERGY",
+      		"mount": "TURRET",
+      		"angle": -60,
+      		"arc": 150
+    	},
+    	"WS0008":{
+      		"angle": 120
+    	},
+		"WS0009":{
+      		"angle": -120
+    	}
+    },
+	"builtInMods":["magellan_yellowtailmod", "magellan_yellowtail_defense"],
+	"builtInWeapons":{},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"}
+	}
+}

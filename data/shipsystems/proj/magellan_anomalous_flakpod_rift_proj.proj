@@ -1,0 +1,53 @@
+{
+	"id":"magellan_anomalous_flakpod_rift_proj",
+	"specClass":"missile",
+	"missileType":"BOMB",
+	#"onFireEffect":"com.fs.starfarer.api.impl.combat.CanisterFlakPlugin",
+	#"sprite":"graphics/Magellan/missiles/magellan_canister_lg.png",
+	"sprite":"",
+	"size":[10,10],	
+	"center":[5,5],
+	"collisionRadius":8,
+	"collisionClass":"MISSILE_NO_FF",
+	"glowColor":[50,50,150,155],
+	"glowRadius":30,
+	"explosionColor":[150,100,255,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":150, # purely visual
+	"noCollisionWhileFading":false,
+	"useHitGlowWhenDealingDamage":true, # using the scripted rift explosion instead
+	"useHitGlowWhenDestroyed":true, # instead of the default explosion
+	"useProjectileRangeCalculation":true,
+	"renderTargetIndicator":false, # no target diamond in combat view, not targeted by flares
+	"dudProbabilityOnFlameout":0,
+	"fizzleOnReachingWeaponRange":true,					 
+	"flameoutTime":0.05, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.05, # time spent without the engine glow being rendered
+	"fadeTime":0.05, # fadeout duration		
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"onExplosionEffect":"data.scripts.weapons.magellan_anomalousFlakPodExplosionEffect",
+					"range":50,
+					"explosionSpec":{"duration":0.12,
+									 "radius":90,
+									 "coreRadius":60, # full damage within core radius - at least equal to proximity fuse range
+									 "collisionClass":PROJECTILE_NO_FF,
+									 "collisionClassByFighter":PROJECTILE_FIGHTER,
+									 "particleSizeMin":4.0,
+									 "particleSizeRange":4.0,
+									 "particleDuration":1,
+									 "particleCount":50,
+									 "particleColor":[120,180,210,125],
+									 "explosionColor":[85,85,217,255],
+									 "useDetailedExplosion":true,
+									 "useDetailedExplosionColorAlpha":true,
+									 "detailedExplosionRadius":80,
+									 "detailedExplosionFlashRadius":200,
+									 "detailedExplosionFlashDuration":0.15,
+									 "detailedExplosionFlashColorFringe":[41,50,82,75],
+									 "detailedExplosionFlashColorCore":[85,85,217,125],
+									 "sound":"hit_heavy_energy"},									 
+					},
+	"engineSpec":{"turnAcc":100,
+				  "turnRate":10,
+				  "acc":100,
+				  "dec":100}
+}

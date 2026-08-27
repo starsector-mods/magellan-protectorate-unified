@@ -1,0 +1,43 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 6,
+    "fluxVents": 13,
+    "hullId": "magellan_carrier_blackcollar",
+    "hullMods": [
+        "magellan_fighter_mod",
+        "targetingunit",
+        "pointdefenseai",
+        "magellan_corvetteConversion"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrier_blackcollar_elite3",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_largeciws"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0008": "magellan_crackerafm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_triflak"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_smciws",
+                "WS0005": "magellan_smciws",
+                "WS0006": "magellan_smciws",
+                "WS0007": "magellan_smciws"
+            }
+        }
+    ],
+    "wings": []
+}

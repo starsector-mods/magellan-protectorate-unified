@@ -1,0 +1,17 @@
+{
+	"id":"magellan_beehive_sub_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":15.0,
+	"width":7.0,
+	"fadeTime":0.1,
+	"fringeColor":[235,205,95,255],
+	"coreColor":[255,245,195,255],
+	"hitGlowRadius":10,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0,
+	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell_sm.png",
+}

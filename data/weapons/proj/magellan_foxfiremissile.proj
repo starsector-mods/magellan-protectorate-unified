@@ -1,0 +1,47 @@
+{
+	"id":"magellan_foxfiremissile",
+	"specClass":"missile",
+	"onHitEffect":"data.scripts.weapons.magellan_FoxfireSparks",
+	"missileType":"MISSILE_TWO_STAGE_SECOND_UNGUIDED",
+	"sprite":"graphics/Magellan/missiles/magellan_foxfire.png",
+	"size":[7.5,15],	
+	"center":[3.75,7.5],
+	"collisionRadius":15,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[200,200,255,235],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":60, # purely visual
+	#"alwaysAccelerate":true,
+	#"reduceDamageWhileFading":true,
+	"noCollisionWhileFading":true,
+	"dudProbabilityOnFlameout":0,
+	"fizzleOnReachingWeaponRange":true,
+	"flameoutTime":1, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.5, # time spent without the engine glow being rendered
+	"fadeTime":0.5, # fadeout duration	
+	"engineSpec":{"turnAcc":320,
+				  "turnRate":160,
+				  "maxSpeed":1000,
+				  "acc":800,
+				  "dec":0},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-7.5, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[200,200,255,225],
+						"contrailDuration":0.2,
+						"contrailWidthMult":2,
+						"contrailWidthAddedFractionAtEnd":2,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.0,
+						"contrailAngularVelocityMult":0.5,
+						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailColor":[75,75,75,150],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":4.0,
+				    "length":32.0,
+				    "angle":180.0}]
+}
+
+			

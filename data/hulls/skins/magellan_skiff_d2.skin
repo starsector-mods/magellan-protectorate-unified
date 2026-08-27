@@ -1,0 +1,36 @@
+{
+	"baseHullId":"magellan_skiff",
+	"skinHullId":"magellan_skiff_d2",
+	"hullName":"Nan [D]",
+	"descriptionId":"magellan_skiff",
+	"descriptionPrefix":"Not all old ships are passed on in good condition - and this one has seen harder wear than most. But there's a solid frame there, if you're willing to put in some work.",
+	"restoreToBaseHull":true,
+	"addHints":["HIDE_IN_CODEX"],
+	"tags":["no_dealer"],
+	"tech":"Magellan",
+    "fleetPoints":3,
+    "ordnancePoints":28,
+    "baseValueMult":0.3,
+	"spriteName":"graphics/Magellan/ships/civ/magellan_skiff_d2.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign_b"],
+	"removeBuiltInWeapons":["WS0001"],
+	"weaponSlotChanges":{
+		"WS0004":{
+      		"type": "BALLISTIC"
+    	}
+    },
+	"builtInMods":["faulty_grid"],
+	"builtInWeapons":{
+		"WS0001": "swarmer"
+	},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "MIDLINE"
+		},
+		"1":{"style":"MIDLINE"},
+		"2":{"style":"MIDLINE"}
+	}
+}

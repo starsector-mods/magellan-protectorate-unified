@@ -1,0 +1,19 @@
+{
+	"id":"magellan_bonesaw_ftr_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_BonesawOnHit",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":16.0,
+	"width":2.5,
+	"fadeTime":0.25,
+	"fringeColor":[255,235,200,200],
+	"coreColor":[255,235,200,255],
+	"glowColor":[155,135,100,75],
+	"glowRadius":9,
+	"hitGlowRadius":6,
+	"textureType":"SMOOTH",
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0
+}

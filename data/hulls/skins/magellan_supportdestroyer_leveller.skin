@@ -1,0 +1,50 @@
+{
+	"baseHullId":"magellan_supportdestroyer",
+	"skinHullId":"magellan_supportdestroyer_leveller",
+	"hullName":"Pollard [LV]",
+	"descriptionId":"magellan_supportdestroyer",
+	"descriptionPrefix":"This hull has been reconditioned to serve the Leveller cause. A flux distributor has been integrated into the frame, while the ballistic accelerator has been removed in favor of an impulse-burn rig, the shuttle bay converted for swarmfighters, and several of the weapon mounts refitted for energy weapons.",
+	"tags":["magellan_levellercore_bp", "restricted"],
+	"tech":"Leveller",
+    "fleetPoints":11,
+    "ordnancePoints":105,
+    "baseValueMult":1,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/levellers/magellan_supportdestroyer_leveller.png",
+    "systemId":"magellan_microburn_capital",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering", "blast_doors"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "ENERGY"
+    	},
+		"WS0002":{
+      		"type": "ENERGY"
+    	},
+    	"WS0005":{
+      		"type": "ENERGY"
+    	},
+		"WS0006":{
+      		"type": "ENERGY"
+    	}
+    },
+    "builtInMods":["magellan_levellermod", "magellan_convertedbay"],
+    "builtInWings":[
+		"magellan_swarmfighter_half_wing"
+	],
+	"builtInWeapons":{},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"},
+		"5":{"style":"M_HIGH_STD"},
+		"6":{"style":"M_HIGH_STD"}
+	}
+}

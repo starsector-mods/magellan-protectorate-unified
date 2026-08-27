@@ -1,0 +1,33 @@
+{
+	"id":"magellan_bonecracker_sub",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"BALLISTIC",
+	"size":"MEDIUM",
+	"turretSprite":"graphics/Magellan/weapons/magellan_beehive_turret_base.png",
+	"turretGunSprite":"graphics/Magellan/weapons/magellan_beehive_turret_recoil.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_beehive_hardpoint_base.png",
+	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_beehive_hardpoint_recoil.png",	
+	"visualRecoil":4.0,  # the gun sprites are only used if this is non-0
+	"renderHints":[RENDER_BARREL_BELOW],
+	"turretOffsets":[25, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[25, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
+	"smokeSpec":{"particleSizeMin":15.0,
+				 "particleSizeRange":9.0,
+				 "cloudParticleCount":7,
+				 "cloudDuration":0.4,
+				 "cloudRadius":4.0,
+				 "blowbackParticleCount":5,
+				 "blowbackDuration":1.2,
+				 "blowbackLength":18.0,
+				 "blowbackSpread":12.0,
+				 "particleColor":[235,215,165,90]},
+	"projectileSpecId":"magellan_bonecracker_sub_shot",  # projectile that will be fired	
+	"fireSoundTwo":"magellan_bonesaw_fire",
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

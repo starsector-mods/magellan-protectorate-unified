@@ -1,0 +1,126 @@
+{
+  "hullName": "Skiff",
+  "hullId": "magellan_skiff",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/civ/magellan_skiff.png",
+  "style": "MAGELLAN",
+  "height": 118,
+  "width": 86,
+  "center": [43, 54],
+  "collisionRadius": 88,
+  "shieldCenter": [2, -0],
+  "shieldRadius": 82,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_classicdesign_b"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_ripfiresrm"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [53, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 0,
+      "locations": [-1, 20]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": -0,
+      "locations": [-1, -20]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [-19, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 9,
+      "locations": [-20, 13.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -9,
+      "locations": [-20, -13.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-48, -0],
+      "length": 60,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-53, 36.5],
+      "length": 12,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-53, -36.5],
+      "length": 12,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    58.5, -5.5,
+    30.5, -15.5,
+    5.5, -15.5,
+    3.5, -24,
+    -23, -29.5,
+    -23, -37.5,
+    -52.5, -40,
+    -52.5, -33,
+    -45.5, -32.5,
+    -38, -11,
+    -47.5, -7.5,
+    -47.5, 7.5,
+    -38, 11,
+    -45.5, 32.5,
+    -52.5, 33,
+    -52.5, 40,
+    -23, 37.5,
+    -23, 29.5,
+    3.5, 24,
+    5.5, 15.5,
+    30.5, 15.5,
+    58.5, 5.5
+  ]
+}

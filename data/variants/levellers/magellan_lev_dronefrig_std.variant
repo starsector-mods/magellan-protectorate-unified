@@ -1,0 +1,30 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 0,
+    "fluxVents": 4,
+    "goalVariant": true,
+    "hullId": "magellan_lev_dronefrig",
+    "hullMods": [
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_lev_dronefrig_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "magellan_targetingbeam"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_stunfire_rack",
+                "WS0002": "magellan_laservulcan",
+                "WS0003": "magellan_stunfire_rack"
+            }
+        }
+    ]
+}

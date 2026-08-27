@@ -1,0 +1,25 @@
+{
+  "displayName": "Escort",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_skate",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_skate_Escort",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0002": "magellan_crackerftrdouble"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_estat_ftr"
+      }
+    }
+  ]
+}

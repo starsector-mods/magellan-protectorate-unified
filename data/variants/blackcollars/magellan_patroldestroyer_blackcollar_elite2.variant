@@ -1,0 +1,51 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 6,
+    "fluxVents": 17,
+    "hullId": "magellan_patroldestroyer_blackcollar",
+    "hullMods": [
+        "targetingunit",
+        "magellan_bomberConversion"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_patroldestroyer_blackcollar_elite2",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_ripfiresrmpod"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_calliope_sm",
+                "WS0004": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_burstmaster"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_ioncharge",
+                "WS0008": "magellan_ioncharge",
+                "WS0009": "magellan_ioncharge"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_smciws",
+                "WS0007": "magellan_smciws"
+            }
+        }
+    ],
+    "wings": []
+}

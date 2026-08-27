@@ -1,0 +1,29 @@
+{
+	"id":"magellan_eflak",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"ENERGY",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_eflak_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_eflak_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_eflak_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_eflak_hardpoint_glow.png",
+	"glowColor":[100,110,255,255],
+	"turretOffsets":[7, 3, 2, 0, 7, -3],
+	"turretAngleOffsets":[1.5, 0, -1.5],
+	"hardpointOffsets":[7, 3, 2, 0, 7, -3],
+	"hardpointAngleOffsets":[1.5, 0, -1.5],
+	"barrelMode":"LINKED", # or ALTERNATING.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW_AND_FLASH",
+	"muzzleFlashSpec":{"length":13.5,   # only used if animationType = MUZZLE_FLASH
+					   "spread":5.0,
+					   "particleSizeMin":9.0,
+					   "particleSizeRange":12.0,
+					   "particleDuration":0.2,
+					   "particleCount":9,
+					   "particleColor":[100,110,255,255]},
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"projectileSpecId":"magellan_eflak_shot",  # projectile that will be fired
+	"fireSoundTwo":"magellan_eflak_fire",
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

@@ -1,0 +1,55 @@
+{
+	"baseHullId":"magellan_supportfrigate",
+	"skinHullId":"magellan_missilefrigate_theherd",
+	"hullName":"Dekker-M [Herd]",
+	"descriptionId":"magellan_supportfrigate",
+	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. Two crude box launchers for uranium-enriched dirty missiles have been bolted to the ship's frame, turning it into a deadly long-range support platform.",
+	"tags":["magellan_theherd", "restricted"],
+	"tech":"The Herd",
+    "fleetPoints":6,
+    "ordnancePoints":35,
+    "baseValueMult":1,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_missilefrigate_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering", "blast_doors"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+		    "angle": 8,
+      		"arc": 0,
+      		"mount": "HARDPOINT",
+      		"type": "BUILT_IN"
+    	},
+		"WS0002":{
+			"angle": -8,
+      		"arc": 0,
+      		"mount": "HARDPOINT",
+      		"type": "BUILT_IN"
+    	},
+		"WS0003":{
+		    "angle": 105,
+      		"arc": 75
+    	},
+		"WS0004":{
+			"angle": -105,
+      		"arc": 75
+    	},
+    	"WS0005":{
+      		"arc": 60,
+      		"mount": "TURRET",
+      		"type": "BALLISTIC"
+    	},
+    	"WS0006":{
+      		"type": "BUILT_IN"
+    	}
+    },
+    "builtInMods":["magellan_herdmod", "missleracks", "degraded_engines"],
+	"builtInWeapons":{
+		"WS0001": "magellan_radmissile_launcher",
+		"WS0002": "magellan_radmissile_launcher",
+		"WS0006": "magellan_herdlaser"
+	}
+}

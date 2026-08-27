@@ -1,0 +1,23 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 5,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_lev_lancefrig",
+    "hullMods": ["advancedoptics"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_lev_lancefrig_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_electrolance_med"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_laservulcan"}
+        }
+    ]
+}

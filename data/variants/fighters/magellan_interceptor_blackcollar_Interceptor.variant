@@ -1,0 +1,18 @@
+{
+  "displayName": "Interceptor",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_interceptor_blackcollar",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_interceptor_blackcollar_Interceptor",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_bonesaw_ftr"
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "hullName": "Magellan Scout",
+  "hullId": "magellan_intyellowtail",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/yellowtails/magellan_intyellowtail.png",
+  "style": "MAGELLAN",
+  "height": 24,
+  "width": 24,
+  "center": [12, 12],
+  "collisionRadius": 16,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 15,
+  "viewOffset": 0,
+  "builtInWeapons": {
+    "WS0001": "magellan_ebolter_ftr"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [5, 0.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-8, -0],
+      "length": 24,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "M_HIGH_TRAIL"
+    }
+  ],
+  "bounds": [
+    9, -1.5,
+    -1, -11,
+    -5.5, -11,
+    -7, -4,
+    -7, 4,
+    -5.5, 11,
+    -1, 11,
+    9, 1.5
+  ]
+}

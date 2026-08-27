@@ -1,0 +1,24 @@
+{
+	"id":"magellan_microflare_round",
+	"specClass":"missile",	
+	"missileType":"FLARE",
+	"sprite":"graphics/Magellan/missiles/magellan_canister_sm.png",
+	"size":[2,4],	
+	"center":[1,2],
+	"collisionRadius":4,
+	"collisionClass":"GAS_CLOUD",
+	"explosionColor":[100,100,100,75],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":5, # purely visual
+	"flameoutTime":1, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.5, # time spent without the engine glow being rendered
+	"fadeTime":0.3, # fadeout duration
+	"collisionClassAfterFlameout":"GAS_CLOUD",
+	"behaviorSpec":{"behavior":"CUSTOM",
+					"effectRange":200,
+					"effectChance":0.25},	
+	"engineSpec":{"turnAcc":120,
+				  "turnRate":90,
+				  "acc":15,
+				  "dec":0},
+	"engineSlots":[]
+}

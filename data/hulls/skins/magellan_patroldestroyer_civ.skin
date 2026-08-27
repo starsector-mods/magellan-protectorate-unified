@@ -1,0 +1,40 @@
+{
+	"baseHullId":"magellan_patroldestroyer",
+	"skinHullId":"magellan_patroldestroyer_civ",
+	"hullName":"Kant [CIV]",
+	"descriptionId":"magellan_patroldestroyer",
+	"descriptionPrefix":"This hull has been demilitarized for sale to independent worlds in the Magellan sphere of influence.",
+	"tags":["magellan_civ", "magellan_civ_bp"],
+	"tech":"Magellan",
+    "fleetPoints":13,
+    "ordnancePoints":90,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/civ/magellan_patroldestroyer_civ.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+    	"WS0006":{
+      		"type": "ENERGY"
+    	},
+		"WS0007":{
+      		"type": "ENERGY"
+    	}
+    },
+    "builtInMods":["magellan_engineering_civ"],
+	"builtInWeapons":{
+    },
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"},
+		"5":{"style":"M_HIGH_STD"}
+	}
+}

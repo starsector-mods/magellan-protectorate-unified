@@ -1,0 +1,11 @@
+{
+	"tips":[
+		"[Magellan] Magellan weaponry heavily diverges from Domain standards. Damage type alone does not define a weapon's role; evaluate burst capability and alpha damage—particularly for fragmentation systems—when designing your loadouts.",
+		"[Magellan] Magellan warships excel in line combat. They are built with robust armor and defensive systems designed to outlast opponents in prolonged engagements.",
+		"[Magellan] Magellan fighter wings act as strategic support for the main gun line rather than independent strike craft. Utilize tactical bombers to cripple enemy systems, leaving them vulnerable to your capital ships.",
+		"[Magellan] Magellan vessels boast exceptional armor and highly durable subsystems. Do not hesitate to rely on your armor to absorb incoming fire while your shields are venting.",
+		{"freq":0.5, "tip": "[Magellan] Magellan mobility systems are heavily reinforced, significantly reducing the risk of engine flame-outs during collisions or close-quarters maneuvers."},
+		{"freq":0.5, "tip": "[Magellan] Dumbfire projectiles retain their launching ship's velocity. Time your ship's movement systems with your weapon volleys to artificially boost projectile range and speed."},
+		{"freq":0.5, "tip": "[Magellan] Many older Magellan hulls, particularly from subfactions like the Levellers or The Herd, have suffered from degradation. Always check the baseline ordnance capacity before committing to extensive refits."}
+	]
+}

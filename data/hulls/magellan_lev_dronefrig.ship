@@ -1,0 +1,102 @@
+{
+  "hullName": "Drone",
+  "hullId": "magellan_lev_dronefrig",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/levellers/magellan_lev_dronefrig.png",
+  "style": "MAGELLAN",
+  "height": 108,
+  "width": 60,
+  "center": [30, 43],
+  "collisionRadius": 72,
+  "shieldCenter": [11, -0],
+  "shieldRadius": 60,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_levellermod",
+    "rugged"
+  ],
+  "builtInWeapons": {
+    "WS0004": "magellan_targetingbeam"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [8, 22]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 0,
+      "locations": [-11, -0]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [8, -22]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [37.5, -6.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-41, -0],
+      "length": 40,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-26, 13],
+      "length": 12,
+      "width": 4,
+      "angle": 160,
+      "contrailSize": 4,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-26, -13],
+      "length": 12,
+      "width": 4,
+      "angle": -160,
+      "contrailSize": 4,
+      "style": "M_HIGH_STD"
+    }
+  ],
+  "bounds": [
+    39, -6.5,
+    16.5, -13,
+    15, -28,
+    -6.5, -28.5,
+    -19, -24,
+    -11, -14,
+    -41, -5.5,
+    -41, 5.5,
+    -11, 14,
+    -19, 24,
+    -6.5, 28.5,
+    15, 28,
+    16.5, 13,
+    62.5, 2.5,
+    35, 0
+  ]
+}

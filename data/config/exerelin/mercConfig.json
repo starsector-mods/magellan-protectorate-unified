@@ -1,0 +1,78 @@
+{
+    "companies": {
+        "magellan_mercMagellanSmugglers": {
+            "name": "The Dunerunners",
+            "desc": "A group of highly modified ships crewed by an unsavory bunch of Jeshad dune-dwellers. Equally at home fighting, raiding, trading, hauling and exploring, there's nothing they aren't shy of doing. For the right price, of course.",
+            "logo": "graphics/logos/magellan_merc_smugglers.png",
+            "shipNamePrefix": "",
+            "feeUpfront": 85000,
+            "feeMonthly": 2000,
+            "faction": "magellan_protectorate",
+            "minLevel": 1,
+            "ships": [
+                [
+                    "magellan_patroldestroyer_smuggler_attack",
+                    "magellan_patroldestroyer_smuggler_support"
+                ],
+                [
+                    "magellan_patroldestroyer_smuggler_attack",
+                    "magellan_patroldestroyer_smuggler_support"
+                ],
+                [
+                    "magellan_cbtfreight_smuggler_attack",
+                    "magellan_cbtfreight_smuggler_overdriven",
+                    "magellan_cbtfreight_smuggler_support"
+                ],
+                [
+                    "magellan_cbtfreight_smuggler_attack",
+                    "magellan_cbtfreight_smuggler_overdriven",
+                    "magellan_cbtfreight_smuggler_support"
+                ],
+                [
+                    "magellan_cbtfreight_smuggler_attack",
+                    "magellan_cbtfreight_smuggler_overdriven",
+                    "magellan_cbtfreight_smuggler_support"
+                ]
+            ],
+            "officers": [
+                {
+                    "level": 4
+                },
+                {
+                    "level": 3
+                }
+            ],
+            "averageSMods": 2,
+            "miscData": {
+                "ignoreMarketRelationship": true
+            }
+        },
+        "magellan_mercMagellanStarfarer": {
+            "name": "The Starfarer",
+            "desc": "A captain who's seen it all, and wants to see it again.",
+            "logo": "graphics/logos/magellan_merc_starfarer.png",
+            "feeUpfront": 25000,
+            "feeMonthly": 1500,
+            "faction": "independent",
+            "minLevel": 5,
+            "ships": [
+                [
+                    "magellan_skipjack_std"
+                ],
+                [
+                    "magellan_schooner_restored",
+                    "magellan_skiff_std"
+                ]
+            ],
+            "officers": [
+                {
+                    "level": 7
+                }
+            ],
+            "averageSMods": 3,
+            "miscData": {
+                "ignoreMarketRelationship": true
+            }
+        }
+    }
+}

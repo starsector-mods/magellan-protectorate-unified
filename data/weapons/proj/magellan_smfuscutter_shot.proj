@@ -1,0 +1,16 @@
+{
+	"id":"magellan_smfuscutter_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":75.0,
+	"width":18.0,
+	"hitGlowRadius":0,
+	"fadeTime":0.2,
+	"fringeColor":[255,75,100,135],
+	"coreColor":[255,75,100,145],
+	"textureType":"SMOOTH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256,
+	"pixelsPerTexel":5.0
+}

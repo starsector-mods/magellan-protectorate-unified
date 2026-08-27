@@ -1,0 +1,29 @@
+{
+	"id":"magellan_silverdart",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"everyFrameEffect": "data.scripts.weapons.magellan_SilverdartFX",
+	"type":"BALLISTIC",
+	#"mountTypeOverride":"HYBRID",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_silverdart_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_silverdart_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_silverdart_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_silverdart_hardpoint_glow.png",
+	"glowColor":[150,225,255,200],
+	"turretOffsets":[14, 0, 14, 0, 14, 0],
+	"turretAngleOffsets":[0, 1, -1],
+	"hardpointOffsets":[16, 0, 16, 0, 16, 0],
+	"hardpointAngleOffsets":[0, 1, -1],	
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW_AND_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"muzzleFlashSpec":{"length":18.0, 
+                            "spread":18.0,
+                            "particleSizeMin":4.0,
+                            "particleSizeRange":12.0,
+                            "particleDuration":0.1,
+                            "particleCount":18,
+                            "particleColor":[150,225,255,155]},	
+	"projectileSpecId":"magellan_silverdart_base_shot",  # projectile that will be fired
+	"fireSoundTwo":"magellan_silverdart_fire"
+}

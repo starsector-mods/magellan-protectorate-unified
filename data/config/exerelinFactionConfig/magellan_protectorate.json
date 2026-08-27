@@ -1,0 +1,288 @@
+{
+    "playableFaction": true,
+    "corvusCompatible": true,
+    "rebelFleetSuffix": "Traitors",
+    "marketSpawnWeight": 1.2,
+    "ngcTooltip": "Uphold the honour and legacy of the Magellan Protectorate across the Persean Sector. For the Admiralty, and the Line!",
+    "asteroidMiningFleetName": "Mining Flotilla",
+    "gasMiningFleetName": "Extraction Flotilla",
+    "invasionFleetName": "Expeditionary Fleet",
+    "invasionSupportFleetName": "Task Force",
+    "responseFleetName": "Response Fleet",
+    "defenceFleetName": "Defense Fleet",
+    "factionsLiked": [
+        "tiandong",
+        "interstellarimperium",
+        "persean"
+    ],
+    "factionsDisliked": [
+        "hegemony",
+        "magellan_leveller",
+        "SCY",
+        "diableavionics",
+        "scalartech",
+        "aria",
+        "apex_design",
+        "uaf",
+        "new_galactic_order"
+    ],
+    "startRelationships": {
+        "hegemony": -0.9,
+        "persean": 0.4,
+        "luddic_path": -0.5,
+        "blackrock_driveyards": -0.1,
+        "shadow_industry": 0.2,
+        "diableavionics": -0.5,
+        "scalartech": -0.5,
+        "dassault_mikoyan": -0.5,
+        "communist_clouds": -0.3,
+        "apex_design": -0.3,
+        "new_galactic_order": -1.0,
+        "aria": -1.0,
+        "uaf": -1.0
+    },
+    "maxRelationships": {
+        "hegemony": -0.1,
+        "luddic_path": 0.3,
+        "shadow_industry": 0.5,
+        "diableavionics": 0.1,
+        "scalartech": 0.1,
+        "dassault_mikoyan": 0.3,
+        "communist_clouds": 0.1,
+        "apex_design": 0.1,
+        "new_galactic_order": -0.9,
+        "aria": -0.9,
+        "uaf": -0.9
+    },
+    "diplomacyPositiveChance": {
+        "luddic_church": 0.4,
+        "luddic_path": 0.25,
+        "magellan_leveller": 0.25,
+        "SCY": 0.3,
+        "shadow_industry": 0.3,
+        "diableavionics": 0.25,
+        "interstellarimperium": 0.6,
+        "scalartech": 0.25,
+        "dassault_mikoyan": 0.25,
+        "communist_clouds": 0.2,
+        "apex_design": 0.2,
+        "new_galactic_order": 0.01,
+        "aria": 0.01,
+        "uaf": 0.01
+    },
+    "diplomacyNegativeChance": {
+        "luddic_church": 0.6,
+        "luddic_path": 0.75,
+        "magellan_leveller": 0.75,
+        "SCY": 0.6,
+        "shadow_industry": 0.7,
+        "diableavionics": 0.75,
+        "interstellarimperium": 0.3,
+        "scalartech": 0.75,
+        "dassault_mikoyan": 0.75,
+        "communist_clouds": 0.8,
+        "apex_design": 0.8,
+        "new_galactic_order": 3.0,
+        "aria": 3.0,
+        "uaf": 3.0
+    },
+    "alignments": {
+        "hierarchical": 1.0,
+        "militarist": 0.9,
+        "ideological": 0.3,
+        "diplomatic": -0.4,
+        "technocratic": -0.2,
+        "corporate": 0.0
+    },
+    "diplomacyTraits": [
+        "law_and_order",
+        "stalwart",
+        "irredentist",
+        "selfrighteous",
+        "dislikes_ai",
+        "paranoid"
+    ],
+    "colonyExpeditionChance": 0.8,
+    "colonyTargetValuator": "exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    "groundBattleSettings": {
+        "attackMult": 1.05,
+        "damageTakenMult": 0.9,
+        "moraleDamageTakenMult": 0.85
+    },
+    "specialForcesMaxFleets": 2,
+    "specialForcesPointMult": 1.2,
+    "specialForcesSizeMult": 1.1,
+    "specialForcesNamerClass": "exerelin.campaign.intel.specialforces.namer.PlanetNamer",
+    "specialForcesFlagshipVariants": {
+        "magellan_battleship_std": 1.0,
+        "magellan_battleship_elite": 0.8,
+        "magellan_battlecruiser_elite": 0.8,
+        "magellan_battleship_startiger_royal": 0.5
+    },
+    "vengeanceLevelNames": [
+        "Grievance",
+        "Retribution",
+        "Wrath"
+    ],
+    "vengeanceFleetNames": [
+        "Punitive Fleet",
+        "Retaliation Armada",
+        "Iron Vengeance Fleet"
+    ],
+    "vengeanceFleetNamesSingle": [
+        "a Punitive fleet",
+        "a Retaliation armada",
+        "an Iron Vengeance fleet"
+    ],
+    "startShipsSolo": [
+        [
+            "magellan_linefrigate_std"
+        ],
+        [
+            "magellan_cbtfreight_frontier"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_supportdestroyer_std",
+            "magellan_linefrigate_std",
+            "magellan_phasefrig_std"
+        ],
+        [
+            "magellan_linedestroyer_std",
+            "magellan_supportfrigate_std",
+            "magellan_fastfrigate_std"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_cruiser_std",
+            "magellan_linedestroyer_std",
+            "magellan_supportfrigate_std"
+        ],
+        [
+            "magellan_lightcruiser_std",
+            "magellan_supportdestroyer_std",
+            "magellan_linefrigate_attack"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_carrierconverted_escort",
+            "magellan_linefrigate_std",
+            "magellan_fastfrigate_std"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_carrier_std",
+            "magellan_fastdestroyer_std",
+            "magellan_linefrigate_std"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_ltfreight_std",
+            "magellan_linefrigate_std",
+            "magellan_fastfrigate_std"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_cbtfreight_std",
+            "magellan_linedestroyer_std",
+            "magellan_supply_std"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_patroldestroyer_explorer",
+            "magellan_fastfrigate_std",
+            "magellan_ltfreight_std"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_cruiser_std",
+            "magellan_patroldestroyer_explorer",
+            "magellan_cbtfreight_std",
+            "magellan_fuel_std"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_mothership_base_std"
+        ],
+        [
+            "magellan_battleship_std"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_battleship_std",
+            "magellan_cruiser_std",
+            "magellan_fastdestroyer_std",
+            "magellan_carrier_std",
+            "magellan_cbtfreight_std"
+        ]
+    ],
+    "startSpecialItems": [
+        [
+            [
+                "magellan_core_package",
+                ""
+            ],
+            [
+                "magellan_adv_package",
+                ""
+            ]
+        ]
+    ],
+    "defenceStations": [
+        {
+            "ids": [
+                "orbitalstation",
+                "battlestation",
+                "starfortress"
+            ]
+        },
+        {
+            "ids": [
+                "orbitalstation_mid",
+                "battlestation_mid",
+                "starfortress_mid"
+            ],
+            "weight": 0.5
+        }
+    ],
+    "miningVariantsOrWings": [
+        "magellan_ltfreight_yellowtail_std",
+        "magellan_schooner_yellowtail_std",
+        "magellan_supply_yellowtail_std",
+        "magellan_modularfrigate_brawl_yellowtail_std"
+    ],
+    "industrySeeds": [
+        {
+            "id": "orbitalworks",
+            "mult": 0.1
+        },
+        {
+            "id": "fuelprod",
+            "mult": 0.1
+        },
+        {
+            "id": "lightindustry",
+            "mult": 0.3
+        }
+    ],
+    "bonusSeeds": [
+        {
+            "id": "population_upsize",
+            "count": 1
+        },
+        {
+            "id": "nanoforge_corrupted",
+            "count": 1
+        }
+    ]
+}

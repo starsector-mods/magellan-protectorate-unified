@@ -1,0 +1,302 @@
+{
+	"id":"magellan_independentmkt",
+	"color":[150,150,150,255],
+	"displayName":"Magellan - Independent Traders",
+	"displayNameWithArticle":"the Magellan Independent Traders",
+	"displayNameLong":"Magellan Independent Free Traders",
+	"displayNameLongWithArticle":"the Magellan Independent Free Traders",
+	"entityNamePrefix":"",
+	"personNamePrefix":"independent",
+	"personNamePrefixAOrAn":"an",
+	"displayNameIsOrAre":"are",
+	"showInIntelTab":false,
+	"logo":"graphics/factions/neutral_traders.png",
+	"crest":"graphics/factions/crest_neutral_traders.png",
+	"shipNamePrefix":"ISS",
+	"shipNameSources":{
+		"GREEK":4,
+		"CELTIC":2,
+		"SPACE":1,
+		"GENERAL":1
+	},
+	"description":"Free merchants, independent spacers, and guild captains operating outside the direct command of the High Protector, headquartered at Meetpoint Turan.",
+	"names":{
+		"modern":1,
+		"world":1,
+		"magellan":1,
+		"myth":1
+	},
+
+	"variantOverrides":{
+	},
+
+	"hullFrequency":{
+		"tags":{
+			"base_bp":0.25,
+			"magellan":0.5,
+			"magellan_civ":1
+		},
+		"hulls":{
+			"magellan_linefrigate":0.25,
+			"magellan_linefrigate_civ":1.5,
+			"magellan_linefrigate_leveller":0.25,
+			"magellan_linedestroyer":0.5,
+			"magellan_ltfreight":2,
+			"magellan_ltfreight_d":5,
+			"magellan_patroldestroyer_civ":2,
+			"magellan_schooner_d":0.5,
+			"magellan_schooner_d2":2,
+			"magellan_skiff_d":0.5,
+			"magellan_skiff_d2":3,
+			"magellan_supply_civ":2,
+			"magellan_supportdestroyer":0.5,
+			"magellan_supportdestroyer_leveller":0.1,
+			"magellan_cruiser":0.5,
+			"hermes":2,
+			"constructionrig":0.5,
+			"atlas":0.2,
+			"dram":0.5,
+			"phaeton":0.3,
+			"prometheus":0.1,
+			"nebula":0.5,
+			"mudskipper":0.3,
+			"starliner":0.1
+		}
+	},
+
+	"shipsWhenImporting":{
+		"tags":["magellan_core_bp", "magellan_civ"],
+		"hulls":[
+			"magellan_cbtfreight_civ",
+			"magellan_patroldestroyer_civ",
+			"magellan_supply_civ",
+			"magellan_ltfreight_d",
+			"magellan_skiff_d2",
+			"magellan_schooner_d2"
+		]
+	},
+	"knownShips":{
+		"tags":["base_bp", "magellan_civ"],
+		"hulls":[
+			"magellan_cbtfreight",
+			"magellan_cbtfreight_civ",
+			"magellan_linefrigate",
+			"magellan_linefrigate_civ",
+			"magellan_linefrigate_leveller",
+			"magellan_linedestroyer",
+			"magellan_ltfreight",
+			"magellan_ltfreight_d",
+			"magellan_patroldestroyer",
+			"magellan_patroldestroyer_civ",
+			"magellan_schooner_d",
+			"magellan_schooner_d2",
+			"magellan_skiff_d",
+			"magellan_skiff_d2",
+			"magellan_supply_civ",
+			"magellan_supportdestroyer",
+			"magellan_supportdestroyer_leveller",
+			"magellan_cruiser",
+			"atlas",
+			"prometheus"
+		]
+	},
+
+	"priorityShips":{
+		"tags":["magellan", "magellan_civ", "magellan_core_bp"],
+		"hulls":[
+			"magellan_cbtfreight",
+			"magellan_cbtfreight_civ",
+			"magellan_linefrigate_civ",
+			"magellan_patroldestroyer_civ",
+			"magellan_supply_civ",
+			"magellan_ltfreight_d",
+			"magellan_schooner_d2",
+			"magellan_skiff_d2"
+		]
+	},
+	"knownFighters":{
+		"tags":["magellan_civ", "magellan_core_bp"],
+		"fighters":[
+			"mining_drone_wing",
+			"magellan_interceptor_civ_wing",
+			"magellan_lightfighter_civ_wing",
+			"magellan_bomber_civ_wing",
+			"hoplon_wing"
+		]
+	},
+	"priorityFighters":{
+		"tags":["magellan", "magellan_civ", "magellan_core_bp"],
+		"fighters":[
+			"magellan_interceptor_civ_wing",
+			"magellan_lightfighter_civ_wing",
+			"magellan_bomber_civ_wing"
+		]
+	},
+	"knownWeapons":{
+		"tags":["magellan_core_bp", "magellan_civ_bp", "missile_bp", "independent"],
+		"weapons":[
+
+			"lightmortar",
+			"lightmg",
+			"locust",
+			"lrpdlaser",
+			"mininglaser",
+			"miningblaster",
+			"flak",
+			"dualflak",
+
+			"magellan_smpdmaser",
+			"magellan_sniperautogun",
+			"magellan_bonecracker",
+			"magellan_boneshaker",
+			"magellan_medgatling",
+			"magellan_electrontorp",
+			"magellan_solenoidgun",
+			"magellan_diffusiongun",
+			"magellan_ebolter",
+			"magellan_stunfire_rack",
+			"magellan_fuelrod_gun",
+			"magellan_edefensor",
+			"magellan_ioncharge",
+			"magellan_silverdart",
+			"magellan_smpulse_laser",
+			"magellan_medautocannon"
+		]
+	},
+	"priorityWeapons":{
+		"tags":["magellan", "magellan_civ", "magellan_core_bp"],
+		"weapons":[
+			"magellan_bonesaw",
+			"magellan_boneshaker",
+			"magellan_sniperautogun",
+			"magellan_ripfiresrm",
+			"magellan_stratLRM_launcher",
+			"magellan_smciws",
+			"magellan_smpulse_laser"
+		]
+	},
+	"knownHullMods":{
+		"tags":["base_bp", "independent", "magellan_exclusive_hullmod"],
+		"hullMods":[
+			"magellan_defense_mod",
+			"magellan_fighter_mod",
+			"magellan_movement_mod",
+			"turretgyros",
+			"augmentedengines",
+			"autorepair",
+			"converted_hangar",
+			"magazines",
+			"missleracks",
+			"extendedshieldemitter",
+			"frontemitter",
+			"heavyarmor",
+			"insulatedengine",
+			"targetingunit",
+			"nav_relay",
+			"operations_center",
+			"recovery_shuttles",
+			"expanded_deck_crew",
+			"surveying_equipment",
+			"hiressensors",
+			"efficiency_overhaul",
+			"converted_fighterbay",
+			"ballistic_rangefinder",
+			"shield_shunt"
+		]
+	},
+	"doctrine":{
+		"warships":4,
+		"carriers":2,
+		"phaseShips":1,
+
+		"officerQuality": 3,
+		"shipQuality": 4,
+		"numShips": 2,
+
+		"shipSize": 3,
+
+		"aggression":3,
+
+		"combatFreighterProbability":0.75,
+		"combatFreighterCombatUseFraction":0.25,
+		"combatFreighterCombatUseFractionWhenPriority":1,
+		"autofitRandomizeProbability":0.25,
+
+		"commanderSkillsShuffleProbability":1,
+		"commanderSkills":[
+			"crew_training",
+			"officer_training",
+			"coordinated_maneuvers",
+			"electronic_warfare",
+			"fighter_uplink",
+			"carrier_group",
+			"flux_regulation"
+		]
+	},
+	"illegalCommodities":[
+		"drugs",
+		"organs"
+	],
+	"music":{
+		"theme":"music_magellan_indiemarket",
+		"market_neutral":"music_magellan_indiemarket",
+		"market_hostile":"music_magellan_indiemarket",
+		"market_friendly":"music_magellan_indiemarket",
+		"encounter_neutral":"music_magellan_indiemarket",
+		"encounter_hostile":"music_magellan_indiemarket",
+		"encounter_friendly":"music_magellan_indiemarket"
+	},
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/characters/old_spacer02.png"
+		],
+		"standard_female":[
+			"graphics/portraits/characters/old_spacer01.png"
+		]
+	},
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"faithful":5,
+			"spacer":10
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"business":10,
+			"official":5
+		},
+		"HIGH":{
+			"soldier":10,
+			"business":10,
+			"official":10
+		},
+		"characterSounds":{
+			"standard":{"soldier":10, "spacer":5, "official":10}
+		}
+	},
+	"custom":{
+		"decentralized":true,
+		"allowsTransponderOffTrade":true,
+		"offersCommissions":false,
+		"engagesInHostilities":false,
+		"buysAICores":false,
+		"AICoreValueMult":0,
+		"AICoreRepMult":0,
+		"buysSurveyData":true,
+		"hostilityImpactOnGrowth":false,
+		"caresAboutAtrocities":false,
+		"punitiveExpeditionData":{
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":false,
+			"territorial":true
+		}
+	},
+	"fleetTypeNames":{
+		"mercScout":"Mercenary Scout",
+		"mercBountyHunter":"Bounty Hunter",
+		"mercPrivateer":"Privateer",
+		"mercPatrol":"Mercenary Patrol",
+		"mercArmada":"Mercenary Company"
+	}
+}

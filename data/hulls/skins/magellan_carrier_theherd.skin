@@ -1,0 +1,41 @@
+{
+	"baseHullId":"magellan_carrier",
+	"skinHullId":"magellan_carrier_theherd",
+	"hullName":"Edger [Herd]",
+	"descriptionId":"magellan_carrier",
+	"descriptionPrefix":"This hull has been stolen from a Fleet yard recently and subjected to a variety of dubious modifications. A makeshift gamma torch has been crudely attached to the bow, providing both a fearsome close-range weapon, and a safety valve for the dangerously overtuned drive rig.",
+	"tags":["no_dealer", "restricted"],
+	"tech":"The Herd",
+    "fleetPoints":35,
+    "ordnancePoints":90,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"addHints":["UNBOARDABLE", "HIDE_IN_CODEX"],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_carrier_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "COMPOSITE"
+    	},
+    	"WS0002":{
+      		"arc": 75
+    	},
+		"WS0008":{
+      		"arc": 5,
+      		"type": "BUILT_IN"
+    	}
+    },
+    "builtInMods":["magellan_herdmod"],
+    "builtInWings":[
+		"magellan_hvyfighter_theherd_wing",
+		"magellan_hvyfighter_theherd_wing",
+		"magellan_hvyfighter_theherd_wing"
+	],
+	"builtInWeapons":{
+		"WS0008": "magellan_radflamer"
+	}
+}

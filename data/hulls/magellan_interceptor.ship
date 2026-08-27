@@ -1,0 +1,81 @@
+{
+  "bounds": [
+    9.5,
+    -1.5,
+    -1.5,
+    -5.5,
+    -0.5,
+    -10.5,
+    -9,
+    -3.5,
+    -9,
+    3.5,
+    -0.5,
+    10.5,
+    -1.5,
+    5.5,
+    9.5,
+    1.5
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_smciws",
+    "WS0002": "magellan_crackerftrsingle"
+  },
+  "center": [
+    12,
+    12
+  ],
+  "collisionRadius": 16,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 24,
+      "location": [
+        -9,
+        -0
+      ],
+      "style": "MagellanFighterFlareTrail",
+      "width": 6
+    }
+  ],
+  "height": 24,
+  "hullId": "magellan_interceptor",
+  "hullName": "Magellan Interceptor",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    0
+  ],
+  "shieldRadius": 15,
+  "spriteName": "graphics/Magellan/ships/magellan_interceptor.png",
+  "style": "MAGELLAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 20,
+      "id": "WS0001",
+      "locations": [
+        5,
+        0.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+        {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0002",
+      "locations": [
+        -1,
+        0
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 24
+}

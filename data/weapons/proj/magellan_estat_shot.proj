@@ -1,0 +1,17 @@
+{
+	"id":"magellan_estat_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":75.0,
+	"width":3.0,
+	"fadeTime":0.1,
+	"fringeColor":[200,215,245,200],
+	"coreColor":[225,245,255,255],
+	"hitGlowRadius":7,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0,
+	"bulletSprite":"graphics/Magellan/missiles/magellan_miniblaster_long_bolt.png",		
+}

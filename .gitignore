@@ -1,0 +1,26 @@
+# Temporary build files
+bin/
+build_classes/
+sources_to_compile.txt
+*.bak
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+*.log
+target/
+__pycache__/
+
+# Experiment test outputs and temporary scratch files
+src/experiments/*_test/
+src/experiments/output/
+graphics/ships/extracted/
+*.webp
+__pycache__/
+
+# Node JS experiments
+node_modules/
+package.json
+package-lock.json
+

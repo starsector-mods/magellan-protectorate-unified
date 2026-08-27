@@ -1,0 +1,64 @@
+{
+  "hullName": "Bomber",
+  "hullId": "magellan_bomberyellowtail",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/yellowtails/magellan_bomber_yellowtail.png",
+  "style": "MAGELLAN",
+  "height": 40,
+  "width": 32,
+  "center": [16, 18],
+  "collisionRadius": 24,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 23,
+  "viewOffset": 0,
+  "builtInWeapons": {
+    "WS0001": "magellan_stunfire_ftr",
+    "WS0002": "magellan_stunfire_ftr"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-2, 9.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -0,
+      "locations": [-2, -9.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-17, 7],
+      "length": 24,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "M_HIGH_TRAIL"
+    },
+    {
+      "location": [-17, -7],
+      "length": 24,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "M_HIGH_TRAIL"
+    }
+  ],
+  "bounds": [
+    20, -1,
+    -8, -15,
+    -16, -9,
+    -16, 9,
+    -8, 15,
+    20, 1
+  ]
+}

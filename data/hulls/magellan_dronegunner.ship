@@ -1,0 +1,97 @@
+{
+  "hullName": "Gunner",
+  "hullId": "magellan_dronegunner",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_dronegunner.png",
+  "style": "MAGELLAN",
+  "height": 48,
+  "width": 80,
+  "center": [35, 22],
+  "collisionRadius": 60,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 56,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_autodef",
+    "automated",
+    "magazines"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 50,
+      "angle": 0,
+      "locations": [2, 2]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 10,
+      "angle": 0,
+      "locations": [16, -24]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 15,
+      "locations": [13, 13]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -15,
+      "locations": [13, -9]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-18, 2],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "MagellanDroneFlareTrail"
+    },
+    {
+      "location": [-18, 8],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "MagellanDroneFlare"
+    },
+    {
+      "location": [-13, -13],
+      "length": 20,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "MagellanDroneFlare"
+    }
+  ],
+  "bounds": [
+    -15, -21,
+    -12, -21,
+    -1, -43,
+    19, -43,
+    19, -15,
+    13.5, -9,
+    18.5, 2.5,
+    15, 15.5,
+    18, 33,
+    -6, 33,
+    -17.5, 16,
+    -18.5, -3
+  ]
+}

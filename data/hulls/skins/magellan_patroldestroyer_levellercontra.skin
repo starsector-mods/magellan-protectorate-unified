@@ -1,0 +1,64 @@
+{
+	"baseHullId":"magellan_patroldestroyer",
+	"skinHullId":"magellan_patroldestroyer_levellercontra",
+	"hullName":"Kant [LVC]",
+	"descriptionId":"magellan_patroldestroyer",
+	"descriptionPrefix":"This hull has been reconditioned to serve the Leveller cause, with some foreign equipment installed. A flux distributor has been integrated into the frame, while the drones have been altered, several of the weapon mounts refitted, and the fighter bay refitted to deploy skipfighters.",
+	"tags":["magellan_levellercore_bp", "restricted"],
+	"tech":"Leveller",
+    "fleetPoints":9,
+    "ordnancePoints":84,
+    "baseValueMult":1.08,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/levellers/magellan_patroldestroyer_leveller.png",
+    "systemId":"magellan_targdrones_lev",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0002":{
+      		"type": "BUILT_IN"
+    	},
+		"WS0003":{
+      		"type": "SYNERGY"
+    	},
+		"WS0004":{
+      		"type": "SYNERGY"
+    	},
+		"WS0005":{
+      		"type": "ENERGY"
+    	},
+    	"WS0006":{
+      		"type": "ENERGY"
+    	},
+		"WS0007":{
+      		"type": "ENERGY"
+    	},
+		"WS0008":{
+      		"type": "HYBRID"
+    	},
+    	"WS0009":{
+      		"type": "HYBRID"
+    	}
+
+    },
+    "builtInMods":["magellan_levellermod", "magellan_contraMod"],
+    "builtInWings":[
+		"magellan_swarmfighter_wing"
+	],
+	"builtInWeapons":{
+		"WS0002": "magellan_supersolenoid_sm"
+    },
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"},
+		"5":{"style":"M_HIGH_STD"}
+	}
+}

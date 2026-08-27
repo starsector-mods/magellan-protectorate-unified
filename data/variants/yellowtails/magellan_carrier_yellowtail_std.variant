@@ -1,0 +1,46 @@
+{
+    "displayName": "Escort",
+    "fluxCapacitors": 0,
+    "fluxVents": 17,
+    "goalVariant": true,
+    "hullId": "magellan_carrier_yellowtail",
+    "hullMods": [
+        "targetingunit",
+        "magellan_fighter_mod",
+        "recovery_shuttles"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrier_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0008": "magellan_ripfiresrm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_calliope",
+                "WS0002": "magellan_calliope"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_smpulse_laser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_laservulcan",
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": []
+}

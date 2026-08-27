@@ -1,0 +1,78 @@
+{
+    "displayName": "Obsolete",
+    "fluxCapacitors": 0,
+    "fluxVents": 18,
+    "goalVariant": true,
+    "hullId": "magellan_battleship",
+    "hullMods": [
+        "targetingunit",
+        "reinforcedhull"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battleship_line",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_rendfiresrmpod"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0004": "magellan_stratLRM_launcher",
+                "WS0011": "magellan_stratLRM_launcher",
+                "WS0012": "magellan_stratLRM_launcher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0009": "magellan_largebonecrusher",
+                "WS0010": "magellan_largebonecrusher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_largemortar"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_largemortar"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_beehive",
+                "WS0006": "magellan_beehive",
+                "WS0007": "magellan_beehive",
+                "WS0008": "magellan_beehive"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "magellan_medciws",
+                "WS0016": "magellan_medciws",
+                "WS0019": "magellan_linkflak",
+                "WS0020": "magellan_linkflak",
+                "WS0021": "magellan_medciws",
+                "WS0022": "magellan_medciws",
+                "WS0023": "magellan_linkflak",
+                "WS0024": "magellan_linkflak",
+                "WS0025": "magellan_medciws",
+                "WS0026": "magellan_medciws"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_bomber_wing",
+        "magellan_bomber_wing"
+    ]
+}

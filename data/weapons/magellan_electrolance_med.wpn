@@ -1,0 +1,26 @@
+{
+	"id":"magellan_electrolance_med",  # this id must match what's in the spreadsheet
+	"specClass":"beam",
+  	"everyFrameEffect": "data.scripts.weapons.magellan_beamOscillationScript",
+	"type":"ENERGY",
+	"size":"MEDIUM",
+	"beamFireOnlyOnFullCharge":true,
+	"turretSprite":"",
+	"turretGlowSprite":"",
+	"hardpointSprite":"",
+	"hardpointGlowSprite":"",
+	"turretOffsets":[0, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[0, 0],
+	"hardpointAngleOffsets":[0],
+	"fringeColor":[100,110,255,255],
+	"coreColor":[155,175,255,255],
+	"glowColor":[100,110,255,255],
+	"width":18.0,
+	"textureType":LASER,
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF],
+	"fireSoundOne":"magellan_laserfire_sm",	
+	"fireSoundTwo":"high_intensity_laser_loop"
+}

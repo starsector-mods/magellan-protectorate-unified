@@ -1,0 +1,47 @@
+{
+    "displayName": "Classic",
+    "fluxCapacitors": 10,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_skipjack",
+    "hullMods": ["advancedshieldemitter"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_skipjack_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_ripfiresrmpod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_medautocannon",
+                "WS0004": "magellan_medautocannon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "magellan_edefensor",
+                "WS0011": "magellan_edefensor"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_laservulcan",
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan",
+                "WS0009": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": []
+}

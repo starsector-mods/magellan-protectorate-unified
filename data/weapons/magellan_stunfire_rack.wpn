@@ -1,0 +1,31 @@
+{
+	"id":"magellan_stunfire_rack",
+	"specClass":"projectile",
+	"type":"MISSILE",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_stunfire_turret_base.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_stunfire_hardpoint_base.png",	
+	"hardpointOffsets":[9, -3, 9, 3],
+	"turretOffsets":[8, -3, 8, 3],
+	"hardpointAngleOffsets":[-0.1, 0.1],
+	"turretAngleOffsets":[-0.1, 0.1],
+	"barrelMode":"ALTERNATING",
+	"animationType":"SMOKE",
+	"renderHints":[RENDER_LOADED_MISSILES],
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"interruptibleBurst":false,
+	"smokeSpec":{"particleSizeMin":15.0,
+				 "particleSizeRange":20.0,
+				 "cloudParticleCount":3,
+				 "cloudDuration":1.2,
+				 "cloudRadius":10.0,
+				 "blowbackParticleCount":1,
+				 "blowbackDuration":1.6,
+				 "blowbackLength":16.0,
+				 "blowbackSpread":6.0,
+				 "particleColor":[100,100,100,200]},
+	"projectileSpecId":"magellan_electronbomblet",
+	"fireSoundTwo":"magellan_stunfire_launch",
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

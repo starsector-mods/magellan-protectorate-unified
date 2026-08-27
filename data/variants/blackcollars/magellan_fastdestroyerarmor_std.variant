@@ -1,0 +1,12 @@
+{
+    "displayName": "Ramming Prow",
+    "fluxCapacitors": 0,
+    "fluxVents": 5,
+    "goalVariant": true,
+    "hullId": "magellan_fastdestroyerarmor_blackcollar",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_fastdestroyerarmor_blackcollar_std",
+    "weaponGroups": []
+}

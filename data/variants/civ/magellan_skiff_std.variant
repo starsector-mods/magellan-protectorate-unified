@@ -1,0 +1,30 @@
+{
+    "displayName": "Restored",
+    "fluxCapacitors": 0,
+    "fluxVents": 8,
+    "hullId": "magellan_skiff",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_skiff_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_silverdart",
+                "WS0003": "magellan_silverdart"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_ripfiresrm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "magellan_smpdmaser"}
+        }
+    ]
+}

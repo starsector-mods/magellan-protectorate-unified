@@ -1,0 +1,50 @@
+{
+	"baseHullId":"magellan_skipjack",
+	"skinHullId":"magellan_skipjack_militarized",
+	"hullName":"Mallory [M]",
+	"descriptionId":"magellan_skipjack",
+	"descriptionPrefix":"This hull has been refitted to Magellan military specifications; among other changes, the bow-mounted missile hardpoint has been replaced with an integral solenoid quench cannon.",
+	"tags":["rare_bp", "hist3t", "magellan_adv_bp"],
+	"tech":"Magellan",
+    "ordnancePoints":140,
+    "baseValueMult":1.2,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/magellan_skipjack_militarized.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign","surveying_equipment"],
+    "removeBuiltInWings":[
+    	"magellan_skate_wing",
+    	"magellan_rounder_wing"
+    ],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{ "type": "COMPOSITE" },
+		"WS0002":{ "size": "LARGE", "type": "BUILT_IN" },
+    	"WS0003":{ "size": "MEDIUM", "type": "BALLISTIC" },
+    	"WS0004":{ "type": "BALLISTIC" },
+		"WS0005":{ "type": "HYBRID" },
+    	"WS0006":{ "type": "HYBRID" },
+    	"WS0007":{ "type": "BALLISTIC" },
+		"WS0008":{ "type": "HYBRID" },
+    	"WS0009":{ "type": "HYBRID" },
+    	"WS0010":{ "type": "COMPOSITE" },
+    	"WS0011":{ "type": "COMPOSITE" }
+    },
+    "builtInMods":["magellan_engineering", "operations_center"],
+	"builtInWeapons":{ "WS0002": "magellan_quenchcannon" },
+	"engineSlotChanges":{
+		"3":{"style":"MagellanFlare"},
+		"4":{"style":"MagellanFlare"},
+		"5":{"style":"MagellanFlare"},
+		"6":{"style":"MagellanFlare"},
+		"7":{"style":"MagellanFlare"},
+		"8":{"style":"MagellanFlare"},
+		"9":{"style":"MagellanFlare"},
+		"10":{"style":"MagellanFlare"},
+		"11":{"style":"MagellanFlare"},
+		"12":{"style":"MagellanFlare"},
+		"13":{"style":"MagellanFlare"},
+		"14":{"style":"MagellanFlare"}
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"baseHullId":"magellan_schooner",
+	"skinHullId":"magellan_schooner_d",
+	"descriptionId":"magellan_schooner",
+	"descriptionPrefix":"This Musa has seen better days, but a little elbow grease has it in flyable condition. Properly restoring it, on the other hand, is going to take a little bit more work...",
+	"restoreToBaseHull":true,
+	"addHints":["HIDE_IN_CODEX"],
+	"tags":["no_dealer"],
+	"tech":"Magellan",
+    "fleetPoints":7,
+    "ordnancePoints":50,
+    "baseValueMult":0.5,
+	"spriteName":"graphics/Magellan/ships/civ/magellan_schooner_d.png",
+    "systemId":"magellan_smokelayer",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign_b"],
+	"removeBuiltInWeapons":["WS0001", "WS0005"],
+	"weaponSlotChanges":{
+		"WS0002":{
+      		"type": "COMPOSITE"
+    	},
+		"WS0005":{
+      		"type": "BALLISTIC"
+    	}
+    },
+	"builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "swarmer"
+	},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "MIDLINE"
+		},
+		"1":{"style":"MIDLINE"},
+		"2":{"style":"MIDLINE"},
+		"3":{"style":"MIDLINE"}
+	}
+}

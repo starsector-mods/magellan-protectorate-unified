@@ -1,0 +1,162 @@
+{
+  "hullName": "Light Carrier",
+  "hullId": "magellan_carrierconverted",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/Magellan/ships/magellan_carrierconverted.png",
+  "style": "MAGELLAN",
+  "height": 142,
+  "width": 90,
+  "center": [45, 66],
+  "collisionRadius": 96,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 92,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [24, 0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 50,
+      "locations": [43, 16]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -50,
+      "locations": [43, -16]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 125,
+      "locations": [-41, 24]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -125,
+      "locations": [-41, -24]
+    },
+    {
+      "id": "LB 1",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        56, 0,
+        56, -9,
+        56, 9
+      ]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-65, 24],
+      "length": 30,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-65, -24],
+      "length": 30,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-62, 33.5],
+      "length": 24,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, -33.5],
+      "length": 24,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, 14.5],
+      "length": 24,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, -14.5],
+      "length": 24,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-12.5, 41.5],
+      "length": 12,
+      "width": 5,
+      "angle": 175,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-12.5, -41.5],
+      "length": 12,
+      "width": 5,
+      "angle": -175,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    64, -20,
+    13.5, -37,
+    12.5, -41.5,
+    -9.5, -42.5,
+    -10.5, -38.5,
+    -54.5, -38.5,
+    -64, -29,
+    -64, -19,
+    -53, -8,
+    -53, 8,
+    -64, 19,
+    -64, 29,
+    -54.5, 38.5,
+    -10.5, 38.5,
+    -9.5, 42.5,
+    12.5, 41.5,
+    13.5, 37,
+    64, 20]
+}

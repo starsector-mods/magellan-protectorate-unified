@@ -1,0 +1,19 @@
+{
+	"id":"magellan_salvoag_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":30.0,
+	"width":5.0,
+	"fadeTime":0.1,
+	"fringeColor":[235,205,95,255],
+	"coreColor":[255,245,195,255],
+	"glowColor":[145,105,55,100],
+	"glowRadius":12,
+	"hitGlowRadius":18,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0,
+	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell.png",
+}

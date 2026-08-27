@@ -1,0 +1,18 @@
+{
+  "displayName": "Light Bomber",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_rounder_leveller",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_rounder_leveller_Bomber",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_stunfire_ftr"
+      }
+    }
+  ]
+}

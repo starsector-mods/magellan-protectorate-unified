@@ -1,0 +1,28 @@
+{
+	"id":"magellan_mfc",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"everyFrameEffect": "data.scripts.weapons.magellan_FusionBlasterFX",
+	"type":"ENERGY",
+	"size":"LARGE",
+	"turretSprite":"graphics/Magellan/weapons/magellan_mfc_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_mfc_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_mfc_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_mfc_hardpoint_glow.png",
+	"glowColor":[240,30,90,255],
+	"turretOffsets":[18, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[23, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or ALTERNATING.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW_AND_FLASH",
+	"muzzleFlashSpec":{"length":32.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":7.0,
+					   "particleSizeMin":24.0,
+					   "particleSizeRange":12.0,
+					   "particleDuration":0.2,
+					   "particleCount":20,
+					   "particleColor":[240,30,90,255]},
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"projectileSpecId":"magellan_trinitycannon_shot",  # projectile that will be fired
+	"fireSoundTwo":"magellan_electrogun_fire"
+}

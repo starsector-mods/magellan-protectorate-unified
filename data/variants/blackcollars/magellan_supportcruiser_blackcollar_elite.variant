@@ -1,0 +1,47 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 0,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_supportcruiser_blackcollar",
+    "hullMods": [
+        "targetingunit",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportcruiser_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_maser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_cruiserlrm_builtin"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_slamfire_rack",
+                "WS0006": "magellan_slamfire_rack",
+                "WS0009": "magellan_slamfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_medpdmaser",
+                "WS0005": "magellan_medpdmaser",
+                "WS0007": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan",
+                "WS0010": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": ["magellan_hvyfighter_wing"]
+}

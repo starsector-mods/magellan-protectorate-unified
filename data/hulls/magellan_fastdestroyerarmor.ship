@@ -1,0 +1,29 @@
+{
+  "hullName": "Armor",
+  "hullId": "magellan_fastdestroyerarmor",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/magellan_fastdestroyerarmor.png",
+  "style": "MAGELLAN",
+  "height": 89,
+  "width": 52,
+  "center": [26, 42],
+  "collisionRadius": 48,
+  "shieldCenter": [-7, -0],
+  "shieldRadius": 54,
+  "viewOffset": 0,
+  "builtInMods": [
+    "always_detaches",
+    "reduced_explosion"
+  ],
+  "weaponSlots": [],
+  "engineSlots": [],
+  "bounds": [
+    -27, -22,
+    -39, -8,
+    -8.5, -4,
+    -8.5, 4,
+    -39, 8,
+    -27, 22,
+    45, 0
+  ]
+}

@@ -1,0 +1,59 @@
+{
+    "displayName": "Royal",
+    "fluxCapacitors": 1,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_cruiser_startiger",
+    "hullMods": [
+        "targetingunit",
+        "reinforcedhull"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_cruiser_startiger_royal",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0016": "magellan_ripfiresrm",
+                "WS0017": "magellan_ripfiresrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_ripfiresrmpod",
+                "WS0013": "magellan_ripfiresrmpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_boneshakerbattery",
+                "WS0002": "magellan_boneshakerbattery",
+                "WS0003": "magellan_medgatling",
+                "WS0004": "magellan_medgatling",
+                "WS0018": "magellan_sniperautogun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_medciws",
+                "WS0006": "magellan_boneshaker_ftr",
+                "WS0007": "magellan_boneshaker_ftr",
+                "WS0008": "magellan_smciws",
+                "WS0009": "magellan_smciws",
+                "WS0010": "magellan_boneshaker_ftr",
+                "WS0011": "magellan_boneshaker_ftr",
+                "WS0014": "magellan_smciws",
+                "WS0015": "magellan_smciws"
+            }
+        }
+    ],
+    "wings": ["magellan_corvette_startiger_wing"]
+}

@@ -1,0 +1,49 @@
+{
+    "displayName": "Obsolete",
+    "fluxCapacitors": 1,
+    "fluxVents": 12,
+    "hullId": "magellan_supportdestroyer",
+    "hullMods": [
+        "safetyoverrides",
+        "missleracks"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportdestroyer_shtrafbat",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_medciws"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0007": "magellan_slamfire_rack",
+                "WS0008": "magellan_slamfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_medgatling"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_sniperautogun",
+                "WS0004": "magellan_sniperautogun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_smciws",
+                "WS0006": "magellan_smciws"
+            }
+        }
+    ]
+}

@@ -1,0 +1,223 @@
+{
+  "hullName": "Light Cruiser",
+  "hullId": "magellan_lightcruiser",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/Magellan/ships/magellan_lightcruiser.png",
+  "style": "MAGELLAN",
+  "height": 274,
+  "width": 138,
+  "center": [69, 121],
+  "collisionRadius": 168,
+  "shieldCenter": [7.5, -0],
+  "shieldRadius": 168,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering"
+  ],
+  "builtInWeapons": {
+    "WS0005": "magellan_linkflak",
+    "WS0006": "magellan_linkflak"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 160,
+      "angle": 72,
+      "locations": [-4, 32]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 160,
+      "angle": -72,
+      "locations": [-4, -32]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 180,
+      "locations": [-53, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [118, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 90,
+      "locations": [37, 16]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": -90,
+      "locations": [37, -16]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 75,
+      "locations": [92, 16]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -75,
+      "locations": [92, -16]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 105,
+      "locations": [-90, 35]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -105,
+      "locations": [-90, -35]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 90,
+      "locations": [-47, 36]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -90,
+      "locations": [-47, -36]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": 20,
+      "locations": [64, 22]
+    },
+    {
+      "id": "WS0014",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": -20,
+      "locations": [64, -22]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-120, 29],
+      "length": 54,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-120, -29],
+      "length": 54,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-120, 50],
+      "length": 54,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-120, -50],
+      "length": 54,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-118, 39.5],
+      "length": 42,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-118, -39.5],
+      "length": 42,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    128.5, -8.5,
+    118.5, -13,
+    147, -17,
+    139, -46.5,
+    16.5, -47.5,
+    -29, -65.5,
+    -95, -67.5,
+    -104.5, -57,
+    -116.5, -54.5,
+    -116.5, -24,
+    -87.5, -15.5,
+    -87.5, 15.5,
+    -116.5, 24,
+    -116.5, 54.5,
+    -104.5, 57,
+    -95, 67.5,
+    -29, 65.5,
+    16.5, 47.5,
+    139, 46.5,
+    147, 17,
+    118.5, 13,
+    128.5, 8.5
+  ]
+}

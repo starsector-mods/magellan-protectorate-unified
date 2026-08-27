@@ -1,0 +1,31 @@
+{
+	"baseHullId":"magellan_hvyfighter",
+	"skinHullId":"magellan_hvyfighter_yellowtail",
+	"hullName":"Jitte [TMC]",
+	"descriptionId":"magellan_hvyfighter_yellowtail",
+
+	"tech":"Tichel Mercantile Concern",
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_hvyfighter_yellowtail.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[
+		"WS0001"
+	],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_electromissile_single",
+		"WS0002": "magellan_smciws_ftr"
+	},
+		"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_TRAIL"
+		},
+		"1":{"style":"M_HIGH_TRAIL"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"}
+	}
+}

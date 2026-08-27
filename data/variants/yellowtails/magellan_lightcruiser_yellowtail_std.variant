@@ -1,0 +1,54 @@
+{
+    "displayName": "Escort",
+    "fluxCapacitors": 0,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_lightcruiser_yellowtail",
+    "hullMods": [
+        "advancedoptics",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_lightcruiser_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_cbeam",
+                "WS0002": "magellan_cbeam",
+                "WS0007": "magellan_smpulse_laser",
+                "WS0008": "magellan_smpulse_laser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_calliope",
+                "WS0013": "magellan_calliope_sm",
+                "WS0014": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0011": "magellan_ioncharge",
+                "WS0012": "magellan_ioncharge"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_medpdmaser",
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0009": "magellan_laservulcan",
+                "WS0010": "magellan_laservulcan"
+            }
+        }
+    ]
+}

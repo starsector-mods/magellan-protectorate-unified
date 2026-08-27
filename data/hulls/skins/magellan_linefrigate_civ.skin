@@ -1,0 +1,28 @@
+{
+	"baseHullId":"magellan_linefrigate",
+	"skinHullId":"magellan_linefrigate_civ",
+	"hullName":"Janz [CIV]",
+	"descriptionId":"magellan_linefrigate",
+	"descriptionPrefix":"This hull has been demilitarized for sale to independent worlds in the Magellan sphere of influence.",
+	"tags":["magellan_civ", "magellan_civ_bp"],
+	"tech":"Magellan",
+    "fleetPoints":6,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/civ/magellan_linefrigate_civ.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{},
+    "builtInMods":["magellan_engineering_civ"],
+	"builtInWeapons":{},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_TRAIL"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"}
+	}
+}

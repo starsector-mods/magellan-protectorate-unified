@@ -1,0 +1,21 @@
+{
+	"id":"magellan_beehive_core_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_HEShotgunCoreOnHit",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":60.0,
+	"width":9.0,
+	"fadeTime":0.15,
+	"fringeColor":[235,205,95,255],
+	"coreColor":[255,245,195,255],
+	"glowColor":[145,105,55,100],
+	"glowRadius":30,
+	"hitGlowRadius":25,
+	"passThroughMissiles":true,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0,
+	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell.png",
+}

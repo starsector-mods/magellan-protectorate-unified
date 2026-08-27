@@ -1,0 +1,46 @@
+{
+    "displayName": "Liberator",
+    "fluxCapacitors": 0,
+    "fluxVents": 23,
+    "goalVariant": true,
+    "hullId": "magellan_skipjack_leveller_generic",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_skipjack_leveller_liberator",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_diffusionheavy",
+                "WS0002": "magellan_electromissile_pod",
+                "WS0004": "magellan_diffusionlaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan",
+                "WS0009": "magellan_laservulcan",
+                "WS0010": "magellan_stunfire_rack",
+                "WS0011": "magellan_stunfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_eflak",
+                "WS0007": "magellan_eflak"
+            }
+        }
+    ],
+    "wings": []
+}

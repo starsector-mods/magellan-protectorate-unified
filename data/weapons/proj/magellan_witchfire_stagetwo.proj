@@ -1,0 +1,40 @@
+{
+	"id":"magellan_witchfire_stagetwo",
+	"specClass":"missile",	
+	"missileType":"MISSILE",
+	"sprite":"graphics/Magellan/missiles/magellan_witchfire_missile.png",
+	#"onHitEffect":"com.fs.starfarer.api.impl.combat.PilumOnHitEffect",
+	"size":[18,30],	
+	"center":[9,15],
+	"collisionRadius":22,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[80,140,220,255],
+	"explosionRadius":180, # purely visual
+	"fadeTime":1, # fadeout duration
+	"maxFlightTime":2,
+	"glowColor":[40,100,220,100],
+	"glowRadius":40,
+	"engineSpec":{"turnAcc":0,
+				  "turnRate":0,
+				  "acc":2500,
+				  "dec":300,
+				  "maxSpeed":2500},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-10, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[80,140,220,160],
+						"contrailDuration":1,
+						"contrailWidthMult":1,
+						"contrailWidthAddedFractionAtEnd":3,  # positive or negative
+						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5,
+						"contrailAngularVelocityMult":0.5,
+						"contrailColor":[80,140,220,75],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":16.0,
+				    "length":100.0,
+				    "angle":180.0}]
+}

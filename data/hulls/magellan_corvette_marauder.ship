@@ -1,0 +1,90 @@
+{
+  "hullName": "Mod-Corvette",
+  "hullId": "magellan_corvette_marauder",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/marauders/magellan_corvette_marauder.png",
+  "style": "MAGELLAN",
+  "height": 55,
+  "width": 40,
+  "center": [20, 27.5],
+  "collisionRadius": 49,
+  "shieldCenter": [-2.5, -0],
+  "shieldRadius": 41.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "no_weapon_flux",
+    "fluxshunt"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_fuelpelletshotgun_ftr",
+    "WS0002": "magellan_radmissile_marauder"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [-4.5, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [1.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-25.5, 6],
+      "length": 25,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 9,
+      "style": "MagellanFighterFlareTrail"
+    },
+    {
+      "location": [-25.5, -6],
+      "length": 25,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 9,
+      "style": "MagellanFighterFlareTrail"
+    },
+    {
+      "location": [-24.5, -0],
+      "length": 15,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-21.5, 11.5],
+      "length": 12,
+      "width": 5,
+      "angle": 177.5,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-21.5, -11.5],
+      "length": 12,
+      "width": 5,
+      "angle": -177.5,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    22.5, -6,
+    -24.5, -19.5,
+    -24.5, 19.5,
+    22.5, 6
+  ]
+}

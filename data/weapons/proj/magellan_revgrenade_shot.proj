@@ -1,0 +1,58 @@
+{
+	"id":"magellan_revgrenade_shot",
+	"specClass":"missile",
+	"missileType":"BOMB",
+	"onFireEffect":"data.scripts.weapons.magellan_GrenadeBehaviorPlugin",
+	"sprite":"graphics/Magellan/missiles/magellan_canister_lg.png",
+	"size":[6,10],	
+	"center":[3,5],
+	"collisionRadius":9,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[145,125,60,90],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":40, # purely visual
+	#"alwaysAccelerate":true,
+	#"reduceDamageWhileFading":true,
+	"noCollisionWhileFading":false,
+	"useHitGlowWhenDestroyed":true, # instead of the default explosion
+	"dudProbabilityOnFlameout":0,
+	"fizzleOnReachingWeaponRange":true,					 
+	"armingTime":0,
+	"flameoutTime":0.3, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.3, # time spent without the engine glow being rendered
+	"fadeTime":0.3, # fadeout duration
+	"glowColor":[145,125,30,90],
+	"glowRadius":16,	
+	"explosionSpec":{"duration":0.1, # not visual
+					 "radius":50,
+					 "coreRadius":30, # full damage within core radius
+					 "collisionClass":MISSILE_NO_FF,
+					 "collisionClassByFighter":MISSILE_NO_FF},
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"onExplosionEffect":"data.scripts.weapons.magellan_FlakExplosionEffect",
+					"range":10,
+					"vsMissileRange":0,
+					"explosionSpec":{"duration":0.1,
+									 "radius":60,
+									 "coreRadius":30, # full damage within core radius - at least equal to proximity fuse range
+									 "collisionClass":PROJECTILE_NO_FF,
+									 "collisionClassByFighter":PROJECTILE_FIGHTER,
+									 "particleSizeMin":5.0,
+									 "particleSizeRange":3.0,
+									 "particleDuration":1.2,
+									 "particleCount":20,
+									 "particleColor":[210,170,90,120],
+									 "explosionColor":[145,125,60,60],
+									 "useDetailedExplosion":true,
+									 "useDetailedExplosionColorAlpha":true,
+									 "detailedExplosionRadius":60,
+									 "detailedExplosionFlashRadius":90,
+									 "detailedExplosionFlashDuration":0.1,
+									 "detailedExplosionFlashColorFringe":[145,125,60,60],
+									 "detailedExplosionFlashColorCore":[210,170,90,120],
+									 "sound":"system_canister_flak_explosion"},									 
+					},
+	"engineSpec":{"turnAcc":100,
+				  "turnRate":10,
+				  "acc":200,
+				  "dec":200}
+}

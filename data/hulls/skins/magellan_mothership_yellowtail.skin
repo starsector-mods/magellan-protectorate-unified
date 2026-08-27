@@ -1,0 +1,45 @@
+{
+	"baseHullId":"magellan_mothership_base",
+	"skinHullId":"magellan_mothership_yellowtail",
+	"hullName":"Konstantin [TMC]",
+	"hullDesignation":"Supercarrier",
+	"descriptionId":"magellan_mothership_tmc",
+	"descriptionPrefix":"This mothership has been transferred to the Tichel Mercantile Concern for use as a command ship. The integrated hypercannon has been removed, and the fighter bays have been fitted with proprietary LPCs, as well as a restored Recall Device.",
+	"tags":["magellan_yellowtail_bp", "no_dealer"],
+	"tech":"Tichel Mercantile Concern",
+    "ordnancePoints":320,
+    "addHints":["HIDE_IN_CODEX"],
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_mothership_yellowtail.png",
+    "systemId":"recalldevice",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["repair_gantry"],
+	"removeBuiltInWeapons":["WS0001"],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "HYBRID"
+    	}
+    },
+    "builtInMods":["operations_center"],
+    "builtInWings":[
+		"magellan_bomberyellowtail_wing",
+		"magellan_hvyfighter_yellowtail_wing",
+		"magellan_intyellowtail_wing",
+		"magellan_intyellowtail_wing",
+		"magellan_bomberyellowtail_wing"
+	],
+	"builtInWeapons":{},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"},
+		"5":{"style":"M_HIGH_STD"},
+		"6":{"style":"M_HIGH_STD"},
+		"7":{"style":"M_HIGH_STD"}
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"baseHullId":"magellan_ltfreight",
+	"skinHullId":"magellan_ltfreight_mil",
+	"hullName":"Phillips [M]",
+	"descriptionId":"magellan_ltfreight",
+	"descriptionPrefix":"This light freighter has been refitted to Magellan military specifications. Given its civilian origins, crew accommodations are a notable step up from the Hager-class supply ship.",
+	"tags":["magellan_core_bp"],
+	"tech":"Magellan",
+	"baseValueMult":1.2,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/magellan_ltfreight_mil.png",
+
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["civgrade"],
+
+	"weaponSlotChanges":{
+		"WS0001":{
+
+    	}
+	},
+    "builtInMods":["magellan_engineering"],
+	"builtInWeapons":{
+
+	},
+	"engineSlotChanges":{
+		"0":{"style":"MagellanFlare"},
+		"1":{"style":"MagellanFlare"},
+		"2":{"style":"MagellanFlare"},
+		"3":{"style":"MagellanFlare"},
+		"4":{"style":"MagellanFlare"},
+		"5":{"style":"MagellanFlare"},
+		"6":{"style":"MagellanFlare"}
+	}
+}

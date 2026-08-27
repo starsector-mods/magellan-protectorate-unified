@@ -1,0 +1,21 @@
+{
+    "id":"mag_protect",
+	"name":"Magellan Protectorate Plus",
+	"author":"Harmful Mechanic (original), CrashToDesktop, Plus Maintainers",
+    "utility":"false",
+	"version":"1.4.0",
+	"description":"Replacer for Magellan Protectorate v1.67, with Magellan integrated. MagicLib dependencies completely removed.",
+    "gameVersion": "0.98a",
+  	"jars":["jars/Magellan.jar"],
+  	"modPlugin":"data.scripts.MagellanModPlusPlugin",
+	"dependencies": [
+        {
+            "id": "lw_lazylib",
+            "name": "LazyLib"
+        },
+        {
+            "id": "shaderLib",
+            "name": "GraphicsLib"
+        }
+    ]
+}

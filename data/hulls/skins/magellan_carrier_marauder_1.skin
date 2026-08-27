@@ -1,0 +1,14 @@
+{
+	"baseHullId":"magellan_carrier_marauder",
+	"skinHullId":"magellan_carrier_marauder_1",
+	"hullName":"Mod-Carrier (Kaplan)",
+	"descriptionId":"magellan_carrier",
+	"descriptionPrefix":"This particular vessel, the Kaplan, appears to have been testing a heavily-modified Bastardsword-class corvette.",
+	"tags":["no_dealer", "restricted"],
+	"tech":"The Herd",
+	"addHints":["UNBOARDABLE", "HIDE_IN_CODEX"],
+	"builtInWings":[
+		"magellan_corvette_strikecraft_marauder_wing",
+		"magellan_bomber_marauder_wing"
+	]
+}

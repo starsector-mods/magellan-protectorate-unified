@@ -1,0 +1,33 @@
+{
+    "displayName": "Contra",
+    "fluxCapacitors": 5,
+    "fluxVents": 10,
+    "hullId": "magellan_linefrigate_leveller",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_linefrigate_leveller_contra",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "istl_linearcannon",
+                "WS0002": "istl_linearcannon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "istl_ammpod",
+                "WS0004": "istl_ammpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "istl_magpulser"}
+        }
+    ]
+}

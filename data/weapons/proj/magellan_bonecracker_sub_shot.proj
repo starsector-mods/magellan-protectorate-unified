@@ -1,0 +1,35 @@
+{
+	"id":"magellan_bonecracker_sub_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":15.0,
+	"width":4.0,
+	"fadeTime":0.1,
+	"fringeColor":[255,235,200,100],
+	"coreColor":[255,235,200,255],
+	"hitGlowRadius":6,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0,
+	"bulletSprite":"graphics/Magellan/missiles/magellan_lightslug.png",
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"shotRangeVariance":0.15,
+ 					"range":0,
+ 				    "vsMissileRange":3,
+					"explosionSpec":{"duration":0.05,
+									 "radius":12,
+									 "coreRadius":4, # full damage within core radius - also equal to proximity fuse range
+									 "collisionClass":PROJECTILE_FF,
+									 "collisionClassByFighter":PROJECTILE_FIGHTER,
+									 "particleSizeMin":4.0,
+									 "particleSizeRange":2.0,
+									 "particleDuration":0.3,
+									 "particleCount":7,
+									 "particleColor":[255,235,200,255],
+									 "explosionColor":[255,235,200,100],
+									 "sound":"magellan_bonesaw_ftr_crit"},
+					}
+					
+}

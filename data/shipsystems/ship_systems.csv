@@ -1,0 +1,28 @@
+name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,noVent,isPhaseCloak,tags,icon
+Impulse Jets,magellan_burstjets_ftr,,,,,,,,2,0.12,0.3,0.5,0.7,0.1,,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_movement.png
+Heavy Impulse Jets,magellan_burstjets,,,,,,,,3,0.1,0.4,0.6,0.5,,,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_movement.png
+Torch Drive,magellan_burndrive,1,,,,,,,,,2,5,1,10,TRUE,,,,,,TRUE,TRUE,TRUE,,,,graphics/Magellan/icons/hullsys/magellan_movement.png
+Impulse Burn,magellan_microburn,1,,,,,,,3,0.1,0.5,0.5,0.5,,,,,,,,TRUE,TRUE,,,,,graphics/Magellan/icons/hullsys/magellan_movement.png
+Impulse Burn,magellan_microburn_capital,1,,,,,,,2,0.075,0.5,0.4,0.6,,,,,,,,TRUE,TRUE,,,,,graphics/Magellan/icons/hullsys/magellan_movement.png
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Ballistic Accelerator,magellan_ammofeed,,,,,,,,,,1,5,1,10,,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_ballistic.png
+Targeting Drones,magellan_targdrones,,,,,,,,2,0.02,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_sensor.png
+Targeting Drones,magellan_targdrones_lev,,,,,,,,2,0.02,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_sensor.png
+Targeting Drone,magellan_targdrone_tmc,,,,,,,,2,0.01,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_sensor.png
+Chaff Launcher,magellan_smokelayer,,,,,,,,3,0.06,,,,6,,,,,,,,,,,,,graphics/icons/hullsys/flare_launcher.png
+Chaff Launcher,magellan_smokelayer_bad,,,,,,,,2,0.06,,,,5,,,,,,,,,,,,,graphics/icons/hullsys/flare_launcher.png
+Chaff Dispensers,magellan_smokelayer_def,,,,,,,,5,,,,,5,,,,,,,,,,,,,graphics/icons/hullsys/flare_launcher.png
+Electron Charge Flak,magellan_ionchargelayer,,,,,,,,3,0.05,,,,3,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Command Datalink,magellan_fightercom,,,,,,0.3,,,,0.5,20,0.5,10,,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_fighter.png
+Drone Strike,magellan_drone_strike,,,,250,,,,3,0.1,0,0.05,0.2,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png
+Area Defense Charges,magellan_flakpods,,,,,,,,2,0.05,,,,3,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Phase Cloak,magellan_phasecloak,,,,,,,,,,0.6,,0.4,3,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,,graphics/icons/hullsys/phase_cloak.png
+
+# === Magellan Content ===,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Anomalous Overdrive,magellan_anomalous_overdrive,,,,,,,,,,0.5,,0.5,0.5,TRUE,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_ballistic.png
+Area Defense Charges,magellan_anomalous_flakpods,,,,,,,,2,0.05,,,,3,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Shatter Protocol,magellan_drone_strike_leveller,,,,500,,,,,,0,0.05,0.2,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png
+Area Defense Charges,magellan_flakpods_ftr,,,,,,,,2,0.1,,,,5,,,,,,,,,,,,,

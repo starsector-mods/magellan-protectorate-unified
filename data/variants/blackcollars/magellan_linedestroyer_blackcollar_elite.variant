@@ -1,0 +1,47 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 1,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_linedestroyer_blackcollar",
+    "hullMods": [
+        "high_scatter_amp",
+        "targetingunit",
+        "reinforcedhull"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_linedestroyer_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_tribeamlaser",
+                "WS0002": "magellan_tribeamlaser",
+                "WS0008": "magellan_hvyfusionbomb_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_ripfiresrm",
+                "WS0005": "magellan_ripfiresrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_maser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan"
+            }
+        }
+    ]
+}

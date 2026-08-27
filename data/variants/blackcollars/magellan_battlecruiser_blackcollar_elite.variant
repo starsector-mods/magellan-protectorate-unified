@@ -1,0 +1,62 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 5,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "magellan_battlecruiser_blackcollar",
+    "hullMods": [
+        "targetingunit",
+        "reinforcedhull",
+        "shield_shunt"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battlecruiser_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_trinitycannon"}
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0017": "magellan_witchfire_s",
+                "WS0018": "magellan_witchfire_s",
+                "WS0019": "magellan_witchfire_s"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_bonecrusher",
+                "WS0004": "magellan_medautocannon",
+                "WS0005": "magellan_bonecrusher",
+                "WS0006": "magellan_medautocannon",
+                "WS0007": "magellan_medautocannon",
+                "WS0008": "magellan_calliope_sm",
+                "WS0009": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_maser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "magellan_laservulcan",
+                "WS0011": "magellan_laservulcan",
+                "WS0012": "magellan_triflak",
+                "WS0013": "magellan_triflak",
+                "WS0014": "magellan_triflak",
+                "WS0015": "magellan_triflak"
+            }
+        }
+    ],
+    "wings": ["magellan_rounder_blackcollar_wing"]
+}

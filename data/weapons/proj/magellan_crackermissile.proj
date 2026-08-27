@@ -1,0 +1,58 @@
+{
+	"id":"magellan_crackermissile",
+	"specClass":"missile",	
+	"missileType":"MISSILE",
+	#"missileType":"MIRV",
+	"sprite":"graphics/Magellan/missiles/magellan_cracker.png",
+	"size":[5,9],	
+	"center":[2.5,4.5],
+	"collisionRadius":12,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[255,95,50,225],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":50, # purely visual
+	"explosionSpec":{"duration":0.1, # not visual
+					 "radius":40,
+					 "coreRadius":20, # full damage within core radius
+					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
+					 "particleSizeMin":6.0,
+					 "particleSizeRange":3.0,
+					 "particleDuration":2.0,
+					 "particleCount":12,
+					 "particleColor":[255,95,50,225],
+					 "useDetailedExplosion":true,
+					 "useDetailedExplosionColorAlpha":true,
+					 "detailedExplosionRadius":40,
+					 "detailedExplosionFlashRadius":60,
+					 "detailedExplosionFlashDuration":0.3,
+					 "detailedExplosionFlashColorFringe":[255,95,50,225],
+					 "detailedExplosionFlashColorCore":[255,95,50,125],
+					 "sound":"magellan_bonesaw_crit"},
+	"fadeTime":1, # fadeout duration
+	"engineSpec":{"turnAcc":1600,
+				  "turnRate":360,
+				  "acc":2000,
+				  "dec":800},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-4.5, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[255,95,50,225],
+						"glowSizeMult":0.75,
+						"contrailDuration":2.0,
+						"contrailWidthMult":1.0,
+						"contrailWidthAddedFractionAtEnd":3,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":15, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.0,
+						"contrailAngularVelocityMult":0.5,
+						"contrailSpawnDistMult":0.5, # how far away from engine it starts
+						"contrailColor":[100,100,100,75],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":4.0,
+				    "length":27.0,
+				    "angle":180.0}
+		],    
+}
+

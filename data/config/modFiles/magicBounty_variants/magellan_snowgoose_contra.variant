@@ -1,0 +1,63 @@
+{
+    "displayName": "Contra",
+    "fluxCapacitors": 7,
+    "fluxVents": 20,
+    "hullId": "istl_snowgoose",
+    "hullMods": [
+        "missleracks",
+        "targetingunit",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_snowgoose_contra",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_dualelectrontorp"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0019": "istl_ruptureasm_tube",
+                "WS0020": "istl_ruptureasm_tube",
+                "WS0021": "istl_ruptureasm_tube",
+                "WS0022": "istl_ruptureasm_tube"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "magellan_ripfiresrm",
+                "WS0016": "magellan_ripfiresrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "magellan_ebolter",
+                "WS0009": "magellan_ebolter",
+                "WS0023": "magellan_ebolter"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "istl_multipdnode",
+                "WS0003": "istl_multipdnode",
+                "WS0004": "istl_multipdnode",
+                "WS0005": "istl_multipdnode",
+                "WS0006": "istl_multipdnode",
+                "WS0007": "istl_multipdnode",
+                "WS0010": "istl_multipdnode",
+                "WS0017": "istl_multipdnode",
+                "WS0018": "istl_multipdnode"
+            }
+        }
+    ]
+}

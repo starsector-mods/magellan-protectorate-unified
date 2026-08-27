@@ -1,0 +1,85 @@
+{
+    "displayName": "Relic",
+    "fluxCapacitors": 0,
+    "fluxVents": 2,
+    "goalVariant": true,
+    "hullId": "magellan_battleship_ancient",
+    "hullMods": [
+        "reinforcedhull",
+        "autorepair",
+        "fluxbreakers",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battleship_ancient_relic",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_rendfiresrmpod",
+                "WS0016": "magellan_ripfiresrmpod",
+                "WS0017": "magellan_ripfiresrmpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_heavylance_builtin"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_heavylance_builtin"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "magellan_largemortar",
+                "WS0011": "magellan_largemortar"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_medautocannon",
+                "WS0013": "magellan_medautocannon",
+                "WS0014": "magellan_medautocannon",
+                "WS0015": "magellan_medautocannon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0018": "magellan_edefensor",
+                "WS0019": "magellan_edefensor",
+                "WS0020": "magellan_edefensor",
+                "WS0021": "magellan_edefensor",
+                "WS0022": "magellan_edefensor",
+                "WS0023": "magellan_edefensor",
+                "WS0024": "magellan_edefensor",
+                "WS0025": "magellan_edefensor"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_electroncatapult",
+                "WS0005": "magellan_electroncatapult",
+                "WS0006": "magellan_electroncatapult",
+                "WS0007": "magellan_electroncatapult",
+                "WS0008": "magellan_electroncatapult",
+                "WS0009": "magellan_electroncatapult"
+            }
+        }
+    ]
+}

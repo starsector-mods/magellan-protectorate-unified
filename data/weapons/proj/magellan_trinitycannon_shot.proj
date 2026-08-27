@@ -1,0 +1,20 @@
+{
+	"id":"magellan_trinitycannon_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_FusionOnHit",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":40.0,
+	"width":16.0,
+	"fadeTime":0.2,
+	"fringeColor":[240,30,90,225],
+	"coreColor":[255,90,150,255],
+	"glowColor":[140,0,20,100],
+	"glowRadius":30,
+	"hitGlowRadius":40,
+	"passThroughMissiles":true,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0
+}

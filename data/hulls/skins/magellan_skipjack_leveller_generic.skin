@@ -1,0 +1,54 @@
+{
+	"baseHullId":"magellan_skipjack",
+	"skinHullId":"magellan_skipjack_leveller_generic",
+	"hullName":"Mallory [LV]",
+	"descriptionId":"magellan_skipjack",
+	"descriptionPrefix":"This hull has been reconditioned to serve as a Leveller warship, with an experimental reactor. Targeting systems have been refurbished, and most of the weapon mounts refitted, while the Rounder fighters have been converted to light bombers.",
+	"tags":["magellan_levellercore_bp", "restricted"],
+	"tech":"Leveller",
+    "ordnancePoints":140,
+    "baseValueMult":1.2,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/levellers/magellan_skipjack_leveller_generic.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign", "surveying_equipment"],
+    "removeBuiltInWings":[
+    	"magellan_skate_wing",
+    	"magellan_rounder_wing"
+    ],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "UNIVERSAL",
+			"size": "LARGE"
+    	},
+		"WS0002":{
+      		"type": "SYNERGY"
+    	},
+    	"WS0003":{
+      		"type": "SYNERGY"
+    	},
+    	"WS0004":{
+      		"type": "ENERGY"
+    	},
+		"WS0007":{
+      		"type": "ENERGY"
+    	},
+    	"WS0010":{
+      		"type": "SYNERGY"
+    	},
+    	"WS0011":{
+      		"type": "SYNERGY"
+    	}
+
+    },
+    "builtInMods":["magellan_spartacusreactor"],
+    "builtInWings":[
+		"magellan_swarmfighter_wing",
+		"magellan_rounder_leveller_wing"
+	],
+	"builtInWeapons":{
+
+	}
+}

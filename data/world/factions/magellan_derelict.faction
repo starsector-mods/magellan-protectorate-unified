@@ -1,0 +1,219 @@
+{
+	"id":"magellan_derelict",
+	"displayName":"Magellan - Automated Defenses",
+	"displayNameWithArticle":"the Magellan Automated Defenses",
+	"displayNameLong":"Magellan Derelict Automated Defenses",
+	"displayNameLongWithArticle":"the Magellan Derelict Automated Defenses",
+	"description":"Centuries-old automated defense drones and emergency AI cores still guarding the drifting hulks of the original Magellan exile fleet.",
+	"entityNamePrefix":"",
+	"personNamePrefix":"",
+	"personNamePrefixAOrAn":"a",
+	"displayNameIsOrAre":"are",
+
+	"logo":"graphics/Magellan/factions/starfarer.png",
+	"crest":"graphics/Magellan/factions/crest_starfarer.png",
+	"shipNamePrefix":"ES",
+
+	"color":[175,190,190,255],
+	"baseUIColor":[150,160,160,255],
+	"darkUIColor":[125,130,130,200],
+	"gridUIColor":[100,110,110,100],
+
+	"showInIntelTab":false,
+
+	"shipNameSources":{
+		"DERELICT_DRONE":1
+	},
+	"names":{
+		"ai":1
+	},
+	"variantOverrides":{
+	},
+
+	"hullFrequency":{
+		"tags":{
+		},
+		"hulls":{
+			"magellan_droneship":1.5,
+			"magellan_dronecarrier":0.75,
+			"magellan_droneturret":0.5,
+			"magellan_modularfrigate_std":0,
+
+			"magellan_mothership_base_std":0}
+	},
+
+	"shipsWhenImporting":{
+		"tags":["magellan_derelict"],
+		"hulls":[
+		]
+	},
+	"knownShips":{
+		"tags":["magellan_derelict", "magellan_derelict_manned"],
+		"hulls":[
+		]
+	},
+
+	"priorityShips":{
+		"tags":["magellan_derelict"],
+		"hulls":[
+		]
+	},
+	"knownFighters":{
+		"tags":["magellan_derelict"],
+		"fighters":[
+		]
+	},
+	"priorityFighters":{
+		"tags":[],
+		"fighters":[
+		]
+	},
+	"knownWeapons":{
+		"tags":["magellan_derelict"],
+		"weapons":[
+			"magellan_laservulcan",
+			"magellan_electrontorp",
+			"magellan_edefensor",
+			"magellan_ioncharge",
+			"magellan_silverdart",
+			"magellan_smpulse_laser",
+			"magellan_tribeamlaser",
+			"magellan_cruisemissile_launcher",
+			"magellan_medautocannon",
+			"magellan_bonegrinder",
+			"magellan_bonegrinder_hvy",
+			"magellan_bonecrusher",
+			"magellan_largebonecrusher"
+		]
+	},
+	"priorityWeapons":{
+		"tags":[],
+		"weapons":[
+			"magellan_laservulcan",
+			"magellan_ioncharge",
+			"magellan_edefensor",
+			"magellan_silverdart",
+			"magellan_smpulse_laser",
+			"magellan_tribeamlaser",
+			"magellan_cruisemissile_launcher",
+			"magellan_bonegrinder",
+			"magellan_bonegrinder_hvy"
+		]
+	},
+	"knownHullMods":{
+		"tags":["base_bp", "derelict"],
+		"hullMods":[
+			"turretgyros",
+			"augmentedengines",
+			"autorepair",
+			"eccm",
+			"ecm",
+			"magazines",
+			"missleracks",
+			"heavyarmor",
+			"insulatedengine",
+			"pointdefenseai",
+			"nav_relay",
+			"fluxbreakers",
+			"solar_shielding",
+			"surveying_equipment"
+		]
+	},
+	"doctrine":{
+		"warships":5,
+		"carriers":0,
+		"phaseShips":0,
+
+		"officerQuality": 0,
+		"shipQuality": 2,
+		"numShips": 3,
+
+		"shipSize": 3,
+
+		"aggression":5,
+
+		"combatFreighterProbability":0,
+		"combatFreighterCombatUseFraction":0,
+		"combatFreighterCombatUseFractionWhenPriority":0,
+		"autofitRandomizeProbability":0,
+
+		"commanderSkillsShuffleProbability":0,
+		"commanderSkills":[
+		]
+	},
+	"shipRoles":{
+		"derelictTurret":{
+			"magellan_droneturret_std":10
+		},
+		"derelictMothership":{
+			"magellan_mothership_base_std":10
+		}
+	},
+	"illegalCommodities":[
+	],
+	"music":{
+		"theme":"music_magellan_derelict_encounter",
+		"market_neutral":"music_none",
+		"market_hostile":"music_none",
+		"market_friendly":"music_none",
+		"encounter_neutral":"music_magellan_derelict_encounter",
+		"encounter_hostile":"music_magellan_derelict_encounter",
+		"encounter_friendly":"music_magellan_derelict_encounter"
+	},
+
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/portrait_ai1b.png"
+
+		],
+		"standard_female":[
+			"graphics/portraits/portrait_ai1b.png"
+
+		]
+	},
+	"ranks":{
+		"ranks":{
+		},
+		"posts":{
+		}
+	},
+	"fleetTypeNames":{
+		"patrolSmall":"Defender Shard",
+		"patrolMedium":"Defender Sub-Cluster",
+		"patrolLarge":"Defender Cluster",
+		"battlestation":"Exile Mothership"
+	},
+	"custom":{
+		"allowsTransponderOffTrade":true,
+		"engageWhenEvenStrength":true,
+		"exemptFromFoodShortages":true,
+		"ignoreTradeWithEnemiesForReputation":true,
+		"postsNoBounties":true,
+		"offerMissionsWhenHostile":false,
+		"fightToTheLast":true,
+		"punitiveExpeditionData":{
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":true,
+			"territorial":false
+		}
+	},
+
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"spacer":5
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"official":5
+		},
+		"HIGH":{
+			"soldier":10,
+			"official":10
+		},
+		"characterSounds":{
+			"standard":{"soldier":10, "spacer":5, "official":10}
+		}
+	}
+}

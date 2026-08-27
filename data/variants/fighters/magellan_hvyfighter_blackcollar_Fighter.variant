@@ -1,0 +1,25 @@
+{
+  "displayName": "Fighter",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_hvyfighter_blackcollar",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_hvyfighter_blackcollar_Fighter",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "magellan_crackerftrdouble"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "magellan_emg_ftr"
+      }
+    }
+  ]
+}

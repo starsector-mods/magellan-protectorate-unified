@@ -1,0 +1,227 @@
+{
+    "plugins": {
+        "MagellanBlockedHullmodDisplayScript": "data.hullmods.MagellanBlockedHullmodDisplayScript",
+        "magellan_LightInjector": "data.scripts.plugins.magellan_lightInjector"
+    },
+    "designTypeColors": {
+        "Magellan": [
+            153,
+            134,
+            117,
+            255
+        ],
+        "Jeshad Navy Yards": [
+            183,
+            160,
+            140,
+            255
+        ],
+        "Skytiger Guards Division": [
+            200,
+            75,
+            25,
+            255
+        ],
+        "Annore Orbital": [
+            200,
+            125,
+            75,
+            255
+        ],
+        "Blackcollar Regiment": [
+            190,
+            190,
+            160,
+            255
+        ],
+        "Tichel": [
+            250,
+            180,
+            30,
+            255
+        ],
+        "Tichel Mercantile Concern": [
+            250,
+            180,
+            30,
+            255
+        ],
+        "Leveller": [
+            164,
+            142,
+            186,
+            255
+        ],
+        "The Herd": [
+            204,
+            204,
+            29,
+            255
+        ],
+        "Antique": [
+            175,
+            190,
+            190,
+            255
+        ],
+        "Blackcollar Magellan": [
+            190,
+            190,
+            160,
+            255
+        ],
+        "Antique Magellan": [
+            175,
+            190,
+            190,
+            255
+        ],
+        "The Herd Magellan": [
+            204,
+            204,
+            29,
+            255
+        ],
+        "Leveller Magellan": [
+            164,
+            142,
+            186,
+            255
+        ],
+        "Pirate Magellan": [
+            200,
+            0,
+            0,
+            255
+        ],
+        "Unique Magellan": [
+            255,
+            204,
+            0,
+            255
+        ],
+        "Unique Ancient Magellan": [
+            255,
+            204,
+            0,
+            255
+        ],
+        "Unique Leveller Magellan": [
+            255,
+            204,
+            0,
+            255
+        ]
+    },
+    "graphics": {
+        "blueprint_packages": {
+            "magellan_core_package": "graphics/Magellan/icons/cargo/magellan_bp_core.png",
+            "magellan_adv_package": "graphics/Magellan/icons/cargo/magellan_bp_adv.png",
+            "magellan_civ_package": "graphics/Magellan/icons/cargo/magellan_bp_civ.png",
+            "magellan_yellowtail_package": "graphics/Magellan/icons/cargo/magellan_bp_yellowtail.png",
+            "magellan_yellowtail_no_ms_package": "graphics/Magellan/icons/cargo/magellan_bp_yellowtail.png",
+            "magellan_levellercore_package": "graphics/Magellan/icons/cargo/magellan_bp_levellercore.png",
+            "magellan_blackcollar_package": "graphics/Magellan/icons/cargo/magellan_bp_blackcollar.png",
+            "magellan_startiger_package": "graphics/Magellan/icons/cargo/magellan_bp_startiger.png",
+            "magellan_theherd_package": "graphics/Magellan/icons/cargo/magellan_bp_theherd.png"
+        },
+        "campaignEntities": {
+            "magellan_distressbeacon": "graphics/Magellan/stations/magellan_distressbeacon00.png",
+            "magellan_distressbeacon_glow": "graphics/Magellan/stations/magellan_distressbeacon00glow.png"
+        },
+        "intel": {
+            "magellan_exilebeacon_high": "graphics/Magellan/icons/intel/magellan_exilebeacon_high.png",
+            "magellan_exilebeacon_medium": "graphics/Magellan/icons/intel/magellan_exilebeacon_medium.png",
+            "magellan_exilebeacon_low": "graphics/Magellan/icons/intel/magellan_exilebeacon_low.png",
+            "magellan_radar_green": "graphics/Magellan/icons/intel/magellan_radar_green.png",
+            "magellan_radar_yellow": "graphics/Magellan/icons/intel/magellan_radar_yellow.png",
+            "magellan_radar_red": "graphics/Magellan/icons/intel/magellan_radar_red.png",
+            "magellan_radar_stealth": "graphics/Magellan/icons/intel/magellan_radar_stealth.png"
+        },
+        "characters": {
+            "magellan_aral": "graphics/Magellan/portraits/characters/aral.png",
+            "tai_corlan": "graphics/Magellan/portraits/characters/magellan_tai_corlan.png",
+            "morik_kiderra": "graphics/Magellan/portraits/characters/magellan_morik_kiderra.png",
+            "the_ghost": "graphics/Magellan/portraits/characters/magellan_the_ghost.png",
+            "the_scion": "graphics/Magellan/portraits/characters/magellan_the_scion.png"
+        },
+        "terrain": {
+            "magellan_garden_nebula": "graphics/Magellan/terrain/magellan_garden_nebula.png",
+            "magellan_garden_nebula_map": "graphics/Magellan/terrain/magellan_garden_nebula_map.png"
+        },
+        "fx": {
+            "projectile_trail_standard": "graphics/Magellan/fx/magellan_projectile_contrail_smooth.png",
+            "projectile_trail_ring": "graphics/Magellan/fx/magellan_projectile_contrail_ring.png",
+            "projectile_trail_cel": "graphics/Magellan/fx/magellan_projectile_contrail_cel.png"
+        },
+        "illustrations": {
+            "magellan_desert": "graphics/Magellan/illustrations/magellan_desert.jpg",
+            "magellan_ocean": "graphics/Magellan/illustrations/magellan_ocean.jpg",
+            "magellan_refinery": "graphics/Magellan/illustrations/magellan_refinery.jpg",
+            "magellan_wreck": "graphics/Magellan/illustrations/magellan_wreck.jpg"
+        },
+        "ui": {
+            "magellan_hullmod_incompatible": "graphics/Magellan/icons/tooltip/hullmod_incompatible.png",
+            "magellan_hullmod_mothershipcore": "graphics/Magellan/icons/tooltip/hullmod_mothershipcore.png",
+            "magellan_hullmod_defense": "graphics/Magellan/icons/tooltip/magellan_hullmod_defense.png",
+            "magellan_hullmod_fighter": "graphics/Magellan/icons/tooltip/magellan_hullmod_fighter.png",
+            "magellan_hullmod_movement": "graphics/Magellan/icons/tooltip/magellan_hullmod_movement.png",
+            "magellan_corvettetooltip": "graphics/Magellan/icons/tooltips/magellan_corvettetooltip.png",
+            "magellan_bombertooltip": "graphics/Magellan/icons/tooltips/magellan_bombertooltip.png",
+            "magellan_antiquetooltip": "graphics/Magellan/icons/tooltips/magellan_antiquetooltip.png",
+            "magellan_malfunctiontooltip": "graphics/Magellan/icons/tooltips/magellan_malfunctiontooltip.png"
+        },
+        "magellan_heavylance_turret": {
+            "charge0": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret_charge0.png",
+            "charge1": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret_charge1.png",
+            "charge2": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret_charge2.png",
+            "charge3": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret_charge3.png",
+            "charge4": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret_charge4.png",
+            "rings": "graphics/Magellan/weapons/heavylance/magellan_heavylance_rings.png"
+        },
+        "magellan_heavylance_builtin_turret": {
+            "charge0": "graphics/Magellan/weapons/heavylance_builtin/magellan_heavylance_builtin_turret_charge0.png",
+            "charge1": "graphics/Magellan/weapons/heavylance_builtin/magellan_heavylance_builtin_turret_charge1.png",
+            "charge2": "graphics/Magellan/weapons/heavylance_builtin/magellan_heavylance_builtin_turret_charge2.png",
+            "charge3": "graphics/Magellan/weapons/heavylance_builtin/magellan_heavylance_builtin_turret_charge3.png",
+            "charge4": "graphics/Magellan/weapons/heavylance_builtin/magellan_heavylance_builtin_turret_charge4.png",
+            "rings": "graphics/Magellan/weapons/heavylance_builtin/magellan_heavylance_builtin_rings.png"
+        },
+        "misc": {
+            "magellan_merc_smugglers": "graphics/logos/magellan_merc_smugglers.png",
+            "magellan_merc_starfarer": "graphics/logos/magellan_merc_starfarer.png"
+        }
+    },
+    "MagellanWreckConstellationMin": 5,
+    "MagellanWreckConstellationMax": 10,
+    "MagellanWreckConstellationSkipProb": 0.25,
+    "GachaSMods_blacklistedHullmods": [
+        "magellan_engineering",
+        "magellan_engineering_civ",
+        "magellan_mothershipcore",
+        "magellan_autodef",
+        "magellan_blackcollarmod",
+        "magellan_startigermod",
+        "magellan_levellermod",
+        "magellan_spartacusreactor",
+        "magellan_herdmod",
+        "magellan_yellowtailmod",
+        "magellan_yellowtail_assault",
+        "magellan_yellowtail_beam",
+        "magellan_yellowtail_defense",
+        "magellan_classicdesign",
+        "magellan_classicdesign_b",
+        "magellan_engineering_civ",
+        "magellan_noshield",
+        "magellan_convertedbay",
+        "magellan_classicshieldgen",
+        "magellan_defense_mod",
+        "magellan_fighter_mod",
+        "magellan_movement_mod",
+        "magellan_battleline"
+    ],
+    "ruleCommandPackages": [
+        "data.scripts.bounty.rulecmd",
+        "data.scripts.campaign.rulecmd"
+    ]
+}

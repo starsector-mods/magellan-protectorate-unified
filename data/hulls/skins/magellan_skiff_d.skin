@@ -1,0 +1,34 @@
+{
+	"baseHullId":"magellan_skiff",
+	"skinHullId":"magellan_skiff_d",
+	"descriptionId":"magellan_skiff",
+	"descriptionPrefix":"This Nan has seen better days, but a little elbow grease has it in flyable condition. Properly restoring it, on the other hand, is going to take a little bit more work...",
+	"restoreToBaseHull":true,
+	"addHints":["HIDE_IN_CODEX"],
+	"tags":["no_dealer"],
+	"tech":"Magellan",
+    "fleetPoints":4,
+    "baseValueMult":0.5,
+	"spriteName":"graphics/Magellan/ships/civ/magellan_skiff_d.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign_b"],
+	"removeBuiltInWeapons":["WS0001"],
+	"weaponSlotChanges":{
+		"WS0004":{
+      		"type": "BALLISTIC"
+    	}
+    },
+	"builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "swarmer"
+	},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "MIDLINE"
+		},
+		"1":{"style":"MIDLINE"},
+		"2":{"style":"MIDLINE"}
+	}
+}

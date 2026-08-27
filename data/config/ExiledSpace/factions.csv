@@ -1,0 +1,12 @@
+id,weight,FPMulti,lootMulti,effectPlugin
+magellan_protectorate,0.75,1,1,data.world.systems.ptes_genericSystem
+magellan_theherd,0.25,1,0.75,data.world.systems.ptes_genericSystem
+"#Anything below this line doesn't work and isn't meant to",,,,
+"#magellan_leveller",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_startigers",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_yellowtail",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_blackcollar",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_ancientstarfarer",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_civviescavs",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_independentmkt",0,0.1,0.01,data.world.systems.ptes_genericSystem
+"#magellan_derelict",0,0.1,0.01,data.world.systems.ptes_genericSystem

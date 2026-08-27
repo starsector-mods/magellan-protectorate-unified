@@ -1,0 +1,64 @@
+{
+	"id":"magellan_shortfire",
+	"specClass":"missile",
+	#"onFireEffect":"data.scripts.weapons.magellan_StratLRMBehaviorPlugin",
+	#"onHitEffect":"data.scripts.weapons.magellan_StratLRMOnHit",
+	"missileType":"ROCKET",
+	"sprite":"graphics/Magellan/missiles/magellan_shortfire.png",
+	"size":[10,25],	
+	"center":[5,12.5],
+	"collisionRadius":20,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[200,165,50,75],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":5, # purely visual
+	"explosionSpec":{"duration":0.1, # not visual
+				 	 "radius":100,
+				 	 "coreRadius":60, # full damage within core radius
+				 	 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+				 	 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
+				 	 "particleSizeMin":8.0,
+				 	 "particleSizeRange":4.0,
+				 	 "particleDuration":2.5,
+				 	 "particleCount":12,
+				 	 "particleColor":[255,225,125,155],
+				 	 "useDetailedExplosion":true,
+					 "useDetailedExplosionColorAlpha":true,
+					 "detailedExplosionRadius":30,
+					 "detailedExplosionFlashRadius":100,
+					 "detailedExplosionFlashDuration":0.3,
+					 "detailedExplosionFlashColorFringe":[200,165,50,155],
+					 "detailedExplosionFlashColorCore":[200,165,50,75],
+				 	},
+	"flameoutTime":0.75, # total time from flameout to full fadeout
+	"armingTime":0.25,
+	"noEngineGlowTime":0.25, # time spent without the engine glow being rendered
+	"fadeTime":0.5, # fadeout duration	
+	"maxFlightTime":3,
+	"engineSpec":{"turnAcc":0,
+				  "turnRate":0,
+				  "maxSpeed":600,
+				  "acc":500,
+				  "dec":0},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-11, 0],
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[155,135,75,155],
+						"glowSizeMult":1.0,
+						"contrailDuration":1.0,
+						"contrailWidthMult":1.5,
+						"contrailWidthAddedFractionAtEnd":1.5,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":3, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.25,
+						"contrailAngularVelocityMult":0.5,
+						"contrailSpawnDistMult":0.5, # how far away from engine it starts
+						"contrailColor":[100,100,100,150],
+						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":7.0,
+				    "length":40.0,
+				    "angle":180.0}]
+}
+
+			

@@ -1,0 +1,140 @@
+{
+  "hullName": "Supply Ship",
+  "hullId": "magellan_supply",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/Magellan/ships/magellan_supply.png",
+  "style": "MAGELLAN",
+  "height": 256,
+  "width": 128,
+  "center": [64, 120],
+  "collisionRadius": 155,
+  "shieldCenter": [8, 0],
+  "shieldRadius": 148,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 60,
+      "locations": [26, 33]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -60,
+      "locations": [26, -33]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 120,
+      "locations": [-66, 27]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -120,
+      "locations": [-66, -27]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": 0,
+      "locations": [1, -41]
+    },
+    {
+      "id": "LB 1",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        -9, 6,
+        -9, -6
+      ]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-119, 20],
+      "length": 60,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-119, -20],
+      "length": 60,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-117, 30.5],
+      "length": 48,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-117, -30.5],
+      "length": 48,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-116, 9.5],
+      "length": 48,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-116, -9.5],
+      "length": 48,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    126, -16,
+    131.5, -28.5,
+    85, -56.5,
+    -95, -58.5,
+    -99.5, -42.5,
+    -115.5, -33.5,
+    -115.5, 33.5,
+    -99.5, 42.5,
+    -95, 58.5,
+    85, 56.5,
+    131.5, 28.5,
+    126, 16
+  ]
+}

@@ -1,0 +1,29 @@
+{
+	"id":"magellan_edefensor",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"everyFrameEffect": "data.scripts.weapons.magellan_BonesawFX",
+	"type":"BALLISTIC",
+	"mountTypeOverride":"HYBRID",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_edefensor_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_edefensor_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_edefensor_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_edefensor_hardpoint_glow.png",
+	"glowColor":[205,185,100,100],
+	"turretOffsets":[13, -5, 13, 5],
+	"turretAngleOffsets":[-0.15, 0.15],
+	"hardpointOffsets":[14, -5, 14, 5],
+	"hardpointAngleOffsets":[-0.15, 0.15],
+	"barrelMode":"ALTERNATING_BURST", # ALTERNATING, DUAL or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW_AND_FLASH",
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"muzzleFlashSpec":{"length":24.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":3.0,
+					   "particleSizeMin":6.0,
+					   "particleSizeRange":10.0,
+					   "particleDuration":0.15,
+					   "particleCount":16,
+					   "particleColor":[255,235,200,200]},
+	"projectileSpecId":"magellan_edefensor_shot",  # projectile that will be fired
+	"fireSoundTwo":"magellan_bonesaw_ftr_fire"
+}

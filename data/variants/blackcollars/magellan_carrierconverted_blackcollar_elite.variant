@@ -1,0 +1,35 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "magellan_carrierconverted_blackcollar",
+    "hullMods": [
+        "missleracks",
+        "magellan_trajectory_analyzer"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrierconverted_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_smciws",
+                "WS0003": "magellan_smciws",
+                "WS0004": "magellan_smciws",
+                "WS0005": "magellan_smciws"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_balefiremrm_pod"}
+        }
+    ],
+    "wings": [
+        "magellan_rounder_blackcollar_wing",
+        "magellan_hvyfighter_blackcollar_wing"
+    ]
+}

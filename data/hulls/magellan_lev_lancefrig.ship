@@ -1,0 +1,102 @@
+{
+  "hullName": "Lance Frigate",
+  "hullId": "magellan_lev_lancefrig",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/levellers/magellan_lev_lancefrig.png",
+  "style": "MAGELLAN",
+  "height": 120,
+  "width": 44,
+  "center": [22, 45],
+  "collisionRadius": 84,
+  "shieldCenter": [3, -0],
+  "shieldRadius": 79,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_levellermod",
+    "rugged"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_electrolance_med"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [71, -6]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 0,
+      "locations": [-15, -0]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 30,
+      "locations": [3, 14]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -30,
+      "locations": [3, -14]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-44, -0],
+      "length": 40,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-28, 13],
+      "length": 12,
+      "width": 4,
+      "angle": 160,
+      "contrailSize": 4,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-28, -13],
+      "length": 12,
+      "width": 4,
+      "angle": -160,
+      "contrailSize": 4,
+      "style": "M_HIGH_STD"
+    }
+  ],
+  "bounds": [
+    69, -10,
+    40, -10,
+    24.5, -15.5,
+    2.5, -14.5,
+    -4, -19,
+    -43.5, -5.5,
+    -43.5, 5.5,
+    -4, 19,
+    2.5, 14.5,
+    24.5, 15.5,
+    55, 4.5,
+    52, 1,
+    29, 1,
+    29, -2,
+    69, -2
+  ]
+}

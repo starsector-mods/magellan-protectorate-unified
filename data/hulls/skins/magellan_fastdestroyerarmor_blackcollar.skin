@@ -1,0 +1,17 @@
+{
+
+	"baseHullId":"magellan_fastdestroyerarmor",
+	"skinHullId":"magellan_fastdestroyerarmor_blackcollar",
+	"hullName":"Armor",
+	"tags":["module_unselectable", "module_refit_bright", "module_hull_bar_only"],
+	"tech":"Blackcollar Regiment",
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_fastdestroyerarmor_blackcollar.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{}
+}

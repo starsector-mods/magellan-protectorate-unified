@@ -1,0 +1,31 @@
+{
+	"baseHullId":"magellan_lightcruiser",
+	"skinHullId":"magellan_lightcruiser_blackcollar",
+	"hullName":"Chenel [BCR]",
+	"descriptionId":"magellan_lightcruiser",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating.",
+	"tags":["magellan_blackcollar", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":14,
+    "ordnancePoints":150,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_lightcruiser_blackcollar.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":["WS0005", "WS0006"],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "HYBRID"
+    	},
+    	"WS0002":{
+      		"type": "HYBRID"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod"],
+	"builtInWeapons":{
+		"WS0005": "magellan_triflak",
+		"WS0006": "magellan_triflak"
+	}
+}

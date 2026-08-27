@@ -1,0 +1,35 @@
+{
+	"id":"magellan_fuelrod_shot",
+	"specClass":"missile",
+	"onHitEffect":"data.scripts.weapons.magellan_FuelrodOnHit",
+	"missileType":"BOMB_WITH_SLOW",
+	"sprite":"graphics/Magellan/missiles/magellan_fuelrod.png",
+	"glowSprite":"graphics/Magellan/missiles/magellan_fuelrod_glow.png",
+	"glowColor":[173,255,47,155],
+	"size":[4,24],	
+	"center":[2,12],
+	"collisionRadius":20,
+	"collisionClass":"MISSILE_FF",
+	"explosionColor":[143,255,17,155],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":100, # purely visual
+	"explosionSpec":{"duration":0.1, # not visual
+					 "radius":100,
+					 "coreRadius":40, # full damage within core radius
+					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS},		
+	#"alwaysAccelerate":true,
+	#"reduceDamageWhileFading":true,
+	"noCollisionWhileFading":false,
+	"useHitGlowWhenDealingDamage":true, # using the scripted rift explosion instead
+	"useHitGlowWhenDestroyed":true, # instead of the default explosion
+	"dudProbabilityOnFlameout":0,
+	"fizzleOnReachingWeaponRange":true,					 
+	"armingTime":0,
+	"flameoutTime":0.5, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.3, # time spent without the engine glow being rendered
+	"fadeTime":0.5, # fadeout duration
+	"engineSpec":{"turnAcc":0,
+				  "turnRate":0,
+				  "acc":50,
+				  "dec":50}
+}

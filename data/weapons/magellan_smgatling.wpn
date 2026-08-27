@@ -1,0 +1,28 @@
+{
+	"id":"magellan_smgatling",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"BALLISTIC",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/smrotary/magellan_smgatling_turret_00.png",
+	"hardpointSprite":"graphics/Magellan/weapons/smrotary/magellan_smgatling_hardpoint_00.png",	
+	"numFrames":6,	
+	"frameRate":36,
+	"turretOffsets":[16, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[16, 0],
+	"hardpointAngleOffsets":[0],	
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"muzzleFlashSpec":{"length":20.0, 
+                            "spread":15.0,
+                            "particleSizeMin":4.0,
+                            "particleSizeRange":20.0,
+                            "particleDuration":0.12,
+                            "particleCount":15,
+                            "particleColor":[200,200,255,155]},	
+	"projectileSpecId":"magellan_smkinetic_shot",  # projectile that will be fired
+	"fireSoundTwo":"magellan_smallgat_fire",	
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

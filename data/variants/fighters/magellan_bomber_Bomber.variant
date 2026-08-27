@@ -1,0 +1,19 @@
+{
+  "displayName": "Bomber",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_bomber",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_bomber_Bomber",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_electrontorp_ftr",
+        "WS0002": "magellan_electrontorp_ftr"
+      }
+    }
+  ]
+}

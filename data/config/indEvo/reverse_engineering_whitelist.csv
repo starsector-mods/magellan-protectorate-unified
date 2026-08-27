@@ -1,0 +1,23 @@
+id
+# NOTES
+# Ship IDs entered here will be allowed by the Engineering hub (Reverse Engineering ship hulls)
+# Ships that would break the game (Balance/Technical/Lore) if the player could produce them via blueprint should not be on this list.
+magellan_battleship
+magellan_carrier
+magellan_cbtfreight
+magellan_cruiser
+magellan_fastdestroyer
+magellan_lightcruiser
+magellan_linedestroyer
+magellan_linefrigate
+magellan_patroldestroyer
+magellan_phasefrig
+magellan_supply
+magellan_supportcruiser
+magellan_supportdestroyer
+magellan_supportfrigate
+# === Magellan Content ===
+# NOTES
+# Ship IDs entered here will be allowed by the Engineering hub (Reverse Engineering ship hulls)
+# Ships that would break the game (Balance/Technical/Lore) if the player could produce them via blueprint should not be on this list.
+magellan_bounder

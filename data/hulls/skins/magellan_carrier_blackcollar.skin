@@ -1,0 +1,36 @@
+{
+	"baseHullId":"magellan_carrier",
+	"skinHullId":"magellan_carrier_blackcollar",
+	"hullName":"Edger [BCR]",
+	"descriptionId":"magellan_carrier",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating. This particular model also comes with a full complement of Blackcollar fighters.",
+	"tags":["no_dealer", "restricted"],
+	"tech":"Blackcollar Magellan",
+    "fleetPoints":19,
+    "ordnancePoints":135,
+    "baseValueMult":1.25,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_carrier_blackcollar.png",
+	"removeWeaponSlots":["WS0002"],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"size": "LARGE",
+      		"type": "BALLISTIC"
+    	},
+		"WS0003":{
+      		"type": "BUILT_IN"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod"],
+    "builtInWings":[
+		"magellan_hvyfighter_blackcollar_wing",
+		"magellan_hvyfighter_blackcollar_wing",
+		"magellan_hvyfighter_blackcollar_wing"
+	],
+	"builtInWeapons":{
+		"WS0003": "magellan_triflak"
+	}
+}

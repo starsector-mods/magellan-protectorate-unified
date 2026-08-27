@@ -1,0 +1,179 @@
+{
+    "playableFaction": true,
+    "corvusCompatible": true,
+    "directoryUseShortName": true,
+    "rebelFleetSuffix": "Deserters",
+    "patrolSizeMult": 1.0,
+    "noRandomizeRelations": true,
+    "ngcTooltip": "Operate under the Tichel Mercantile Concern (Yellowtail Mining & Refining). Exploit rich asteroid belts, refine ore, and turn massive corporate profits.",
+    "startRelationships": {
+        "magellan_protectorate": 1.0,
+        "magellan_blackcollar": 1.0,
+        "independent": 0.4
+    },
+    "maxRelationships": {
+        "magellan_protectorate": 1.0,
+        "magellan_blackcollar": 1.0,
+        "independent": 1.0
+    },
+    "diplomacyPositiveChance": {
+        "default": 0.0
+    },
+    "diplomacyNegativeChance": {
+        "default": 0.0
+    },
+    "colonyExpeditionChance": 0.0,
+    "colonyTargetValuator": "exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    "startingFaction": true,
+    "freeStart": true,
+    "spawnAsFactionId": "player",
+    "alignments": {
+        "corporate": 1.0,
+        "technocratic": 0.7,
+        "hierarchical": 0.5,
+        "diplomatic": 0.4,
+        "militarist": -0.2,
+        "ideological": -0.5
+    },
+    "diplomacyTraits": [
+        "monopolist",
+        "neutralist",
+        "helps_allies",
+        "lowprofile"
+    ],
+    "groundBattleSettings": {
+        "attackMult": 1.05,
+        "damageTakenMult": 0.95,
+        "moraleDamageTakenMult": 1.0
+    },
+    "specialForcesMaxFleets": 2,
+    "specialForcesPointMult": 1.1,
+    "specialForcesNamerClass": "exerelin.campaign.intel.specialforces.namer.CommanderNamer",
+    "specialForcesFlagshipVariants": {
+        "magellan_mothership_yellowtail_std": 1.0,
+        "magellan_battlecruiser_yellowtail_std": 0.8,
+        "magellan_lightcruiser_yellowtail_std": 0.6
+    },
+    "startShipsSolo": [
+        [
+            "magellan_modularfrigate_brawl_yellowtail_std"
+        ],
+        [
+            "magellan_modularfrigate_sniper_yellowtail_std"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_supportdestroyer_yellowtail_std",
+            "magellan_modularfrigate_sniper_yellowtail_std"
+        ],
+        [
+            "magellan_supportdestroyer_yellowtail_std",
+            "magellan_modularfrigate_brawl_yellowtail_std",
+            "magellan_modularfrigate_defense_yellowtail_std"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_lightcruiser_yellowtail_std",
+            "magellan_supportdestroyer_yellowtail_std",
+            "magellan_modularfrigate_defense_yellowtail_std"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_carrierconverted_escort",
+            "magellan_modularfrigate_defense_yellowtail_std"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_carrier_yellowtail_std",
+            "magellan_supportdestroyer_yellowtail_std",
+            "magellan_modularfrigate_defense_yellowtail_std"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_schooner_yellowtail_std",
+            "magellan_ltfreight_yellowtail_std"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_supply_yellowtail_std",
+            "magellan_ltfreight_yellowtail_std",
+            "magellan_schooner_yellowtail_std"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_modularfrigate_brawl_yellowtail_std",
+            "magellan_ltfreight_yellowtail_std"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_lightcruiser_yellowtail_std",
+            "magellan_schooner_yellowtail_std",
+            "magellan_supply_yellowtail_std"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_mothership_yellowtail_std"
+        ],
+        [
+            "magellan_battlecruiser_yellowtail_std"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_battlecruiser_yellowtail_std",
+            "magellan_mothership_yellowtail_std",
+            "magellan_carrier_yellowtail_std",
+            "magellan_lightcruiser_yellowtail_std",
+            "magellan_supply_yellowtail_std"
+        ]
+    ],
+    "startSpecialItems": [
+        [
+            [
+                "magellan_yellowtail_package",
+                ""
+            ]
+        ]
+    ],
+    "miningVariantsOrWings": [
+        "magellan_mothership_yellowtail_std",
+        "magellan_schooner_yellowtail_std",
+        "magellan_supply_yellowtail_std",
+        "magellan_ltfreight_yellowtail_std",
+        "magellan_modularfrigate_brawl_yellowtail_std",
+        "magellan_lightcruiser_yellowtail_std"
+    ],
+    "industrySeeds": [
+        {
+            "id": "mining",
+            "mult": 0.3
+        },
+        {
+            "id": "refining",
+            "mult": 0.2
+        },
+        {
+            "id": "heavyindustry",
+            "mult": 0.1
+        }
+    ],
+    "bonusSeeds": [
+        {
+            "id": "catalytic_core",
+            "count": 1
+        },
+        {
+            "id": "synchrotron",
+            "count": 1
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+  "hullName": "Drone Carrier",
+  "hullId": "magellan_dronecarrier",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_dronecarrier.png",
+  "style": "MAGELLAN",
+  "height": 194,
+  "width": 112,
+  "center": [56, 100],
+  "collisionRadius": 128,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 120,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_autodef",
+    "automated",
+    "magazines"
+  ],
+  "builtInWings": [
+	
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 300,
+      "angle": 30,
+      "locations": [31, 32]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [80, 16]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 180,
+      "locations": [-65, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -90,
+      "locations": [-27, -32]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [82, -8]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [82, -24]
+    },
+    {
+      "id": "LB 1",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        41, -24,
+        25, -24,
+        20, -28,
+        46, -28,
+        33, -28
+      ]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -120,
+      "locations": [-51.5, -36]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 120,
+      "locations": [-51.5, 36]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [9.5, 40]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -60,
+      "locations": [71.5, -35.5]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 30,
+      "locations": [57.5, 40]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-96, -0],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "MagellanDroneFlareTrail"
+    },
+    {
+      "location": [-96, 6],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "MagellanDroneFlare"
+    },
+    {
+      "location": [-96, -6],
+      "length": 30,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 10,
+      "style": "MagellanDroneFlare"
+    },
+    {
+      "location": [-87, 24],
+      "length": 20,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "MagellanDroneFlare"
+    },
+    {
+      "location": [-87, -24],
+      "length": 20,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 8,
+      "style": "MagellanDroneFlare"
+    }
+  ],
+  "bounds": [
+    -42, -38,
+    -80, -38,
+    -89, -29.5,
+    -89, -19.5,
+    -98, -14,
+    -98, 14,
+    -89, 19.5,
+    -89, 29.5,
+    -82, 37,
+    -40, 37,
+    -4, 34,
+    32, 54.5,
+    48.5, 54.5,
+    57, 46.5,
+    47.5, 40.5,
+    77.5, 40.5,
+    91.5, 23,
+    92, 8.5,
+    87.5, 5,
+    87.5, -32,
+    58, -38.5,
+    4, -38.5,
+    9, -49.5,
+    -32, -49.5
+  ]
+}

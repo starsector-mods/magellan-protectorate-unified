@@ -1,0 +1,107 @@
+{
+  "hullName": "Corvette",
+  "hullId": "magellan_corvette_strikecraft_leveller",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/levellers/magellan_corvette_leveller.png",
+  "style": "MGLN_LEVELLER",
+  "height": 52,
+  "width": 36,
+  "center": [18, 21],
+  "collisionRadius": 40,
+  "shieldCenter": [0.5, -0],
+  "shieldRadius": 39,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_levellermod",
+    "reduced_explosion"
+  ],
+  "builtInWings": [
+    "magellan_swarmfighter_half_wing"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_diffusionlaser_ftr",
+    "WS0002": "magellan_stunfire_rack_ftr",
+    "WS0003": "magellan_smpulse_laser"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [1, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [12.5, -0]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [24, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-19, -0],
+      "length": 12,
+      "width": 4,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-20, 6.5],
+      "length": 15,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 9,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-20, -6.5],
+      "length": 15,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 9,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-16, 11],
+      "length": 9,
+      "width": 2,
+      "angle": -177.5,
+      "contrailSize": 3,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-16, -11],
+      "length": 9,
+      "width": 2,
+      "angle": 177.5,
+      "contrailSize": 3,
+      "style": "M_HIGH_STD"
+    }
+  ],
+  "bounds": [
+    24.5, -3.5,
+    29, -6,
+    -6, -16,
+    -19, -9.5,
+    -19, 9.5,
+    -6, 16,
+    29, 6,
+    24.5, 3.5
+  ]
+}

@@ -1,0 +1,25 @@
+{
+	"id":"magellan_minifusion_lance",  # this id must match what's in the spreadsheet
+	"specClass":"beam",
+  	"everyFrameEffect": "data.scripts.weapons.magellan_beamOscillationScript",
+	"type":"ENERGY",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_minifusion_lance_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_minifusion_lance_turret_glow.png",
+	"hardpointSprite":"",
+	"hardpointGlowSprite":"",
+	"turretOffsets":[15, -5],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[15, -5],
+	"hardpointAngleOffsets":[0],
+	"fringeColor":[255,75,100,155],
+	"coreColor":[255,125,150,235],
+	"glowColor":[225,50,70,135],
+	"width":12.0,
+	"textureType":LASER,
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF],
+	"fireSoundOne":"magellan_laserfire_sm",	
+	"fireSoundTwo":"high_intensity_laser_loop"
+}

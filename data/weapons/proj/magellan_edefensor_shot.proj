@@ -1,0 +1,17 @@
+{
+	"id":"magellan_edefensor_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_BonesawOnHit",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":120.0,
+	"width":2.0,
+	"fadeTime":0.15,
+	"fringeColor":[255,235,200,200],
+	"coreColor":[255,235,200,255],
+	"hitGlowRadius":16,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0	
+}

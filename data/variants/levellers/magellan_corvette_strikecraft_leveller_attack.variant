@@ -1,0 +1,33 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 8,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_corvette_strikecraft_leveller",
+    "hullMods": [
+        "magellan_movement_mod",
+        "unstable_injector",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_corvette_strikecraft_leveller_attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_diffusionlaser_ftr"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_stunfire_rack_ftr"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_smpulse_laser"}
+        }
+    ],
+    "wings": []
+}

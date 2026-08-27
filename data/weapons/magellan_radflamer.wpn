@@ -1,0 +1,31 @@
+{
+	"id":"magellan_radflamer",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"ENERGY",
+	"size":"SMALL",
+	"everyFrameEffect":"data.scripts.weapons.magellan_RadFlamerEffect",
+	"turretSprite":"graphics/Magellan/weapons/magellan_smhetlaser_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_smhetlaser_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_smhetlaser_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_smhetlaser_hardpoint_glow.png",
+	"glowColor":[173,255,47,255],
+	"turretOffsets":[4, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[4, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"unaffectedByProjectileSpeedBonuses":true,
+	"animationType":"GLOW_AND_FLASH",
+	"muzzleFlashSpec":{"length":27.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":21.0,
+					   "particleSizeMin":10.0,
+					   "particleSizeRange":12.0,
+					   "particleDuration":0.09,
+					   "particleCount":11,
+					   "particleColor":[173,255,47,255]},
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"projectileSpecId":"magellan_radflamer_shot",  # projectile that will be fired
+	"noImpactSounds":true,
+	#"fireSoundTwo":"cryoflamer_fire",
+	"fireSoundThree":"cryoflamer_loop"
+}

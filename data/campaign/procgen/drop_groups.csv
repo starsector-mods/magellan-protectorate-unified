@@ -1,0 +1,22 @@
+commodity,group,freq
+nothing,magellan_weapons1,350
+"wpn_:{weaponSize:SMALL, weaponType:BALLISTIC, tags:[magellan, magellan_core_bp, magellan_adv_bp, !no_drop, !restricted]}",magellan_weapons1,100
+"wpn_:{weaponSize:SMALL, weaponType:MISSILE, tags:[magellan, magellan_core_bp, magellan_adv_bp, !no_drop, !restricted]}",magellan_weapons1,100
+"wpn_:{weaponSize:SMALL, weaponType:ENERGY, tags:[magellan, magellan_core_bp, magellan_adv_bp, !no_drop, !restricted]}",magellan_weapons1,100
+"ftr_:{tags:[magellan, !no_drop, !restricted]}",magellan_weapons1,50
+nothing,magellan_weapons2,400
+"wpn_:{weaponType:BALLISTIC, tags:[magellan, magellan_core_bp, magellan_adv_bp, !no_drop, !restricted]}",magellan_weapons2,100
+"wpn_:{weaponType:MISSILE, tags:[magellan, magellan_core_bp, magellan_adv_bp, !no_drop, !restricted]}",magellan_weapons2,100
+"wpn_:{weaponType:ENERGY, tags:[magellan, magellan_core_bp, magellan_adv_bp, !no_drop, !restricted]}",magellan_weapons2,100
+"ftr_:{tags:[magellan, !no_drop, !restricted]}",magellan_weapons2,100
+nothing,magellan_fighters,100
+"ftr_:{tags:[magellan, !no_drop]}",magellan_fighters,100
+nothing,magellan_hullmods,100
+"item_modspec:{tags:[magellan_exclusive_hullmod, !no_drop]}",magellan_hullmods,100
+nothing,magellan_MG_package_bp,100
+"item_:{tags:[magellan_package_bp, !no_drop, !restricted]}",magellan_MG_package_bp,40
+nothing,magellan_antique_weapons,350
+"wpn_:{weaponType:BALLISTIC, tags:[magellan_antique, !no_drop]}",magellan_antique_weapons,100
+"wpn_:{weaponType:ENERGY, tags:[magellan_antique, !no_drop]}",magellan_antique_weapons,100
+"wpn_:{weaponType:MISSILE, tags:[magellan_antique, !no_drop]}",magellan_antique_weapons,100
+"ftr_:{tags:[magellan_derelict, !no_drop]}",magellan_antique_weapons,50

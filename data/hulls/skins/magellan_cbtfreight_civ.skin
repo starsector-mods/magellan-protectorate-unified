@@ -1,0 +1,37 @@
+{
+	"baseHullId":"magellan_cbtfreight",
+	"skinHullId":"magellan_cbtfreight_civ",
+	"hullName":"Talley [CIV]",
+	"descriptionId":"magellan_cbtfreight",
+	"descriptionPrefix":"This hull has been demilitarized for sale to independent worlds in the Magellan sphere of influence.",
+	"tags":["magellan_civ", "magellan_civ_bp"],
+	"tech":"Magellan",
+    "fleetPoints":6,
+    "ordnancePoints":40,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/civ/magellan_cbtfreight_civ.png",
+    "systemId":"maneuveringjets",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+    },
+    "builtInMods":["magellan_engineering_civ"],
+	"builtInWeapons":{
+    },
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_TRAIL"
+		},
+		"1":{"style":"M_HIGH_TRAIL"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"},
+		"5":{"style":"M_HIGH_STD"},
+		"6":{"style":"M_HIGH_STD"},
+		"7":{"style":"M_HIGH_STD"}
+	}
+}

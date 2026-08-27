@@ -1,0 +1,51 @@
+{
+	"id":"magellan_largemortar_bomb",
+	"specClass":"missile",
+	"onHitEffect":"data.scripts.weapons.magellan_LargeMortarOnHit",
+	"missileType":"BOMB_WITH_SLOW",
+	"sprite":"graphics/Magellan/missiles/magellan_mortarshell.png",
+	#"glowSprite":"graphics/missiles/heavy_mine0_glow.png",
+	#"glowColor":[145,125,60,90],
+	"size":[10,18],	
+	"center":[5,9],
+	"collisionRadius":8,
+	"collisionClass":"MISSILE_FF",
+	"explosionColor":[210,170,90,200],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":200, # purely visual
+	"dudProbabilityOnFlameout":0.0,
+	"fizzleOnReachingWeaponRange":true,					 
+	"armingTime":1.0,
+	"flameoutTime":0.5, # total time from flameout to full fadeout
+	"noEngineGlowTime":0.4, # time spent without the engine glow being rendered
+	"noImpactSounds":true,
+	"fadeTime":0.5, # fadeout duration	
+	"glowColor":[90,75,0,45],
+	"glowRadius":30,
+	"explosionSpec":{"duration":0.3, # not visual
+					 "radius":150,
+					 "coreRadius":90, # full damage within core radius
+					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS},	
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"onExplosionEffect":"data.scripts.weapons.magellan_LargeMortarExplosionEffect",
+					"slowToMaxSpeed":true,
+					"shotRangeVariance":0,
+					"range":50,
+					"vsMissileRange":0,
+					"explosionSpec":{"duration":0.3,
+									 "radius":150,
+									 "coreRadius":90, # full damage within core radius - at least equal to proximity fuse range
+									 "collisionClass":PROJECTILE_NO_FF,
+									 "collisionClassByFighter":PROJECTILE_FIGHTER,
+									 "particleSizeMin":5.0,
+									 "particleSizeRange":3.0,
+									 "particleDuration":5.0,
+									 "particleCount":0,
+									 "particleColor":[210,170,90,120],
+									 "sound":"magellan_mine_explosion_sm"},									 
+					},			  
+	"engineSpec":{"turnAcc":0,
+				  "turnRate":0,
+				  "acc":100,
+				  "dec":100}
+}

@@ -1,0 +1,18 @@
+{
+	"id":"magellan_radflamer_med_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_RadFlamerOnHit",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":90.0,
+	"width":27.0,
+	"hitGlowRadius":0,
+	"fadeTime":0.2,
+	"fringeColor":[143,255,17,155],
+	"coreColor":[173,255,47,155],
+	"textureType":"SMOOTH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256,
+	"pixelsPerTexel":5.0
+	
+}

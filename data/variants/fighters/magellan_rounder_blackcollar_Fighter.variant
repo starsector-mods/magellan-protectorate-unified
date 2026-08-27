@@ -1,0 +1,18 @@
+{
+  "displayName": "Escort Fighter",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_rounder_blackcollar",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_rounder_blackcollar_Fighter",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_balefiremrm_ftr"
+      }
+    }
+  ]
+}

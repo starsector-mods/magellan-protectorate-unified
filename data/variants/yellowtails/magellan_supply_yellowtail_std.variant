@@ -1,0 +1,31 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 0,
+    "fluxVents": 22,
+    "goalVariant": true,
+    "hullId": "magellan_supply_yellowtail",
+    "hullMods": [
+        "expanded_cargo_holds",
+        "pointdefenseai"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supply_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_laservulcan",
+                "WS0002": "magellan_laservulcan",
+                "WS0003": "magellan_laservulcan",
+                "WS0004": "magellan_laservulcan"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_ripfiresrm"}
+        }
+    ]
+}

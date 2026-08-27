@@ -1,0 +1,151 @@
+{
+    "playableFaction": true,
+    "corvusCompatible": true,
+    "directoryUseShortName": true,
+    "rebelFleetSuffix": "Deserters",
+    "patrolSizeMult": 1.0,
+    "noRandomizeRelations": true,
+    "ngcTooltip": "Command the elite Blackcollar Regiment. Hardened shock troops, heavily armored combatants, and uncompromising discipline.",
+    "startRelationships": {
+        "magellan_protectorate": 1.0,
+        "magellan_yellowtail": 1.0
+    },
+    "maxRelationships": {
+        "magellan_protectorate": 1.0,
+        "magellan_yellowtail": 1.0
+    },
+    "diplomacyPositiveChance": {
+        "default": 0.0
+    },
+    "diplomacyNegativeChance": {
+        "default": 0.0
+    },
+    "colonyExpeditionChance": 0.0,
+    "colonyTargetValuator": "exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    "startingFaction": true,
+    "freeStart": true,
+    "spawnAsFactionId": "player",
+    "alignments": {
+        "militarist": 1.0,
+        "hierarchical": 0.9,
+        "ideological": 0.4,
+        "technocratic": 0.2,
+        "diplomatic": -0.6,
+        "corporate": -0.2
+    },
+    "diplomacyTraits": [
+        "stalwart",
+        "predatory",
+        "law_and_order",
+        "helps_allies",
+        "devious"
+    ],
+    "groundBattleSettings": {
+        "attackMult": 1.25,
+        "damageTakenMult": 0.85,
+        "moraleDamageTakenMult": 0.8
+    },
+    "specialForcesMaxFleets": 3,
+    "specialForcesPointMult": 1.3,
+    "specialForcesSizeMult": 1.2,
+    "specialForcesNamerClass": "exerelin.campaign.intel.specialforces.namer.CommanderNamer",
+    "specialForcesFlagshipVariants": {
+        "magellan_battlecruiser_blackcollar_elite": 1.0,
+        "magellan_battlecarrier_blackcollar_elite": 1.0,
+        "magellan_supportcruiser_blackcollar_elite": 0.7
+    },
+    "startShipsSolo": [
+        [
+            "magellan_fastfrigate_blackcollar_elite"
+        ],
+        [
+            "magellan_phasefrig_blackcollar_attack"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_supportdestroyer_blackcollar_elite",
+            "magellan_fastfrigate_blackcollar_vanguard"
+        ],
+        [
+            "magellan_linedestroyer_blackcollar_elite",
+            "magellan_supportfrigate_blackcollar_elite"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_lightcruiser_blackcollar_elite",
+            "magellan_linedestroyer_blackcollar_elite",
+            "magellan_fastdestroyerarmor_blackcollar_std"
+        ],
+        [
+            "magellan_supportcruiser_blackcollar_elite",
+            "magellan_supportdestroyer_blackcollar_elite",
+            "magellan_fastfrigate_blackcollar_elite"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_carrierconverted_blackcollar_elite",
+            "magellan_fastfrigate_blackcollar_vanguard"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_carrier_blackcollar_elite",
+            "magellan_fastdestroyer_blackcollar_elite",
+            "magellan_supportfrigate_blackcollar_elite"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_ltfreight_std",
+            "magellan_fastfrigate_blackcollar_elite"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_cbtfreight_std",
+            "magellan_linedestroyer_blackcollar_elite",
+            "magellan_supply_std"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_patroldestroyer_blackcollar_elite",
+            "magellan_fastfrigate_blackcollar_vanguard"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_supportcruiser_blackcollar_elite",
+            "magellan_patroldestroyer_blackcollar_elite2",
+            "magellan_cbtfreight_std"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_battlecarrier_blackcollar_elite"
+        ],
+        [
+            "magellan_battlecruiser_blackcollar_elite"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_battlecruiser_blackcollar_elite",
+            "magellan_battlecarrier_blackcollar_elite",
+            "magellan_lightcruiser_blackcollar_elite",
+            "magellan_carrier_blackcollar_elite2",
+            "magellan_cbtfreight_std"
+        ]
+    ],
+    "startSpecialItems": [
+        [
+            [
+                "magellan_blackcollar_package",
+                ""
+            ]
+        ]
+    ]
+}

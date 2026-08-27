@@ -1,0 +1,47 @@
+{
+	"baseHullId":"magellan_modularfrigate",
+	"skinHullId":"magellan_modularfrigate_brawl_yellowtail",
+	"hullName":"Terschad-A [TMC]",
+	"hullDesignation":"Assault Frigate",
+	"descriptionId":"magellan_modularfrigate",
+	"descriptionPrefix":"This ship has been configured as an assault frigate, with heavy frontal firepower.",
+	"tags":["magellan_yellowtail", "magellan_yellowtail_bp", "no_dealer"],
+	"tech":"Tichel Mercantile Concern",
+    "fleetPoints":4,
+    "ordnancePoints":50,
+    "baseValueMult":0.8,
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_modularfrigate_brawl_yellowtail.png",
+    "systemId":"maneuveringjets",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["armoredweapons", "rugged"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "BALLISTIC"
+    	},
+		"WS0005":{
+      		"type": "MISSILE"
+    	},
+    	"WS0006":{
+      		"mount": "HIDDEN",
+      		"type": "DECORATIVE"
+    	},
+    	"WS0007":{
+      		"mount": "HIDDEN",
+      		"type": "DECORATIVE"
+    	}
+    },
+	"builtInMods":["magellan_yellowtailmod", "magellan_yellowtail_assault"],
+	"builtInWeapons":{},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"}
+	}
+}

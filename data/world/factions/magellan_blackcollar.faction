@@ -1,0 +1,281 @@
+{
+	"id":"magellan_blackcollar",
+	"color":[153,134,117,255],
+	"secondaryUIColor":[230,230,230,255],
+	"displayName":"BSpD",
+	"displayNameWithArticle":"the BSpD",
+	"displayNameLong":"Blackcollar SpecOps Division",
+	"displayNameLongWithArticle":"the Blackcollar SpecOps Division",
+	"description":"The premier shock infantry and heavy assault marine regiment of the Magellan Protectorate. Operating from fortified redoubts like Crucible Base, the Blackcollars field hardened warships with heavy ballistic batteries and modular fighter flight bays.",
+	"personNamePrefixAOrAn":"a",
+	"displayNameIsOrAre":"is",
+    "secondarySegments":2,
+	"showInIntelTab":false,
+	"logo":"graphics/Magellan/factions/blackcollar.png",
+	"crest":"graphics/Magellan/factions/crest_blackcollar.png",
+	"shipNamePrefix":"FSS",
+
+	"shipNameSources":{
+
+		"BRITISH_NAVY":2,
+		"ROMAN":2,
+		"SPACE":1,
+		"GENERAL":1
+	},
+	"names":{
+		"modern":1,
+		"magellan":3,
+		"world":1
+	},
+
+	"variantOverrides":{
+	},
+
+	"hullFrequency":{
+		"tags":{
+			"magellan_blackcollar":4,
+			"magellan_startiger":0,
+			"magellan_yellowtail":0,
+			"magellan_theherd":0,
+			"leveller":0
+		},
+		"hulls":{
+		}
+	},
+
+	"shipsWhenImporting":{
+		"tags":[],
+		"hulls":[
+		]
+	},
+	"knownShips":{
+		"tags":["magellan_blackcollar"],
+		"hulls":[
+			"magellan_battlecarrier_blackcollar",
+			"magellan_battlecruiser_blackcollar",
+			"magellan_fastfrigate_blackcollar",
+			"magellan_lightcruiser_blackcollar",
+			"magellan_linedestroyer_blackcollar",
+			"magellan_patroldestroyer_blackcollar",
+			"magellan_phasefrig_blackcollar",
+			"magellan_supportcruiser_blackcollar",
+			"magellan_supportdestroyer_blackcollar"
+		]
+	},
+
+	"priorityShips":{
+		"tags":["magellan_blackcollar"],
+		"hulls":[
+			"magellan_battlecruiser_blackcollar",
+			"magellan_linedestroyer_blackcollar",
+			"magellan_fastdestroyer_blackcollar",
+			"magellan_lightcruiser_blackcollar",
+			"magellan_fastfrigate_blackcollar"
+		]
+	},
+	"knownFighters":{
+		"tags":["magellan_blackcollar"]
+	},
+	"priorityFighters":{
+		"tags":["magellan_blackcollar"]
+	},
+	"knownWeapons":{
+		"tags":["magellan", "magellan_core_bp", "magellan_adv_bp", "magellan_blackcollar"],
+		"weapons":[
+			"magellan_bonecrusher",
+			"magellan_largebonecrusher",
+			"magellan_bonesaw",
+			"magellan_boneshaker",
+			"magellan_calliope_sm",
+			"magellan_calliope",
+			"magellan_crackerafm",
+			"magellan_electrontorp",
+			"magellan_hvyfusionbomb_pod",
+			"magellan_hvyfusionbomb_barrage",
+			"magellan_largemortar",
+			"magellan_maser",
+			"magellan_medciws",
+			"magellan_medgatling",
+			"magellan_medhetlaser",
+			"magellan_medpdmaser",
+			"magellan_quenchgun",
+			"magellan_smciws",
+			"magellan_smgatling",
+			"magellan_smhetlaser",
+			"magellan_smpdmaser",
+			"magellan_solenoidbattery",
+			"magellan_solenoidgun",
+			"magellan_smpulse_laser",
+			"magellan_cbeam",
+
+			"magellan_laservulcan",
+			"magellan_ioncharge",
+			"magellan_edefensor",
+			"magellan_silverdart",
+			"magellan_medautocannon",
+			"magellan_tribeamlaser"
+		]
+	},
+	"priorityWeapons":{
+		"tags":[],
+		"weapons":[
+			"magellan_bonesaw",
+			"magellan_boneshaker",
+			"magellan_calliope_sm",
+			"magellan_calliope",
+			"magellan_electrontorp",
+			"magellan_maser",
+			"magellan_medciws",
+			"magellan_medhetlaser",
+			"magellan_medpdmaser",
+			"magellan_quenchgun",
+			"magellan_smciws",
+			"magellan_smpdmaser",
+			"magellan_solenoidbattery",
+			"magellan_solenoidgun",
+
+			"magellan_laservulcan",
+			"magellan_ioncharge",
+			"magellan_edefensor",
+			"magellan_silverdart",
+			"magellan_medautocannon",
+			"magellan_tribeamlaser"
+		]
+	},
+	"knownHullMods":{
+		"tags":["magellan_core_bp", "magellan_adv_bp", "magellan_exclusive_hullmod"],
+		"hullMods":[
+			"magellan_defense_mod",
+			"magellan_fighter_mod",
+			"magellan_movement_mod",
+			"advancedshieldemitter",
+			"augmentedengines",
+			"autorepair",
+			"efficiency_overhaul",
+			"expanded_deck_crew",
+			"extendedshieldemitter",
+			"fluxbreakers",
+			"frontemitter",
+			"frontshield",
+			"heavyarmor",
+			"insulatedengine",
+			"magazines",
+			"missleracks",
+			"nav_relay",
+			"operations_center",
+			"stabilizedshieldemitter",
+			"surveying_equipment",
+			"targetingunit",
+			"turretgyros",
+			"magellan_trajectory_analyzer"
+		]
+	},
+	"doctrine":{
+		"warships":6,
+		"carriers":0,
+		"phaseShips":1,
+
+		"officerQuality": 5,
+		"shipQuality": 4,
+		"numShips": 2,
+
+		"shipSize": 3,
+
+		"aggression":5,
+
+		"combatFreighterProbability":0,
+		"combatFreighterCombatUseFraction":0,
+		"combatFreighterCombatUseFractionWhenPriority":0,
+		"autofitRandomizeProbability":0,
+
+		"commanderSkillsShuffleProbability":0,
+		"commanderSkills":[
+			"crew_training",
+			"officer_training"
+		]
+	},
+	"illegalCommodities":[
+		"drugs",
+		"organs",
+		"ai_cores"
+	],
+	"music":{
+		"theme":"music_magellan_protectorate_encounter_hostile",
+		"market_neutral":"music_magellan_protectorate_market_neutral",
+		"market_hostile":"music_magellan_protectorate_market_hostile",
+		"market_friendly":"music_magellan_protectorate_market_friendly",
+		"encounter_neutral":"music_magellan_protectorate_encounter_neutral",
+		"encounter_hostile":"music_magellan_protectorate_encounter_hostile",
+		"encounter_friendly":"music_magellan_protectorate_encounter_friendly"
+	},
+	"internalComms":"protectorate_internal",
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/portrait_league07.png",
+			"graphics/portraits/portrait_league09.png",
+			"graphics/portraits/portrait_luddic06.png",
+			"graphics/portraits/portrait_mercenary01.png",
+			"graphics/portraits/portrait_mercenary04.png",
+			"graphics/portraits/portrait12.png",
+			"graphics/portraits/portrait13.png",
+			"graphics/portraits/portrait18.png",
+			"graphics/portraits/portrait20.png",
+			"graphics/portraits/portrait23.png",
+			"graphics/portraits/portrait26.png",
+			"graphics/portraits/portrait30.png",
+			"graphics/portraits/portrait33.png",
+			"graphics/portraits/portrait35.png",
+			"graphics/portraits/portrait38.png"
+		],
+		"standard_female":[
+			"graphics/portraits/portrait_league08.png",
+			"graphics/portraits/portrait_league10.png",
+			"graphics/portraits/portrait_luddic11.png",
+			"graphics/portraits/portrait_mercenary02.png",
+			"graphics/portraits/portrait_mercenary05.png",
+			"graphics/portraits/portrait16.png",
+			"graphics/portraits/portrait21.png",
+			"graphics/portraits/portrait22.png",
+			"graphics/portraits/portrait27.png",
+			"graphics/portraits/portrait29.png",
+			"graphics/portraits/portrait32.png",
+			"graphics/portraits/portrait34.png",
+			"graphics/portraits/portrait37.png",
+			"graphics/portraits/portrait39.png",
+			"graphics/portraits/portrait41.png",
+			"graphics/portraits/portrait42.png"
+		]
+	},
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"official":5,
+			"spacer":5
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"official":10
+		},
+		"HIGH":{
+			"soldier":5,
+			"official":10,
+			"aristo":3
+		},
+		"characterSounds":{
+			"standard":{"soldier":10, "spacer":5, "official":10}
+		}
+	},
+	"custom":{
+		"engageWhenEvenStrength":true,
+		"allowsTransponderOffTrade":false,
+		"postsNoBounties":true,
+		"fightToTheLast":true,
+		"gaVIPMission":false,
+		"caresAboutAtrocities":true
+	},
+	"fleetTypeNames":{
+		"patrolSmall":"Blackcollar Regiment Recon",
+		"patrolMedium":"Blackcollar Regiment Patrol",
+		"patrolLarge":"Blackcollar Regiment Detachment"
+	}
+}

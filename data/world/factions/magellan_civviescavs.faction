@@ -1,0 +1,256 @@
+{
+
+	"id":"magellan_civviescavs",
+	"displayName":"Magellan - Civilian Scavengers",
+	"displayNameWithArticle":"the Magellan Civilian Scavengers",
+	"displayNameLong":"Magellan Civilian Scavengers",
+	"displayNameLongWithArticle":"the Magellan Civilian Scavengers",
+	"description":"Independent asteroid miners, wreck-breakers, and civilian salvage crews operating across the Khamn cluster and surrounding debris fields.",
+	"logo":"graphics/factions/neutral_traders.png",
+	"crest":"graphics/factions/crest_neutral.png",
+	"showInIntelTab":false,
+	"shipNamePrefix":"ISS",
+	"shipNameSources":{
+		"GREEK":4,
+		"CELTIC":2,
+		"SPACE":1,
+		"GENERAL":1
+	},
+	"names":{
+		"modern":1,
+		"world":1,
+		"future":1,
+		"myth":1
+	},
+	"variantOverrides":{
+	},
+
+	"hullFrequency":{
+		"tags":{
+		},
+		"hulls":{
+			"magellan_linefrigate_civ":2,
+			"magellan_ltfreight":1.5,
+			"magellan_ltfreight_d":2,
+			"magellan_patroldestroyer_civ":2,
+			"magellan_schooner_d":0.5,
+			"magellan_schooner_d2":1.5,
+			"magellan_skiff_d":0.5,
+			"magellan_skiff_d2":2,
+			"buffalo2":0,
+			"atlas":0.3,
+			"dram":0.7,
+			"phaeton":0.5,
+			"prometheus":0.1
+		}
+	},
+
+	"shipsWhenImporting":{
+		"tags":["magellan_core_bp", "magellan_civ"],
+		"hulls":[
+		]
+	},
+	"knownShips":{
+		"tags":["base_bp", "magellan_civ"],
+		"hulls":[
+			"magellan_cbtfreight_civ",
+			"magellan_linefrigate_civ",
+			"magellan_ltfreight",
+			"magellan_ltfreight_d",
+			"magellan_patroldestroyer_civ",
+			"magellan_schooner_d",
+			"magellan_schooner_d2",
+			"magellan_skiff_d",
+			"magellan_skiff_d2",
+			"atlas",
+			"prometheus"
+		]
+	},
+
+	"priorityShips":{
+		"tags":["base_bp", "magellan_civ"],
+		"hulls":[
+			"magellan_cbtfreight",
+			"magellan_cbtfreight_civ",
+			"magellan_ltfreight_d",
+			"magellan_schooner_d2",
+			"magellan_skiff_d2"
+		]
+	},
+	"knownFighters":{
+		"tags":["base_bp", "magellan_civ"],
+		"fighters":[
+			"mining_drone_wing",
+			"magellan_interceptor_civ_wing",
+			"magellan_lightfighter_civ_wing",
+			"hoplon_wing"
+		]
+	},
+	"priorityFighters":{
+		"tags":[],
+		"fighters":[
+			"magellan_interceptor_civ_wing",
+			"magellan_lightfighter_civ_wing"
+		]
+	},
+	"knownWeapons":{
+		"tags":["magellan_core_bp", "magellan_civ_bp", "missile_bp", "independent"],
+		"weapons":[
+
+			"lightmortar",
+			"lightmg",
+			"locust",
+			"lrpdlaser",
+			"mininglaser",
+			"miningblaster",
+			"flak",
+			"dualflak",
+
+			"magellan_smpdmaser",
+			"magellan_smpulse_laser",
+			"magellan_sniperautogun",
+			"magellan_bonecracker",
+			"magellan_boneshaker",
+			"magellan_medgatling",
+			"magellan_electrontorp",
+			"magellan_solenoidgun",
+			"magellan_edefensor"
+		]
+	},
+	"priorityWeapons":{
+		"tags":["magellan", "magellan_civ", "magellan_core_bp"],
+		"weapons":[
+			"magellan_bonesaw",
+			"magellan_boneshaker",
+			"magellan_sniperautogun",
+			"magellan_ripfiresrm",
+			"magellan_stratLRM_launcher",
+			"magellan_smciws",
+			"magellan_smpulse_laser"
+		]
+	},
+	"knownHullMods":{
+		"tags":["base_bp", "independent", "magellan_exclusive_hullmod"],
+		"hullMods":[
+			"magellan_defense_mod",
+			"magellan_fighter_mod",
+			"magellan_movement_mod",
+			"turretgyros",
+			"augmentedengines",
+			"autorepair",
+			"converted_hangar",
+			"magazines",
+			"missleracks",
+			"extendedshieldemitter",
+			"frontemitter",
+			"heavyarmor",
+			"insulatedengine",
+			"targetingunit",
+			"nav_relay",
+			"operations_center",
+			"recovery_shuttles",
+			"expanded_deck_crew",
+			"surveying_equipment",
+			"hiressensors",
+			"efficiency_overhaul",
+			"converted_fighterbay",
+			"ballistic_rangefinder",
+			"shield_shunt"
+		]
+	},
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"faithful":5,
+			"spacer":10
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"business":10,
+			"official":5
+		},
+		"HIGH":{
+			"soldier":10,
+			"business":10,
+			"official":10
+		},
+		"characterSounds":{
+			"standard":{"soldier":10, "spacer":5, "official":10}
+		}
+	},
+	"custom":{
+		"spawnsAsIndependent":true
+	},
+	"doctrine":{
+		"warships":4,
+		"carriers":2,
+		"phaseShips":1,
+
+		"officerQuality": 3,
+		"shipQuality": 1,
+		"numShips": 2,
+
+		"shipSize": 3,
+
+		"aggression":4,
+
+		"combatFreighterProbability":0.5,
+		"combatFreighterCombatUseFraction":0.5,
+		"combatFreighterCombatUseFractionWhenPriority":1,
+		"autofitRandomizeProbability":0.5,
+
+		"commanderSkillsShuffleProbability":1,
+		"commanderSkills":[
+			"crew_training",
+			"fighter_uplink",
+			"carrier_group"
+		]
+	},
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/portrait_mercenary01.png",
+			"graphics/portraits/portrait_mercenary03.png",
+			"graphics/portraits/portrait_mercenary04.png",
+			"graphics/portraits/portrait_mercenary06.png",
+			"graphics/portraits/portrait12.png",
+			"graphics/portraits/portrait13.png",
+			"graphics/portraits/portrait15.png",
+			"graphics/portraits/portrait17.png",
+			"graphics/portraits/portrait18.png",
+			"graphics/portraits/portrait20.png",
+			"graphics/portraits/portrait23.png",
+			"graphics/portraits/portrait25.png",
+			"graphics/portraits/portrait26.png",
+			"graphics/portraits/portrait30.png",
+			"graphics/portraits/portrait31.png",
+			"graphics/portraits/portrait33.png",
+			"graphics/portraits/portrait35.png",
+			"graphics/portraits/portrait36.png",
+			"graphics/portraits/portrait40.png",
+			"graphics/portraits/portrait43.png",
+			"graphics/portraits/portrait44.png"
+		],
+		"standard_female":[
+			"graphics/portraits/portrait_mercenary02.png",
+			"graphics/portraits/portrait_mercenary05.png",
+			"graphics/portraits/portrait_mercenary08.png",
+			"graphics/portraits/portrait14.png",
+			"graphics/portraits/portrait16.png",
+			"graphics/portraits/portrait21.png",
+			"graphics/portraits/portrait22.png",
+			"graphics/portraits/portrait27.png",
+			"graphics/portraits/portrait28.png",
+			"graphics/portraits/portrait29.png",
+			"graphics/portraits/portrait32.png",
+			"graphics/portraits/portrait34.png",
+			"graphics/portraits/portrait37.png",
+			"graphics/portraits/portrait39.png",
+			"graphics/portraits/portrait41.png",
+			"graphics/portraits/portrait42.png",
+			"graphics/portraits/portrait45.png",
+			"graphics/portraits/portrait46.png"
+		]
+	},
+	"fleetTypeNames":{
+	}
+}

@@ -1,0 +1,54 @@
+{
+    "displayName": "Tichel",
+    "fluxCapacitors": 7,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "magellan_battlecruiser_yellowtail",
+    "hullMods": [
+        "advancedoptics",
+        "magellan_fighter_mod",
+        "fluxdistributor",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battlecruiser_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_maser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_bursttpc"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_tribeamlaser",
+                "WS0004": "magellan_tribeamlaser",
+                "WS0006": "magellan_medgatling",
+                "WS0007": "magellan_medgatling"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_medpdmaser",
+                "WS0008": "magellan_crackerafm",
+                "WS0009": "magellan_crackerafm",
+                "WS0010": "magellan_laservulcan",
+                "WS0011": "magellan_laservulcan",
+                "WS0012": "magellan_laservulcan",
+                "WS0013": "magellan_laservulcan",
+                "WS0014": "magellan_laservulcan",
+                "WS0015": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": []
+}

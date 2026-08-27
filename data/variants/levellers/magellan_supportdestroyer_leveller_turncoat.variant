@@ -1,0 +1,45 @@
+{
+    "displayName": "Turncoat",
+    "fluxCapacitors": 1,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_supportdestroyer_leveller",
+    "hullMods": [
+        "missleracks",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportdestroyer_leveller_turncoat",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_diffusionlaser",
+                "WS0002": "magellan_diffusionlaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_laservulcan",
+                "WS0004": "magellan_laservulcan",
+                "WS0007": "magellan_stunfire_rack",
+                "WS0008": "magellan_stunfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": []
+}

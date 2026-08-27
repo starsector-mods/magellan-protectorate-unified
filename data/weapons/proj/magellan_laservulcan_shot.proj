@@ -1,0 +1,32 @@
+{
+	"id":"magellan_laservulcan_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":75.0,
+	"width":5.0,
+	"fadeTime":0.05,
+	"fringeColor":[100,150,200,125],
+	"coreColor":[120,180,210,155],
+	"hitGlowRadius":8,
+	"textureType":"LASER",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0,
+	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
+					"range":0,
+ 				    "vsMissileRange":2,
+					"explosionSpec":{"duration":0.1,
+									 "radius":5,
+									 "coreRadius":3, # full damage within core radius - also equal to proximity fuse range
+									 "collisionClass":PROJECTILE_FF,
+									 "collisionClassByFighter":PROJECTILE_FIGHTER,
+									 "particleSizeMin":4.0,
+									 "particleSizeRange":1.0,
+									 "particleDuration":0.5,
+									 "particleCount":2,
+									 "particleColor":[120,180,210,175],
+									 "explosionColor":[60,90,105,125],
+									 "sound":"magellan_mg_boom"},
+					}
+}

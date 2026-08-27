@@ -1,0 +1,25 @@
+{
+    "displayName": "Missile",
+    "fluxCapacitors": 0,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_linefrigate_leveller",
+    "hullMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_linefrigate_leveller_missile",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0001": "magellan_laservulcan",
+            "WS0002": "magellan_laservulcan",
+            "WS0003": "magellan_stunfire_rack",
+            "WS0004": "magellan_stunfire_rack",
+            "WS0005": "magellan_stunfire_rack"
+        }
+    }]
+}

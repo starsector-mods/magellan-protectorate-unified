@@ -1,0 +1,106 @@
+{
+  "hullName": "Turret",
+  "hullId": "magellan_droneturret",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_droneturret.png",
+  "style": "MAGELLAN",
+  "height": 92,
+  "width": 84,
+  "center": [42, 44],
+  "collisionRadius": 80,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 76,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_autodef",
+    "automated",
+    "advancedcore"
+  ],
+  "builtInWeapons": {
+    "WS0002": "magellan_targetingbeam"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 360,
+      "angle": 0,
+      "locations": [-5, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [36.5, -10.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 105,
+      "locations": [-3.5, 38]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -105,
+      "locations": [-3.5, -38]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [27, 4]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-37, -0],
+      "length": 10,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "MagellanDroneFlareTrail"
+    },
+    {
+      "location": [-37, 6],
+      "length": 10,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "MagellanDroneFlare"
+    },
+    {
+      "location": [-37, -6],
+      "length": 10,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 8,
+      "style": "MagellanDroneFlare"
+    }
+  ],
+  "bounds": [
+    47.5, -1,
+    38, -8,
+    34, -37,
+    -34, -37,
+    -42, -21,
+    -42, 21,
+    -34, 37,
+    34, 37,
+    34.5, 3
+  ]
+}

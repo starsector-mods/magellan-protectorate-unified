@@ -1,0 +1,29 @@
+{
+	"id":"magellan_ebolter_ftr",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"BALLISTIC",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_ebolter_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_ebolter_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_ebolter_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_ebolter_hardpoint_glow.png",
+	"glowColor":[100,110,255,255],
+	"turretOffsets":[9, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[9, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING_BURST", # ALTERNATING, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW_AND_FLASH",
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"muzzleFlashSpec":{"length":21.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":2.0,
+					   "particleSizeMin":7.0,
+					   "particleSizeRange":5.0,
+					   "particleDuration":0.07,
+					   "particleCount":12,
+					   "particleColor":[100,110,255,255]},
+	"projectileSpecId":"magellan_ebolter_ftr_shot",  # projectile that will be fired
+	"fireSoundTwo":"magellan_laservulcan_fire",
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

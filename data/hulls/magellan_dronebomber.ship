@@ -1,0 +1,75 @@
+{
+  "hullName": "Bomber",
+  "hullId": "magellan_dronebomber",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_dronebomber.png",
+  "style": "MAGELLAN",
+  "height": 34,
+  "width": 28,
+  "center": [14, 16],
+  "collisionRadius": 28,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 26,
+  "viewOffset": 0,
+  "builtInMods": [
+    "insulatedengine"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_dumbbombs"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [3, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-15, 6],
+      "length": 18,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlareTrail"
+    },
+    {
+      "location": [-15, -6],
+      "length": 18,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlareTrail"
+    },
+    {
+      "location": [-14, 9.5],
+      "length": 8,
+      "width": 2,
+      "angle": 180,
+      "contrailSize": 2,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-14, -9.5],
+      "length": 8,
+      "width": 2,
+      "angle": -180,
+      "contrailSize": 2,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    8, -5,
+    16, -5,
+    10, -12,
+    -14, -12,
+    -14, 12,
+    10, 12,
+    16, 5,
+    8, 5
+  ]
+}

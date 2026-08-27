@@ -1,0 +1,38 @@
+{
+    "displayName": "Buccaneer",
+    "fluxCapacitors": 5,
+    "fluxVents": 10,
+    "hullId": "magellan_supportfrigate_pirate",
+    "hullMods": ["missleracks"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportfrigate_pirate_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "lightac",
+                "WS0002": "lightac"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_hvyfusionbomb_pod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "lightag",
+                "WS0004": "lightag"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0007": "vulcan"}
+        }
+    ]
+}

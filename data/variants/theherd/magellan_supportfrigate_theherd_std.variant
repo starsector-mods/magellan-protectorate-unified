@@ -1,0 +1,43 @@
+{
+    "displayName": "Corsair",
+    "fluxCapacitors": 1,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_supportfrigate_theherd",
+    "hullMods": [
+        "hardened_subsystems",
+        "magazines"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportfrigate_theherd_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0006": "magellan_stunfire_rack"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_radflamer"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_bonesaw",
+                "WS0004": "magellan_bonesaw"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_smciws",
+                "WS0002": "magellan_smciws",
+                "WS0007": "magellan_smciws"
+            }
+        }
+    ]
+}

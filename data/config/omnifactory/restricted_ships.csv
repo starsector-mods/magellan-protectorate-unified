@@ -1,0 +1,23 @@
+hull id
+magellan_battleship
+magellan_cruiser
+magellan_carrier
+magellan_fastdestroyer
+magellan_linedestroyer
+magellan_linefrigate
+magellan_phasefrig
+
+magellan_bomber_wing
+magellan_hvyfighter_wing
+magellan_interceptor_wing
+
+# === Magellan Content ===
+magellan_carrier_blackcollar
+magellan_carrier_marauder
+magellan_hvyfighter_marauder
+magellan_corvette_marauder
+magellan_cbtfreight_smuggler
+magellan_patroldestroyer_smuggler
+magellan_corvette_strikecraft_leveller
+magellan_fastdestroyer_leveller_mod
+magellan_battleship_ancient

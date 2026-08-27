@@ -1,0 +1,38 @@
+{
+  "variantId": "magellan_bomber_marauder_fighter",
+  "hullId": "magellan_bomber_marauder",
+  "displayName": "Bomber",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "magellan_herdlaser_marauder"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "magellan_electrontorp_marauder",
+        "WS0002": "magellan_electrontorp_marauder"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0004": "magellan_fusbomb_marauder",
+        "WS0005": "magellan_fusbomb_marauder"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

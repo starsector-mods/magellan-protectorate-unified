@@ -1,0 +1,229 @@
+{
+    "combatSmallForSmallFleet": {
+        "magellan_linefrigate_std": 10,
+        "magellan_supportfrigate_std": 10,
+        "magellan_linefrigate_attack": 5,
+        "magellan_supportfrigate_attack": 5,
+        "magellan_fastfrigate_attack": 10,
+        "magellan_fastfrigate_std": 5,
+        "magellan_lev_dronefrig_std": 3,
+        "magellan_lev_dronefrig_strike": 1,
+        "magellan_skiff_theherd_std": 5,
+        "magellan_dronegunner_std": 10,
+        "magellan_dronegunner_beam": 4,
+        "magellan_dronemissilefrig_support": 8,
+        "magellan_modularfrigate_std": 10,
+        "magellan_modularfrigate_brawl_yellowtail_std": 8,
+        "magellan_modularfrigate_defense_yellowtail_std": 2,
+        "magellan_linefrigate_leveller_turncoat": 10,
+        "magellan_supportfrigate_theherd_std": 10,
+        "magellan_missilefrigate_theherd_std": 4,
+        "magellan_linefrigate_startiger_std": 10,
+        "magellan_supportfrigate_blackcollar_elite": 6,
+        "magellan_schooner_yellowtail_std": 5,
+        "fallback": {
+            "combatSmall": 1
+        },
+        "magellan_supportfrigate_pirate_std": 10,
+        "magellan_corvette_strikecraft_leveller_support": 6,
+        "magellan_corvette_strikecraft_leveller_attack": 4
+    },
+    "combatSmall": {
+        "magellan_linefrigate_std": 10,
+        "magellan_supportfrigate_std": 10,
+        "magellan_linefrigate_attack": 5,
+        "magellan_supportfrigate_attack": 5,
+        "magellan_linefrigate_support": 5,
+        "magellan_supportfrigate_support": 5,
+        "magellan_fastfrigate_std": 10,
+        "magellan_fastfrigate_attack": 5,
+        "magellan_linefrigate_civ_std": 10,
+        "magellan_modularfrigate_std": 10,
+        "magellan_dronegunner_std": 10,
+        "magellan_dronegunner_beam": 6,
+        "magellan_dronemissilefrig_std": 10,
+        "magellan_dronemissilefrig_support": 6,
+        "magellan_linefrigate_leveller_turncoat": 10,
+        "magellan_linefrigate_leveller_missile": 4,
+        "magellan_lev_dronefrig_std": 4,
+        "magellan_lev_dronefrig_support": 2,
+        "magellan_lev_dronefrig_strike": 1,
+        "magellan_lev_lancefrig_std": 4,
+        "magellan_skiff_theherd_std": 10,
+        "magellan_supportfrigate_theherd_std": 10,
+        "magellan_missilefrigate_theherd_std": 8,
+        "magellan_linefrigate_startiger_std": 10,
+        "magellan_fastfrigate_blackcollar_elite": 4,
+        "magellan_fastfrigate_blackcollar_vanguard": 4,
+        "magellan_supportfrigate_blackcollar_elite": 6,
+        "magellan_schooner_yellowtail_std": 5,
+        "magellan_modularfrigate_brawl_yellowtail_std": 10,
+        "magellan_modularfrigate_sniper_yellowtail_std": 5,
+        "magellan_modularfrigate_defense_yellowtail_std": 5,
+        "fallback": {
+            "combatMedium": 0.5
+        },
+        "magellan_supportfrigate_pirate_std": 10,
+        "magellan_corvette_strikecraft_leveller_support": 4,
+        "magellan_corvette_strikecraft_leveller_attack": 6
+    },
+    "combatMedium": {
+        "magellan_linedestroyer_std": 9,
+        "magellan_linedestroyer_support": 4,
+        "magellan_linedestroyer_elite": 2,
+        "magellan_supportdestroyer_std": 10,
+        "magellan_supportdestroyer_support": 6,
+        "magellan_supportdestroyer_shtrafbat": 6,
+        "magellan_supportdestroyer_elite": 4,
+        "magellan_fastdestroyer_std": 6,
+        "magellan_fastdestroyer_elite": 2,
+        "magellan_droneship_std": 10,
+        "magellan_ltfreight_theherd_std": 10,
+        "magellan_linedestroyer_theherd_support": 8,
+        "magellan_linedestroyer_theherd_fighter": 4,
+        "magellan_supportdestroyer_leveller_turncoat": 8,
+        "magellan_patroldestroyer_civ_std": 5,
+        "magellan_linedestroyer_blackcollar_elite": 8,
+        "magellan_fastdestroyer_blackcollar_elite": 3,
+        "magellan_supportdestroyer_blackcollar_elite": 4,
+        "magellan_supportdestroyer_yellowtail_std": 5,
+        "fallback": {
+            "combatSmall": 1
+        }
+    },
+    "combatLarge": {
+        "magellan_lightcruiser_std": 8,
+        "magellan_lightcruiser_veteran": 4,
+        "magellan_cruiser_std": 10,
+        "magellan_cruiser_obsolete": 7,
+        "magellan_cruiser_elite": 3,
+        "magellan_supportcruiser_std": 8,
+        "magellan_supportcruiser_assault": 4,
+        "magellan_supportcruiser_elite": 1,
+        "magellan_lightcruiser_elite_proto": 5,
+        "magellan_lightcruiser_startiger_royal": 5,
+        "magellan_lightcruiser_blackcollar_elite": 5,
+        "magellan_lightcruiser_yellowtail_std": 5,
+        "magellan_cruiser_startiger_elite": 5,
+        "magellan_cruiser_startiger_royal": 5,
+        "magellan_supportcruiser_blackcollar_elite": 3,
+        "fallback": {
+            "combatMedium": 1
+        }
+    },
+    "combatCapital": {
+        "magellan_battleship_std": 5,
+        "magellan_battleship_line": 3,
+        "magellan_battleship_elite": 2,
+        "magellan_battlecruiser_std": 7,
+        "magellan_battlecruiser_support": 4,
+        "magellan_battlecruiser_elite": 2,
+        "magellan_battlecruiser_blackcollar_elite": 3,
+        "magellan_battleship_startiger_royal": 3,
+        "magellan_battleship_startiger_elite": 3,
+        "fallback": {
+            "combatLarge": 1
+        }
+    },
+    "combatFreighterSmall": {
+        "magellan_cbtfreight_frontier": 10,
+        "magellan_cbtfreight_std": 5,
+        "magellan_cbtfreight_civ_std": 8,
+        "fallback": {
+            "freighterSmall": 1
+        }
+    },
+    "carrierSmall": {
+        "magellan_patroldestroyer_std": 10,
+        "magellan_patroldestroyer_explorer": 5,
+        "magellan_patroldestroyer_leveller_turncoat": 8,
+        "magellan_patroldestroyer_blackcollar_elite": 8,
+        "magellan_supply_civ_fighter": 10,
+        "magellan_patroldestroyer_civ_std": 5,
+        "magellan_dronecarrier_std": 10,
+        "magellan_dronecarrier_barrage": 6,
+        "magellan_carrierconverted_attack": 5,
+        "magellan_carrierconverted_escort": 5,
+        "magellan_carrierconverted_blackcollar_elite": 10,
+        "fallback": {
+            "carrierMedium": 0.5
+        },
+        "fallback2": {
+            "carrierLarge": 0.25
+        }
+    },
+    "carrierMedium": {
+        "magellan_carrier_std": 10,
+        "magellan_carrier_attack": 6,
+        "magellan_herdcarrier_std": 8,
+        "magellan_supply_theherd_std": 10,
+        "magellan_carrier_startiger_royal": 5,
+        "magellan_carrier_startiger_std": 5,
+        "magellan_carrier_yellowtail_std": 10,
+        "magellan_carrier_leveller_mass": 7,
+        "magellan_skipjack_leveller_liberator": 3,
+        "magellan_skipjack_militarized_std": 1,
+        "fallback": {
+            "carrierSmall": 1
+        },
+        "fallback2": {
+            "carrierLarge": 0.5
+        },
+        "magellan_carrier_blackcollar_elite": 2,
+        "magellan_carrier_blackcollar_elite2": 1,
+        "magellan_carrier_blackcollar_elite3": 1
+    },
+    "carrierLarge": {
+        "magellan_battlecarrier_blackcollar_elite": 10,
+        "magellan_battlecruiser_yellowtail_std": 10,
+        "magellan_mothership_yellowtail_std": 1,
+        "fallback2": {
+            "carrierMedium": 1
+        }
+    },
+    "phaseSmall": {
+        "magellan_phasefrig_std": 10,
+        "magellan_phasefrig_attack": 10,
+        "magellan_phasefrig_theherd_std": 8,
+        "magellan_phasefrig_blackcollar_attack": 4,
+        "fallback": {
+            "phaseMedium": 0.5
+        },
+        "fallback2": {
+            "phaseLarge": 0.25
+        }
+    },
+    "phaseLarge": {
+        "magellan_phasecruiser_std": 10,
+        "fallback": {
+            "phaseMedium": 1
+        },
+        "fallback2": {
+            "phaseSmall": 1
+        }
+    },
+    "freighterSmall": {
+        "magellan_cbtfreight_frontier": 2,
+        "magellan_cbtfreight_civ_std": 4,
+        "magellan_skiff_d_std": 7,
+        "magellan_skiff_d2_std": 10,
+        "magellan_schooner_d_std": 7,
+        "magellan_schooner_d2_std": 10,
+        "magellan_schooner_yellowtail_std": 5
+    },
+    "freighterMedium": {
+        "magellan_ltfreight_std": 5,
+        "magellan_ltfreight_mil_std": 5,
+        "magellan_ltfreight_d_std": 0,
+        "magellan_ltfreight_yellowtail_std": 5
+    },
+    "freighterLarge": {
+        "magellan_supply_std": 10,
+        "magellan_supply_civ_std": 8,
+        "magellan_skipjack_std": 1,
+        "magellan_supply_yellowtail_std": 10
+    },
+    "tankerMedium": {
+        "magellan_fuel_std": 10
+    }
+}

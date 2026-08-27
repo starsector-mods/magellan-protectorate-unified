@@ -1,0 +1,53 @@
+{
+	"baseHullId":"magellan_skipjack",
+	"skinHullId":"magellan_skipjack_leveller",
+	"hullName":"Mallory-C [LV]",
+	"descriptionId":"magellan_skipjack",
+	"descriptionPrefix":"This Mallory class clipper has undergone unique modifications into a Leveller command ship. It is equipped with an integrated railgun in place of the large weapon mount, and its hangar bay fields two squadrons of the temperamental yet effective Leveller light bomber.",
+	"tags":["magellan_unique_ship", "no_sell", "restricted"],
+	"tech":"Leveller",
+    "fleetPoints":22,
+    "baseValueMult":1.2,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/levellers/magellan_skipjack_leveller.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign","surveying_equipment"],
+    "removeBuiltInWings":[
+    	"magellan_skate_wing",
+    	"magellan_rounder_wing"
+    ],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "BUILT_IN"
+    	},
+		"WS0002":{
+      		"type": "SYNERGY"
+    	},
+    	"WS0003":{
+      		"type": "SYNERGY"
+    	},
+    	"WS0004":{
+      		"type": "ENERGY"
+    	},
+		"WS0007":{
+      		"type": "ENERGY"
+    	},
+    	"WS0010":{
+      		"type": "SYNERGY"
+    	},
+    	"WS0011":{
+      		"type": "SYNERGY"
+    	}
+
+    },
+    "builtInMods":["magellan_spartacusreactor", "operations_center"],
+    "builtInWings":[
+		"magellan_rounder_leveller_wing",
+		"magellan_rounder_leveller_wing"
+	],
+	"builtInWeapons":{
+		"WS0001": "magellan_supersolenoid_sm"
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"baseHullId":"magellan_carrierconverted",
+	"skinHullId":"magellan_carrierconverted_blackcollar",
+	"hullName":"Ayres [BCR]",
+	"hullDesignation":"Light Carrier",
+	"descriptionId":"magellan_carrierconverted_bcr",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating.",
+	"incompatibleWithBaseHull":true,
+	"tags":["magellan_blackcollar", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":12,
+    "ordnancePoints":70,
+    "baseValueMult":1.5,
+
+	"addHints":[],
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_carrierconverted_blackcollar.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0002":{ "type": "HYBRID" },
+		"WS0003":{ "type": "HYBRID" }
+    },
+    "builtInMods":["magellan_blackcollarmod"],
+    "builtInWings":[],
+	"builtInWeapons":{
+
+	}
+}

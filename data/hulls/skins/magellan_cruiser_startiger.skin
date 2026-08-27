@@ -1,0 +1,39 @@
+{
+	"baseHullId":"magellan_cruiser",
+	"skinHullId":"magellan_cruiser_startiger",
+	"hullName":"Kreshov [SKT]",
+	"descriptionId":"magellan_cruiser",
+	"descriptionPrefix":"Befitting the bloodthirsty temperament of its aristocratic officers, no expense has been spared to upgrade the performance, and appearance, of this this Skytiger Guards warship.",
+	"tags":["magellan_startiger", "no_dealer"],
+	"tech":"Skytiger Guards Division",
+    "fleetPoints":15,
+    "ordnancePoints":180,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/startigers/magellan_cruiser_startiger.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering", "blast_doors"],
+	"removeBuiltInWeapons":["WS0006", "WS0007", "WS0010", "WS0011"],
+	"weaponSlotChanges":{
+		"WS0005":{
+      		"type": "HYBRID"
+    	},
+		"WS0012":{
+      		"type": "UNIVERSAL"
+    	},
+		"WS0013":{
+      		"type": "UNIVERSAL"
+    	}
+    },
+    "builtInMods":["magellan_startigermod", "magellan_convertedbay"],
+    "builtInWings":[
+
+	],
+	"builtInWeapons":{
+	    "WS0006": "magellan_boneshaker_ftr",
+    	"WS0007": "magellan_boneshaker_ftr",
+    	"WS0010": "magellan_boneshaker_ftr",
+    	"WS0011": "magellan_boneshaker_ftr"
+    }
+}

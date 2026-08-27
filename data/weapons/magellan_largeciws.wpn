@@ -1,0 +1,35 @@
+{
+  "id": "magellan_largeciws",
+  "specClass": "projectile",
+  "projectileSpecId":"magellan_minigun_shot",
+  "everyFrameEffect": "data.scripts.weapons.magellan_CIWS_SmTracerFX_Lrg",
+  "type": "BALLISTIC",
+  "size": "LARGE",
+  "turretSprite": "graphics/Magellan/weapons/largeciws/magellan_largeciws_turret_00.png",
+  "hardpointSprite": "graphics/Magellan/weapons/largeciws/magellan_largeciws_hardpoint_00.png",
+  "turretOffsets": [16,12,22,3.5,22,-4,16,-12],
+  "turretAngleOffsets": [0,0,0,0],
+  "hardpointOffsets": [19,12,25,4,25,-4,19,-12],
+  "hardpointAngleOffsets": [0,0,0,0],
+  "barrelMode": "LINKED",
+  "separateRecoilForLinkedBarrels":"TRUE",
+  "animationType": "MUZZLE_FLASH",
+  "numFrames": 4,
+  "frameRate": 30,
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 17,
+    "spread": 12,
+    "particleSizeMin": 3,
+    "particleSizeRange": 12,
+    "particleDuration": 0.12,
+    "particleCount": 12,
+    "particleColor": [
+      255,
+      225,
+      165,
+      175
+    ]
+  },
+  "fireSoundTwo":"magellan_lmg_fire"
+}

@@ -1,0 +1,45 @@
+{
+  "hullName": "Drone",
+  "hullId": "magellan_missiledrone",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/missiles/magellan_missiledrone.png",
+  "style": "MAGELLAN",
+  "height": 18,
+  "width": 10,
+  "center": [5, 6.5],
+  "collisionRadius": 12.5,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 12,
+  "viewOffset": 0,
+  "builtInWeapons": {
+    "WS0001": "magellan_dronemaser"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [6.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-5.5, -0],
+      "length": 15,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    6, -2,
+    0, -4,
+    -5, -0,
+    0, 4,
+    6, 2
+  ]
+}

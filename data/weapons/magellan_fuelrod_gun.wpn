@@ -1,0 +1,33 @@
+{
+	"id":"magellan_fuelrod_gun",
+	"specClass":"projectile",
+	"everyFrameEffect": "data.scripts.weapons.magellan_FuelrodFX",
+	"type":"BALLISTIC",
+	"size":"MEDIUM",
+	"turretSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_turret_base.png",
+	"turretGunSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_turret_recoil.png",	
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_hardpoint_base.png",
+	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_hardpoint_recoil.png",	
+	"visualRecoil":5.0,  # the gun sprites are only used if this is non-0
+	"hardpointOffsets":[18, 0],
+	"turretOffsets":[18, 0],
+	"hardpointAngleOffsets":[0],
+	"turretAngleOffsets":[0],
+	"barrelMode":"ALTERNATING",
+	"animationType":"SMOKE",
+	"renderHints":[RENDER_LOADED_MISSILES, RENDER_BARREL_BELOW],
+	"interruptibleBurst":false,
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"smokeSpec":{"particleSizeMin":12.0,
+				 "particleSizeRange":8.0,
+				 "cloudParticleCount":4,
+				 "cloudDuration":1.2,
+				 "cloudRadius":8.0,
+				 "blowbackParticleCount":2,
+				 "blowbackDuration":1.6,
+				 "blowbackLength":18.0,
+				 "blowbackSpread":12.0,
+				 "particleColor":[173,255,47,100]},					 
+	"projectileSpecId":"magellan_fuelrod_shot",
+	"fireSoundTwo":"magellan_fuelrod_fire"
+}

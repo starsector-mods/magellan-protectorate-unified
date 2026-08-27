@@ -1,0 +1,74 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 22,
+    "fluxVents": 50,
+    "hullId": "magellan_battlecruiser_blackcollar",
+    "hullMods": [
+        "magellan_defense_mod",
+        "targetingunit",
+        "fluxdistributor",
+        "frontemitter",
+        "magellan_corvetteConversion"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battlecruiser_blackcollar_elite3",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_trinitycannon"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0017": "magellan_ripfiresrmpod",
+                "WS0018": "magellan_ripfiresrmpod",
+                "WS0019": "magellan_ripfiresrmpod"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "magellan_calliope_sm",
+                "WS0009": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_bonerattler"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_beehive",
+                "WS0004": "magellan_beehive",
+                "WS0006": "magellan_medautocannon",
+                "WS0007": "magellan_medautocannon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_triflak",
+                "WS0013": "magellan_triflak",
+                "WS0014": "magellan_triflak",
+                "WS0015": "magellan_triflak"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "magellan_ioncharge",
+                "WS0011": "magellan_ioncharge"
+            }
+        }
+    ],
+    "wings": []
+}

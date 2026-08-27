@@ -1,0 +1,71 @@
+{
+  "id": "magellan_heavylance",
+  "specClass": "beam",
+  "size": "LARGE",
+  "type":"ENERGY",
+  "mountTypeOverride":"HYBRID",
+  "everyFrameEffect": "data.scripts.weapons.magellan_heavyLanceChargeEffect",
+  "beamEffect": "data.scripts.weapons.magellan_heavyLanceBeamEffect",
+  "beamFireOnlyOnFullCharge": false,
+  "collisionClass": "RAY",
+  "collisionClassByFighter": "RAY_FIGHTER",
+  "turretSprite": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret.png",
+  "turretGlowSprite": "graphics/Magellan/weapons/heavylance/magellan_heavylance_turret_glow.png",
+  "hardpointSprite": "graphics/Magellan/weapons/heavylance/magellan_heavylance_hardpoint.png",
+  "hardpointGlowSprite": "graphics/Magellan/weapons/heavylance/magellan_heavylance_hardpoint_glow.png",
+  "glowColor": [
+    174,
+    171,
+    91,
+    225
+  ],
+  "hitGlowRadius": 0,
+  "turretOffsets": [
+    35,
+    6.5,
+    35,
+    -6.5
+  ],
+  "turretAngleOffsets": [
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    35,
+    6.5,
+    35,
+    -6.5
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    0
+  ],
+  "fringeColor": [
+    174,
+    171,
+    91,
+    255
+  ],
+  "coreColor": [
+    234,
+    232,
+    188,
+    255
+  ],
+  "width": 15,
+  "textureType": [
+    "graphics/fx/beam_laser_fringe.png",
+    "graphics/fx/beam_rough2_core.png"
+  ],
+  "textureScrollSpeed": 292,
+  "pixelsPerTexel": 5,
+  "pierceSet": [
+    PROJECTILE_FF,
+    PROJECTILE_NO_FF,
+    PROJECTILE_FIGHTER,
+    MISSILE_FF,
+    MISSILE_NO_FF
+  ],
+  #"fireSoundOne": "magellan_heavylance_fire",
+  #"fireSoundTwo": "magellan_heavylance_fire"
+}

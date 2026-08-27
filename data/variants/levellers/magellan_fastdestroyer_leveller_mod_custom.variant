@@ -1,0 +1,63 @@
+{
+  "variantId": "magellan_fastdestroyer_leveller_mod_custom",
+  "hullId": "magellan_fastdestroyer_leveller_mod",
+  "displayName": "Custom",
+  "goalVariant": true,
+  "fluxCapacitors": 6,
+  "fluxVents": 20,
+  "permaMods": [],
+  "hullMods": [
+    "targetingunit",
+    "frontemitter",
+    "magazines"
+  ],
+  "sMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0005": "magellan_stunfire_rack",
+        "WS0006": "magellan_stunfire_rack"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "magellan_supersolenoid_sm"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "magellan_beehive",
+        "WS0003": "magellan_beehive"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "magellan_smgatling",
+        "WS0010": "magellan_smgatling"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_laservulcan",
+        "WS0007": "magellan_laservulcan",
+        "WS0008": "magellan_laservulcan"
+      }
+    }
+  ],
+  "modules": [
+    {
+      "WS0011": "magellan_fastdestroyerarmor_leveller_mod_std"
+    }
+  ],
+  "wings": []
+}

@@ -1,0 +1,16 @@
+{
+	"id":"magellan_diffusionlaser_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":150.0,
+	"width":7.5,
+	"fadeTime":0.1,
+	"fringeColor":[135,80,245,200],
+	"coreColor":[210,145,255,255],
+	"hitGlowRadius":25,
+	"textureType":"LASER",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0
+}

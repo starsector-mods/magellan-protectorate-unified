@@ -1,0 +1,21 @@
+{
+	"id":"magellan_electrontorp_ftr_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_ElectroTorpOnHit",
+	#"spawnType":"BEAM",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":20.0,
+	"width":8.0,
+	"fadeTime":0.35,
+	"fringeColor":[100,110,255,255],
+	"coreColor":[155,175,255,200],
+	"glowColor":[20,25,155,155],
+	"glowRadius":16,
+	"hitGlowRadius":30,
+	"passThroughMissiles":true,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+}

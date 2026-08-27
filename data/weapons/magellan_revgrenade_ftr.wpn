@@ -1,0 +1,27 @@
+{
+	"id":"magellan_revgrenade_ftr",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"everyFrameEffect": "data.scripts.weapons.magellan_RevGrenadeFX",
+	"type":"BALLISTIC",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/revgrenade_ftr/magellan_revgrenade_ftr_turret00.png",
+	"hardpointSprite":"graphics/Magellan/weapons/revgrenade/magellan_revgrenade_hardpoint00.png",	
+	"numFrames":6,	
+	"frameRate":20,
+	"turretOffsets":[17, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[17, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"muzzleFlashSpec":{"length":15.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":9.0,
+					   "particleSizeMin":10.0,
+					   "particleSizeRange":15.0,
+					   "particleDuration":0.15,
+					   "particleCount":12,
+					   "particleColor":[255,225,140,155]},
+	"projectileSpecId":"magellan_revgrenade_shot",  # projectile that will be fired	
+	"fireSoundTwo":"magellan_revgrenade_fire"
+}

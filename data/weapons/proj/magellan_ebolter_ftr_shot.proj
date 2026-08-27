@@ -1,0 +1,16 @@
+{
+	"id":"magellan_ebolter_ftr_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":75.0,
+	"width":5.0,
+	"fadeTime":0.05,
+	"fringeColor":[100,110,255,155],
+	"coreColor":[100,110,255,185],
+	"hitGlowRadius":15,
+	"textureType":"LASER",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0
+}

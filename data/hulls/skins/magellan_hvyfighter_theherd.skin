@@ -1,0 +1,35 @@
+{
+	"baseHullId":"magellan_lightfighter_civ",
+	"skinHullId":"magellan_hvyfighter_theherd",
+	"hullName":"Jitte [Herd]",
+	"descriptionId":"magellan_hvyfighter_theherd",
+
+	"tech":"The Herd",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_hvyfighter_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[
+		"WS0001",
+		"WS0002"
+	],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_crackerftr",
+		"WS0002": "magellan_smciws_ftr"
+	},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "MagellanFighterFlareTrail"
+		},
+		"1":{"style":"MagellanFighterFlare"},
+		"2":{"style":"MagellanFighterFlare"}
+	}
+}

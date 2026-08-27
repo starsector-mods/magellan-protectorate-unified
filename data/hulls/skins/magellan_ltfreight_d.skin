@@ -1,0 +1,34 @@
+{
+	"baseHullId":"magellan_ltfreight",
+	"skinHullId":"magellan_ltfreight_d",
+	"hullName":"Phillips [D]",
+	"addHints":["HIDE_IN_CODEX"],
+	"descriptionId":"magellan_ltfreight",
+	"descriptionPrefix":"Not all old ships are passed on in good condition - and this one has seen harder wear than most. But there's a solid frame there, if you're willing to put in some work.",
+	"restoreToBaseHull":true,
+	"tags":["no_dealer"],
+    "fleetPoints":5,
+    "ordnancePoints":36,
+    "baseValueMult":0.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/civ/magellan_ltfreight_d.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{},
+	"builtInMods":["faulty_grid"],
+	"builtInWeapons":{},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "LOW_TECH"
+		},
+		"1":{"style":"LOW_TECH"},
+		"2":{"style":"LOW_TECH"},
+		"3":{"style":"LOW_TECH"},
+		"4":{"style":"LOW_TECH"},
+		"5":{"style":"LOW_TECH"},
+		"6":{"style":"LOW_TECH"}
+	}
+}

@@ -1,0 +1,36 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 0,
+    "fluxVents": 1,
+    "goalVariant": true,
+    "hullId": "magellan_carrierconverted",
+    "hullMods": [
+        "magellan_trajectory_analyzer"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrierconverted_attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_hvyfusionbomb_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_smciws",
+                "WS0003": "magellan_smciws",
+                "WS0004": "magellan_smciws",
+                "WS0005": "magellan_smciws"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_bomber_wing",
+        "magellan_bomber_wing"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+  "variantId": "magellan_dronefighter_std",
+    "hullId": "magellan_dronefighter",
+  "displayName": "Drones",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_estat_ftr"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

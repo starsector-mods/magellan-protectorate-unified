@@ -1,0 +1,34 @@
+{
+	"baseHullId":"magellan_patroldestroyer",
+	"skinHullId":"magellan_patroldestroyer_blackcollar",
+	"hullName":"Kant [BCR]",
+	"descriptionId":"magellan_patroldestroyer",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating. Good atomspheric handling combined with high resolution sensors have made this ship the Blackcollar Regiment's go to choice for conducting ground operations.",
+	"tags":["magellan_blackcollar", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":9,
+    "ordnancePoints":95,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_patroldestroyer_blackcollar.png",
+    "systemId":"magellan_ammofeed",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0002":{
+      		"type": "HYBRID"
+    	},
+		"WS0004":{
+      		"type": "UNIVERSAL"
+    	},
+		"WS0005":{
+      		"type": "HYBRID"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod", "ground_support"],
+	"builtInWings":[],
+	"builtInWeapons":{
+    }
+}

@@ -1,0 +1,32 @@
+{
+	"id":"magellan_burstmaster",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"everyFrameEffect": "data.scripts.weapons.magellan_HESniperFX",
+	"type":"BALLISTIC",
+	"size":"MEDIUM",
+	"turretSprite":"graphics/Magellan/weapons/magellan_burstmaster_turret_base.png",
+	"turretGunSprite":"graphics/Magellan/weapons/magellan_burstmaster_turret_recoil.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_burstmaster_hardpoint_base.png",
+	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_burstmaster_hardpoint_recoil.png",	
+	"visualRecoil":5.0,  # the gun sprites are only used if this is non-0
+	"renderHints":[RENDER_BARREL_BELOW],
+	"turretOffsets":[29, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[29, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
+	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
+	"smokeSpec":{"particleSizeMin":12.0,
+				 "particleSizeRange":7.0,
+				 "cloudParticleCount":3,
+				 "cloudDuration":0.4,
+				 "cloudRadius":4.0,
+				 "blowbackParticleCount":1,
+				 "blowbackDuration":1.2,
+				 "blowbackLength":18.0,
+				 "blowbackSpread":12.0,
+				 "particleColor":[75,75,75,155]},
+	"projectileSpecId":"magellan_burstmaster_shot",  # projectile that will be fired	
+	"fireSoundTwo":"magellan_burstmaster_fire"
+}

@@ -1,0 +1,103 @@
+{
+    "playableFaction": false,
+    "corvusCompatible": false,
+    "dropPrisoners": false,
+    "noRandomizeRelations": true,
+    "allowAgentActions": false,
+    "allowPrisonerActions": false,
+    "hostileToAll": 1,
+    "noMissionTarget": true,
+    "maxRelationships": {
+        "default": -0.6
+    },
+    "specialForcesMaxFleets": 0,
+    "alignments": {
+        "militarist": 1.0,
+        "technocratic": 0.6,
+        "hierarchical": -1.0,
+        "ideological": -1.0,
+        "diplomatic": -1.0,
+        "corporate": -1.0
+    },
+    "diplomacyTraits": [
+        "monstrous",
+        "foreverwar",
+        "hates_ai",
+        "anarchist"
+    ],
+    "groundBattleSettings": {
+        "moraleDamageTakenMult": 0.0,
+        "damageTakenMult": 0.9,
+        "attackMult": 1.1
+    },
+    "startShipsSolo": [
+        [
+            "magellan_dronemissilefrig_std"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_dronegunner_std",
+            "magellan_dronemissilefrig_std"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_dronecarrier_std",
+            "magellan_dronegunner_beam",
+            "magellan_dronemissilefrig_support"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_dronecarrier_std",
+            "magellan_dronegunner_std"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_dronecarrier_barrage",
+            "magellan_dronegunner_std",
+            "magellan_dronemissilefrig_std"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_droneship_std",
+            "magellan_dronemissilefrig_std"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_droneship_std",
+            "magellan_dronecarrier_std"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_dronegunner_std",
+            "magellan_dronemissilefrig_std"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_dronecarrier_std",
+            "magellan_droneship_std",
+            "magellan_dronegunner_beam"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_mothership_base_std"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_dronecarrier_barrage",
+            "magellan_dronecarrier_std",
+            "magellan_dronegunner_std",
+            "magellan_dronegunner_beam",
+            "magellan_dronemissilefrig_std"
+        ]
+    ]
+}

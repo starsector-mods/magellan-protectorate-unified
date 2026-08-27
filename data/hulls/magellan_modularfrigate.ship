@@ -1,0 +1,159 @@
+{
+  "hullName": "Frigate",
+  "hullId": "magellan_modularfrigate",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_modularfrigate_base.png",
+  "style": "MAGELLAN",
+  "height": 112,
+  "width": 60,
+  "center": [30, 60],
+  "collisionRadius": 92,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 90,
+  "viewOffset": 0,
+  "builtInMods": [
+    "armoredweapons",
+    "rugged"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 0,
+      "locations": [20, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 90,
+      "locations": [5, 16]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -90,
+      "locations": [5, -16]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [38, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [44, -0]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [30, 23]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [30, -23]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [-6.5, 24.5]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -90,
+      "locations": [-6.5, -24.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-59, -0],
+      "length": 40,
+      "width": 16,
+      "angle": 180,
+      "contrailSize": 16,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-57, 12.5],
+      "length": 24,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-57, -12.5],
+      "length": 24,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-6, 25],
+      "length": 16,
+      "width": 4,
+      "angle": 150,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-6, -25],
+      "length": 16,
+      "width": 4,
+      "angle": -150,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    47, -9,
+    34, -15,
+    34, -26,
+    -1, -28,
+    -21, -18,
+    -50, -18,
+    -57, -13,
+    -57, 13,
+    -50, 18,
+    -21, 18,
+    -1, 28,
+    34, 26,
+    34, 15,
+    47, 9
+  ]
+}

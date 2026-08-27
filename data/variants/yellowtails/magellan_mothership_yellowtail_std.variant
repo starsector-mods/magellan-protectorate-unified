@@ -1,0 +1,68 @@
+{
+    "displayName": "Explorer",
+    "fluxCapacitors": 0,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "magellan_mothership_yellowtail",
+    "hullMods": [
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_mothership_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_maser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "magellan_cbeam",
+                "WS0011": "magellan_cbeam",
+                "WS0014": "magellan_cbeam",
+                "WS0015": "magellan_cbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_solenoidbattery",
+                "WS0003": "magellan_solenoidbattery"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_stratLRM_launcher",
+                "WS0005": "magellan_stratLRM_launcher",
+                "WS0006": "magellan_stratLRM_launcher",
+                "WS0007": "magellan_stratLRM_launcher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "magellan_crackerafm",
+                "WS0009": "magellan_crackerafm",
+                "WS0012": "magellan_medpdmaser",
+                "WS0013": "magellan_medpdmaser",
+                "WS0016": "magellan_smpdmaser",
+                "WS0017": "magellan_smpdmaser",
+                "WS0018": "magellan_smpdmaser",
+                "WS0019": "magellan_smpdmaser",
+                "WS0020": "magellan_smpdmaser",
+                "WS0021": "magellan_smpdmaser",
+                "WS0022": "magellan_crackerafm"
+            }
+        }
+    ],
+    "wings": []
+}

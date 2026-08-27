@@ -1,0 +1,16 @@
+id,name,faction,desc,script,icon,order
+magellan_open_market,"Open
+Market",,"The open market. Only legal goods may be traded here, and transactions are subject to tariffs. More goods are available when stability is high.
+
+Selling enough of a commodity will temporarily resolve a shortage.",data.campaign.submarkets.magellan_IndieMarketPlugin,,0
+magellan_ind_military,,,"Trade with the $theFaction arms market.
+
+Weapons and other military hardware can be bought and sold here even if they're illegal on the open market. Better standing with $theFaction results in higher-grade hardware being available.
+
+Will buy locally illegal goods without comment.
+
+Selling enough of a commodity will temporarily resolve a shortage.",data.campaign.submarkets.magellan_IndieMilMarketPlugin,,100
+magellan_blackcollar_market,,magellan_blackcollar,"Requisition equipment from the Blackcollar Regiment, who have access to upgraded warships and strike craft, along with rare weapons no longer widely available to the rest of the Fleet.",data.scripts.magellan.submarkets.BlackcollarShipMarket,,101
+magellan_skytigers_market,,magellan_startigers,"Requisition equipment from the Skytiger Guards, who have access to upgarded warships and advanced strike craft.",data.scripts.magellan.submarkets.SkytigersShipMarket,,101
+magellan_yellowtail_market,,magellan_yellowtail,"Purchase ships and strike craft that have been modified for use by Tichel security forces, the Yellowtails. Tichel fighter TPCs are usually hard coded to their carriers, but select clients in good standing can acquire the designs for private use.",data.scripts.magellan.submarkets.YellowtailShipMarket,,101
+magellan_leveller_market,,magellan_leveller,"Purchase ships and equipment from the Leveller underground. The group is willing to trade with almost everyone, but charge a significant premium to fund their forces.",data.scripts.magellan.submarkets.LevellerShipMarket,,101

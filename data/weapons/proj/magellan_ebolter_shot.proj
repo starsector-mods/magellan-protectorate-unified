@@ -1,0 +1,20 @@
+{
+	"id":"magellan_ebolter_shot",
+	"specClass":"projectile",
+	"onHitEffect":"data.scripts.weapons.magellan_EBolterEMPOnHit",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":27.0,
+	"width":5.0,
+	"fadeTime":0.1,
+	"fringeColor":[100,110,255,255],
+	"coreColor":[155,175,255,255],
+	"glowColor":[10,11,155,155],
+	"glowRadius":16,
+	"hitGlowRadius":16,
+	"passThroughMissiles":true,
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256.0,
+	"pixelsPerTexel":1.0
+}

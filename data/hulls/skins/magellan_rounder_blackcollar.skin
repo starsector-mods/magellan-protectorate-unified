@@ -1,0 +1,22 @@
+{
+	"baseHullId":"magellan_rounder",
+	"skinHullId":"magellan_rounder_blackcollar",
+	"hullName":"Rounder [BCR]",
+	"descriptionId":"magellan_rounder_blackcollar",
+
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_rounder_blackcollar.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicshieldgen"],
+	"removeBuiltInWeapons":[
+		"WS0001"
+	],
+    "builtInMods":["magellan_trajectory_analyzer"],
+	"builtInWeapons":{
+		"WS0001": "magellan_balefiremrm_ftr"
+	}
+}

@@ -1,0 +1,123 @@
+{
+  "hullName": "Support Frigate",
+  "hullId": "magellan_supportfrigate",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/magellan_supportfrigate.png",
+  "style": "MAGELLAN",
+  "height": 108,
+  "width": 52,
+  "center": [26, 45],
+  "collisionRadius": 84,
+  "shieldCenter": [9, 0],
+  "shieldRadius": 73,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 54,
+      "locations": [23, 15]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -54,
+      "locations": [23, -15]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 75,
+      "locations": [6, 17],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -75,
+      "locations": [6, -17],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [39, 0],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [48, 0]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 180,
+      "locations": [-17, 0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-41, 9.5],
+      "length": 24,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-41, -9.5],
+      "length": 24,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-44, -0],
+      "length": 32,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    }
+  ],
+  "bounds": [
+    59, -5.5,
+    24.5, -17.5,
+    -6, -19.5,
+    -30.5, -14,
+    -43, -5,
+    -43, 5,
+    -30.5, 14,
+    -6, 19.5,
+    24.5, 17.5,
+    59, 5.5
+  ]
+}

@@ -1,0 +1,88 @@
+{
+	"id":"magellan_electronmissile",
+	"specClass":"missile",
+	"onHitEffect":"data.scripts.weapons.magellan_ElectroMissileOnHit",
+	"missileType":"MISSILE",
+	#"missileType":"HEATSEEKER",
+	"sprite":"graphics/Magellan/missiles/magellan_electromissile.png",
+	"size":[8,16],	
+	"center":[4,8],
+	"collisionRadius":12,
+	"collisionClass":"MISSILE_NO_FF",
+	"explosionColor":[100,110,255,255],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":30, # purely visual
+	"explosionSpec":{"duration":0.1, # not visual
+					 "radius":75,
+					 "coreRadius":45, # full damage within core radius
+					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
+					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
+					 "particleSizeMin":5.0,
+					 "particleSizeRange":3.0,
+					 "particleDuration":1.6,
+					 "particleCount":16,
+					 "particleColor":[100,110,255,255]},	
+	"engineSpec":{"turnAcc":320,
+				  "turnRate":150,
+				  "acc":800,
+				  "dec":600},
+	"engineSlots":[{"id":"ES1",
+					"loc":[-7, 0],
+				    #"style":"MISSILE_HIGH_TECH",
+				    "style":"CUSTOM",
+					"styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[100,165,255,255],
+						"contrailDuration":0.25,
+						"contrailWidthMult":3.0,
+						"contrailWidthAddedFractionAtEnd":-0.5,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.1,
+						"contrailAngularVelocityMult":-0.1,
+						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailColor":[100,165,255,155],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":3.0,
+				    "length":18.0,
+				    "angle":180.0},
+				    {"id":"ES2",
+					"loc":[-6, -1.8],
+				    #"style":"MISSILE_HIGH_TECH",
+				    "style":"CUSTOM",
+				    "styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[100,165,255,175],
+						"contrailDuration":0,
+						"contrailWidthMult":0,
+						"contrailWidthAddedFractionAtEnd":1.0,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5,
+						"contrailAngularVelocityMult":0.5,
+						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailColor":[100,165,255,75],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":1.0,
+				    "length":6.0,
+				    "angle":225.0},
+				    {"id":"ES3",
+					"loc":[-6, 1.8],
+				    #"style":"MISSILE_HIGH_TECH",
+				    "style":"CUSTOM",
+				    "styleSpec":{
+						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"engineColor":[100,165,255,175],
+						"contrailDuration":0,
+						"contrailWidthMult":0,
+						"contrailWidthAddedFractionAtEnd":1.0,  # can be negative. makes trail spread out/narrow at the end
+						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailMaxSpeedMult":0.5,
+						"contrailAngularVelocityMult":0.5,
+						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailColor":[100,165,255,75],
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+					},
+				    "width":1.0,
+				    "length":6.0,
+				    "angle":135.0}]
+}

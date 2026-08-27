@@ -1,0 +1,69 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 0,
+    "fluxVents": 25,
+    "goalVariant": true,
+    "hullId": "magellan_cruiser",
+    "hullMods": [
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_cruiser_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_ripfiresrmpod",
+                "WS0013": "magellan_ripfiresrmpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0016": "magellan_calliope_sm",
+                "WS0017": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_medgatling",
+                "WS0002": "magellan_medgatling",
+                "WS0003": "magellan_medgatling",
+                "WS0004": "magellan_medgatling"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_beehive"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "magellan_smpdmaser",
+                "WS0009": "magellan_smpdmaser",
+                "WS0014": "magellan_smpdmaser",
+                "WS0015": "magellan_smpdmaser",
+                "WS0018": "magellan_smpdmaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_linkflak",
+                "WS0007": "magellan_linkflak",
+                "WS0010": "magellan_linkflak",
+                "WS0011": "magellan_linkflak"
+            }
+        }
+    ]
+}

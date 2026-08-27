@@ -1,0 +1,104 @@
+{
+  "hullName": "Missile Drone",
+  "hullId": "magellan_dronemissilefrig",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_dronemissilefrig.png",
+  "style": "MAGELLAN",
+  "height": 80,
+  "width": 68,
+  "center": [34, 42],
+  "collisionRadius": 52,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 50,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_autodef",
+    "automated",
+    "missleracks"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [17, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 45,
+      "locations": [-3, 20]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 180,
+      "locations": [-23, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 15,
+      "locations": [5.5, 28.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -15,
+      "locations": [5.5, -28.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-38, -0],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "MagellanDroneFlareTrail"
+    },
+    {
+      "location": [-38, 6],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "MagellanDroneFlare"
+    },
+    {
+      "location": [-38, -6],
+      "length": 30,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 30,
+      "style": "MagellanDroneFlare"
+    }
+  ],
+  "bounds": [
+    27.5, -9.5,
+    36.5, -16,
+    -5, -33,
+    -24, -13.5,
+    -40, -13.5,
+    -40, 13.5,
+    -24, 13.5,
+    -5, 33,
+    36.5, 16,
+    27.5, 9.5
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "hullName": "Merchanter",
+  "hullId": "magellan_cbtfreight",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/Magellan/ships/magellan_cbtfreight.png",
+  "style": "MAGELLAN",
+  "height": 142,
+  "width": 90,
+  "center": [45, 66],
+  "collisionRadius": 96,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 92,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering"
+  ],
+  "builtInWeapons": {
+    "WS0002": "blinker_red",
+    "WS0003": "blinker_green"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [19, 0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 5,
+      "angle": 90,
+      "locations": [10.5, 41.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 5,
+      "angle": -90,
+      "locations": [10.5, -41.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 50,
+      "locations": [43, 16]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -50,
+      "locations": [43, -16]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 125,
+      "locations": [-41, 24]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -125,
+      "locations": [-41, -24]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-65, 24],
+      "length": 30,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-65, -24],
+      "length": 30,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-62, 33.5],
+      "length": 24,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, -33.5],
+      "length": 24,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, 14.5],
+      "length": 24,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, -14.5],
+      "length": 24,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-12.5, 41.5],
+      "length": 12,
+      "width": 5,
+      "angle": 175,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-12.5, -41.5],
+      "length": 12,
+      "width": 5,
+      "angle": -175,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    73, -3,
+    64, -21,
+    13.5, -37,
+    12.5, -41.5,
+    -9.5, -42.5,
+    -10.5, -38.5,
+    -54.5, -38.5,
+    -64, -29,
+    -64, -19,
+    -53, -8,
+    -53, 8,
+    -64, 19,
+    -64, 29,
+    -54.5, 38.5,
+    -10.5, 38.5,
+    -9.5, 42.5,
+    12.5, 41.5,
+    13.5, 37,
+    64, 21,
+    73, 3
+  ]
+}
