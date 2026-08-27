@@ -1,0 +1,19 @@
+{
+  "displayName": "Bomber",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_bomber_blackcollar",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_bomber_blackcollar_bomber",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_ripfiresrmftr2",
+        "WS0002": "magellan_balefiremrm_ftr2"
+      }
+	}
+  ]
+}

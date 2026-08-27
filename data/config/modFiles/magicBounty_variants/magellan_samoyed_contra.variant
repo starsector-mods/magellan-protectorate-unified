@@ -1,0 +1,34 @@
+{
+    "displayName": "Contra",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "istl_samoyed",
+    "hullMods": [
+        "nav_relay",
+        "ecm",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_samoyed_contra",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_diffusiongun"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0013": "istl_amm_samo"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "istl_multipdnode",
+                "WS0006": "istl_multipdnode"
+            }
+        }
+    ]
+}

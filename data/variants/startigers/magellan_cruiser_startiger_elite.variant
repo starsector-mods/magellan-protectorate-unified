@@ -1,0 +1,54 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 5,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_cruiser_startiger",
+    "hullMods": ["targetingunit"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_cruiser_startiger_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_bonegrinder",
+                "WS0002": "magellan_bonegrinder",
+                "WS0003": "magellan_bonegrinder",
+                "WS0004": "magellan_bonegrinder",
+                "WS0016": "magellan_calliope_sm",
+                "WS0017": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_balefiremrm_pod",
+                "WS0013": "magellan_balefiremrm_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0018": "magellan_smhetlaser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_medciws",
+                "WS0006": "magellan_boneshaker_ftr",
+                "WS0007": "magellan_boneshaker_ftr",
+                "WS0008": "magellan_smpdmaser",
+                "WS0009": "magellan_smpdmaser",
+                "WS0010": "magellan_boneshaker_ftr",
+                "WS0011": "magellan_boneshaker_ftr",
+                "WS0014": "magellan_smpdmaser",
+                "WS0015": "magellan_smpdmaser"
+            }
+        }
+    ],
+    "wings": ["magellan_bomber_startiger_wing"]
+}

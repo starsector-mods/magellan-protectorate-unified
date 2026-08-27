@@ -1,0 +1,136 @@
+{
+	"id":"magellan_ancientstarfarer",
+	"color":[216,255,216,255],
+	"displayName":"Magellan - Ancient Starfarers",
+	"displayNameWithArticle":"the Magellan Ancient Starfarers",
+	"displayNameLong":"Magellan Ancient Starfarer Exiles",
+	"displayNameLongWithArticle":"the Magellan Ancient Starfarer Exiles",
+	"entityNamePrefix":"starfarers",
+	"personNamePrefix":"starfarer",
+	"personNamePrefixAOrAn":"a",
+	"displayNameIsOrAre":"are",
+	"logo":"graphics/Magellan/factions/starfarer.png",
+	"crest":"graphics/Magellan/factions/crest_starfarer.png",
+	"shipNamePrefix":"DNS",
+	"shipNameSources":{
+		"MAGELLAN_STARFARER":1
+	},
+	"description":"Direct descendants of the original sleeper crews and voidfarers who navigated the Alcubierre-drive exile fleet from the Domain. They maintain ancient vessel hulls, relic survey technology, and deep void-faring traditions.",
+	"names":{
+		"modern":3,
+		"future":2
+	},
+	"hullMods":[
+		"turretgyros",
+		"armoredweapons",
+		"autorepair",
+		"auxiliarythrusters",
+		"blast_doors",
+		"dedicated_targeting_core",
+		"eccm",
+		"magazines",
+		"missleracks",
+		"fluxcoil",
+		"fluxdistributor",
+		"hardened_subsystems",
+		"insulatedengine",
+		"reinforcedhull",
+		"fluxbreakers",
+		"surveying_equipment",
+		"unstable_injector",
+		"expanded_deck_crew",
+		"recovery_shuttles",
+		"operations_center",
+		"nav_relay",
+		"ecm"
+	],
+	"showInIntelTab":false,
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/portrait12.png",
+			"graphics/portraits/portrait13.png",
+			"graphics/portraits/portrait18.png",
+			"graphics/portraits/portrait20.png",
+			"graphics/portraits/portrait23.png",
+			"graphics/portraits/portrait26.png",
+			"graphics/portraits/portrait30.png",
+			"graphics/portraits/portrait33.png",
+			"graphics/portraits/portrait35.png",
+			"graphics/portraits/portrait38.png"
+		],
+		"standard_female":[
+			"graphics/portraits/portrait16.png",
+			"graphics/portraits/portrait21.png",
+			"graphics/portraits/portrait22.png",
+			"graphics/portraits/portrait27.png",
+			"graphics/portraits/portrait29.png",
+			"graphics/portraits/portrait32.png",
+			"graphics/portraits/portrait34.png",
+			"graphics/portraits/portrait37.png",
+			"graphics/portraits/portrait39.png",
+			"graphics/portraits/portrait41.png",
+			"graphics/portraits/portrait42.png"
+		]
+	},
+	"custom":{
+		"ignoreTradeWithEnemiesForReputation":true,
+		"allowsTransponderOffTrade":true,
+		"offersCommissions":false,
+		"engagesInHostilities":false,
+		"buysAICores":true,
+		"AICoreValueMult":1.5,
+		"AICoreRepMult":1.5,
+		"buysSurveyData":true
+	},
+	"traits":{
+		"captain":{
+			"timid":1,
+			"cautious":2,
+			"steady":7,
+			"aggressive":10,
+			"reckless":3
+		}
+	},
+	"doctrine":{
+		"warships":2,
+		"carriers":3,
+		"phaseShips":0,
+
+		"officerQuality": 4,
+		"shipQuality": 3,
+		"numShips": 2,
+
+		"shipSize": 4,
+
+		"aggression":1,
+
+		"combatFreighterProbability":0.15,
+		"combatFreighterCombatUseFraction":0.25,
+		"combatFreighterCombatUseFractionWhenPriority":0.5,
+		"autofitRandomizeProbability":0.1,
+
+		"commanderSkillsShuffleProbability":0,
+		"commanderSkills":[
+			"officer_training",
+			"coordinated_maneuvers"
+		]
+	},
+
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"spacer":5
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"official":5
+		},
+		"HIGH":{
+			"soldier":10,
+			"official":10
+		},
+		"characterSounds":{
+			"standard":{"soldier":10, "spacer":5, "official":10}
+		}
+	}
+}

@@ -1,0 +1,12 @@
+faction
+data/world/factions/magellan_protectorate.faction
+data/world/factions/magellan_startigers.faction
+data/world/factions/magellan_blackcollar.faction
+data/world/factions/magellan_yellowtail.faction
+data/world/factions/magellan_leveller.faction
+data/world/factions/magellan_theherd.faction
+#non-market factions for spawning only
+data/world/factions/magellan_ancientstarfarer.faction
+data/world/factions/magellan_civviescavs.faction
+data/world/factions/magellan_independentmkt.faction
+data/world/factions/magellan_derelict.faction

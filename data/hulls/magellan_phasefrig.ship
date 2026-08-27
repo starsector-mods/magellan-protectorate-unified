@@ -1,0 +1,166 @@
+{
+  "bounds": [
+    44.5,
+    -15,
+    -2,
+    -40,
+    -52.5,
+    -18,
+    -52.5,
+    -8,
+    -43.5,
+    -5.5,
+    -43.5,
+    5.5,
+    -52.5,
+    8,
+    -52.5,
+    18,
+    -2,
+    40,
+    44.5,
+    15
+  ],
+  "builtInMods": [
+    "magellan_engineering",
+    "phasefield"
+  ],
+  "center": [
+    42,
+    54
+  ],
+  "collisionRadius": 60,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 12,
+      "length": 32,
+      "location": [
+        -52,
+        13
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 12
+    },
+    {
+      "angle": -180,
+      "contrailSize": 12,
+      "length": 32,
+      "location": [
+        -52,
+        -13
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 12
+    },
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 24,
+      "location": [
+        -29,
+        30.5
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 6
+    },
+    {
+      "angle": -180,
+      "contrailSize": 6,
+      "length": 24,
+      "location": [
+        -29,
+        -30.5
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 6
+    }
+  ],
+  "height": 104,
+  "hullId": "magellan_phasefrig",
+  "hullName": "Magellan Phase Frigate",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    -2,
+    0
+  ],
+  "shieldRadius": 61,
+  "spriteName": "graphics/Magellan/ships/phase/magellan_phasefrig.png",
+  "style": "MAGELLAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 5,
+      "id": "WS0001",
+      "locations": [
+        35,
+        -0
+      ],
+      "mount": "HARDPOINT",
+      "size": "MEDIUM",
+      "type": "MISSILE"
+    },
+    {
+      "angle": 0,
+      "arc": 5,
+      "id": "WS0002",
+      "locations": [
+        27,
+        24
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": -0,
+      "arc": 5,
+      "id": "WS0003",
+      "locations": [
+        27,
+        -24
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "WS0004",
+      "locations": [
+        -3,
+        -0
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "HYBRID"
+    },
+    {
+      "angle": 60,
+      "arc": 0,
+      "id": "WS0005",
+      "locations": [
+        34,
+        13.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    },
+    {
+      "angle": -60,
+      "arc": 0,
+      "id": "WS0006",
+      "locations": [
+        34,
+        -13.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "SYSTEM"
+    }
+  ],
+  "width": 84
+}

@@ -1,0 +1,69 @@
+{
+    "displayName": "Obsolete",
+    "fluxCapacitors": 4,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_cruiser",
+    "hullMods": [
+        "dedicated_targeting_core"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_cruiser_obsolete",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0008": "magellan_electrontorp",
+                "WS0009": "magellan_electrontorp"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0016": "magellan_ripfiresrm",
+                "WS0017": "magellan_ripfiresrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_calliope",
+                "WS0013": "magellan_calliope"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_bonecrusher",
+                "WS0002": "magellan_bonecrusher",
+                "WS0003": "magellan_bonecrusher",
+                "WS0004": "magellan_bonecrusher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_medciws"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_linkflak",
+                "WS0007": "magellan_linkflak",
+                "WS0010": "magellan_linkflak",
+                "WS0011": "magellan_linkflak",
+                "WS0014": "magellan_smciws",
+                "WS0015": "magellan_smciws",
+                "WS0018": "magellan_smciws"
+            }
+        }
+    ]
+}

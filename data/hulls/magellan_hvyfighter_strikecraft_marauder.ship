@@ -1,0 +1,100 @@
+{
+  "hullName": "Mod-Fighter",
+  "hullId": "magellan_hvyfighter_strikecraft_marauder",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/marauders/magellan_hvyfighter_strikecraft_marauder.png",
+  "style": "MAGELLAN",
+  "height": 40,
+  "width": 34,
+  "center": [17, 16.5],
+  "collisionRadius": 36,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 30,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_marauderMod",
+    "reduced_explosion"
+  ],
+  "builtInWings": [
+    "magellan_hvyfighter_marauder_wing"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_flakpod_marauder",
+    "WS0002": "magellan_medciws_marauder",
+    "WS0003": "magellan_sniperautogun_marauder",
+    "WS0004": "magellan_sniperautogun_marauder"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [0, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [12.5, 3.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [-1.5, 11]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": -0,
+      "locations": [-1.5, -11]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-13.5, 8],
+      "length": 12,
+      "width": 5,
+      "angle": 177.5,
+      "contrailSize": 5,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-13.5, -8],
+      "length": 12,
+      "width": 5,
+      "angle": -177.5,
+      "contrailSize": 5,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-14.5, -0],
+      "length": 30,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "M_HIGH_TRAIL"
+    }
+  ],
+  "bounds": [
+    3.5, -8,
+    -6.5, -16,
+    -14.5, -0,
+    -6.5, 16,
+    3.5, 8,
+    12.5, 7.5,
+    21, -6
+  ]
+}

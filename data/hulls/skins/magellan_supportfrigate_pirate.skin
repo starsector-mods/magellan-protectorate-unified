@@ -1,0 +1,27 @@
+{
+	"baseHullId":"magellan_supportfrigate",
+	"skinHullId":"magellan_supportfrigate_pirate",
+	"hullName":"Dekker (P)",
+	"descriptionId":"magellan_supportfrigate",
+	"descriptionPrefix":"This ship has been heavily modified - and poorly maintained - by its pirate crew.",
+	"tags":["pirate_bp"],
+	"tech":"Pirate Magellan",
+    "ordnancePoints":45,
+
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/marauders/magellan_supportfrigate_pirate.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":["WS0006"],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0005":{
+			"size": "MEDIUM",
+      		"type": "BUILT_IN"
+    	}
+    },
+	"builtInWeapons":{
+		"WS0005": "magellan_hvyfusionbomb_pod"
+	}
+}

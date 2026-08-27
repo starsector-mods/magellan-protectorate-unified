@@ -1,0 +1,30 @@
+{
+	"baseHullId":"magellan_corvette",
+	"skinHullId":"magellan_corvette_yellowtail",
+	"hullName":"Bastardsword [TMC]",
+	"descriptionId":"magellan_corvette_yellowtail",
+
+	"tech":"Tichel Mercantile Concern",
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_corvette_yellowtail.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["ballistic_rangefinder"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{},
+    "builtInMods":["advancedoptics"],
+	"builtInWeapons":{
+		"WS0001": "magellan_smpulse_laser",
+    	"WS0002": "magellan_smpdmaser"
+	},
+		"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_TRAIL"},
+		"2":{"style":"M_HIGH_TRAIL"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"}
+	}
+}

@@ -1,0 +1,128 @@
+{
+  "bounds": [
+    24.5,
+    -3.5,
+    29,
+    -6,
+    -6,
+    -16,
+    -19,
+    -9.5,
+    -19,
+    9.5,
+    -6,
+    16,
+    29,
+    6,
+    24.5,
+    3.5
+  ],
+  "builtInMods": [
+    "no_weapon_flux"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_revgrenade_ftr",
+    "WS0002": "magellan_ripfiresrmftr"
+  },
+  "center": [
+    18,
+    21
+  ],
+  "collisionRadius": 40,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 5,
+      "length": 12,
+      "location": [
+        -19,
+        -0
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 4
+    },
+    {
+      "angle": 180,
+      "contrailSize": 9,
+      "length": 15,
+      "location": [
+        -20,
+        6.5
+      ],
+      "style": "MagellanFighterFlareTrail",
+      "width": 8
+    },
+    {
+      "angle": -180,
+      "contrailSize": 9,
+      "length": 15,
+      "location": [
+        -20,
+        -6.5
+      ],
+      "style": "MagellanFighterFlareTrail",
+      "width": 8
+    },
+    {
+      "angle": -177.5,
+      "contrailSize": 3,
+      "length": 9,
+      "location": [
+        -16,
+        11
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 2
+    },
+    {
+      "angle": 177.5,
+      "contrailSize": 3,
+      "length": 9,
+      "location": [
+        -16,
+        -11
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 2
+    }
+  ],
+  "height": 52,
+  "hullId": "magellan_corvette_blackcollar",
+  "hullName": "Corvette",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0.5,
+    -0
+  ],
+  "shieldRadius": 39,
+  "spriteName": "graphics/Magellan/ships/blackcollars/magellan_corvette_blackcollar.png",
+  "style": "MAGELLAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 240,
+      "id": "WS0001",
+      "locations": [
+        1,
+        -0
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0002",
+      "locations": [
+        2.5,
+        -0
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 36
+}

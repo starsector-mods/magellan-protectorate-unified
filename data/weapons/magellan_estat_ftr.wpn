@@ -1,0 +1,26 @@
+{
+	"id":"magellan_estat_ftr",  
+	"specClass":"projectile",
+	"type":"BALLISTIC",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_edefensor_turret_base.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_edefensor_hardpoint_base.png",
+	"turretOffsets":[10, -7, 10, 7],
+	"turretAngleOffsets":[0, 0],
+	"hardpointOffsets":[10, -7, 10, 7],
+	"hardpointAngleOffsets":[0, 0],
+	"barrelMode":"ALTERNATING_BURST", 
+	"animationType":"MUZZLE_FLASH",
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":15.0,   
+					   "spread":1.0,
+					   "particleSizeMin":5.0,
+					   "particleSizeRange":10.0,
+					   "particleDuration":0.05,
+					   "particleCount":15,
+					   "particleColor":[175,215,245,155]},
+	"projectileSpecId":"magellan_estat_shot",  
+	"fireSoundTwo":"magellan_estat_ftr_fire",
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

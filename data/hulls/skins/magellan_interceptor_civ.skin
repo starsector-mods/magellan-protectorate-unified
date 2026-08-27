@@ -1,0 +1,24 @@
+{
+	"baseHullId":"magellan_intyellowtail",
+	"skinHullId":"magellan_interceptor_civ",
+	"hullName":"Chela [CIV]",
+	"descriptionId":"magellan_interceptor_civ",
+
+	"tech":"Magellan",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/civ/magellan_interceptor_civ.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[
+		"WS0001"
+	],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_smciws"
+	}
+}

@@ -1,0 +1,52 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 0,
+    "fluxVents": 14,
+    "goalVariant": true,
+    "hullId": "magellan_carrier",
+    "hullMods": [
+        "heavyarmor"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrier_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "magellan_electrontorp"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_calliope",
+                "WS0002": "magellan_calliope"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_salvoag"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_smciws",
+                "WS0005": "magellan_smciws",
+                "WS0006": "magellan_smciws",
+                "WS0007": "magellan_smciws"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_bomber_wing",
+        "magellan_bomber_wing",
+        "magellan_interceptor_wing"
+    ]
+}

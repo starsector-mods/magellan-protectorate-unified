@@ -1,0 +1,26 @@
+{
+	"baseHullId":"magellan_targdrone",
+	"skinHullId":"magellan_targdrone_lev",
+	"hullName":"Targeting Drone [LV]",
+	"descriptionId":"magellan_targdrones",
+	"descriptionPrefix":"This drone has been reconditioned to serve the Leveller cause. The weapon mount has been refitted with an electron bolter.",
+	"tech":"Leveller",
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/levellers/magellan_targdrone.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":["WS0001"],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_ebolter_ftr"
+    },
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"}
+	}
+}

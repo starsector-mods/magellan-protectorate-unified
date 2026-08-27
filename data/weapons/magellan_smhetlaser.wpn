@@ -1,0 +1,32 @@
+{
+	"id":"magellan_smhetlaser",
+	"specClass":"projectile",
+	"type":"ENERGY",
+	
+	"size":"SMALL",
+	"everyFrameEffect":"data.scripts.weapons.magellan_FusCutterEffect",
+	"turretSprite":"graphics/Magellan/weapons/magellan_smhetlaser_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_smhetlaser_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_smhetlaser_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_smhetlaser_hardpoint_glow.png",
+	"glowColor":[255,75,100,255],
+	"turretOffsets":[4, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[4, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", 
+	"unaffectedByProjectileSpeedBonuses":true,
+	"animationType":"GLOW_AND_FLASH",
+	"muzzleFlashSpec":{"length":38.0,   
+					   "spread":18.0,
+					   "particleSizeMin":10.0,
+					   "particleSizeRange":12.0,
+					   "particleDuration":0.09,
+					   "particleCount":13,
+					   "particleColor":[255,75,100,225]},
+	"autocharge":true,  
+	"projectileSpecId":"magellan_smfuscutter_shot",  
+	"noImpactSounds":true,
+	
+	"fireSoundThree":"cryoflamer_loop"
+}

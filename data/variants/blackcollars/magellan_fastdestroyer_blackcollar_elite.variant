@@ -1,0 +1,55 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 9,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_fastdestroyer_bc",
+    "hullMods": [
+        "fluxdistributor",
+        "targetingunit"
+    ],
+    "modules": [{"WS0011": "magellan_fastdestroyerarmor_blackcollar_std"}],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_fastdestroyer_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0009": "magellan_electrontorp",
+                "WS0010": "magellan_electrontorp"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_ripfiresrm",
+                "WS0005": "magellan_ripfiresrm",
+                "WS0006": "magellan_ripfiresrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_medautocannon",
+                "WS0003": "magellan_medautocannon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "magellan_medpdmaser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan"
+            }
+        }
+    ]
+}

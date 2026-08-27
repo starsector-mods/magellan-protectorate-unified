@@ -1,0 +1,24 @@
+{
+  "availableCacheBlueprints": {
+    "hullSpecIds": [
+
+      "magellan_supportfrigate",
+      "magellan_supportdestroyer",
+      "magellan_phasefrig"],
+    "weaponSpecIds": [
+
+      "magellan_electrontorp",
+      "magellan_laservulcan",
+
+      "magellan_beehive",
+      "magellan_bonesaw",
+      "magellan_boneshaker",
+      "magellan_salvoag",
+
+      "magellan_calliope",
+      "magellan_calliope_sm"],
+    "fighterWingIds": [
+      "magellan_hvyfighter_wing",
+      "magellan_bomber_wing"]
+  }
+}

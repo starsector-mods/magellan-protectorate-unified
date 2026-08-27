@@ -1,0 +1,26 @@
+{
+	"id":"magellan_herdlaser_marauder",
+	"specClass":"beam",
+	"type":"ENERGY",
+	"size":"SMALL",
+	"turretSprite":"graphics/Magellan/weapons/magellan_smbeam_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_smbeam_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_smbeam_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_smbeam_hardpoint_glow.png",
+	"turretOffsets":[9, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[9, 0],
+	"hardpointAngleOffsets":[0],
+	"fringeColor":[143,255,17,155],
+	"coreColor":[173,255,47,255],
+	"glowColor":[173,255,47,155],
+	"width":10.0,
+	"textureType":LASER,
+	"textureScrollSpeed":72.0,
+	"pixelsPerTexel":5.0,
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF],
+	"fireSoundOne":"laser_intro",
+	"fireSoundTwo":"laser_loop",	
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

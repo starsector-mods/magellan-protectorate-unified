@@ -1,0 +1,43 @@
+{
+    "displayName": "Guard",
+    "fluxCapacitors": 5,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_supportdestroyer_yellowtail",
+    "hullMods": [
+        "magellan_movement_mod",
+        "high_scatter_amp",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportdestroyer_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_cbeam",
+                "WS0002": "magellan_cbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "magellan_slamfire_rack",
+                "WS0008": "magellan_slamfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_laservulcan",
+                "WS0004": "magellan_laservulcan",
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan"
+            }
+        }
+    ]
+}

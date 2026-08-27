@@ -1,0 +1,41 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "goalVariant": true,
+    "hullId": "magellan_cbtfreight_smuggler",
+    "hullMods": [
+        "safetyoverrides",
+        "magazines",
+        "shield_shunt",
+        "autorepair",
+        "fluxbreakers"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_cbtfreight_smuggler_overdriven",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_electrontorp"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_silverdart",
+                "WS0003": "magellan_silverdart"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_revgrenade",
+                "WS0005": "magellan_revgrenade"
+            }
+        }
+    ],
+    "wings": []
+}

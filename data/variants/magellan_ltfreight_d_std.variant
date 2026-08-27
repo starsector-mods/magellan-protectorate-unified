@@ -1,0 +1,20 @@
+{
+    "displayName": "Obsolete",
+    "fluxCapacitors": 2,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_ltfreight_d",
+    "hullMods": ["autorepair"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_ltfreight_d_std",
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0001": "magellan_smciws",
+            "WS0002": "magellan_smciws",
+            "WS0003": "magellan_linkflak"
+        }
+    }]
+}

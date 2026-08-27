@@ -1,0 +1,8 @@
+{
+	"id":"magellan_anomalous_flakpods",
+	"type":"WEAPON",
+	"aiType":"CANISTER_FLAK",
+	
+	"weaponDataId":"magellan_anomalous_flakpod",
+	"outOfUsesSound":"gun_out_of_ammo",
+}

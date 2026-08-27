@@ -1,0 +1,23 @@
+{
+    "displayName": "Barrage",
+    "fluxCapacitors": 6,
+    "fluxVents": 10,
+	"goalVariant": true,
+    "hullId": "magellan_droneturret",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_droneturret_barrage",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_solenoidbattery"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_targetingbeam"}
+        }
+    ]
+}

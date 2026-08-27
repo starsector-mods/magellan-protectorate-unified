@@ -1,0 +1,188 @@
+{
+  "hullName": "Merchanter",
+  "hullId": "magellan_cbtfreight_smuggler",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/Magellan/ships/smugglers/magellan_cbtfreight_mod.png",
+  "style": "MAGELLAN",
+  "height": 142,
+  "width": 96,
+  "center": [48, 66],
+  "collisionRadius": 96,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 92,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_smugglerMod",
+    "repair_gantry",
+    "shielded_holds"
+  ],
+  "builtInWings": [
+    "magellan_flakdrone_smuggler_single_wing"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 270,
+      "angle": 0,
+      "locations": [19, 0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [10, 38]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [10, -38]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 210,
+      "angle": 60,
+      "locations": [43, 16]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 210,
+      "angle": -60,
+      "locations": [43, -16]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 127.5,
+      "locations": [-41, 24]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -127.5,
+      "locations": [-41, -24]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 180,
+      "locations": [-24, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-65, 24],
+      "length": 30,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-65, -24],
+      "length": 30,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-62, 33.5],
+      "length": 24,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, -33.5],
+      "length": 24,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, 14.5],
+      "length": 24,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-62, -14.5],
+      "length": 24,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-32, 43.5],
+      "length": 12,
+      "width": 4,
+      "angle": 175,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-32, -43.5],
+      "length": 12,
+      "width": 4,
+      "angle": -175,
+      "contrailSize": 128,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    76, -2,
+    72, -5,
+    66.5, -17.5,
+    68.5, -20.5,
+    18.5, -36,
+    12, -46,
+    -29, -46,
+    -30, -40,
+    -53, -40,
+    -64, -30,
+    -64, -18,
+    -53, -8,
+    -53, 8,
+    -64, 18,
+    -64, 30,
+    -53, 40,
+    -30, 40,
+    -29, 46,
+    12, 46,
+    18.5, 36,
+    68.5, 20.5,
+    66.5, 17.5,
+    72, 5,
+    76, 2
+  ]
+}

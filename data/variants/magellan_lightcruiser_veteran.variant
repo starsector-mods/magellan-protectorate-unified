@@ -1,0 +1,53 @@
+{
+    "displayName": "Veteran",
+    "fluxCapacitors": 0,
+    "fluxVents": 23,
+    "goalVariant": true,
+    "hullId": "magellan_lightcruiser",
+    "hullMods": [
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_lightcruiser_veteran",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_ripfiresrmpod",
+                "WS0013": "magellan_ripfiresrm",
+                "WS0014": "magellan_ripfiresrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_quenchgun",
+                "WS0002": "magellan_quenchgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0007": "magellan_solenoidgun",
+                "WS0008": "magellan_solenoidgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_medpdmaser",
+                "WS0005": "magellan_linkflak",
+                "WS0006": "magellan_linkflak",
+                "WS0009": "magellan_bonesaw",
+                "WS0010": "magellan_bonesaw",
+                "WS0011": "magellan_smpdmaser",
+                "WS0012": "magellan_smpdmaser"
+            }
+        }
+    ]
+}

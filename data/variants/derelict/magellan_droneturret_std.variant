@@ -1,0 +1,31 @@
+{
+  "variantId": "magellan_droneturret_std",
+    "hullId": "magellan_droneturret",
+  "displayName": "Defense",
+  "goalVariant": true,
+  "fluxCapacitors": 7,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+  	"magazines"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_bonegrinder_hvy"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "magellan_targetingbeam"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

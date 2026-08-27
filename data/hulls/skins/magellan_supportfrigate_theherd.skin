@@ -1,0 +1,32 @@
+{
+	"baseHullId":"magellan_supportfrigate",
+	"skinHullId":"magellan_supportfrigate_theherd",
+	"hullName":"Dekker-C [Herd]",
+	"descriptionId":"magellan_supportfrigate",
+	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. A makeshift gamma torch has been crudely attached to the bow, providing both a fearsome close-range weapon, and a safety valve for the dangerously overtuned drive rig.",
+	"tags":["magellan_theherd", "restricted"],
+	"tech":"The Herd",
+    "fleetPoints":5,
+    "ordnancePoints":45,
+    "baseValueMult":1,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_supportfrigate_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0005":{
+      		"arc": 5,
+      		"type": "BUILT_IN"
+    	},
+    	"WS0006":{
+      		"type": "MISSILE"
+    	}
+    },
+    "builtInMods":["magellan_herdmod", "degraded_engines"],
+	"builtInWeapons":{
+		"WS0005": "magellan_radflamer"
+	}
+}

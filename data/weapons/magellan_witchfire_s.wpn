@@ -1,0 +1,32 @@
+{
+  "id": "magellan_witchfire_s",
+  "specClass": "projectile",
+  "type": "MISSILE",
+  "size": "MEDIUM",
+  "displayArcRadius": 1000,
+  "turretSprite": "graphics/Magellan/weapons/magellan_witchfire_s_turret_base.png",
+  "hardpointSprite": "graphics/Magellan/weapons/magellan_witchfire_s_hardpoint_base.png",
+  "renderHints": [RENDER_LOADED_MISSILES],
+  "turretOffsets": [6,0],
+  "turretAngleOffsets": [0],
+  "hardpointOffsets": [10,0],
+  "hardpointAngleOffsets": [0],
+  "barrelMode": "ALTERNATING",
+  "animationType": "SMOKE",
+  "smokeSpec": {
+    "particleSizeMin": 10,
+    "particleSizeRange": 24,
+    "cloudParticleCount": 10,
+    "cloudDuration": 2.5,
+    "cloudRadius": 12,
+    "blowbackParticleCount": 8,
+    "blowbackDuration": 2,
+    "blowbackLength": 18,
+    "blowbackSpread": 10,
+    "particleColor": [80,140,220,75]
+  },
+  "projectileSpecId": "magellan_witchfire",
+  "fireSoundTwo": "magellan_electroshock_fire",
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}

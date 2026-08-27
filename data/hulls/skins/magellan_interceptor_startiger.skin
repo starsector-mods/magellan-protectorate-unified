@@ -1,0 +1,24 @@
+{
+	"baseHullId":"magellan_interceptor",
+	"skinHullId":"magellan_interceptor_startiger",
+	"hullName":"Chela [SKT]",
+	"descriptionId":"magellan_interceptor_startiger",
+
+	"tech":"Skytiger Guards Division",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/startigers/magellan_interceptor_startiger.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[
+		"WS0001"
+	],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_bonesaw_ftr"
+	}
+}

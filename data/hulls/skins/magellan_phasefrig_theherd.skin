@@ -1,0 +1,37 @@
+{
+	"baseHullId":"magellan_phasefrig",
+	"skinHullId":"magellan_phasefrig_theherd",
+	"hullName":"Yeager [Herd]",
+	"descriptionId":"magellan_phasefrig",
+	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. A pair of makeshift gamma torches have been crudely attached to the bow, providing both a fearsome close-range weapon, and a safety valve for the dangerously overtuned drive rig.",
+	"tags":["magellan_theherd", "restricted"],
+	"tech":"The Herd",
+    "ordnancePoints":40,
+    "baseValueMult":1,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/phase/magellan_phasefrig_theherd.png",
+    "systemId":"plasmajets",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "BALLISTIC"
+    	},
+		"WS0002":{
+      		"type": "BUILT_IN"
+    	},
+		"WS0003":{
+      		"type": "BUILT_IN"
+    	},
+    	"WS0004":{
+      		"type": "BALLISTIC"
+    	}
+    },
+    "builtInMods":["magellan_herdmod", "degraded_engines"],
+	"builtInWeapons":{
+		"WS0002": "magellan_radflamer",
+		"WS0003": "magellan_radflamer"
+	}
+}

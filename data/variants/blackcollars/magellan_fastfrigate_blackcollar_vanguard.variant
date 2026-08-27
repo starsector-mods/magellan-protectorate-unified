@@ -1,0 +1,35 @@
+{
+    "displayName": "Vanguard",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_fastfrigate_blackcollar",
+    "hullMods": ["fluxdistributor"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_fastfrigate_blackcollar_vanguard",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_witchfire_s"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_sniperautogun",
+                "WS0003": "magellan_sniperautogun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_edefensor",
+                "WS0005": "magellan_edefensor"
+            }
+        }
+    ],
+    "wings": []
+}

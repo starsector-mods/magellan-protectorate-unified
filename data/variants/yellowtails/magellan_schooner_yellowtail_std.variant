@@ -1,0 +1,35 @@
+{
+    "displayName": "Special",
+    "fluxCapacitors": 10,
+    "fluxVents": 12,
+    "goalVariant": true,
+    "hullId": "magellan_schooner_yellowtail",
+    "hullMods": [
+        "fluxdistributor",
+        "magellan_defense_mod"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_schooner_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_strikefire_tube",
+                "WS0003": "magellan_sniperautogun",
+                "WS0004": "magellan_sniperautogun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_solenoidgun"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_laservulcan"}
+        }
+    ]
+}

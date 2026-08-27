@@ -1,0 +1,57 @@
+{
+  "hullName": "Flak Drone",
+  "hullId": "magellan_flakdrone",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/magellan_flakdrone.png",
+  "style": "MAGELLAN",
+  "height": 24,
+  "width": 16,
+  "center": [8, 13],
+  "collisionRadius": 18,
+  "shieldCenter": [-1, -0],
+  "shieldRadius": 16,
+  "viewOffset": 0,
+  "builtInMods": [
+    "terminator_core"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_flakcharge",
+    "WS0002": "magellan_linkflak"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 120,
+      "angle": 0,
+      "locations": [2, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 240,
+      "angle": 0,
+      "locations": [2, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-8, -0],
+      "length": 12,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlareTrail"
+    }
+  ],
+  "bounds": [
+    8.5, -4.5,
+    -9.5, -7,
+    -9.5, 7,
+    8.5, 4.5
+  ]
+}

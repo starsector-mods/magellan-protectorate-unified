@@ -1,0 +1,26 @@
+{
+    "displayName": "Express",
+    "fluxCapacitors": 0,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_ltfreight_yellowtail",
+    "hullMods": ["reinforcedhull"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_ltfreight_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_laservulcan",
+                "WS0002": "magellan_laservulcan"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_ioncharge"}
+        }
+    ]
+}

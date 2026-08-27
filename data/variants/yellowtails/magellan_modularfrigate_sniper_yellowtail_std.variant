@@ -1,0 +1,31 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 6,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_modularfrigate_sniper_yellowtail",
+    "hullMods": ["advancedoptics"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_modularfrigate_sniper_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "phasebeam"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_calliope_sm",
+                "WS0007": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_smciws"}
+        }
+    ]
+}

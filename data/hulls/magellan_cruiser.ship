@@ -1,0 +1,327 @@
+{
+  "hullName": "Magellan Cruiser",
+  "hullId": "magellan_cruiser",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/Magellan/ships/magellan_cruiser.png",
+  "style": "MAGELLAN",
+  "height": 272,
+  "width": 154,
+  "center": [77, 128],
+  "collisionRadius": 180,
+  "shieldCenter": [8, 0],
+  "shieldRadius": 170,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering",
+    "magellan_noshield",
+    "blast_doors"
+  ],
+  "builtInWeapons": {
+    "WS0006": "magellan_linkflak",
+    "WS0007": "magellan_linkflak",
+    "WS0010": "magellan_linkflak",
+    "WS0011": "magellan_linkflak"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 76,
+      "locations": [58, 37]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -76,
+      "locations": [58, -37]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": 78,
+      "locations": [-42, 42]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 170,
+      "angle": -78,
+      "locations": [-42, -42]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 180,
+      "locations": [-69, -0]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 75,
+      "locations": [84, 16]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -75,
+      "locations": [84, -16]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 90,
+      "locations": [34, 16]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -90,
+      "locations": [34, -16]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 105,
+      "locations": [-11, 16]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -105,
+      "locations": [-11, -16]
+    },
+    {
+      "id": "WS0012",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 90,
+      "locations": [12, 30]
+    },
+    {
+      "id": "WS0013",
+      "size": "MEDIUM",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": -90,
+      "locations": [12, -30]
+    },
+    {
+      "id": "WS0014",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 105,
+      "locations": [-84, 45]
+    },
+    {
+      "id": "WS0015",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -105,
+      "locations": [-84, -45]
+    },
+    {
+      "id": "WS0016",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [133, 26]
+    },
+    {
+      "id": "WS0017",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -0,
+      "locations": [133, -26]
+    },
+    {
+      "id": "WS0018",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 0,
+      "locations": [111, -0]
+    },
+    {
+      "id": "WS0019",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 170,
+      "locations": [-112.5, 27.5]
+    },
+    {
+      "id": "WS0020",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -170,
+      "locations": [-112.5, -27.5]
+    },
+    {
+      "id": "WS0021",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 90,
+      "locations": [-24.5, 61.5]
+    },
+    {
+      "id": "WS0022",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -90,
+      "locations": [-24.5, -61.5]
+    },
+    {
+      "id": "WS0023",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 20,
+      "locations": [118.5, 11.5]
+    },
+    {
+      "id": "WS0024",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -20,
+      "locations": [118.5, -11.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-127, 41],
+      "length": 48,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-127, -41],
+      "length": 48,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-127, 62],
+      "length": 48,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-127, -62],
+      "length": 48,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-125, 51.5],
+      "length": 32,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-125, -51.5],
+      "length": 32,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-108, 14],
+      "length": 32,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-108, -14],
+      "length": 32,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFlare"
+    }
+  ],
+  "bounds": [
+    113.5, -13.5,
+    138, -14,
+    136, -57,
+    -20.5, -57,
+    -66.5, -74,
+    -117, -74,
+    -122, -41.5,
+    -104, -15,
+    -104, 15,
+    -122, 41.5,
+    -117, 74,
+    -66.5, 74,
+    -20.5, 57,
+    136, 57,
+    138, 14,
+    113.5, 13.5
+  ]
+}

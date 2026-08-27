@@ -1,0 +1,33 @@
+{
+	"baseHullId":"magellan_linedestroyer",
+	"skinHullId":"magellan_linedestroyer_blackcollar",
+	"hullName":"Graff [BCR]",
+	"descriptionId":"magellan_linedestroyer",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating. Its upgraded engines make it frighteningly effective at flanking maneuvers.",
+	"tags":["magellan_blackcollar", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":12,
+    "ordnancePoints":115,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_linedestroyer_blackcollar.png",
+    "systemId":"magellan_microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "HYBRID"
+    	},
+		"WS0002":{
+      		"type": "HYBRID"
+    	},
+		"WS0003":{
+      		"type": "HYBRID"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod"],
+	"builtInWings":[],
+	"builtInWeapons":{}
+}

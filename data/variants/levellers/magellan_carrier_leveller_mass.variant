@@ -1,0 +1,27 @@
+{
+    "displayName": "Mass Action",
+    "fluxCapacitors": 0,
+    "fluxVents": 6,
+    "goalVariant": true,
+    "hullId": "magellan_carrier_leveller",
+    "hullMods": [
+        "pointdefenseai",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrier_leveller_mass",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS0001": "magellan_eflak",
+            "WS0002": "magellan_eflak",
+            "WS0003": "magellan_laservulcan",
+            "WS0004": "magellan_laservulcan",
+            "WS0005": "magellan_stunfire_rack",
+            "WS0006": "magellan_stunfire_rack"
+        }
+    }],
+    "wings": []
+}

@@ -1,0 +1,41 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 7,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_supportfrigate_blackcollar",
+    "hullMods": [
+        "missleracks",
+        "fluxdistributor"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportfrigate_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_sniperautogun",
+                "WS0004": "magellan_sniperautogun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_balefiremrm_tube",
+                "WS0006": "magellan_balefiremrm_tube"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_laservulcan",
+                "WS0002": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan"
+            }
+        }
+    ]
+}

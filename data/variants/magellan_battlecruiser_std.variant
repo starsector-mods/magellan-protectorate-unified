@@ -1,0 +1,57 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 0,
+    "fluxVents": 39,
+    "goalVariant": true,
+    "hullId": "magellan_battlecruiser",
+    "hullMods": [
+        "heavyarmor",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battlecruiser_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_bursttpc"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0017": "magellan_ripfiresrmpod",
+                "WS0018": "magellan_ripfiresrmpod",
+                "WS0019": "magellan_ripfiresrmpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_burstmaster",
+                "WS0004": "magellan_burstmaster",
+                "WS0006": "magellan_quenchgun",
+                "WS0007": "magellan_quenchgun",
+                "WS0008": "magellan_balefiremrm_tube",
+                "WS0009": "magellan_balefiremrm_tube"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_solenoidbattery",
+                "WS0005": "magellan_medpdmaser",
+                "WS0010": "magellan_smpdmaser",
+                "WS0011": "magellan_smpdmaser",
+                "WS0012": "magellan_linkflak",
+                "WS0013": "magellan_linkflak",
+                "WS0014": "magellan_linkflak",
+                "WS0015": "magellan_linkflak"
+            }
+        }
+    ],
+    "wings": ["magellan_hvyfighter_wing"]
+}

@@ -1,0 +1,52 @@
+{
+	"magellan_protectorate":{
+
+		"useCrewlessTraitNames":false,
+
+		"descriptionOverride":"Magellan ships are known for having the following traits:",
+
+		"allowFamousFlagshipsInFleets":false,
+
+		"allowFamousFlagshipBarEvent":false,
+		"allowFamousDerelictBarEvent":false,
+
+		"goodTraitFrequency":{
+			"peak_cr_time":2,
+			"repair":2,
+			"mount_durability":1,
+			"engine_durability":1,
+			"hull_integrity":4,
+			"armor_strength":4,
+			"damage":2,
+			"weapon_stability":2,
+			"range":2,
+			"fighter_speed":0,
+			"fighter_durability":0.25,
+			"refit_time":0.25,
+			"overload_time":1,
+			"flux_capacity":1,
+			"flux_dissipation":1,
+			"vent_rate":1,
+			"shield_raise_rate":0,
+			"shield_stability":0,
+			"shield_strength":0,
+			"phase_cost":0,
+			"phase_cooldown":0,
+			"blockade_runner":0,
+			"ballistics_rof":1,
+			"energy_cost":0,
+			"pd_range":1,
+			"pd_damage":1},
+
+		"badTraitFrequency":{
+			"peak_cr_time":0,
+			"repair":0,
+			"malfunction":0,
+			"mount_durability":0,
+			"engine_durability":0,
+			"hull_integrity":0,
+			"armor_strength":0,
+			"emp_resistance":0,
+			"shield_raise_rate":2,
+			"shield_stability":2,
+			"shield_strength":2}}}

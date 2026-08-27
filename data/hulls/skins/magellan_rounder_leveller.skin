@@ -1,0 +1,27 @@
+{
+	"baseHullId":"magellan_rounder",
+	"skinHullId":"magellan_rounder_leveller",
+	"hullName":"Rounder [LV]",
+	"descriptionId":"magellan_rounder_leveller",
+
+	"tech":"Leveller",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/levellers/magellan_rounder_leveller.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicshieldgen"],
+	"removeBuiltInWeapons":[
+		"WS0001"
+	],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"arc": 0
+    	}
+	},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_stunfire_ftr"
+	}
+}

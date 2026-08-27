@@ -1,0 +1,10 @@
+{
+    "scenarios": [
+        {
+            "id": "magellan_exile_sector",
+            "name": "Magellan Derelict Swarm",
+            "desc": "Long ago, automated Magellan colonial barges and derelict drone flotillas settled forgotten frontier systems. The ancient machines remain vigilant and hostile to all outsiders, holding the remnants of Magellan industrial might.",
+            "className": "data.campaign.customscenarios.magellan_ExileSector"
+        }
+    ]
+}

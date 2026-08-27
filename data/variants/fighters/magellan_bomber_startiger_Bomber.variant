@@ -1,0 +1,19 @@
+{
+  "displayName": "Bomber",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_bomber_startiger",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_bomber_startiger_Bomber",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_fusbomb_ftr",
+        "WS0002": "magellan_fusbomb_ftr"
+      }
+    }
+  ]
+}

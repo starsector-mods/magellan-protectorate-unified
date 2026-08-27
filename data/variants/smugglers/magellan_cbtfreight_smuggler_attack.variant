@@ -1,0 +1,47 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 2,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_cbtfreight_smuggler",
+    "hullMods": [
+        "missleracks",
+        "targetingunit",
+        "fluxdistributor"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_cbtfreight_smuggler_attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_salvoag"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0002": "magellan_slamfire_rack",
+                "WS0003": "magellan_slamfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_smgatling",
+                "WS0005": "magellan_smgatling"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_smpdmaser",
+                "WS0007": "magellan_smpdmaser"
+            }
+        }
+    ],
+    "wings": []
+}

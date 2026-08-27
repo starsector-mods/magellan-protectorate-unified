@@ -1,0 +1,47 @@
+{
+	"baseHullId":"magellan_battlecruiser",
+	"skinHullId":"magellan_battlecruiser_blackcollar",
+	"hullName":"Porey [BCR]",
+	"descriptionId":"magellan_battlecruiser",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating. Additionally, it's been refitted with a new spinal weapon and a captured Entropy Amplifier.",
+	"tags":["magellan_blackcollar", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":28,
+    "ordnancePoints":270,
+    "baseValueMult":1.5,
+
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_battlecruiser_blackcollar.png",
+    "systemId":"entropyamplifier",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":["WS0001", "WS0012", "WS0013", "WS0014", "WS0015"],
+	"weaponSlotChanges":{
+    	"WS0002":{
+      		"type": "HYBRID"
+    	},
+		"WS0004":{
+      		"type": "BALLISTIC"
+    	},
+    	"WS0005":{
+      		"type": "BALLISTIC"
+    	},
+    	"WS0006":{
+      		"type": "HYBRID"
+    	},
+    	"WS0007":{
+      		"type": "HYBRID"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod"],
+	"builtInWings":[
+
+	],
+	"builtInWeapons":{
+		"WS0001": "magellan_trinitycannon",
+		"WS0012": "magellan_triflak",
+		"WS0013": "magellan_triflak",
+		"WS0014": "magellan_triflak",
+		"WS0015": "magellan_triflak"
+	}
+}

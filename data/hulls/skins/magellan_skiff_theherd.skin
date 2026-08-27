@@ -1,0 +1,30 @@
+{
+	"baseHullId":"magellan_skiff",
+	"skinHullId":"magellan_skiff_theherd",
+	"hullName":"Nan [Herd]",
+	"descriptionId":"magellan_skiff",
+	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. A crude launcher for uranium-enriched dirty missiles has been installed in the bow, and the shield generator removed.",
+	"tags":["magellan_theherd", "restricted"],
+	"tech":"The Herd",
+    "fleetPoints":3,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_skiff_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign_b"],
+	"removeBuiltInWeapons":["WS0001"],
+	"weaponSlotChanges":{
+		"WS0002":{
+      		"type": "BALLISTIC"
+    	},
+    	"WS0003":{
+      		"type": "BALLISTIC"
+    	}
+	},
+	"builtInMods":["magellan_herdmod", "shield_shunt", "degraded_engines"],
+	"builtInWeapons":{
+		"WS0001": "magellan_radmissile_launcher"
+	},
+	"engineSlotChanges":{}
+}

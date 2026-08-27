@@ -1,0 +1,65 @@
+{
+	"baseHullId":"magellan_modularfrigate",
+	"skinHullId":"magellan_modularfrigate_sniper_yellowtail",
+	"hullName":"Terschad-B [TMC]",
+	"hullDesignation":"Beam Frigate",
+	"descriptionId":"magellan_modularfrigate",
+	"descriptionPrefix":"This ship has been configured as a long-range beam frigate, with a devastating spinal mount.",
+	"tags":["magellan_yellowtail", "magellan_yellowtail_bp", "no_dealer"],
+	"tech":"Tichel Mercantile Concern",
+    "fleetPoints":5,
+    "ordnancePoints":45,
+    "baseValueMult":0.8,
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_modularfrigate_sniper_yellowtail.png",
+    "systemId":"magellan_targdrone_tmc",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["armoredweapons", "rugged"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"mount": "HIDDEN",
+      		"type": "DECORATIVE"
+    	},
+		"WS0002":{
+      		"arc": 300,
+     		"angle": 45
+    	},
+		"WS0003":{
+      		"type": "SYSTEM",
+      		"mount": "HIDDEN",
+      		"arc": 0
+    	},
+    	"WS0004":{
+      		"type": "ENERGY",
+      		"mount": "HARDPOINT"
+    	},
+    	"WS0005":{
+      		"type": "DECORATIVE",
+      		"size": "MEDIUM",
+      		"mount": "TURRET"
+    	},
+    	"WS0008":{
+      		"mount": "HIDDEN",
+      		"type": "DECORATIVE"
+    	},
+    	"WS0009":{
+      		"mount": "HIDDEN",
+      		"type": "DECORATIVE"
+    	}
+    },
+	"builtInMods":["magellan_yellowtailmod", "magellan_yellowtail_beam"],
+	"builtInWeapons":{
+		"WS0005": "magellan_modfrigate_deco_yellowtail"
+	},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_STD"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"}
+	}
+}

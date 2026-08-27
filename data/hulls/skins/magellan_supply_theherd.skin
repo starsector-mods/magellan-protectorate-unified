@@ -1,0 +1,50 @@
+{
+	"baseHullId":"magellan_supply",
+	"skinHullId":"magellan_supply_theherd",
+	"hullName":"Hager [Herd]",
+	"descriptionId":"magellan_supply",
+	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. The forward weapon mounts have been crudely refitted with larger apertures, and the dorsal cargo bays converted to hold fighters, creating a rudimentary carrier to bolster the Herd's fleets.",
+	"tags":["magellan_theherd", "restricted"],
+	"tech":"The Herd",
+    "removeHints":["CIVILIAN", "FREIGHTER"],
+	"fleetPoints":12,
+    "ordnancePoints":60,
+    "baseValueMult":1.5,
+    "addHints":["CARRIER", "COMBAT", "HIDE_IN_CODEX"],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_supply_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "COMPOSITE",
+      		"size": "MEDIUM",
+      		"arc": 120,
+      		"angle": 30
+    	},
+    	"WS0002":{
+      		"size": "MEDIUM",
+      		"arc": 120,
+      		"angle": -30
+    	},
+    	"WS0003":{
+      		"type": "BALLISTIC"
+    	},
+    	"WS0004":{
+      		"type": "BALLISTIC"
+    	},
+    	"WS0005":{
+      		"type": "MISSILE"
+    	},
+    	"LB 1":{
+      		"type": "LAUNCH_BAY"
+    	}
+    },
+	"builtInMods":["magellan_herdmod", "magellan_converted_herd", "degraded_engines"],
+	"builtInWings":[
+		"magellan_herdintercept_wing",
+		"magellan_herdintercept_wing"
+  	]
+}

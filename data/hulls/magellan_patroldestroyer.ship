@@ -1,0 +1,192 @@
+{
+  "hullName": "Patrol Destroyer",
+  "hullId": "magellan_patroldestroyer",
+  "hullSize": "DESTROYER",
+  "spriteName": "graphics/Magellan/ships/magellan_patroldestroyer.png",
+  "style": "MAGELLAN",
+  "height": 192,
+  "width": 96,
+  "center": [48, 91],
+  "collisionRadius": 128,
+  "shieldCenter": [3, -0],
+  "shieldRadius": 120,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering",
+    "hiressensors"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [86, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": -10,
+      "locations": [35, -18]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": 10,
+      "locations": [41, 20]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": 10,
+      "locations": [21, 24],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 0,
+      "locations": [57, -0]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 120,
+      "locations": [-66, 30]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -120,
+      "locations": [-66, -30]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 90,
+      "locations": [-11, 38]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -90,
+      "locations": [-11, -38]
+    },
+    {
+      "id": "LB 1",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        -47, -0,
+        -47, 8,
+        -47, -8,
+        -52, 4,
+        -52, -4
+      ]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 180,
+      "locations": [-33.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-90, 30],
+      "length": 40,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-90, -30],
+      "length": 40,
+      "width": 12,
+      "angle": -180,
+      "contrailSize": 12,
+      "style": "MagellanFlare"
+    },
+    {
+      "location": [-87, 39.5],
+      "length": 28,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-87, -39.5],
+      "length": 28,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-87, 20.5],
+      "length": 28,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-87, -20.5],
+      "length": 28,
+      "width": 5,
+      "angle": -180,
+      "contrailSize": 5,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    95, -17,
+    58, -33,
+    22.5, -36,
+    -9.5, -45.5,
+    -86, -42,
+    -85.5, -18,
+    -70, -14,
+    -70, 14,
+    -85.5, 18,
+    -86, 42,
+    -9.5, 45.5,
+    22.5, 36,
+    58, 33,
+    95, 17
+  ]
+}

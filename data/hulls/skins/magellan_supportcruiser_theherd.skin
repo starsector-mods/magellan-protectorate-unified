@@ -1,0 +1,28 @@
+{
+	"baseHullId":"magellan_supportcruiser",
+	"skinHullId":"magellan_supportcruiser_theherd",
+	"hullName":"Sung [Herd]",
+	"descriptionId":"magellan_supportcruiser",
+	"descriptionPrefix":"The starboard weapon bay of this captured cruiser has been gutted and rebuilt into an unshielded 15-cell launch magazine for uranium-enriched Glowfire missiles. Clad in the weathered ochre and rust livery of The Herd, the jury-rigged magazine provides the raider cruiser with devastating armor-corroding barrage firepower.",
+	"tags":["magellan_theherd", "restricted"],
+	"tech":"The Herd",
+    "fleetPoints":16,
+    "ordnancePoints":108,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_supportcruiser_theherd.png",
+    "systemId":"microburn",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0004":{
+			"type": "COMPOSITE"
+		}
+	},
+	"builtInMods":["magellan_herdmod", "degraded_engines"],
+	"builtInWeapons":{
+		"WS0002": "magellan_cruiserradmissile_builtin"
+	}
+}

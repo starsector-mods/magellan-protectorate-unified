@@ -1,0 +1,32 @@
+{
+
+	"baseHullId":"magellan_fastdestroyer",
+	"skinHullId":"magellan_fastdestroyer_blackcollar",
+	"hullName":"Capella [BCR]",
+	"descriptionId":"magellan_fastdestroyer",
+	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating. This particular model also uses an experimental neural interface, purchased at great cost from Tri-Tachyon agents.",
+	"tags":["restricted", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":13,
+    "ordnancePoints":115,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_fastdestroyer_blackcollar.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "UNIVERSAL"
+    	},
+		"WS0009":{
+      		"type": "HYBRID"
+    	},
+    	"WS0010":{
+      		"type": "HYBRID"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod", "neural_interface"],
+	"builtInWeapons":{}
+}

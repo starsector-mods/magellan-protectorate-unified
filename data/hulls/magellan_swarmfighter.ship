@@ -1,0 +1,68 @@
+{
+  "hullName": "Swarmfighter",
+  "hullId": "magellan_swarmfighter",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/levellers/magellan_swarmfighter.png",
+  "style": "MGLN_LEVELLER",
+  "height": 28,
+  "width": 20,
+  "center": [10, 16],
+  "collisionRadius": 24,
+  "shieldCenter": [-1, -0],
+  "shieldRadius": 23,
+  "viewOffset": 0,
+  "builtInMods": [
+    "no_weapon_flux"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_laservulcan"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 75,
+      "angle": 0,
+      "locations": [5.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-9, -0],
+      "length": 25,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "M_HIGH_DIFFUSE_TRAIL"
+    },
+    {
+      "location": [-9, 1.5],
+      "length": 7,
+      "width": 3,
+      "angle": 177.5,
+      "contrailSize": 3,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-9, -1.5],
+      "length": 7,
+      "width": 3,
+      "angle": -177.5,
+      "contrailSize": 3,
+      "style": "M_HIGH_STD"
+    }
+  ],
+  "bounds": [
+    11, 0,
+    4, -7,
+    -2, -8.5,
+    -14.5, -4.5,
+    -8.5, -4,
+    -8.5, 4,
+    -14.5, 4.5,
+    -2, 8.5,
+    4, 7
+  ]
+}

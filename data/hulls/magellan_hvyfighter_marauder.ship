@@ -1,0 +1,77 @@
+{
+  "hullName": "Mod-Fighter",
+  "hullId": "magellan_hvyfighter_marauder",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/marauders/magellan_hvyfighter_marauder.png",
+  "style": "MAGELLAN",
+  "height": 40,
+  "width": 34,
+  "center": [17, 16.5],
+  "collisionRadius": 36,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 30,
+  "viewOffset": 0,
+  "builtInMods": [
+    "no_weapon_flux",
+    "fluxshunt"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_rendfiresrm_marauder",
+    "WS0002": "magellan_bonesaw_marauder"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [0, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 0,
+      "locations": [12.5, 3.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-13.5, 8],
+      "length": 24,
+      "width": 8,
+      "angle": 177.5,
+      "contrailSize": 8,
+      "style": "MagellanFighterFlareTrail"
+    },
+    {
+      "location": [-13.5, -8],
+      "length": 23.717541,
+      "width": 8.93942,
+      "angle": -177.5,
+      "contrailSize": 8.93942,
+      "style": "MagellanFighterFlareTrail"
+    },
+    {
+      "location": [-14.5, -0],
+      "length": 12,
+      "width": 4,
+      "angle": 180,
+      "contrailSize": 4,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    3.5, -8,
+    -6.5, -16,
+    -14.5, -0,
+    -6.5, 16,
+    3.5, 8,
+    12.5, 7.5,
+    21, -6
+  ]
+}

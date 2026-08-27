@@ -1,0 +1,63 @@
+{
+    "displayName": "Custom",
+    "fluxCapacitors": 8,
+    "fluxVents": 20,
+    "hullId": "magellan_patroldestroyer_smuggler",
+    "hullMods": [
+        "heavyarmor",
+        "targetingunit",
+        "eccm",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "heavyarmor",
+        "targetingunit"
+    ],
+    "sMods": [
+        "heavyarmor",
+        "targetingunit"
+    ],
+    "variantId": "magellan_patroldestroyer_smuggler_custom",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_calliope"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0012": "magellan_slamfire_tube",
+                "WS0013": "magellan_slamfire_tube"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_calliope_sm",
+                "WS0004": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_medautocannon"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "magellan_sniperautogun",
+                "WS0009": "magellan_sniperautogun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_sniperautogun"}
+        }
+    ],
+    "wings": ["magellan_bomber_civ_wing"]
+}

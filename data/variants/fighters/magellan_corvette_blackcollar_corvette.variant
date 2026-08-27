@@ -1,0 +1,25 @@
+{
+  "displayName": "Corvette",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "magellan_corvette_blackcollar",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "magellan_corvette_blackcollar_corvette",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_revgrenade_ftr"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0002": "magellan_ripfiresrmftr"
+      }
+    }
+  ]
+}

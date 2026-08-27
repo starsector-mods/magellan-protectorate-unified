@@ -1,0 +1,173 @@
+{
+    "playableFaction": true,
+    "startingFaction": true,
+    "freeStart": true,
+    "spawnAsFactionId": "player",
+    "corvusCompatible": true,
+    "difficultyString": "hard",
+    "ngcTooltip": "Believe in the revolution, and in yourself - you have few enough other friends.",
+    "factionsLiked": [
+        "shadow_industry",
+        "dassault_mikoyan",
+        "communist_clouds"
+    ],
+    "factionsDisliked": [
+        "luddic_path",
+        "luddic_church",
+        "independent",
+        "hegemony",
+        "tritachyon",
+        "persean",
+        "sindrian_diktat",
+        "remnant",
+        "blackrock_driveyards",
+        "magellan_protectorate",
+        "exigency",
+        "tiandong",
+        "diableavionics",
+        "SCY",
+        "sylphon",
+        "nullorder",
+        "fob",
+        "Coalition",
+        "neutrinocorp",
+        "interstellarimperium",
+        "syndicate_asp",
+        "pack",
+        "crystanite",
+        "vass_shipyards",
+        "fringe_defence_syndicate",
+        "nomads",
+        "junk_pirates",
+        "sad",
+        "new_galactic_order",
+        "apex_design",
+        "aria",
+        "uaf"
+    ],
+    "rebelFleetSuffix": "Partisans",
+    "alignments": {
+        "ideological": 1.0,
+        "hierarchical": -1.0,
+        "militarist": 0.6,
+        "corporate": -0.8,
+        "diplomatic": -0.3,
+        "technocratic": 0.0
+    },
+    "diplomacyTraits": [
+        "devious",
+        "selfrighteous",
+        "temperamental",
+        "predatory",
+        "anarchist",
+        "stalwart",
+        "irredentist"
+    ],
+    "groundBattleSettings": {
+        "attackMult": 1.25,
+        "moraleDamageTakenMult": 0.70,
+        "damageTakenMult": 0.95
+    },
+    "specialForcesMaxFleets": 2,
+    "specialForcesPointMult": 1.1,
+    "specialForcesSizeMult": 1.0,
+    "specialForcesNamerClass": "exerelin.campaign.intel.specialforces.namer.CommanderNamer",
+    "specialForcesFlagshipVariants": {
+        "magellan_skipjack_leveller_std": 1.0,
+        "magellan_skipjack_leveller_liberator": 1.0,
+        "magellan_carrier_leveller_mass": 0.8
+    },
+    "startShipsSolo": [
+        [
+            "magellan_linefrigate_leveller_turncoat"
+        ],
+        [
+            "magellan_lev_lancefrig_std"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_patroldestroyer_leveller_turncoat",
+            "magellan_lev_lancefrig_std"
+        ],
+        [
+            "magellan_supportdestroyer_leveller_turncoat",
+            "magellan_linefrigate_leveller_missile"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_supportdestroyer_leveller_turncoat",
+            "magellan_patroldestroyer_leveller_turncoat",
+            "magellan_linefrigate_leveller_missile"
+        ],
+        [
+            "magellan_skipjack_leveller_liberator",
+            "magellan_patroldestroyer_leveller_turncoat",
+            "magellan_lev_lancefrig_std"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_carrierconverted_escort",
+            "magellan_lev_dronefrig_std"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_carrier_leveller_mass",
+            "magellan_linefrigate_leveller_turncoat",
+            "magellan_lev_dronefrig_strike"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_ltfreight_std",
+            "magellan_lev_dronefrig_std"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_cbtfreight_std",
+            "magellan_patroldestroyer_leveller_turncoat"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_patroldestroyer_leveller_turncoat",
+            "magellan_lev_dronefrig_support"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_supportdestroyer_leveller_turncoat",
+            "magellan_ltfreight_std",
+            "magellan_lev_lancefrig_std"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_skipjack_leveller_std"
+        ],
+        [
+            "magellan_skipjack_leveller_liberator"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_skipjack_leveller_std",
+            "magellan_carrier_leveller_mass",
+            "magellan_supportdestroyer_leveller_turncoat",
+            "magellan_linefrigate_leveller_missile",
+            "magellan_cbtfreight_std"
+        ]
+    ],
+    "startSpecialItems": [
+        [
+            [
+                "magellan_levellercore_package",
+                ""
+            ]
+        ]
+    ]
+}

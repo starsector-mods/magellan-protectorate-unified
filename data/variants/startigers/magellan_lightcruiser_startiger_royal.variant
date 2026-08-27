@@ -1,0 +1,52 @@
+{
+    "displayName": "Royal",
+    "fluxCapacitors": 0,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_lightcruiser_elite",
+    "hullMods": [
+        "fluxdistributor",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_lightcruiser_startiger_royal",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "magellan_mfc"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0013": "magellan_balefiremrm_tube",
+                "WS0014": "magellan_balefiremrm_tube"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_medgatling",
+                "WS0002": "magellan_medgatling"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_medciws",
+                "WS0005": "magellan_boneshaker_ftr",
+                "WS0006": "magellan_boneshaker_ftr",
+                "WS0007": "magellan_smciws",
+                "WS0008": "magellan_smciws",
+                "WS0009": "magellan_smciws",
+                "WS0010": "magellan_smciws",
+                "WS0011": "magellan_smpdmaser",
+                "WS0012": "magellan_smpdmaser"
+            }
+        }
+    ]
+}

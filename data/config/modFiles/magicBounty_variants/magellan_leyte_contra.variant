@@ -1,0 +1,31 @@
+{
+    "displayName": "Contra",
+    "fluxCapacitors": 0,
+    "fluxVents": 9,
+    "hullId": "istl_leyte",
+    "hullMods": ["expanded_deck_crew"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_leyte_contra",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_eflak",
+                "WS0002": "magellan_eflak",
+                "WS0003": "magellan_eflak",
+                "WS0004": "magellan_eflak"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "istl_gravmissiletube"}
+        }
+    ],
+    "wings": [
+        "magellan_swarmfighter_wing",
+        "magellan_swarmfighter_wing"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "displayName": "Veteran",
+    "fluxCapacitors": 0,
+    "fluxVents": 24,
+    "goalVariant": true,
+    "hullId": "magellan_battleship",
+    "hullMods": [
+        "targetingunit",
+        "magellan_trajectory_analyzer"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battleship_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_largemortar",
+                "WS0002": "magellan_hvyfusionbomb_barrage"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_rendfiresrmpod",
+                "WS0004": "magellan_ripfiresrmpod",
+                "WS0011": "magellan_ripfiresrmpod",
+                "WS0012": "magellan_ripfiresrmpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_quenchgun",
+                "WS0006": "magellan_quenchgun",
+                "WS0007": "magellan_quenchgun",
+                "WS0008": "magellan_quenchgun",
+                "WS0009": "magellan_largemortar",
+                "WS0010": "magellan_largemortar"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "magellan_medciws",
+                "WS0016": "magellan_medciws",
+                "WS0019": "magellan_linkflak",
+                "WS0020": "magellan_linkflak",
+                "WS0021": "magellan_medciws",
+                "WS0022": "magellan_medciws",
+                "WS0023": "magellan_linkflak",
+                "WS0024": "magellan_linkflak",
+                "WS0025": "magellan_medciws",
+                "WS0026": "magellan_medciws"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_hvyfighter_wing",
+        "magellan_hvyfighter_wing"
+    ]
+}

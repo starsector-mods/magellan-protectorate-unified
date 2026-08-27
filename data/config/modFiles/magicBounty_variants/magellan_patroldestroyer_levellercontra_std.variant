@@ -1,0 +1,52 @@
+{
+    "displayName": "Contra",
+    "fluxCapacitors": 20,
+    "fluxVents": 4,
+    "hullId": "magellan_patroldestroyer_levellercontra",
+    "hullMods": [
+        "missleracks",
+        "targetingunit",
+        "magazines"
+    ],
+    "permaMods": ["magellan_contraMod"],
+    "sMods": [],
+    "variantId": "magellan_patroldestroyer_levellercontra_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "istl_marteau_esm_pod"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS0003": "istl_marteau_esm_rack",
+                "WS0004": "istl_marteau_esm_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_supersolenoid_sm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0008": "istl_microflak",
+                "WS0009": "istl_microflak"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": []
+}

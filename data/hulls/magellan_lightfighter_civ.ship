@@ -1,0 +1,76 @@
+{
+  "hullName": "Magellan Light Fighter",
+  "hullId": "magellan_lightfighter_civ",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/civ/magellan_lightfighter_civ.png",
+  "style": "MAGELLAN",
+  "height": 38,
+  "width": 28,
+  "center": [14, 16],
+  "collisionRadius": 29,
+  "shieldCenter": [1.5, -0],
+  "shieldRadius": 26.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "no_weapon_flux"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_crackerftrsingle",
+    "WS0002": "magellan_bonesaw_ftr"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-5, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 20,
+      "angle": 0,
+      "locations": [11, 3.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-15, 0],
+      "length": 25.5,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "M_HIGH_TRAIL"
+    },
+    {
+      "location": [-11, 6.5],
+      "length": 12,
+      "width": 2,
+      "angle": 177.5,
+      "contrailSize": 2,
+      "style": "M_HIGH_STD"
+    },
+    {
+      "location": [-11, -6.5],
+      "length": 12,
+      "width": 2,
+      "angle": -177.5,
+      "contrailSize": 2,
+      "style": "M_HIGH_STD"
+    }
+  ],
+  "bounds": [
+    19.5, -2.5,
+    -6, -9,
+    -13, -4.5,
+    -13, 4.5,
+    -6, 9,
+    13.5, 3.5,
+    4.5, -0
+  ]
+}

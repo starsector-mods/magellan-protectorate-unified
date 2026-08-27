@@ -1,0 +1,181 @@
+{
+  "hullName": "Support Cruiser",
+  "hullId": "magellan_supportcruiser",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/Magellan/ships/magellan_supportcruiser.png",
+  "style": "MAGELLAN",
+  "height": 268,
+  "width": 136,
+  "center": [68, 118],
+  "collisionRadius": 172,
+  "shieldCenter": [0.5, -0],
+  "shieldRadius": 167.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "magellan_engineering",
+    "hbi"
+  ],
+  "builtInWeapons": {
+    "WS0002": "magellan_clusterlrm_builtin"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "LARGE",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [-10, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [44, -53]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 180,
+      "locations": [-85, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "MISSILE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [20, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 40,
+      "locations": [31, 36]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": 15,
+      "locations": [66, 40]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 105,
+      "locations": [-10, 48]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "HYBRID",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -105,
+      "locations": [-10, -48]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "COMPOSITE",
+      "mount": "TURRET",
+      "arc": 75,
+      "angle": -15,
+      "locations": [80, -40]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "BALLISTIC",
+      "mount": "TURRET",
+      "arc": 240,
+      "angle": 0,
+      "locations": [108, -40]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-117, 0],
+      "length": 60,
+      "width": 18,
+      "angle": 180,
+      "contrailSize": 18,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-110, 22],
+      "length": 48,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-110, -22],
+      "length": 48,
+      "width": 10,
+      "angle": -180,
+      "contrailSize": 10,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-107, 13.5],
+      "length": 40,
+      "width": 6,
+      "angle": 180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    },
+    {
+      "location": [-107, -13.5],
+      "length": 40,
+      "width": 6,
+      "angle": -180,
+      "contrailSize": 6,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    148, -14,
+    148, -26.5,
+    125, -57,
+    6.5, -57,
+    -10, -66,
+    -32.5, -58,
+    -34, -24.5,
+    -99, -30,
+    -108.5, -26,
+    -106.5, -11.5,
+    -116, -10,
+    -116, 10,
+    -106.5, 11.5,
+    -109, 27,
+    -99, 30,
+    -34, 24.5,
+    -32.5, 58,
+    -10, 66,
+    6.5, 57,
+    88, 57,
+    83, 11,
+    27.5, 11,
+    27.5, -11,
+    142, -11
+  ]
+}

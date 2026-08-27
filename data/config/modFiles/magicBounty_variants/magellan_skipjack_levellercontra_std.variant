@@ -1,0 +1,52 @@
+{
+    "displayName": "Contra",
+    "fluxCapacitors": 16,
+    "fluxVents": 6,
+    "hullId": "magellan_skipjack_levellercontra",
+    "hullMods": [
+        "targetingunit",
+        "missleracks",
+        "eccm"
+    ],
+    "permaMods": ["magellan_contraMod"],
+    "sMods": [],
+    "variantId": "magellan_skipjack_levellercontra_std",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "istl_marteau_esm_pod"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "istl_gravmissiletube",
+                "WS0010": "istl_gravmissiletube",
+                "WS0011": "istl_gravmissiletube"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_supersolenoid_sm"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "istl_shockartillery"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan",
+                "WS0009": "magellan_laservulcan"
+            }
+        }
+    ],
+    "wings": []
+}

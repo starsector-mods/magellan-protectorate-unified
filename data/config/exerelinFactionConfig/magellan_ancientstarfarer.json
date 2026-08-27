@@ -1,0 +1,175 @@
+{
+    "playableFaction": false,
+    "startingFaction": true,
+    "freeStart": true,
+    "spawnAsFactionId": "player",
+    "corvusCompatible": false,
+    "difficultyString": "hard",
+    "ngcTooltip": "A classic ship, a stubborn dream, and a star to steer by.",
+    "factionsLiked": [
+        "magellan_protectorate",
+        "independent",
+        "junk_pirates"
+    ],
+    "factionsDisliked": [
+        "luddic_path",
+        "hegemony",
+        "tritachyon",
+        "sindrian_diktat",
+        "remnant",
+        "dassault_mikoyan",
+        "blackrock_driveyards",
+        "shadow_industry",
+        "exigency",
+        "tiandong",
+        "diableavionics",
+        "SCY",
+        "sylphon",
+        "nullorder",
+        "fob",
+        "Coalition",
+        "neutrinocorp",
+        "interstellarimperium",
+        "syndicate_asp",
+        "pack",
+        "crystanite",
+        "vass_shipyards",
+        "fringe_defence_syndicate",
+        "nomads",
+        "sad",
+        "aria",
+        "apex_design",
+        "HIVER",
+        "new_galactic_order"
+    ],
+    "alignments": {
+        "diplomatic": 0.8,
+        "technocratic": 0.5,
+        "ideological": 0.3,
+        "militarist": -0.3,
+        "hierarchical": -0.4,
+        "corporate": 0.0
+    },
+    "diplomacyTraits": [
+        "neutralist",
+        "lowprofile",
+        "helps_allies",
+        "pacifist"
+    ],
+    "groundBattleSettings": {
+        "attackMult": 1.0,
+        "damageTakenMult": 0.95,
+        "moraleDamageTakenMult": 0.9
+    },
+    "startShipsSolo": [
+        [
+            "magellan_cbtfreight_civ_std"
+        ],
+        [
+            "magellan_schooner_restored"
+        ],
+        [
+            "magellan_skiff_std"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_patroldestroyer_civ_std",
+            "magellan_linefrigate_civ_std",
+            "magellan_skiff_std"
+        ],
+        [
+            "magellan_supportdestroyer_yellowtail_std",
+            "magellan_modularfrigate_brawl_yellowtail_std",
+            "magellan_modularfrigate_sniper_yellowtail_std"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_lightcruiser_yellowtail_std",
+            "magellan_patroldestroyer_civ_std",
+            "magellan_linefrigate_civ_std"
+        ],
+        [
+            "magellan_cruiser_obsolete",
+            "magellan_patroldestroyer_civ_std",
+            "magellan_skiff_std"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_supply_civ_fighter",
+            "magellan_linefrigate_civ_std",
+            "magellan_skiff_std"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_carrierconverted_escort",
+            "magellan_patroldestroyer_civ_std",
+            "magellan_supply_civ_fighter"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_schooner_restored",
+            "magellan_skiff_std",
+            "magellan_linefrigate_civ_std"
+        ],
+        [
+            "magellan_linefrigate_civ_std",
+            "magellan_supply_civ_std"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_cbtfreight_civ_std",
+            "magellan_patroldestroyer_civ_std",
+            "magellan_supply_civ_std"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_skiff_std",
+            "magellan_linefrigate_civ_std",
+            "magellan_supply_civ_std"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_skipjack_std",
+            "magellan_patroldestroyer_civ_std",
+            "magellan_cbtfreight_civ_std"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_skipjack_std"
+        ],
+        [
+            "magellan_mothership_base_std"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_skipjack_std",
+            "magellan_patroldestroyer_civ_std",
+            "magellan_cbtfreight_civ_std",
+            "magellan_schooner_restored",
+            "magellan_supply_civ_std"
+        ]
+    ],
+    "startSpecialItems": [
+        [
+            [
+                "magellan_civ_package",
+                ""
+            ]
+        ]
+    ],
+    "miningVariantsOrWings": [
+        "magellan_cbtfreight_civ_std",
+        "magellan_patroldestroyer_civ_std",
+        "magellan_schooner_restored"
+    ]
+}

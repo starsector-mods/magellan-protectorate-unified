@@ -1,0 +1,42 @@
+{
+	"baseHullId":"magellan_schooner",
+	"skinHullId":"magellan_schooner_yellowtail",
+	"hullName":"Musa [TMC]",
+	"hullDesignation":"Combat Courier",
+	"descriptionId":"magellan_schooner",
+	"descriptionPrefix":"A prestige project for the Tichel Mercantile Concern, this model of the Musa is the only one still widely produced in Magellan space. The luxurious hand furnished interior is greatly favored by Tichel executives, who often make use of it as their personal pleasure craft.",
+	"tags":["magellan_yellowtail_bp", "magellan_yellowtail", "no_dealer"],
+	"tech":"Tichel Mercantile Concern",
+    "fleetPoints":8,
+    "ordnancePoints":50,
+	"baseValueMult":1.2,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_schooner_yellowtail.png",
+    "systemId":"magellan_ionchargelayer",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_classicdesign_b", "missleracks"],
+	"removeBuiltInWeapons":["WS0001", "WS0005"],
+	"weaponSlotChanges":{
+		"WS0002":{
+      		"arc": 120,
+      		"type": "COMPOSITE"
+    	},
+		"WS0005":{
+      		"type": "ENERGY"
+    	}
+    },
+    "builtInMods":["magellan_yellowtailmod", "shielded_holds"],
+	"builtInWeapons":{
+		"WS0001": "magellan_strikefire_tube"
+    },
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_TRAIL"
+		},
+		"1":{"style":"M_HIGH_TRAIL"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"}
+	}
+}

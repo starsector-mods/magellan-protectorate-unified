@@ -1,0 +1,34 @@
+{
+    "displayName": "Export",
+    "fluxCapacitors": 1,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_supply_civ",
+    "hullMods": ["expanded_cargo_holds"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supply_civ_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_smciws",
+                "WS0004": "magellan_smciws"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_stratLRM_launcher"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_smciws",
+                "WS0002": "magellan_smciws"
+            }
+        }
+    ]
+}

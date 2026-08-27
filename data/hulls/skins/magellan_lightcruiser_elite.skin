@@ -1,0 +1,35 @@
+{
+	"baseHullId":"magellan_lightcruiser",
+	"skinHullId":"magellan_lightcruiser_elite",
+	"hullName":"Chenel [SKT]",
+	"descriptionId":"magellan_lightcruiser",
+	"descriptionPrefix":"Befitting the bloodthirsty temperament of its aristocratic officers, no expense has been spared to upgrade the performance, and appearance, of this this Skytiger Guards warship. Especially notable is the fixed forward hardpoint, which has been modified to equip the heaviest weapons used by the Fleet.",
+	"tags":["magellan_startiger", "no_dealer"],
+	"tech":"Magellan",
+    "fleetPoints":15,
+    "ordnancePoints":150,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/startigers/magellan_lightcruiser_elite.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":["WS0005", "WS0006"],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "HYBRID"
+    	},
+    	"WS0002":{
+      		"type": "HYBRID"
+    	},
+		"WS0004":{
+      		"type": "HYBRID",
+			"size": "LARGE"
+    	}
+    },
+    "builtInMods":["magellan_startigermod", "hbi"],
+	"builtInWeapons":{
+    	"WS0005": "magellan_boneshaker_ftr",
+    	"WS0006": "magellan_boneshaker_ftr"
+	}
+}

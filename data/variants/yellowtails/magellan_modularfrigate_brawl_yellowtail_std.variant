@@ -1,0 +1,34 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 5,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_modularfrigate_brawl_yellowtail",
+    "hullMods": [
+        "heavyarmor",
+        "magellan_defense_mod"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_modularfrigate_brawl_yellowtail_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_boneshakerbattery"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_slamfire_rack"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_smciws",
+                "WS0003": "magellan_smciws"
+            }
+        }
+    ]
+}

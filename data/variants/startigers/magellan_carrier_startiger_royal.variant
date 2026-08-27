@@ -1,0 +1,45 @@
+{
+    "displayName": "Royal",
+    "fluxCapacitors": 0,
+    "fluxVents": 25,
+    "goalVariant": true,
+    "hullId": "magellan_carrier_startiger",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_carrier_startiger_royal",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0008": "magellan_smgatling"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_balefiremrm_battery"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_salvoag",
+                "WS0007": "magellan_salvoag"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_smpdmaser",
+                "WS0004": "magellan_smciws",
+                "WS0005": "magellan_smciws"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_corvette_startiger_wing",
+        "magellan_corvette_startiger_wing",
+        "magellan_corvette_startiger_wing"
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 0,
+    "fluxVents": 49,
+    "goalVariant": true,
+    "hullId": "magellan_battleship_startiger",
+    "hullMods": ["targetingunit"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battleship_startiger_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_mfc",
+                "WS0002": "magellan_mfc"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_balefiremrm_battery",
+                "WS0004": "magellan_balefiremrm_pod",
+                "WS0011": "magellan_balefiremrm_pod",
+                "WS0012": "magellan_balefiremrm_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_boneshaker",
+                "WS0006": "magellan_boneshaker",
+                "WS0007": "magellan_boneshaker",
+                "WS0008": "magellan_boneshaker",
+                "WS0009": "magellan_largebonecrusher",
+                "WS0010": "magellan_largebonecrusher",
+                "WS0021": "magellan_medgatling",
+                "WS0022": "magellan_medgatling"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "magellan_bonegrinder",
+                "WS0016": "magellan_bonegrinder",
+                "WS0019": "magellan_boneshaker_ftr",
+                "WS0020": "magellan_boneshaker_ftr",
+                "WS0023": "magellan_boneshaker_ftr",
+                "WS0024": "magellan_boneshaker_ftr",
+                "WS0025": "magellan_bonegrinder",
+                "WS0026": "magellan_bonegrinder"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_corvette_startiger_wing",
+        "magellan_corvette_startiger_wing"
+    ]
+}

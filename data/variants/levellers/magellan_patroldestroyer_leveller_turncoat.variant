@@ -1,0 +1,40 @@
+{
+    "displayName": "Turncoat",
+    "fluxCapacitors": 5,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_patroldestroyer_leveller",
+    "hullMods": [
+        "eccm",
+        "pointdefenseai"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_patroldestroyer_leveller_turncoat",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_electromissile_pod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_stunfire_rack",
+                "WS0004": "magellan_stunfire_rack",
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0007": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan",
+                "WS0009": "magellan_laservulcan"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_supersolenoid_sm"}
+        }
+    ],
+    "wings": []
+}

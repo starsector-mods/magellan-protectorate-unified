@@ -1,0 +1,22 @@
+{
+        "defaultChannels":[
+                "protectorate_public"],
+
+        "protectorate_public":{
+		"name":"Magellan Information Ministry",
+		"logo":"graphics/Magellan/icons/intel/magellan_public.png",
+		"icon":"graphics/Magellan/icons/intel/magellan_public.png",
+		"image":"graphics/Magellan/factions/protectorate.png",
+		"sound":"ui_channel_news",
+		"faction":"magellan_protectorate",
+		"type":"News Report",
+		"shortType":"News"},
+	"protectorate_internal":{
+		"name":"Magellan fleet Intelligence",
+		"logo":"graphics/Magellan/icons/intel/magellan_internal.png",
+		"icon":"graphics/Magellan/icons/intel/magellan_internal.png",
+		"image":"graphics/Magellan/factions/protectorate.png",
+		"sound":"ui_channel_comm_secure",
+		"faction":"magellan_protectorate",
+		"type":"Intelligence Report",
+		"shortType":"Intel"}}

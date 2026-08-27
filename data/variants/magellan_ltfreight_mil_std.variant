@@ -1,0 +1,26 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 2,
+    "fluxVents": 20,
+    "goalVariant": true,
+    "hullId": "magellan_ltfreight_mil",
+    "hullMods": ["expanded_cargo_holds"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_ltfreight_mil_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_smciws",
+                "WS0002": "magellan_smciws"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_linkflak"}
+        }
+    ]
+}

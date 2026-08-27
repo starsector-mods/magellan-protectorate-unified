@@ -1,0 +1,72 @@
+{
+    "displayName": "Royal",
+    "fluxCapacitors": 0,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "magellan_battleship_startiger",
+    "hullMods": [
+        "targetingunit",
+        "fluxbreakers"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battleship_startiger_royal",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_mfc",
+                "WS0002": "magellan_mfc"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_stratLRM_catapult",
+                "WS0004": "magellan_cruisemissile_launcher",
+                "WS0011": "magellan_cruisemissile_launcher",
+                "WS0012": "magellan_cruisemissile_launcher"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_beehive",
+                "WS0007": "magellan_beehive",
+                "WS0009": "magellan_bonegrinder_hvy",
+                "WS0021": "magellan_quenchgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0006": "magellan_beehive",
+                "WS0008": "magellan_beehive",
+                "WS0010": "magellan_bonegrinder_hvy",
+                "WS0022": "magellan_quenchgun"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0015": "magellan_medpdmaser",
+                "WS0016": "magellan_medpdmaser",
+                "WS0019": "magellan_boneshaker_ftr",
+                "WS0020": "magellan_boneshaker_ftr",
+                "WS0023": "magellan_boneshaker_ftr",
+                "WS0024": "magellan_boneshaker_ftr",
+                "WS0025": "magellan_medpdmaser",
+                "WS0026": "magellan_medpdmaser"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_bomber_startiger_wing",
+        "magellan_bomber_startiger_wing"
+    ]
+}

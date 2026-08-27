@@ -1,0 +1,41 @@
+{
+	"baseHullId":"magellan_ltfreight",
+	"skinHullId":"magellan_ltfreight_yellowtail",
+	"hullName":"Phillips [TMC]",
+	"descriptionId":"magellan_ltfreight",
+	"descriptionPrefix":"This hull has been refurbished to an alternate standard for the Tichel Concern's merchant guards, colloquially known as the Yellowtails. Energy mounts have been installed for point-defense to save money on ammunition, and all fighter LPCs have been integrated.",
+	"tags":["magellan_yellowtail_bp", "magellan_yellowtail", "no_dealer"],
+	"tech":"Tichel Mercantile Concern",
+	"baseValueMult":1.2,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/yellowtails/magellan_ltfreight_yellowtail.png",
+    "systemId":"magellan_ionchargelayer",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["civgrade"],
+	"removeBuiltInWeapons":["WS0003"],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "ENERGY"
+    	},
+    	"WS0002":{
+      		"type": "ENERGY"
+    	}
+	},
+    "builtInMods":["magellan_yellowtailmod", "shielded_holds"],
+	"builtInWeapons":{
+		"WS0003": "magellan_ioncharge"
+	},
+	"engineSlotChanges":{
+		"0":{
+
+          	"style": "M_HIGH_TRAIL"
+		},
+		"1":{"style":"M_HIGH_STD"},
+		"2":{"style":"M_HIGH_STD"},
+		"3":{"style":"M_HIGH_STD"},
+		"4":{"style":"M_HIGH_STD"},
+		"5":{"style":"M_HIGH_STD"},
+		"6":{"style":"M_HIGH_STD"}
+	}
+}

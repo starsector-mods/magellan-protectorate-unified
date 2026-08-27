@@ -1,0 +1,11 @@
+id,strength
+magellan_smpdmaser,10
+magellan_tribeamlaser,20
+magellan_smhetlaser,10
+magellan_medhetlaser,20
+magellan_cbeam,15
+magellan_smpulse_laser,8
+magellan_herdlaser,15
+magellan_herdlaser_marauder,20
+magellan_solenoidgun,10
+magellan_solenoidbattery,25

@@ -1,0 +1,57 @@
+{
+	"id":"player",
+
+	"flags":[
+		{
+			"logo":"graphics/Magellan/factions/custom/player_angelmoon_flag.png",
+			"crest":"graphics/Magellan/factions/custom/player_angelmoon_crest.png"
+		},
+		{
+			"logo":"graphics/Magellan/factions/custom/player_egalitarian_flag.png",
+			"crest":"graphics/Magellan/factions/custom/player_egalitarian_crest.png"
+		},
+		{
+			"logo":"graphics/Magellan/factions/custom/player_elegant_flag.png",
+			"crest":"graphics/Magellan/factions/custom/player_elegant_crest.png"
+		},
+		{
+			"logo":"graphics/Magellan/factions/custom/player_corsair_flag.png",
+			"crest":"graphics/Magellan/factions/custom/player_corsair_crest.png"
+		},
+		{
+			"logo":"graphics/Magellan/factions/custom/player_nomad_flag.png",
+			"crest":"graphics/Magellan/factions/custom/player_nomad_crest.png"
+		},
+		{
+			"logo":"graphics/Magellan/factions/custom/player_republic_flag.png",
+			"crest":"graphics/Magellan/factions/custom/player_republic_crest.png"
+		}
+	],
+
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"spacer":5
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"official":5
+		},
+		"HIGH":{
+			"soldier":10,
+			"official":10
+		},
+		"characterSounds":{
+			"standard":{"soldier":10, "spacer":5, "official":10}
+		}
+	},
+
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/portrait_hegemony01.png"
+		],
+		"standard_female":[
+			"graphics/portraits/portrait_hegemony03.png"
+		]
+	}
+}

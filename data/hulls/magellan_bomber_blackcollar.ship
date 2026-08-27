@@ -1,0 +1,107 @@
+{
+  "bounds": [
+    16,
+    -2.5,
+    5.5,
+    -5.5,
+    -6.5,
+    -14.5,
+    -8.5,
+    -6.5,
+    -17,
+    -4.5,
+    -17,
+    4.5,
+    -8.5,
+    6.5,
+    -6.5,
+    14.5,
+    5.5,
+    5.5,
+    16,
+    2.5
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_ripfiresrmftr2",
+    "WS0002": "magellan_balefiremrm_ftr2"
+  },
+  "center": [
+    16,
+    20
+  ],
+  "collisionRadius": 21.5,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 6,
+      "length": 20,
+      "location": [
+        -19,
+        -0
+      ],
+      "style": "MagellanFighterFlareTrail",
+      "width": 6
+    },
+    {
+      "angle": 180,
+      "contrailSize": 2,
+      "length": 16,
+      "location": [
+        -18,
+        3.5
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 2
+    },
+    {
+      "angle": -180,
+      "contrailSize": 2,
+      "length": 16,
+      "location": [
+        -18,
+        -3.5
+      ],
+      "style": "MagellanFighterFlare",
+      "width": 2
+    }
+  ],
+  "height": 40,
+  "hullId": "magellan_bomber_blackcollar",
+  "hullName": "Magellan Bomber",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    0
+  ],
+  "shieldRadius": 21.5,
+  "spriteName": "graphics/Magellan/ships/blackcollars/magellan_bomber_blackcollar.png",
+  "style": "MAGELLAN",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 90,
+      "id": "WS0001",
+      "locations": [
+        2,
+        0
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 360,
+      "id": "WS0002",
+      "locations": [
+        -2,
+        0
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 32
+}

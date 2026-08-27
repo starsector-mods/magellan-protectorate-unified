@@ -1,0 +1,30 @@
+{
+	"id":"magellan_burndrive",
+	"type":"ENGINE_MOD",
+	"aiType":"BURN_DRIVE_TOGGLE",
+	
+	"statsScript":"data.shipsystems.scripts.magellan_ImpBurnStats",
+	
+	"engineGlowColor":[255,90,75,255],
+	"engineGlowContrailColor":[155,45,35,25],
+	"engineGlowLengthMult":2.4,
+	"engineGlowWidthMult":2.0,
+	"engineGlowGlowMult":1.2,
+	
+	"flameoutOnImpactChance":0.05,
+
+	"clampTurnRateAfter":true,
+	"clampMaxSpeedAfter":true,
+	"alwaysAccelerate":true,
+
+	"useSound":"system_burn_drive_activate",
+	"loopSound":"system_burn_drive_loop",
+	"deactivateSound":"system_burn_drive_deactivate",
+	"outOfUsesSound":"engine_disabled",
+	
+	"aiHints":{
+		"activeSpeedIncrease":100,
+		"burstMovementPotential":0,
+		"averageSpeedIncrease":100,
+	}
+}

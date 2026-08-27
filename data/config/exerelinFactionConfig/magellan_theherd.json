@@ -1,0 +1,140 @@
+{
+    "playableFaction": true,
+    "corvusCompatible": true,
+    "directoryUseShortName": true,
+    "rebelFleetSuffix": "Deserters",
+    "patrolSizeMult": 1.0,
+    "noRandomizeRelations": true,
+    "difficultyString": "medium",
+    "ngcTooltip": "Roam the fringe as the Herd: lawless scrap-mongers, opportunistic scavengers, and brutal survivors.",
+    "diplomacyPositiveChance": {
+        "default": 0.0
+    },
+    "diplomacyNegativeChance": {
+        "default": 0.0
+    },
+    "colonyExpeditionChance": 0.0,
+    "startingFaction": true,
+    "freeStart": true,
+    "spawnAsFactionId": "player",
+    "alignments": {
+        "hierarchical": -0.8,
+        "militarist": 0.5,
+        "corporate": 0.3,
+        "diplomatic": -0.5,
+        "ideological": -0.3,
+        "technocratic": -0.3
+    },
+    "diplomacyTraits": [
+        "predatory",
+        "anarchist",
+        "lowprofile",
+        "monopolist"
+    ],
+    "groundBattleSettings": {
+        "attackMult": 1.1,
+        "moraleDamageTakenMult": 0.9,
+        "damageTakenMult": 0.95
+    },
+    "specialForcesMaxFleets": 1,
+    "specialForcesPointMult": 1.0,
+    "specialForcesNamerClass": "exerelin.campaign.intel.specialforces.namer.CommanderNamer",
+    "specialForcesFlagshipVariants": {
+        "magellan_supportcruiser_theherd_std": 1.0,
+        "magellan_carrier_theherd_std": 0.8
+    },
+    "startShipsSolo": [
+        [
+            "magellan_skiff_theherd_std"
+        ],
+        [
+            "magellan_phasefrig_theherd_std"
+        ]
+    ],
+    "startShipsCombatSmall": [
+        [
+            "magellan_linedestroyer_theherd_fighter",
+            "magellan_phasefrig_theherd_std"
+        ],
+        [
+            "magellan_linedestroyer_theherd_support",
+            "magellan_supportfrigate_theherd_std"
+        ]
+    ],
+    "startShipsCombatLarge": [
+        [
+            "magellan_supportcruiser_theherd_std",
+            "magellan_linedestroyer_theherd_support",
+            "magellan_missilefrigate_theherd_std"
+        ]
+    ],
+    "startShipsCarrierSmall": [
+        [
+            "magellan_herdcarrier_std",
+            "magellan_skiff_theherd_std"
+        ]
+    ],
+    "startShipsCarrierLarge": [
+        [
+            "magellan_carrier_theherd_std",
+            "magellan_herdcarrier_std",
+            "magellan_skiff_theherd_std"
+        ]
+    ],
+    "startShipsTradeSmall": [
+        [
+            "magellan_ltfreight_theherd_std",
+            "magellan_skiff_theherd_std"
+        ]
+    ],
+    "startShipsTradeLarge": [
+        [
+            "magellan_supply_theherd_std",
+            "magellan_ltfreight_theherd_std",
+            "magellan_linedestroyer_theherd_fighter"
+        ]
+    ],
+    "startShipsExplorerSmall": [
+        [
+            "magellan_skiff_theherd_std",
+            "magellan_supportfrigate_theherd_std"
+        ]
+    ],
+    "startShipsExplorerLarge": [
+        [
+            "magellan_supportcruiser_theherd_std",
+            "magellan_ltfreight_theherd_std",
+            "magellan_supply_theherd_std"
+        ]
+    ],
+    "startShipsSuper": [
+        [
+            "magellan_supportcruiser_theherd_std"
+        ],
+        [
+            "magellan_herdcarrier_std"
+        ]
+    ],
+    "startShipsGrandFleet": [
+        [
+            "magellan_supportcruiser_theherd_std",
+            "magellan_carrier_theherd_std",
+            "magellan_linedestroyer_theherd_fighter",
+            "magellan_herdcarrier_std",
+            "magellan_supply_theherd_std"
+        ]
+    ],
+    "startSpecialItems": [
+        [
+            [
+                "magellan_theherd_package",
+                ""
+            ]
+        ]
+    ],
+    "miningVariantsOrWings": [
+        "magellan_supply_theherd_std",
+        "magellan_skiff_theherd_std",
+        "magellan_ltfreight_theherd_std"
+    ]
+}

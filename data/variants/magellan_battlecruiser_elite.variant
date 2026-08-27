@@ -1,0 +1,57 @@
+{
+    "displayName": "Veteran",
+    "fluxCapacitors": 6,
+    "fluxVents": 50,
+    "goalVariant": true,
+    "hullId": "magellan_battlecruiser",
+    "hullMods": [
+        "missleracks",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battlecruiser_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_bursttpc"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0017": "magellan_balefiremrm_pod",
+                "WS0018": "magellan_balefiremrm_pod",
+                "WS0019": "magellan_balefiremrm_pod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0002": "magellan_largemortar",
+                "WS0003": "magellan_medautocannon",
+                "WS0004": "magellan_medautocannon",
+                "WS0005": "magellan_medautocannon",
+                "WS0006": "magellan_bonecrusher",
+                "WS0007": "magellan_bonecrusher",
+                "WS0008": "magellan_calliope_sm",
+                "WS0009": "magellan_calliope_sm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0010": "magellan_smciws",
+                "WS0011": "magellan_smciws",
+                "WS0012": "magellan_linkflak",
+                "WS0013": "magellan_linkflak",
+                "WS0014": "magellan_linkflak",
+                "WS0015": "magellan_linkflak"
+            }
+        }
+    ],
+    "wings": ["magellan_interceptor_wing"]
+}

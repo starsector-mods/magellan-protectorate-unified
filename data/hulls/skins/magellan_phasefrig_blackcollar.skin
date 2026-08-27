@@ -1,0 +1,42 @@
+{
+	"baseHullId":"magellan_phasefrig",
+	"skinHullId":"magellan_phasefrig_blackcollar",
+	"hullName":"Yeager [BCR]",
+	"descriptionId":"magellan_phasefrig",
+	"descriptionPrefix":"This hull has been extensively modified; smart-bomb clusters, a set of outriggers and landing ramps to support hot-drops of elite Blackcollar soldiers in hostile outback terrain, as well as the usual Blackcollar stealth coating. A captured Entropy Amplifier rounds out an already impressive refit.",
+	"tags":["magellan_blackcollar", "no_dealer"],
+	"tech":"Blackcollar Regiment",
+    "ordnancePoints":40,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/phase/magellan_phasefrig_blackcollar.png",
+    "systemId":"entropyamplifier",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["magellan_engineering"],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+      		"type": "BUILT_IN"
+    	},
+		"WS0002":{
+      		"angle": 60,
+      		"arc": 150,
+      		"mount": "TURRET",
+      		"type": "BALLISTIC"
+    	},
+		"WS0003":{
+      		"angle": -60,
+      		"arc": 150,
+      		"mount": "TURRET",
+      		"type": "BALLISTIC"
+    	},
+    	"WS0004":{
+      		"type": "COMPOSITE"
+    	}
+    },
+    "builtInMods":["magellan_blackcollarmod", "ground_support"],
+	"builtInWeapons":{
+		"WS0001": "magellan_medhetlaser"
+	}
+}

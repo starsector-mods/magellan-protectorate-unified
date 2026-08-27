@@ -1,0 +1,26 @@
+{
+	"baseHullId":"magellan_hvyfighter",
+	"skinHullId":"magellan_hvyfighter_blackcollar",
+	"hullName":"Jitte [BCR]",
+	"descriptionId":"magellan_hvyfighter_blackcollar",
+
+	"tech":"Blackcollar Regiment",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "baseValueMult":1.5,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_hvyfighter_blackcollar.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":[],
+	"removeBuiltInWeapons":[
+		"WS0001",
+		"WS0002"
+	],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_ripfireftr",
+		"WS0002": "magellan_emg_ftr"
+	}
+}

@@ -1,0 +1,72 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 0,
+    "fluxVents": 44,
+    "goalVariant": true,
+    "hullId": "magellan_battlecarrier_blackcollar",
+    "hullMods": [
+        "targetingunit",
+        "magellan_fighter_mod"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_battlecarrier_blackcollar_elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0003": "magellan_trinitycannon"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_maser",
+                "WS0002": "magellan_maser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0004": "magellan_medautocannon",
+                "WS0021": "magellan_medautocannon",
+                "WS0022": "magellan_medautocannon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0009": "magellan_witchfire_l",
+                "WS0010": "magellan_witchfire_l",
+                "WS0011": "magellan_witchfire_s",
+                "WS0012": "magellan_witchfire_s"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_medciws",
+                "WS0006": "magellan_medciws",
+                "WS0007": "magellan_medciws",
+                "WS0008": "magellan_medciws",
+                "WS0015": "magellan_medpdmaser",
+                "WS0016": "magellan_medpdmaser",
+                "WS0019": "magellan_triflak",
+                "WS0020": "magellan_triflak",
+                "WS0023": "magellan_triflak",
+                "WS0024": "magellan_triflak",
+                "WS0025": "magellan_medpdmaser",
+                "WS0026": "magellan_medpdmaser"
+            }
+        }
+    ],
+    "wings": [
+        "magellan_interceptor_blackcollar_wing",
+        "magellan_rounder_blackcollar_wing",
+        "magellan_rounder_blackcollar_wing",
+        "magellan_hvyfighter_blackcollar_wing"
+    ]
+}

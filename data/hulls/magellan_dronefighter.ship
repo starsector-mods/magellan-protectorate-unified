@@ -1,0 +1,67 @@
+{
+  "hullName": "Gun Drone",
+  "hullId": "magellan_dronefighter",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/drones/magellan_dronefighter.png",
+  "style": "MAGELLAN",
+  "height": 32,
+  "width": 24,
+  "center": [12, 14],
+  "collisionRadius": 24,
+  "shieldCenter": [2, 0],
+  "shieldRadius": 21,
+  "viewOffset": 0,
+  "builtInMods": [
+    "insulatedengine"
+  ],
+  "builtInWeapons": {
+    "WS0001": "magellan_estat_ftr"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": 0,
+      "locations": [3, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 75,
+      "locations": [-2.5, 10]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -75,
+      "locations": [-2.5, -10]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-11, -0],
+      "length": 8,
+      "width": 12,
+      "angle": 180,
+      "contrailSize": 12,
+      "style": "MagellanDroneFlare"
+    }
+  ],
+  "bounds": [
+    -12, -5,
+    -5, -10,
+    8, -10,
+    8, 10,
+    -5, 10,
+    -12, 5
+  ]
+}

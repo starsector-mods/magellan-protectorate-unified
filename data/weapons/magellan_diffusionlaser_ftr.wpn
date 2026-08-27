@@ -1,0 +1,56 @@
+{
+  "id": "magellan_diffusionlaser_ftr",
+  "specClass": "projectile",
+  "projectileSpecId": "magellan_diffusiongun_shot",
+  "type": "ENERGY",
+  "size": "SMALL",
+  "everyFrameEffect": "data.scripts.weapons.magellan_DiffusionGunFX",
+  "turretSprite": "graphics/Magellan/weapons/magellan_heavy_diffusiongun_turret.png",
+  "turretGlowSprite": "graphics/Magellan/weapons/magellan_heavy_diffusiongun_turret_glow.png",
+  "hardpointSprite": "graphics/Magellan/weapons/magellan_heavy_diffusiongun_hardpoint.png",
+  "hardpointGlowSprite": "graphics/Magellan/weapons/magellan_heavy_diffusiongun_hardpoint_glow.png",
+  "glowColor": [
+    100,
+    110,
+    255,
+    255
+  ],
+  "turretOffsets": [
+    4.5,
+    2,
+    4.5,
+    -2
+  ],
+  "turretAngleOffsets": [
+    0,
+    -0
+  ],
+  "hardpointOffsets": [
+    12,
+    2,
+    12,
+    -2
+  ],
+  "hardpointAngleOffsets": [
+    0,
+    -0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 12,
+    "spread": 150,
+    "particleSizeMin": 10,
+    "particleSizeRange": 12,
+    "particleDuration": 0.05,
+    "particleCount": 12,
+    "particleColor": [
+      100,
+      110,
+      255,
+      255
+    ]
+  },
+  "fireSoundTwo": "magellan_diffusionlaser_fire"
+}

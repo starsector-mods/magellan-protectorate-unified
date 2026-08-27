@@ -1,0 +1,2299 @@
+{
+    "music": {
+        "music_magellan_leveller_encounter": [
+            {
+                "file": "magellan_unforgivinghimalayas.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": false
+            }
+        ],
+        "music_magellan_leveller_market": [
+            {
+                "file": "magellan_mysticaljourney.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": false
+            }
+        ],
+        "music_magellan_indiemarket": [
+            {
+                "file": "magellan_emergingaliencivilizations.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ],
+        "music_magellan_derelict_encounter": [
+            {
+                "file": "magellan_deepspaceoutpost.ogg",
+                "source": "sounds/music",
+                "volume": 0.3,
+                "randomStart": false
+            }
+        ],
+        "music_magellan_protectorate_encounter_neutral": [
+            {
+                "file": "magellan_protectorate_neutral_encounter.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ],
+        "music_magellan_protectorate_encounter_hostile": [
+            {
+                "file": "magellan_protectorate_hostile_encounter.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ],
+        "music_magellan_protectorate_encounter_friendly": [
+            {
+                "file": "magellan_protectorate_friendly_encounter.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ],
+        "music_magellan_protectorate_market_neutral": [
+            {
+                "file": "magellan_protectorate_market_neutral.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ],
+        "music_magellan_protectorate_market_hostile": [
+            {
+                "file": "magellan_protectorate_market_hostile.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ],
+        "music_magellan_protectorate_market_friendly": [
+            {
+                "file": "magellan_protectorate_market_friendly.ogg",
+                "source": "sounds/music",
+                "volume": 0.4,
+                "randomStart": true
+            }
+        ]
+    },
+    "magellan_vsmallac_fire": [
+        {
+            "file": "sounds/weapons/magellan_vsmkinetic_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_vsmkinetic_01.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_vsmkinetic_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_vsmkinetic_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_vsmkinetic_02.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        }
+    ],
+    "magellan_smallgat_fire": [
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_01.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_02.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        }
+    ],
+    "magellan_medgat_fire": [
+        {
+            "file": "sounds/weapons/magellan_medkinetic_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_medkinetic_01.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_medkinetic_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_medkinetic_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_medkinetic_02.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        }
+    ],
+    "magellan_bonesaw_fire": [
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_01.ogg",
+            "pitch": 0.98,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_01.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_01.ogg",
+            "pitch": 1.02,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_02.ogg",
+            "pitch": 0.98,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_02.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_02.ogg",
+            "pitch": 1.02,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_03.ogg",
+            "pitch": 0.98,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_03.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        }
+    ],
+    "magellan_boneshaker_fire": [
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_01.ogg",
+            "pitch": 0.98,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_01.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_01.ogg",
+            "pitch": 1.02,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_02.ogg",
+            "pitch": 0.98,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_02.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_02.ogg",
+            "pitch": 1.02,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_03.ogg",
+            "pitch": 0.98,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_boneshaker_fire_03.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        }
+    ],
+    "magellan_bonesaw_crit": [
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 0.99,
+            "volume": 0.19
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 1,
+            "volume": 0.2
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 1.01,
+            "volume": 0.19
+        }
+    ],
+    "magellan_bonesaw_ftr_fire": [
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_01.ogg",
+            "pitch": 1.19,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_01.ogg",
+            "pitch": 1.2,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_01.ogg",
+            "pitch": 1.21,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_02.ogg",
+            "pitch": 1.19,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_02.ogg",
+            "pitch": 1.2,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_02.ogg",
+            "pitch": 1.21,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_03.ogg",
+            "pitch": 1.19,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_fire_03.ogg",
+            "pitch": 1.2,
+            "volume": 0.3
+        }
+    ],
+    "magellan_bonesaw_ftr_crit": [
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 1.19,
+            "volume": 0.09
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 1.2,
+            "volume": 0.1
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 1.21,
+            "volume": 0.09
+        }
+    ],
+    "magellan_bonecracker_fire": [
+        {
+            "file": "sounds/weapons/magellan_bonecracker_fire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecracker_fire_01.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecracker_fire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecracker_fire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecracker_fire_02.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        }
+    ],
+    "magellan_bonecrusher_fire": [
+        {
+            "file": "sounds/weapons/magellan_bonecrusher_fire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecrusher_fire_01.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecrusher_fire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecrusher_fire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_bonecrusher_fire_02.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        }
+    ],
+    "magellan_bonecrusher_crit": [
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 0.79,
+            "volume": 0.19
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 0.8,
+            "volume": 0.2
+        },
+        {
+            "file": "sounds/weapons/magellan_bonesaw_impact.ogg",
+            "pitch": 0.81,
+            "volume": 0.19
+        }
+    ],
+    "magellan_quenchgun_fire": [
+        {
+            "file": "sounds/weapons/magellan_quenchgun_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchgun_01.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchgun_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchgun_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchgun_02.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        }
+    ],
+    "magellan_quenchcannon_fire": [
+        {
+            "file": "sounds/weapons/magellan_quenchcannon_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchcannon_01.ogg",
+            "pitch": 1.0,
+            "volume": 0.6
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchcannon_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchcannon_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_quenchcannon_02.ogg",
+            "pitch": 1.0,
+            "volume": 0.6
+        }
+    ],
+    "magellan_kineticspall_crit": [
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_01.ogg",
+            "pitch": 1.0,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_02.ogg",
+            "pitch": 1.0,
+            "volume": 0.35
+        }
+    ],
+    "magellan_kineticspall_sm_crit": [
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_01.ogg",
+            "pitch": 1.19,
+            "volume": 0.14
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_01.ogg",
+            "pitch": 1.2,
+            "volume": 0.15
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_01.ogg",
+            "pitch": 1.21,
+            "volume": 0.14
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_02.ogg",
+            "pitch": 1.19,
+            "volume": 0.14
+        },
+        {
+            "file": "sounds/weapons/magellan_kineticspall_crit_02.ogg",
+            "pitch": 1.2,
+            "volume": 0.15
+        }
+    ],
+    "magellan_salvoag_fire": [
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_01.ogg",
+            "pitch": 1.19,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_01.ogg",
+            "pitch": 1.2,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_01.ogg",
+            "pitch": 1.21,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_02.ogg",
+            "pitch": 1.19,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_02.ogg",
+            "pitch": 1.2,
+            "volume": 0.3
+        }
+    ],
+    "magellan_revgrenade_fire": [
+        {
+            "file": "sounds/weapons/magellan_revgrenade_fire.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_revgrenade_fire.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_revgrenade_fire.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        }
+    ],
+    "magellan_beehive_fire": [
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_01.ogg",
+            "pitch": 1,
+            "volume": 0.45
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_02.ogg",
+            "pitch": 1,
+            "volume": 0.45
+        }
+    ],
+    "magellan_burstmaster_fire": [
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_01.ogg",
+            "pitch": 1,
+            "volume": 0.45
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_burstmaster_fire_02.ogg",
+            "pitch": 1,
+            "volume": 0.45
+        }
+    ],
+    "magellan_largemortar_fire": [
+        {
+            "file": "sounds/weapons/magellan_largemortar_fire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_largemortar_fire_01.ogg",
+            "pitch": 1.0,
+            "volume": 0.7
+        },
+        {
+            "file": "sounds/weapons/magellan_largemortar_fire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_largemortar_fire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_largemortar_fire_02.ogg",
+            "pitch": 1.0,
+            "volume": 0.7
+        }
+    ],
+    "magellan_lmg_fire": [
+        {
+            "file": "sounds/weapons/magellan_lmgfire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.15
+        },
+        {
+            "file": "sounds/weapons/magellan_lmgfire_01.ogg",
+            "pitch": 1,
+            "volume": 0.16
+        },
+        {
+            "file": "sounds/weapons/magellan_lmgfire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.15
+        },
+        {
+            "file": "sounds/weapons/magellan_lmgfire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.15
+        },
+        {
+            "file": "sounds/weapons/magellan_lmgfire_02.ogg",
+            "pitch": 1,
+            "volume": 0.16
+        },
+        {
+            "file": "sounds/weapons/magellan_lmgfire_03.ogg",
+            "pitch": 0.99,
+            "volume": 0.15
+        },
+        {
+            "file": "sounds/weapons/magellan_lmgfire_03.ogg",
+            "pitch": 1,
+            "volume": 0.16
+        }
+    ],
+    "magellan_hmg_fire": [
+        {
+            "file": "sounds/weapons/magellan_hmgfire_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_hmgfire_01.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_hmgfire_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_hmgfire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_hmgfire_02.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_hmgfire_03.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_hmgfire_03.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        }
+    ],
+    "magellan_mg_boom": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_wpn_guns/devastator_shell_exp_01.ogg",
+                "pitch": 1.2,
+                "volume": 0.2
+            },
+            {
+                "file": "sounds/sfx_wpn_guns/devastator_shell_exp_02.ogg",
+                "pitch": 1.2,
+                "volume": 0.2
+            },
+            {
+                "file": "sounds/sfx_wpn_guns/devastator_shell_exp_03.ogg",
+                "pitch": 1.2,
+                "volume": 0.2
+            },
+            {
+                "file": "sounds/sfx_wpn_guns/devastator_shell_exp_04.ogg",
+                "pitch": 1.2,
+                "volume": 0.2
+            }
+        ]
+    },
+    "magellan_lilsolenoid_fire": [
+        {
+            "file": "sounds/weapons/magellan_lilsolenoid_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_lilsolenoid_01.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_lilsolenoid_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_lilsolenoid_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_lilsolenoid_02.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        }
+    ],
+    "magellan_bigsolenoid_fire": [
+        {
+            "file": "sounds/weapons/magellan_bigsolenoid_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_bigsolenoid_01.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_bigsolenoid_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_bigsolenoid_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_bigsolenoid_02.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        }
+    ],
+    "magellan_fuelrod_fire": [
+        {
+            "file": "sounds/weapons/magellan_fuelrod_fire.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_fire.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_fire.ogg",
+            "pitch": 1.01,
+            "volume": 0.49
+        }
+    ],
+    "magellan_fuelrod_crit": [
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_01.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_02.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        }
+    ],
+    "magellan_fuelscatter_fire": [
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_01.ogg",
+            "pitch": 0.89,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_01.ogg",
+            "pitch": 0.9,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_01.ogg",
+            "pitch": 0.91,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_beehive_fire_02.ogg",
+            "pitch": 0.9,
+            "volume": 0.4
+        }
+    ],
+    "magellan_fuelrod_crit_sm": [
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_01.ogg",
+            "pitch": 1.19,
+            "volume": 0.19
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_01.ogg",
+            "pitch": 1.2,
+            "volume": 0.2
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_01.ogg",
+            "pitch": 1.21,
+            "volume": 0.19
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_02.ogg",
+            "pitch": 1.19,
+            "volume": 0.19
+        },
+        {
+            "file": "sounds/weapons/magellan_fuelrod_impact_02.ogg",
+            "pitch": 1.2,
+            "volume": 0.2
+        }
+    ],
+    "magellan_cracker_fire": [
+        {
+            "file": "sounds/weapons/magellan_cracker_fire.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_cracker_fire.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_cracker_fire.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        }
+    ],
+    "magellan_foxfire_launch": [
+        {
+            "file": "sounds/weapons/magellan_foxfire_launch.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_foxfire_launch.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_foxfire_launch.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        }
+    ],
+    "magellan_LKmissile_launch": [
+        {
+            "file": "sounds/weapons/magellan_foxfire_launch.ogg",
+            "pitch": 0.79,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_foxfire_launch.ogg",
+            "pitch": 0.8,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_foxfire_launch.ogg",
+            "pitch": 0.81,
+            "volume": 0.49
+        }
+    ],
+    "magellan_ripfire_launch": [
+        {
+            "file": "sounds/weapons/magellan_ripfire_launch.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_ripfire_launch.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_ripfire_launch.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        }
+    ],
+    "magellan_stratlrm_launch": [
+        {
+            "file": "sounds/weapons/magellan_stratlrm_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrm_01.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrm_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrm_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrm_02.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        }
+    ],
+    "magellan_stratlrm_lg_launch": [
+        {
+            "file": "sounds/weapons/magellan_stratlrmlarge_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.54
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrmlarge_01.ogg",
+            "pitch": 1,
+            "volume": 0.55
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrmlarge_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.54
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrmlarge_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.54
+        },
+        {
+            "file": "sounds/weapons/magellan_stratlrmlarge_02.ogg",
+            "pitch": 1,
+            "volume": 0.55
+        }
+    ],
+    "magellan_slamfire_launch": [
+        {
+            "file": "sounds/weapons/magellan_slamfire_launch.ogg",
+            "pitch": 0.99,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_slamfire_launch.ogg",
+            "pitch": 1,
+            "volume": 0.45
+        },
+        {
+            "file": "sounds/weapons/magellan_slamfire_launch.ogg",
+            "pitch": 1.01,
+            "volume": 0.44
+        }
+    ],
+    "magellan_balefire_launch": [
+        {
+            "file": "sounds/weapons/magellan_balefire_launch.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_balefire_launch.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_balefire_launch.ogg",
+            "pitch": 1.01,
+            "volume": 0.49
+        }
+    ],
+    "magellan_electroshock_fire": [
+        {
+            "file": "sounds/weapons/magellan_electrolaunch_fire.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_electrolaunch_fire.ogg",
+            "pitch": 1,
+            "volume": 0.6
+        },
+        {
+            "file": "sounds/weapons/magellan_electrolaunch_fire.ogg",
+            "pitch": 1.01,
+            "volume": 0.59
+        }
+    ],
+    "magellan_stunfire_launch": [
+        {
+            "file": "sounds/weapons/magellan_ripfire_launch.ogg",
+            "pitch": 0.68,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_ripfire_launch.ogg",
+            "pitch": 0.7,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_ripfire_launch.ogg",
+            "pitch": 0.72,
+            "volume": 0.49
+        }
+    ],
+    "magellan_fusbomb_launch": [
+        {
+            "file": "sounds/weapons/magellan_fusbomb_launch.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_fusbomb_launch.ogg",
+            "pitch": 1,
+            "volume": 0.6
+        },
+        {
+            "file": "sounds/weapons/magellan_fusbomb_launch.ogg",
+            "pitch": 1.01,
+            "volume": 0.59
+        }
+    ],
+    "magellan_fusbomb_sm_launch": [
+        {
+            "file": "sounds/weapons/magellan_fusbomb_sm_launch.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_fusbomb_sm_launch.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_fusbomb_sm_launch.ogg",
+            "pitch": 1.01,
+            "volume": 0.49
+        }
+    ],
+    "magellan_maser_loop": [
+        {
+            "file": "sounds/weapons/magellan_maser_loop.ogg",
+            "pitch": 1,
+            "volume": 1
+        }
+    ],
+    "magellan_electrontorpedo_fire": [
+        {
+            "file": "sounds/weapons/magellan_electrontorpedo.ogg",
+            "pitch": 0.99,
+            "volume": 0.44
+        },
+        {
+            "file": "sounds/weapons/magellan_electrontorpedo.ogg",
+            "pitch": 1,
+            "volume": 0.45
+        },
+        {
+            "file": "sounds/weapons/magellan_electrontorpedo.ogg",
+            "pitch": 1.01,
+            "volume": 0.44
+        }
+    ],
+    "magellan_electron_crit": [
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 0.99,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 1,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 1.01,
+            "volume": 0.34
+        }
+    ],
+    "magellan_electron_crit_sm": [
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 1.14,
+            "volume": 0.19
+        },
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 1.15,
+            "volume": 0.2
+        },
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 1.16,
+            "volume": 0.19
+        }
+    ],
+    "magellan_fusion_crit": [
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_01.ogg",
+            "pitch": 1,
+            "volume": 0.7
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_02.ogg",
+            "pitch": 1,
+            "volume": 0.7
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_02.ogg",
+            "pitch": 1.01,
+            "volume": 0.69
+        }
+    ],
+    "magellan_fusion_sm_crit": [
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_01.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_02.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_fusionimpact_02.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        }
+    ],
+    "magellan_flamer_loop": [
+        {
+            "file": "sounds/sfx_wpn_energy/cryoflamer_loop.ogg",
+            "pitch": 0.5,
+            "volume": 1.2
+        }
+    ],
+    "magellan_laserfire_med": [
+        {
+            "file": "sounds/weapons/magellan_laserfire_med.ogg",
+            "pitch": 0.99,
+            "volume": 0.74
+        },
+        {
+            "file": "sounds/weapons/magellan_laserfire_med.ogg",
+            "pitch": 1,
+            "volume": 0.75
+        },
+        {
+            "file": "sounds/weapons/magellan_laserfire_med.ogg",
+            "pitch": 1.01,
+            "volume": 0.74
+        }
+    ],
+    "magellan_laserfire_sm": [
+        {
+            "file": "sounds/weapons/magellan_laserfire_sm.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_laserfire_sm.ogg",
+            "pitch": 1,
+            "volume": 0.6
+        },
+        {
+            "file": "sounds/weapons/magellan_laserfire_sm.ogg",
+            "pitch": 1.01,
+            "volume": 0.59
+        }
+    ],
+    "magellan_laservulcan_fire": [
+        {
+            "file": "sounds/weapons/magellan_evulcan.ogg",
+            "pitch": 1.015,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_evulcan.ogg",
+            "pitch": 1.0,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_evulcan.ogg",
+            "pitch": 0.985,
+            "volume": 0.29
+        }
+    ],
+    "magellan_diffusiongun_fire": [
+        {
+            "file": "sounds/weapons/magellan_diffusion_fire.ogg",
+            "pitch": 1.16,
+            "volume": 0.34
+        },
+        {
+            "file": "sounds/weapons/magellan_diffusion_fire.ogg",
+            "pitch": 1.15,
+            "volume": 0.35
+        },
+        {
+            "file": "sounds/weapons/magellan_diffusion_fire.ogg",
+            "pitch": 1.14,
+            "volume": 0.34
+        }
+    ],
+    "magellan_diffusionlaser_fire": [
+        {
+            "file": "sounds/weapons/magellan_diffusion_fire.ogg",
+            "pitch": 1.01,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_diffusion_fire.ogg",
+            "pitch": 1.0,
+            "volume": 0.6
+        },
+        {
+            "file": "sounds/weapons/magellan_diffusion_fire.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        }
+    ],
+    "magellan_eflak_fire": [
+        {
+            "file": "sounds/weapons/magellan_electroflak.ogg",
+            "pitch": 0.99,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_electroflak.ogg",
+            "pitch": 1.0,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_electroflak.ogg",
+            "pitch": 1.01,
+            "volume": 0.39
+        }
+    ],
+    "magellan_ebolter_fire": [
+        {
+            "file": "sounds/weapons/magellan_ebolter.ogg",
+            "pitch": 1.015,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_ebolter.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_ebolter.ogg",
+            "pitch": 0.985,
+            "volume": 0.49
+        }
+    ],
+    "magellan_ebolter_crit": [
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 0.88,
+            "volume": 0.09
+        },
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 0.9,
+            "volume": 0.1
+        },
+        {
+            "file": "sounds/weapons/magellan_electronimpact.ogg",
+            "pitch": 0.92,
+            "volume": 0.09
+        }
+    ],
+    "magellan_electrogun_fire": [
+        {
+            "file": "sounds/weapons/magellan_electrogun_01.ogg",
+            "pitch": 1.015,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_electrogun_01.ogg",
+            "pitch": 1,
+            "volume": 0.7
+        },
+        {
+            "file": "sounds/weapons/magellan_electrogun_01.ogg",
+            "pitch": 0.985,
+            "volume": 0.69
+        },
+        {
+            "file": "sounds/weapons/magellan_electrogun_02.ogg",
+            "pitch": 1,
+            "volume": 0.7
+        },
+        {
+            "file": "sounds/weapons/magellan_electrogun_02.ogg",
+            "pitch": 0.985,
+            "volume": 0.69
+        }
+    ],
+    "magellan_supersolenoid_fire": [
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_01.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_02.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        }
+    ],
+    "magellan_supersolenoid_sm_fire": [
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_sm_01.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_sm_01.ogg",
+            "pitch": 1,
+            "volume": 0.6
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_sm_01.ogg",
+            "pitch": 1.01,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_sm_02.ogg",
+            "pitch": 0.99,
+            "volume": 0.59
+        },
+        {
+            "file": "sounds/weapons/magellan_supersolenoid_sm_02.ogg",
+            "pitch": 1,
+            "volume": 0.6
+        }
+    ],
+    "magellan_estat_ftr_fire": [
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_01.ogg",
+            "pitch": 0.95,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_01.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_01.ogg",
+            "pitch": 1.05,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_02.ogg",
+            "pitch": 0.95,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/weapons/magellan_smallkinetic_02.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        }
+    ],
+    "magellan_silverdart_fire": [
+        {
+            "file": "sounds/weapons/magellan_silverdart_01.ogg",
+            "pitch": 0.97,
+            "volume": 0.24
+        },
+        {
+            "file": "sounds/weapons/magellan_silverdart_01.ogg",
+            "pitch": 1,
+            "volume": 0.25
+        },
+        {
+            "file": "sounds/weapons/magellan_silverdart_01.ogg",
+            "pitch": 1.03,
+            "volume": 0.24
+        },
+        {
+            "file": "sounds/weapons/magellan_silverdart_02.ogg",
+            "pitch": 0.97,
+            "volume": 0.24
+        },
+        {
+            "file": "sounds/weapons/magellan_silverdart_02.ogg",
+            "pitch": 1,
+            "volume": 0.25
+        }
+    ],
+    "magellan_silverbolt_fire": [
+        {
+            "file": "sounds/weapons/magellan_silverbolt_01.ogg",
+            "pitch": 0.97,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_silverbolt_01.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        },
+        {
+            "file": "sounds/weapons/magellan_silverbolt_01.ogg",
+            "pitch": 1.03,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_silverbolt_02.ogg",
+            "pitch": 0.97,
+            "volume": 0.39
+        },
+        {
+            "file": "sounds/weapons/magellan_silverbolt_02.ogg",
+            "pitch": 1,
+            "volume": 0.4
+        }
+    ],
+    "magellan_mine_explosion_sm": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_01.ogg",
+                "pitch": 1.2,
+                "volume": 0.6
+            },
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_02.ogg",
+                "pitch": 1.2,
+                "volume": 0.6
+            },
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_03.ogg",
+                "pitch": 1.2,
+                "volume": 0.6
+            },
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_04.ogg",
+                "pitch": 1.2,
+                "volume": 0.6
+            }
+        ]
+    },
+    "magellan_mine_explosion_vsm": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_01.ogg",
+                "pitch": 1.5,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_02.ogg",
+                "pitch": 1.5,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_03.ogg",
+                "pitch": 1.5,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_systems/mine_strike_explosion_04.ogg",
+                "pitch": 1.5,
+                "volume": 0.4
+            }
+        ]
+    },
+    "magellan_burstjet": [
+        {
+            "file": "sounds/misc/magellan_burstjets01.ogg",
+            "pitch": 0.985,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets01.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets01.ogg",
+            "pitch": 1.015,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets02.ogg",
+            "pitch": 0.985,
+            "volume": 0.49
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets02.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets02.ogg",
+            "pitch": 1.015,
+            "volume": 0.49
+        }
+    ],
+    "magellan_burstftr": [
+        {
+            "file": "sounds/misc/magellan_burstjets_ftr01.ogg",
+            "pitch": 0.985,
+            "volume": 0.29
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets_ftr01.ogg",
+            "pitch": 1,
+            "volume": 0.3
+        },
+        {
+            "file": "sounds/misc/magellan_burstjets_ftr01.ogg",
+            "pitch": 1.015,
+            "volume": 0.29
+        }
+    ],
+    "magellan_engine_loop": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_engines/engine_01_lotek_00_fighter.ogg",
+                "pitch": 0.7,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_01_lotek_01_frigate.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_01_lotek_02_destroyer.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_01_lotek_03_cruiser.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_01_lotek_04_capital.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_03_hitek_00_fighter.ogg",
+                "pitch": 0.7,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_03_hitek_01_frigate.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_03_hitek_02_destroyer.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_03_hitek_03_cruiser.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_engines/engine_03_hitek_04_capital.ogg",
+                "pitch": 1,
+                "volume": 1
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "pitch": 0.9,
+            "volume": 0.5
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                5,
+                6,
+                7,
+                8,
+                9
+            ],
+            "pitch": 1,
+            "volume": 0.5
+        },
+        "FIGHTER": {
+            "sounds": [
+                0,
+                5
+            ],
+            "pitch": 1,
+            "volume": 0.4
+        },
+        "FRIGATE": {
+            "sounds": [
+                1,
+                6
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "DESTROYER": {
+            "sounds": [
+                2,
+                7
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "CRUISER": {
+            "sounds": [
+                3,
+                8
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                4,
+                9
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_engine_accelerate": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_engines/engine_boost_01.ogg",
+                "pitch": 1,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_engines/engine_boost_02.ogg",
+                "pitch": 1,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_engines/engine_boost_03.ogg",
+                "pitch": 1,
+                "volume": 0.4
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 0.75,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 1
+        },
+        "FIGHTER": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.4
+        },
+        "FRIGATE": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.6
+        },
+        "DESTROYER": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "CRUISER": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_shield_burnout": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_shields/shields_burnout_oneshot.ogg",
+                "pitch": 1,
+                "volume": 1
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0
+            ],
+            "pitch": 0.75,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        },
+        "FIGHTER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.4
+        },
+        "FRIGATE": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "DESTROYER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CRUISER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.9
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_emp_loop": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_shields/shields_burnout_loop.ogg",
+                "pitch": 1,
+                "volume": 0.6
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0
+            ],
+            "pitch": 0.75,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        },
+        "FIGHTER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.4
+        },
+        "FRIGATE": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "DESTROYER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CRUISER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.9
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_flux_loop": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_flux/flux_flush_loop.ogg",
+                "pitch": 1,
+                "volume": 0.8
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0
+            ],
+            "pitch": 0.75,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        },
+        "FIGHTER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.4
+        },
+        "FRIGATE": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "DESTROYER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CRUISER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.9
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_flux_vent": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_flux/flux_vent.ogg",
+                "pitch": 1,
+                "volume": 0.5
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0
+            ],
+            "pitch": 0.75,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        },
+        "FIGHTER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.4
+        },
+        "FRIGATE": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "DESTROYER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CRUISER": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 0.9
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_shield_lower": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_shields/shields_down_large.ogg",
+                "pitch": 1,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_shields/shields_down_medium.ogg",
+                "pitch": 1,
+                "volume": 0.4
+            },
+            {
+                "file": "sounds/sfx_shields/shields_down_small.ogg",
+                "pitch": 1,
+                "volume": 0.4
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 0.95,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.75
+        },
+        "FIGHTER": {
+            "sounds": [
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.6
+        },
+        "FRIGATE": {
+            "sounds": [
+                1
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "DESTROYER": {
+            "sounds": [
+                1
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CRUISER": {
+            "sounds": [
+                1
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_shield_raise": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_shields/shields_up_large.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_shields/shields_up_medium.ogg",
+                "pitch": 1,
+                "volume": 1
+            },
+            {
+                "file": "sounds/sfx_shields/shields_up_small.ogg",
+                "pitch": 1,
+                "volume": 1
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 0.95,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0,
+                1,
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.75
+        },
+        "FIGHTER": {
+            "sounds": [
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.5
+        },
+        "FRIGATE": {
+            "sounds": [
+                2
+            ],
+            "pitch": 1,
+            "volume": 0.6
+        },
+        "DESTROYER": {
+            "sounds": [
+                1
+            ],
+            "pitch": 1,
+            "volume": 0.7
+        },
+        "CRUISER": {
+            "sounds": [
+                1
+            ],
+            "pitch": 1,
+            "volume": 0.8
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0
+            ],
+            "pitch": 1,
+            "volume": 1
+        }
+    },
+    "magellan_explosion_ship": {
+        "sounds": [
+            {
+                "file": "sounds/sfx_impacts/explosion_01.ogg",
+                "pitch": 1,
+                "volume": 1.0
+            },
+            {
+                "file": "sounds/sfx_impacts/explosion_02.ogg",
+                "pitch": 1,
+                "volume": 1.0
+            },
+            {
+                "file": "sounds/sfx_impacts/explosion_03_fighter.ogg",
+                "pitch": 1,
+                "volume": 1.0
+            },
+            {
+                "file": "sounds/sfx_impacts/explosion_04.ogg",
+                "pitch": 1,
+                "volume": 1.0
+            }
+        ],
+        "MAGELLAN": {
+            "sounds": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "pitch": 0.95,
+            "volume": 1
+        },
+        "MGLN_LEVELLER": {
+            "sounds": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "pitch": 1,
+            "volume": 1
+        },
+        "FIGHTER": {
+            "sounds": [
+                2
+            ],
+            "pitch": 1,
+            "volume": 1.0
+        },
+        "FRIGATE": {
+            "sounds": [
+                0,
+                1,
+                3
+            ],
+            "pitch": 1.0,
+            "volume": 1.0
+        },
+        "DESTROYER": {
+            "sounds": [
+                0,
+                1,
+                3
+            ],
+            "pitch": 1.0,
+            "volume": 1.0
+        },
+        "CRUISER": {
+            "sounds": [
+                0,
+                1,
+                3
+            ],
+            "pitch": 1.0,
+            "volume": 1.0
+        },
+        "CAPITAL_SHIP": {
+            "sounds": [
+                0,
+                1,
+                3
+            ],
+            "pitch": 0.7,
+            "volume": 1.0
+        }
+    },
+    "magellan_heavylance_charge": [
+        {
+            "file": "sounds/weapons/magellan_heavylance_charge.ogg",
+            "pitch": 1,
+            "volume": 0.5
+        }
+    ],
+    "magellan_heavylance_fire": [
+        {
+            "file": "sounds/weapons/magellan_heavylance_fire.ogg",
+            "pitch": 1,
+            "volume": 1
+        }
+    ],
+    "magellan_foghorn": [
+        {
+            "file": "sounds/ship systems/foghorn.ogg",
+            "pitch": 1,
+            "volume": 1
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 5,
+    "fluxVents": 10,
+    "goalVariant": true,
+    "hullId": "magellan_supportfrigate",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_supportfrigate_support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_solenoidgun",
+                "WS0004": "magellan_solenoidgun"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS0005": "magellan_crackerafm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0001": "magellan_smciws",
+                "WS0002": "magellan_smciws",
+                "WS0006": "magellan_bonecracker",
+                "WS0007": "magellan_smciws"
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "id":"magellan_anomalous_overdrive",
+    "type":"STAT_MOD",
+    "aiType":"CUSTOM",
+    "aiScript":"data.shipsystems.ai.magellan_anomalousOverdriveAI",
+
+    "statsScript":"data.shipsystems.magellan_anomalousOverdriveStats",
+    "runScriptWhilePaused":true, # only for the player's ship
+    "runScriptWhileIdle":true,  # this means unapply() never gets called
+
+    "engineGlowLengthMult":0.75,
+
+    "flameoutOnImpactChance":0,
+
+    "outOfUsesSound":"engine_disabled",
+	
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "displayName": "Command",
+    "fluxCapacitors": 3,
+    "fluxVents": 30,
+    "goalVariant": true,
+    "hullId": "magellan_skipjack_leveller",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "magellan_skipjack_leveller_std",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0002": "magellan_electromissile_pod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0005": "magellan_laservulcan",
+                "WS0006": "magellan_laservulcan",
+                "WS0008": "magellan_laservulcan",
+                "WS0009": "magellan_laservulcan",
+                "WS0010": "magellan_stunfire_rack",
+                "WS0011": "magellan_stunfire_rack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0001": "magellan_supersolenoid_sm"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS0004": "magellan_diffusionlaser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS0003": "magellan_eflak",
+                "WS0007": "magellan_eflak"
+            }
+        }
+    ],
+    "wings": []
+}

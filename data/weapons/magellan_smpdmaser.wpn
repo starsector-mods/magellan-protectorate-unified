@@ -1,0 +1,28 @@
+{
+	"specClass":"beam",
+	"id":"magellan_smpdmaser",
+	"type":"ENERGY",
+	"size":"SMALL",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"turretSprite":"graphics/Magellan/weapons/magellan_smpdmaser_turret_base.png",
+	"turretGlowSprite":"graphics/Magellan/weapons/magellan_smpdmaser_turret_glow.png",
+	"hardpointSprite":"graphics/Magellan/weapons/magellan_smpdmaser_hardpoint_base.png",
+	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_smpdmaser_hardpoint_glow.png",
+	"turretOffsets":[3, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[3, 0],
+	"hardpointAngleOffsets":[0],
+	"fringeColor":[105,85,65,20],
+	"coreColor":[255,235,215,40],
+	"glowColor":[255,235,215,100],
+	"width":25.0,
+	"textureType":ROUGH,
+	"textureScrollSpeed":256.0,
+	"pixelsPerTexel":4.0,
+	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER],
+	"fireSoundOne":"laser_intro",
+	"fireSoundTwo":"laser_loop",	
+
+	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+}
