@@ -3,14 +3,12 @@ package data.campaign.fleets;
 import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
-import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetParamsV3;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import java.util.List;
 import org.lwjgl.util.vector.Vector2f;
 
 public class magellan_NecksnapperManager extends BaseCampaignEventListener implements EveryFrameScript {
@@ -18,11 +16,20 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
     public static final String KEY = "$magellan_threat_level";
     public static final String HUNTER_FLEET_KEY = "$magellan_necksnapper_hunter_fleet";
     public static final String COOLDOWN_KEY = "$magellan_necksnapper_cooldown";
+    public static final float PASSIVE_DECAY_PER_DAY = 0.5f;
     
     private float updateTimer = 0f;
 
     public magellan_NecksnapperManager() {
         super(true); // Registers as event listener if we use the default constructor
+    }
+
+    protected Object readResolve() {
+        // Re-initialize transient fields after deserialization
+        if (Global.getSector() != null) {
+            Global.getSector().addListener(this);
+        }
+        return this;
     }
 
     @Override
@@ -48,6 +55,19 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
                 Global.getSector().getMemoryWithoutUpdate().set(KEY, 0f); // reset threat
             } else {
                 Global.getSector().getMemoryWithoutUpdate().set(COOLDOWN_KEY, cooldown);
+            }
+        }
+        
+        // Passive threat decay: reduce by PASSIVE_DECAY_PER_DAY/day when idle
+        if (cooldown <= 0 && !Global.getSector().getMemoryWithoutUpdate().contains(COOLDOWN_KEY)) {
+            CampaignFleetAPI idleCheck = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(HUNTER_FLEET_KEY);
+            boolean hunterActive = idleCheck != null && idleCheck.isAlive();
+            if (!hunterActive) {
+                float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(KEY);
+                if (threat > 0f) {
+                    threat = Math.max(0f, threat - PASSIVE_DECAY_PER_DAY * days);
+                    Global.getSector().getMemoryWithoutUpdate().set(KEY, threat);
+                }
             }
         }
         
@@ -91,7 +111,21 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
     private void spawnHunter(int stage) {
         CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
         if (playerFleet == null || playerFleet.getContainingLocation() == null) return;
-        
+
+        // Duplicate spawn guard: search all star systems for an already-existing
+        // necksnapper hunter fleet to avoid creating duplicates on save reload.
+        for (StarSystemAPI sys : Global.getSector().getStarSystems()) {
+            if (sys == null) continue;
+            for (CampaignFleetAPI existing : sys.getFleets()) {
+                if (existing != null && existing.isAlive()
+                        && existing.getMemoryWithoutUpdate().is("$magellan_necksnapper_fleet", true)) {
+                    // Re-register the existing fleet and bail out
+                    Global.getSector().getMemoryWithoutUpdate().set(HUNTER_FLEET_KEY, existing);
+                    return;
+                }
+            }
+        }
+
         String factionId = "magellan_startigers";
         float combatPoints = 150f;
         
@@ -198,9 +232,11 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
         boolean hunterDefeated = false;
         
         for (CampaignFleetAPI fleet : battle.getNonPlayerSideSnapshot()) {
+            if (fleet == null) continue;
             if (fleet.getMemoryWithoutUpdate().is("$magellan_necksnapper_fleet", true)) {
                 hunterDefeated = true;
             } else {
+                if (fleet.getFaction() == null) continue;
                 String faction = fleet.getFaction().getId();
                 if ("magellan_yellowtail".equals(faction) || "magellan_protectorate".equals(faction)) {
                     threatIncrease += fleet.getFleetPoints() * 0.5f;

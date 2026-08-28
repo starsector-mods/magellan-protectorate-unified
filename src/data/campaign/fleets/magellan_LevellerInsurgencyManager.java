@@ -542,6 +542,18 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
                 spawnSortie();
             }
         }
+
+        // Network attrition: decay logistics score by 1/day when no sorties are in the field
+        if (activeFleets.isEmpty() && isRosebriarOperational()) {
+            int score = data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.getLogisticsScore();
+            if (score > 0) {
+                float decayAmount = days; // 1 point per day
+                int newScore = (int) Math.max(0f, score - decayAmount);
+                if (newScore != score) {
+                    data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.setLogisticsScore(newScore);
+                }
+            }
+        }
     }
 
     @Override

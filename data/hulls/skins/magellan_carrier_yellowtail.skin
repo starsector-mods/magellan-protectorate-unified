@@ -37,7 +37,6 @@
 		"magellan_hvyfighter_yellowtail_wing",
 		"magellan_intyellowtail_wing"
 	],
-	"builtInWeapons":{},
 	"engineSlotChanges":{
 		"0":{
 
@@ -49,5 +48,6 @@
 		"4":{"style":"M_HIGH_STD"},
 		"5":{"style":"M_HIGH_STD"},
 		"6":{"style":"M_HIGH_STD"}
-	}
+	},
+	"builtInWeapons":{}
 }

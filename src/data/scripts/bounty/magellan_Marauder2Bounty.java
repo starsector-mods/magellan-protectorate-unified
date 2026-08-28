@@ -137,9 +137,11 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
             isDone = true;
             Global.getSector().getMemoryWithoutUpdate().set("magellan_marauder2_done", true);
             Global.getSector().getMemoryWithoutUpdate().set("$magellan_marauder2_done", true);
-            Global.getSector().getPlayerFleet().getCargo().getCredits().add(REWARD);
-            Global.getSector().getPlayerFleet().getCargo().addCommodity("hand_weapons", 56);
-            Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelscatter_flak", 2);
+            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+                Global.getSector().getPlayerFleet().getCargo().getCredits().add(REWARD);
+                Global.getSector().getPlayerFleet().getCargo().addCommodity("hand_weapons", 56);
+                Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelscatter_flak", 2);
+            }
             Global.getSector().getCampaignUI().addMessage("The Marauders, Part II: The Kaplan's escorts were annihilated and the carrier fled burning into the hyperspace fringe. " + Misc.getWithDGS(REWARD) + " credits, heavy scatter-flak batteries, and small arms secured.");
             if (Global.getSector().getIntelManager() != null) {
                 Global.getSector().getIntelManager().removeIntel(this);
@@ -161,14 +163,16 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
     @Override
     public void createIntelInfo(TooltipMakerAPI info, ListInfoMode mode) {
         info.addPara(getName(), Misc.getBasePlayerColor(), 0f);
-        info.addPara("Target is in the " + hideout.getStarSystem().getName() + ".", 3f);
+        String locName = (hideout != null && hideout.getStarSystem() != null) ? hideout.getStarSystem().getName() : "deep space";
+        info.addPara("Target is in the " + locName + ".", 3f);
     }
 
     @Override
     public void createSmallDescription(TooltipMakerAPI info, float width, float height) {
         info.addPara("Commander Morik Kiderra has posted an escalated contract on the marauder battlefleet. The Kaplan has returned at the head of a formidable cruiser battlegroup, fielding experimental Ace Heavy Fighters and raiding major trade arteries.", 10f);
         info.addPara("Reward: " + Misc.getWithDGS(REWARD) + " credits, salvaged weapons, and seized arms.", 10f);
-        info.addPara("Last known position: " + hideout.getStarSystem().getName(), 10f);
+        String locName = (hideout != null && hideout.getStarSystem() != null) ? hideout.getStarSystem().getName() : "deep space";
+        info.addPara("Last known position: " + locName, 10f);
     }
 
     @Override

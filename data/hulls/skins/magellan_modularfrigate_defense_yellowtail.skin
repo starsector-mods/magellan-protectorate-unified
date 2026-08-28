@@ -56,7 +56,6 @@
     	}
     },
 	"builtInMods":["magellan_yellowtailmod", "magellan_yellowtail_defense"],
-	"builtInWeapons":{},
 	"engineSlotChanges":{
 		"0":{
 
@@ -66,5 +65,6 @@
 		"2":{"style":"M_HIGH_STD"},
 		"3":{"style":"M_HIGH_STD"},
 		"4":{"style":"M_HIGH_STD"}
-	}
+	},
+	"builtInWeapons":{}
 }

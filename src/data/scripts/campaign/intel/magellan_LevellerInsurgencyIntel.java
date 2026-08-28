@@ -6,6 +6,7 @@ import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ArrowData;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.impl.campaign.fleets.RouteLocationCalculator;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip;
@@ -36,11 +37,9 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     public static final String INTEL_TAG_INSURGENCY = "Insurgency";
 
     public enum Stage {
-        LEVEL_1,
-        LEVEL_2,
-        LEVEL_3,
-        LEVEL_4,
-        LEVEL_5
+        AGITATION,
+        INSURGENCY,
+        REVOLUTION
     }
 
     public static class LevellerOperation {
@@ -118,7 +117,7 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     }
 
     protected Object readResolve() {
-        if (stages == null || stages.isEmpty() || getDataFor(Stage.LEVEL_5) == null) {
+        if (stages == null || stages.isEmpty() || getDataFor(Stage.REVOLUTION) == null) {
             setupStages();
         }
         return this;
@@ -127,28 +126,25 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     protected void setupStages() {
         if (stages != null) stages.clear();
 
-        setMaxProgress(1000);
+        setMaxProgress(300);
 
-        addStage(Stage.LEVEL_1, 0, StageIconSize.LARGE);
-        addStage(Stage.LEVEL_2, 100, StageIconSize.MEDIUM);
-        addStage(Stage.LEVEL_3, 250, StageIconSize.MEDIUM);
-        addStage(Stage.LEVEL_4, 500, StageIconSize.MEDIUM);
-        addStage(Stage.LEVEL_5, 800, StageIconSize.LARGE);
+        addStage(Stage.AGITATION,   0,   StageIconSize.LARGE);
+        addStage(Stage.INSURGENCY,  100, StageIconSize.MEDIUM);
+        addStage(Stage.REVOLUTION,  200, StageIconSize.LARGE);
 
-        if (getDataFor(Stage.LEVEL_1) != null) getDataFor(Stage.LEVEL_1).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.LEVEL_2) != null) getDataFor(Stage.LEVEL_2).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.LEVEL_3) != null) getDataFor(Stage.LEVEL_3).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.LEVEL_4) != null) getDataFor(Stage.LEVEL_4).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.LEVEL_5) != null) getDataFor(Stage.LEVEL_5).keepIconBrightWhenLaterStageReached = true;
+        if (getDataFor(Stage.AGITATION)  != null) getDataFor(Stage.AGITATION).keepIconBrightWhenLaterStageReached  = true;
+        if (getDataFor(Stage.INSURGENCY) != null) getDataFor(Stage.INSURGENCY).keepIconBrightWhenLaterStageReached = true;
+        if (getDataFor(Stage.REVOLUTION) != null) getDataFor(Stage.REVOLUTION).keepIconBrightWhenLaterStageReached = true;
     }
 
     @Override
     protected void advanceImpl(float amount) {
         super.advanceImpl(amount);
-        if (stages == null || stages.isEmpty() || getDataFor(Stage.LEVEL_1) == null) {
+        if (stages == null || stages.isEmpty() || getDataFor(Stage.AGITATION) == null) {
             setupStages();
         }
-        setProgress(getLogisticsScore());
+        // Clamp logistics score to max progress (300) for bar display
+        setProgress(Math.min(getLogisticsScore(), 300));
     }
 
     public static int getLogisticsScore() {
@@ -179,15 +175,11 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
 
     public static String getReadinessTier(int score) {
         if (score < 100) {
-            return "Level 1: Underground Agitation";
-        } else if (score < 250) {
-            return "Level 2: Sporadic Sabotage";
-        } else if (score < 500) {
-            return "Level 3: Coordinated Insurgency";
-        } else if (score < 800) {
-            return "Level 4: Open Rebellion";
+            return "Stage 1: Underground Agitation";
+        } else if (score < 200) {
+            return "Stage 2: Coordinated Insurgency";
         } else {
-            return "Level 5: Sector-Wide Revolution";
+            return "Stage 3: Sector-Wide Revolution";
         }
     }
 
@@ -346,6 +338,29 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
             }
         }
 
+        // Draw arrows from each active sortie fleet to its target market
+        magellan_LevellerInsurgencyManager manager = magellan_LevellerInsurgencyManager.getInstance();
+        if (manager != null) {
+            List<CampaignFleetAPI> fleets = manager.getActiveFleets();
+            if (fleets != null) {
+                for (CampaignFleetAPI fleet : fleets) {
+                    if (fleet == null || !fleet.isAlive() || fleet.getMemoryWithoutUpdate() == null) continue;
+                    String marketId = fleet.getMemoryWithoutUpdate().getString(magellan_LevellerInsurgencyManager.FLAG_TARGET_MARKET);
+                    if (marketId == null) continue;
+                    MarketAPI targetMarket = Global.getSector() != null && Global.getSector().getEconomy() != null
+                            ? Global.getSector().getEconomy().getMarket(marketId) : null;
+                    if (targetMarket == null || targetMarket.getPrimaryEntity() == null) continue;
+                    SectorEntityToken targetEntity = targetMarket.getPrimaryEntity();
+                    if (targetEntity == fleet) continue;
+                    ArrowData arrow = new ArrowData(fleet, targetEntity);
+                    arrow.color = magellan_hullmodUtils.getLevellerHLColor();
+                    arrow.width = 12f;
+                    arrow.alphaMult = 0.75f;
+                    arrows.add(arrow);
+                }
+            }
+        }
+
         if (arrows.isEmpty() && rosebriar != null) {
             for (MarketAPI market : getActiveTargetColonies()) {
                 if (market != null && market.getPrimaryEntity() != null && market.getPrimaryEntity() != rosebriar) {
@@ -367,24 +382,18 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
         info.addPara(getName(), c, 0f);
 
         int score = getLogisticsScore();
-        String stageName = "Level 1 (Underground Agitation)";
+        String stageName = "Stage 1 (Underground Agitation)";
         Color stageColor = Misc.getGrayColor();
 
-        if (score >= 800) {
-            stageName = "Level 5 (Sector-Wide Revolution)";
+        if (score >= 200) {
+            stageName = "Stage 3 (Sector-Wide Revolution)";
             stageColor = Color.RED;
-        } else if (score >= 500) {
-            stageName = "Level 4 (Open Rebellion)";
-            stageColor = Color.ORANGE;
-        } else if (score >= 250) {
-            stageName = "Level 3 (Coordinated Insurgency)";
-            stageColor = Color.YELLOW;
         } else if (score >= 100) {
-            stageName = "Level 2 (Sporadic Sabotage)";
-            stageColor = Color.GREEN;
+            stageName = "Stage 2 (Coordinated Insurgency)";
+            stageColor = Color.YELLOW;
         }
 
-        info.addPara("Current Alert: %s (Logistics %s/1000)", 3f, getBulletColorForMode(mode), stageColor, stageName, "" + score);
+        info.addPara("Current Alert: %s (Logistics %s/300)", 3f, getBulletColorForMode(mode), stageColor, stageName, "" + Math.min(score, 300));
     }
 
     @Override
@@ -394,9 +403,7 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     public boolean hasLargeDescription() { return true; }
     
     @Override
-    public void createLargeDescription(CustomPanelAPI panel, float width, float height) {
-        super.createLargeDescription(panel, width, height);
-        TooltipMakerAPI info = panel.createUIElement(width, 150f, true);
+    public void afterStageDescriptions(TooltipMakerAPI info) {
         float pad = 10.0f;
         float padS = 3.0f;
         Color pos = Misc.getPositiveHighlightColor();
@@ -434,6 +441,52 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
 
         List<SectorEntityToken> sorties = getActiveSortieLocations();
         info.addPara("Active Sorties & Partisan Detachments in the field: %s", pad, hl, String.valueOf(sorties.size()));
+        info.addPara("• Network Attrition: Logistics score decreases by ~1/day when no sorties are in the field.", Misc.getPositiveHighlightColor(), padS);
+
+        // Active Sortie Fleet Real-Time Tracking
+        magellan_LevellerInsurgencyManager manager = magellan_LevellerInsurgencyManager.getInstance();
+        if (manager != null) {
+            List<CampaignFleetAPI> activeFleets = manager.getActiveFleets();
+            if (activeFleets != null && !activeFleets.isEmpty()) {
+                info.addSectionHeading("Active Sortie Fleet Tracking", lev, levbg, Alignment.MID, pad);
+                bullet(info);
+                for (CampaignFleetAPI fleet : activeFleets) {
+                    if (fleet == null || !fleet.isAlive() || fleet.getMemoryWithoutUpdate() == null) continue;
+
+                    String fleetName = fleet.getName() != null ? fleet.getName() : "Unknown Fleet";
+                    String locationName = fleet.getContainingLocation() != null
+                            ? fleet.getContainingLocation().getName() : "Hyperspace";
+
+                    String sortieTypeRaw = fleet.getMemoryWithoutUpdate().getString(magellan_LevellerInsurgencyManager.FLAG_SORTIE_TYPE);
+                    String sortieType = sortieTypeRaw != null ? sortieTypeRaw.replace("_", " ") : "Unknown";
+
+                    String marketId = fleet.getMemoryWithoutUpdate().getString(magellan_LevellerInsurgencyManager.FLAG_TARGET_MARKET);
+                    MarketAPI targetMarket = (marketId != null && Global.getSector() != null && Global.getSector().getEconomy() != null)
+                            ? Global.getSector().getEconomy().getMarket(marketId) : null;
+                    String targetName = targetMarket != null ? targetMarket.getName() : "Unknown";
+
+                    String distStr = "N/A";
+                    String etaStr = "N/A";
+                    if (targetMarket != null && targetMarket.getPrimaryEntity() != null
+                            && fleet.getLocationInHyperspace() != null
+                            && targetMarket.getPrimaryEntity().getLocationInHyperspace() != null) {
+                        float distLY = Misc.getDistanceLY(
+                                fleet.getLocationInHyperspace(),
+                                targetMarket.getPrimaryEntity().getLocationInHyperspace()
+                        );
+                        distStr = String.format("%.1f", distLY);
+                        SectorEntityToken targetEntity = targetMarket.getPrimaryEntity();
+                        float etaDays = RouteLocationCalculator.getTravelDays(fleet, targetEntity);
+                        etaStr = String.format("%.0f", etaDays);
+                    }
+
+                    info.addPara("%s in %s | Type: %s | Target: %s | Distance: %s LY | ETA: ~%s days",
+                            padS, Misc.getTextColor(), lev,
+                            fleetName, locationName, sortieType, targetName, distStr, etaStr);
+                }
+                unindent(info);
+            }
+        }
 
         info.addSectionHeading("Dual-Path Strategic Guidance", Alignment.MID, pad);
 
@@ -452,7 +505,6 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
         info.addPara("Maintain colony stability at %s or higher to starve out insurgent agitators and eradicate sleeper cells within 15 days.", padS, neg, "8");
         info.addPara("Intercept and destroy Leveller arms smugglers and raiding fleets before they reach target colonies.", padS, hl);
         unindent(info);
-        panel.addUIElement(info).inTL(0, height - 150f);
     }
 
     @Override
@@ -518,7 +570,7 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
 
     @Override
     public float getImageIndentForStageDesc(Object stageId) {
-        if (stageId == Stage.LEVEL_1) {
+        if (stageId == Stage.AGITATION) {
             return 0f;
         }
         return 16f;
@@ -532,19 +584,15 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     @Override
     public Color getBarProgressIndicatorColor() {
         int score = getProgress();
-        if (score >= 800) return Color.RED;
-        if (score >= 500) return Color.ORANGE;
-        if (score >= 250) return Color.YELLOW;
-        if (score >= 100) return Color.GREEN;
+        if (score >= 200) return Color.RED;
+        if (score >= 100) return Color.YELLOW;
         return magellan_hullmodUtils.getLevellerHLColor();
     }
 
     @Override
     protected Color getBaseStageColor(Object stageId) {
-        if (stageId == Stage.LEVEL_5) return Color.RED;
-        if (stageId == Stage.LEVEL_4) return Color.ORANGE;
-        if (stageId == Stage.LEVEL_3) return Color.YELLOW;
-        if (stageId == Stage.LEVEL_2) return Color.GREEN;
+        if (stageId == Stage.REVOLUTION) return Color.RED;
+        if (stageId == Stage.INSURGENCY) return Color.YELLOW;
         return magellan_hullmodUtils.getLevellerHLColor();
     }
 
@@ -579,19 +627,15 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
 
     @Override
     protected String getStageLabel(Object stageId) {
-        if (stageId == Stage.LEVEL_5) return "Level 5 (Sector-Wide Revolution)";
-        if (stageId == Stage.LEVEL_4) return "Level 4 (Open Rebellion)";
-        if (stageId == Stage.LEVEL_3) return "Level 3 (Coordinated Insurgency)";
-        if (stageId == Stage.LEVEL_2) return "Level 2 (Sporadic Sabotage)";
-        return "Level 1 (Underground Agitation)";
+        if (stageId == Stage.REVOLUTION) return "Stage 3 (Sector-Wide Revolution)";
+        if (stageId == Stage.INSURGENCY) return "Stage 2 (Coordinated Insurgency)";
+        return "Stage 1 (Underground Agitation)";
     }
 
     @Override
     protected String getStageIconImpl(Object stageId) {
-        if (stageId == Stage.LEVEL_5) return Global.getSettings().getSpriteName("intel", "magellan_radar_red");
-        if (stageId == Stage.LEVEL_4) return Global.getSettings().getSpriteName("intel", "magellan_radar_yellow");
-        if (stageId == Stage.LEVEL_3) return Global.getSettings().getSpriteName("intel", "magellan_radar_yellow");
-        if (stageId == Stage.LEVEL_2) return Global.getSettings().getSpriteName("intel", "magellan_radar_green");
+        if (stageId == Stage.REVOLUTION) return Global.getSettings().getSpriteName("intel", "magellan_radar_red");
+        if (stageId == Stage.INSURGENCY) return Global.getSettings().getSpriteName("intel", "magellan_radar_yellow");
         return Global.getSettings().getSpriteName("intel", "magellan_radar_stealth");
     }
 
@@ -622,16 +666,12 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     }
 
     public void addStageDesc(TooltipMakerAPI info, Object stageId, float pad, boolean forTooltip) {
-        if (stageId == Stage.LEVEL_1) {
-            info.addPara("Level 1 (0-99 Logistics): The movement focuses on underground recruitment and supply stockpiling.", pad);
-        } else if (stageId == Stage.LEVEL_2) {
-            info.addPara("Level 2 (100-249 Logistics): Sporadic sabotage and disruption of Protectorate operations begin.", pad);
-        } else if (stageId == Stage.LEVEL_3) {
-            info.addPara("Level 3 (250-499 Logistics): Insurgent cells coordinate system-wide strikes and ambushes.", pad);
-        } else if (stageId == Stage.LEVEL_4) {
-            info.addPara("Level 4 (500-799 Logistics): Open rebellion breaks out, threatening major colonies directly.", pad);
-        } else if (stageId == Stage.LEVEL_5) {
-            info.addPara("Level 5 (800+ Logistics): Sector-wide revolution. The Protectorate faces an existential threat.", pad);
+        if (stageId == Stage.AGITATION) {
+            info.addPara("Stage 1 (0-99 Logistics): The movement focuses on underground recruitment and supply stockpiling.", pad);
+        } else if (stageId == Stage.INSURGENCY) {
+            info.addPara("Stage 2 (100-199 Logistics): Insurgent cells coordinate system-wide strikes, ambushes, and sabotage operations.", pad);
+        } else if (stageId == Stage.REVOLUTION) {
+            info.addPara("Stage 3 (200+ Logistics): Sector-wide revolution. The Protectorate faces an existential threat from open rebellion.", pad);
         }
     }
 

@@ -48,7 +48,5 @@
 		"magellan_swarmfighter_wing",
 		"magellan_rounder_leveller_wing"
 	],
-	"builtInWeapons":{
-
-	}
+	"builtInWeapons":{}
 }

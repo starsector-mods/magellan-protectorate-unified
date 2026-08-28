@@ -25,7 +25,6 @@
     	}
     },
     "builtInMods":["magellan_levellermod"],
-	"builtInWeapons":{},
 		"engineSlotChanges":{
 		"0":{
 
@@ -33,5 +32,6 @@
 		},
 		"1":{"style":"M_HIGH_STD"},
 		"2":{"style":"M_HIGH_STD"}
-	}
+	},
+	"builtInWeapons":{}
 }

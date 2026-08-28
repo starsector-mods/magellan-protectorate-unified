@@ -20,9 +20,6 @@
     	}
 	},
     "builtInMods":["magellan_engineering"],
-	"builtInWeapons":{
-
-	},
 	"engineSlotChanges":{
 		"0":{"style":"MagellanFlare"},
 		"1":{"style":"MagellanFlare"},
@@ -31,5 +28,6 @@
 		"4":{"style":"MagellanFlare"},
 		"5":{"style":"MagellanFlare"},
 		"6":{"style":"MagellanFlare"}
-	}
+	},
+	"builtInWeapons":{}
 }

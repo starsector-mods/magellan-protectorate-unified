@@ -4,6 +4,8 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ArrowData;
+import com.fs.starfarer.api.impl.campaign.fleets.RouteLocationCalculator;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip;
@@ -14,6 +16,8 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.campaign.fleets.magellan_NecksnapperManager;
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -145,6 +149,24 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
         }
 
         info.addPara("Current Alert: %s (Threat %s/350)", 3f, getBulletColorForMode(mode), stageColor, stageName, "" + (int) threat);
+
+        CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+        CampaignFleetAPI player = Global.getSector().getPlayerFleet();
+        if (hunter != null && hunter.isAlive()) {
+            String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
+            if (player != null) {
+                float distLY = Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace());
+                float etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
+                boolean inSameLocation = hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
+                if (inSameLocation || distLY < 0.2f) {
+                    info.addPara("Pacification Fleet: %s in %s (In same system - Intercept imminent)", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc);
+                } else {
+                    info.addPara("Pacification Fleet: %s in %s (Distance: %s LY, ETA: ~%s days)", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc, String.format("%.1f", distLY), String.format("%.0f", etaDays));
+                }
+            } else {
+                info.addPara("Pacification Fleet: %s in %s", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc);
+            }
+        }
     }
 
     @Override
@@ -273,12 +295,7 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     }
 
     @Override
-    public void createLargeDescription(CustomPanelAPI panel, float width, float height) {
-        // Render Vanilla's graphical progress bar and stage milestones!
-        super.createLargeDescription(panel, width, height);
-
-        TooltipMakerAPI info = panel.createUIElement(width, 150f, false);
-
+    public void afterStageDescriptions(TooltipMakerAPI info) {
         float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
         boolean inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
 
@@ -290,10 +307,31 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
                 5f, Misc.getTextColor(), Misc.getPositiveHighlightColor(), String.format("%.0f", daysLeft));
         } else {
             CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+            CampaignFleetAPI player = Global.getSector().getPlayerFleet();
             if (hunter != null && hunter.isAlive()) {
                 String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
                 info.addPara("• Active Pacification Fleet: %s in %s (Fleet FP: %s)", 5f, Misc.getTextColor(), Misc.getNegativeHighlightColor(),
                     hunter.getName(), hunterLoc, "" + hunter.getFleetPoints());
+
+                float distLY = (player != null) ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
+                float etaDays = (player != null) ? RouteLocationCalculator.getTravelDays(hunter, player) : 0f;
+                boolean inSameLocation = player != null && hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
+
+                String contactState = "IN TRANSIT";
+                Color stateColor = Misc.getHighlightColor();
+                if (inSameLocation) {
+                    float distUnits = Misc.getDistance(hunter.getLocation(), player.getLocation());
+                    if (distUnits < 1000f) {
+                        contactState = "ENGAGING";
+                        stateColor = Misc.getNegativeHighlightColor();
+                    } else {
+                        contactState = "IN SYSTEM";
+                        stateColor = Misc.getNegativeHighlightColor();
+                    }
+                }
+
+                info.addPara("• Intercept Vector & Status: Contact State: %s | Distance: %s LY | Estimated Transit: %s days",
+                    3f, Misc.getTextColor(), stateColor, contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
             } else if (threat >= 100) {
                 info.addPara("• Threat level is currently at %s. An active response fleet is mobilizing or preparing an intercept course.", 5f, Misc.getTextColor(), Misc.getHighlightColor(), "" + (int) threat);
             } else {
@@ -302,9 +340,23 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
 
             info.addPara("• Threat Accumulation: Raiding Magellan trade convoys, attacking outposts, or destroying customs patrols will advance the threat level.", Misc.getTextColor(), 3f);
             info.addPara("• Retaliation Rules: Defeating an active pacification fleet will immediately trigger the next escalation tier until the Grand Armada is broken.", Misc.getNegativeHighlightColor(), 3f);
+            info.addPara("• Passive Decay: Threat decreases by ~0.5/day when no active fleet is hunting you.", Misc.getPositiveHighlightColor(), 3f);
         }
+    }
 
-        panel.addUIElement(info).inTL(0, height - 150f);
+    @Override
+    public List<ArrowData> getArrowData(SectorMapAPI map) {
+        List<ArrowData> arrows = new ArrayList<>();
+        CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+        CampaignFleetAPI player = Global.getSector().getPlayerFleet();
+        if (hunter != null && hunter.isAlive() && player != null) {
+            ArrowData arrow = new ArrowData(hunter, player);
+            arrow.color = new Color(240, 70, 50, 200);
+            arrow.width = 15f;
+            arrow.alphaMult = 0.85f;
+            arrows.add(arrow);
+        }
+        return arrows;
     }
 
     @Override

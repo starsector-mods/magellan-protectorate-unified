@@ -29,6 +29,5 @@
     },
     "builtInMods":["magellan_blackcollarmod", "ground_support"],
 	"builtInWings":[],
-	"builtInWeapons":{
-    }
+	"builtInWeapons":{}
 }

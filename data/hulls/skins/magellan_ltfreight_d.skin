@@ -18,7 +18,6 @@
 	"removeBuiltInWeapons":[],
 	"weaponSlotChanges":{},
 	"builtInMods":["faulty_grid"],
-	"builtInWeapons":{},
 	"engineSlotChanges":{
 		"0":{
 
@@ -30,5 +29,6 @@
 		"4":{"style":"LOW_TECH"},
 		"5":{"style":"LOW_TECH"},
 		"6":{"style":"LOW_TECH"}
-	}
+	},
+	"builtInWeapons":{}
 }

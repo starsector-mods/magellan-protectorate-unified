@@ -111,7 +111,9 @@ public class magellan_DisposableHerdFleetManager extends DisposableFleetManager 
         }
         if (this.random == null) {
             this.random = new Random();
-        if (this.tracker == null) this.tracker = new IntervalUtil(1f, 2f);
+        }
+        if (this.tracker == null) {
+            this.tracker = new IntervalUtil(1f, 2f);
         }
         if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
             Global.getSector().getMemoryWithoutUpdate().set(KEY, this);

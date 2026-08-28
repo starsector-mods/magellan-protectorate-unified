@@ -4,7 +4,6 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
-import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.impl.campaign.intel.bar.PortsideBarEvent;
 import com.fs.starfarer.api.campaign.listeners.FleetEventListener;
 import com.fs.starfarer.api.campaign.CampaignEventListener.FleetDespawnReason;
@@ -15,7 +14,6 @@ import com.fs.starfarer.api.ui.SectorMapAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
-import java.awt.Color;
 import java.util.List;
 import java.util.Map;
 
@@ -181,14 +179,16 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
     @Override
     public void createIntelInfo(TooltipMakerAPI info, ListInfoMode mode) {
         info.addPara(getName(), Misc.getBasePlayerColor(), 0f);
-        info.addPara("Target is in the " + hideout.getStarSystem().getName() + ".", 3f);
+        String locName = (hideout != null && hideout.getStarSystem() != null) ? hideout.getStarSystem().getName() : "deep space";
+        info.addPara("Target is in the " + locName + ".", 3f);
     }
 
     @Override
     public void createSmallDescription(TooltipMakerAPI info, float width, float height) {
         info.addPara("An aristocratic fixer representing the Voscune family has contracted you for a covert liquidation. The family's youngest heir defected to the Levellers, taking high-tech military hardware, prototype strike fighters, and a custom strike corvette. The family requires his permanent elimination in deep space.", 10f);
         info.addPara("Reward: 200,000 credits, salvaged weaponry, fighter prototypes, and a custom corvette blueprint.", 10f);
-        info.addPara("Last known position: " + hideout.getStarSystem().getName(), 10f);
+        String locName = (hideout != null && hideout.getStarSystem() != null) ? hideout.getStarSystem().getName() : "deep space";
+        info.addPara("Last known position: " + locName, 10f);
     }
 
     @Override

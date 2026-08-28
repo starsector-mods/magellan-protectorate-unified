@@ -1,6 +1,9 @@
 package data.console.commands;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.impl.campaign.fleets.RouteLocationCalculator;
+import com.fs.starfarer.api.util.Misc;
 import data.campaign.fleets.magellan_NecksnapperManager;
 import org.lazywizard.console.BaseCommand;
 import org.lazywizard.console.Console;
@@ -26,6 +29,26 @@ public class MagellanThreat implements BaseCommand {
                 else if (threat >= 200) stage = "Stage 2: Crisis (Blackcollar Force)";
                 else if (threat >= 100) stage = "Stage 1: Warning (Skytigers)";
                 Console.showMessage(String.format("Magellan Threat: %.0f/350 [%s]", threat, stage));
+
+                CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+                CampaignFleetAPI player = Global.getSector().getPlayerFleet();
+                if (hunter != null && hunter.isAlive()) {
+                    String loc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
+                    if (player != null) {
+                        float distLY = Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace());
+                        float etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
+                        boolean inSameLocation = hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
+                        if (inSameLocation || distLY < 0.2f) {
+                            Console.showMessage(String.format("Active Hunter Fleet: %s in %s (Distance: %.1f LY - In same system - Intercept imminent)",
+                                hunter.getName(), loc, distLY));
+                        } else {
+                            Console.showMessage(String.format("Active Hunter Fleet: %s in %s (Distance: %.1f LY, ETA: ~%.0f days)",
+                                hunter.getName(), loc, distLY, etaDays));
+                        }
+                    } else {
+                        Console.showMessage(String.format("Active Hunter Fleet: %s in %s", hunter.getName(), loc));
+                    }
+                }
             }
             return CommandResult.SUCCESS;
         }

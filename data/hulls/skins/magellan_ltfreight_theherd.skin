@@ -18,7 +18,6 @@
 	"builtInWings":[
 		"magellan_hvyfighter_theherd_wing"
 	],
-	"builtInWeapons":{},
 	"engineSlotChanges":{
 		"0":{
 
@@ -30,5 +29,6 @@
 		"4":{"style":"MagellanFlare"},
 		"5":{"style":"MagellanFlare"},
 		"6":{"style":"MagellanFlare"}
-	}
+	},
+	"builtInWeapons":{}
 }

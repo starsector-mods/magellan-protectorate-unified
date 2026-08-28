@@ -21,7 +21,6 @@
     	}
     },
     "builtInMods":["magellan_engineering_civ"],
-	"builtInWeapons":{},
 		"engineSlotChanges":{
 		"0":{
 
@@ -32,5 +31,6 @@
 		"3":{"style":"M_HIGH_STD"},
 		"4":{"style":"M_HIGH_STD"},
 		"5":{"style":"M_HIGH_STD"}
-	}
+	},
+	"builtInWeapons":{}
 }
