@@ -81,7 +81,9 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     public magellan_LevellerInsurgencyIntel() {
         super();
         this.logisticsRating = 0.70f;
-        Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
+        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+            Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
+        }
         setupStages();
     }
 
@@ -93,7 +95,7 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
     }
 
     public static void ensureExists() {
-        if (get() == null) {
+        if (get() == null && Global.getSector() != null && Global.getSector().getIntelManager() != null) {
             magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
             Global.getSector().getIntelManager().addIntel(intel, true);
         }
@@ -120,6 +122,9 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
         if (stages == null || stages.isEmpty() || getDataFor(Stage.REVOLUTION) == null) {
             setupStages();
         }
+        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+            Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
+        }
         return this;
     }
 
@@ -143,8 +148,8 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
         if (stages == null || stages.isEmpty() || getDataFor(Stage.AGITATION) == null) {
             setupStages();
         }
-        // Clamp logistics score to max progress (300) for bar display
-        setProgress(Math.min(getLogisticsScore(), 300));
+        // Clamp logistics score to 0..300 for bar display
+        setProgress(Math.max(0, Math.min(getLogisticsScore(), 300)));
     }
 
     public static int getLogisticsScore() {
@@ -165,8 +170,9 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
         if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) {
             return;
         }
-        Global.getSector().getMemoryWithoutUpdate().set(MEMORY_KEY_LOGISTICS_SCORE, score);
-        Global.getSector().getMemoryWithoutUpdate().set("$" + MEMORY_KEY_LOGISTICS_SCORE, score);
+        int clamped = Math.max(0, Math.min(300, score));
+        Global.getSector().getMemoryWithoutUpdate().set(MEMORY_KEY_LOGISTICS_SCORE, clamped);
+        Global.getSector().getMemoryWithoutUpdate().set("$" + MEMORY_KEY_LOGISTICS_SCORE, clamped);
     }
 
     public static void addLogisticsScore(int amount) {
@@ -324,12 +330,14 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
         SectorEntityToken rosebriar = getRosebriarStation();
 
         for (LevellerOperation op : operations) {
+            if (op == null) continue;
             SectorEntityToken origin = op.getOrigin() != null ? op.getOrigin() : rosebriar;
             SectorEntityToken target = op.getTarget();
             if (target == null && op.getTargetMarket() != null) {
                 target = op.getTargetMarket().getPrimaryEntity();
             }
-            if (origin != null && target != null && origin != target) {
+            if (origin != null && target != null && origin != target
+                    && origin.getContainingLocation() != null && target.getContainingLocation() != null) {
                 ArrowData arrow = new ArrowData(origin, target);
                 arrow.color = magellan_hullmodUtils.getLevellerHLColor();
                 arrow.width = 15f;
@@ -344,14 +352,14 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
             List<CampaignFleetAPI> fleets = manager.getActiveFleets();
             if (fleets != null) {
                 for (CampaignFleetAPI fleet : fleets) {
-                    if (fleet == null || !fleet.isAlive() || fleet.getMemoryWithoutUpdate() == null) continue;
+                    if (fleet == null || !fleet.isAlive() || fleet.getMemoryWithoutUpdate() == null || fleet.getContainingLocation() == null) continue;
                     String marketId = fleet.getMemoryWithoutUpdate().getString(magellan_LevellerInsurgencyManager.FLAG_TARGET_MARKET);
                     if (marketId == null) continue;
                     MarketAPI targetMarket = Global.getSector() != null && Global.getSector().getEconomy() != null
                             ? Global.getSector().getEconomy().getMarket(marketId) : null;
                     if (targetMarket == null || targetMarket.getPrimaryEntity() == null) continue;
                     SectorEntityToken targetEntity = targetMarket.getPrimaryEntity();
-                    if (targetEntity == fleet) continue;
+                    if (targetEntity == fleet || targetEntity.getContainingLocation() == null) continue;
                     ArrowData arrow = new ArrowData(fleet, targetEntity);
                     arrow.color = magellan_hullmodUtils.getLevellerHLColor();
                     arrow.width = 12f;
@@ -361,9 +369,10 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
             }
         }
 
-        if (arrows.isEmpty() && rosebriar != null) {
+        if (arrows.isEmpty() && rosebriar != null && rosebriar.getContainingLocation() != null) {
             for (MarketAPI market : getActiveTargetColonies()) {
-                if (market != null && market.getPrimaryEntity() != null && market.getPrimaryEntity() != rosebriar) {
+                if (market != null && market.getPrimaryEntity() != null && market.getPrimaryEntity() != rosebriar
+                        && market.getPrimaryEntity().getContainingLocation() != null) {
                     ArrowData arrow = new ArrowData(rosebriar, market.getPrimaryEntity());
                     arrow.color = magellan_hullmodUtils.getLevellerHLColor();
                     arrow.width = 12f;
@@ -476,8 +485,14 @@ public class magellan_LevellerInsurgencyIntel extends BaseEventIntel {
                         );
                         distStr = String.format("%.1f", distLY);
                         SectorEntityToken targetEntity = targetMarket.getPrimaryEntity();
-                        float etaDays = RouteLocationCalculator.getTravelDays(fleet, targetEntity);
-                        etaStr = String.format("%.0f", etaDays);
+                        try {
+                            float etaDays = RouteLocationCalculator.getTravelDays(fleet, targetEntity);
+                            if (!Float.isNaN(etaDays) && !Float.isInfinite(etaDays) && etaDays >= 0) {
+                                etaStr = String.format("%.0f", etaDays);
+                            }
+                        } catch (Throwable t) {
+                            etaStr = "N/A";
+                        }
                     }
 
                     info.addPara("%s in %s | Type: %s | Target: %s | Distance: %s LY | ETA: ~%s days",

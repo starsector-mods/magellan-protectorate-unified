@@ -35,26 +35,34 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     }
 
     public static magellan_NecksnapperIntel get() {
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return null;
         return (magellan_NecksnapperIntel) Global.getSector().getMemoryWithoutUpdate().get(INTEL_KEY);
     }
 
     public static void ensureExists() {
-        if (get() == null) {
+        if (get() == null && Global.getSector() != null && Global.getSector().getIntelManager() != null) {
             magellan_NecksnapperIntel intel = new magellan_NecksnapperIntel();
-            Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, intel);
+            if (Global.getSector().getMemoryWithoutUpdate() != null) {
+                Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, intel);
+            }
             Global.getSector().getIntelManager().addIntel(intel, true);
         }
     }
 
     public magellan_NecksnapperIntel() {
         super();
-        Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
+        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+            Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
+        }
         setupStages();
     }
 
     protected Object readResolve() {
         if (stages == null || stages.isEmpty() || getDataFor(Stage.CLIMAX) == null) {
             setupStages();
+        }
+        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+            Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
         }
         return this;
     }
@@ -117,11 +125,12 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
         if (stages == null || stages.isEmpty() || getDataFor(Stage.INACTIVE) == null) {
             setupStages();
         }
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return;
         float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
         if (Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY)) {
             setProgress(0);
         } else {
-            setProgress((int) threat);
+            setProgress((int) Math.max(0, Math.min(350, threat)));
         }
     }
 
@@ -130,11 +139,16 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
         Color c = getTitleColor(mode);
         info.addPara(getName(), c, 0f);
 
-        float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
+        float threat = 0f;
+        boolean inCooldown = false;
+        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+            threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
+            inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
+        }
         String stageName = "Recon / Calm";
         Color stageColor = Misc.getGrayColor();
 
-        if (Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY)) {
+        if (inCooldown) {
             stageName = "Truce / Rebuilding";
             stageColor = Misc.getPositiveHighlightColor();
         } else if (threat >= 300) {
@@ -150,13 +164,24 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
 
         info.addPara("Current Alert: %s (Threat %s/350)", 3f, getBulletColorForMode(mode), stageColor, stageName, "" + (int) threat);
 
-        CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
-        CampaignFleetAPI player = Global.getSector().getPlayerFleet();
+        CampaignFleetAPI hunter = null;
+        CampaignFleetAPI player = null;
+        if (Global.getSector() != null) {
+            player = Global.getSector().getPlayerFleet();
+            if (Global.getSector().getMemoryWithoutUpdate() != null) {
+                hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+            }
+        }
         if (hunter != null && hunter.isAlive()) {
             String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
-            if (player != null) {
+            if (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null) {
                 float distLY = Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace());
-                float etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
+                float etaDays = 0f;
+                try {
+                    etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
+                } catch (Throwable t) {
+                    etaDays = 0f;
+                }
                 boolean inSameLocation = hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
                 if (inSameLocation || distLY < 0.2f) {
                     info.addPara("Pacification Fleet: %s in %s (In same system - Intercept imminent)", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc);
@@ -296,8 +321,12 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
 
     @Override
     public void afterStageDescriptions(TooltipMakerAPI info) {
-        float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
-        boolean inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
+        float threat = 0f;
+        boolean inCooldown = false;
+        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+            threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
+            inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
+        }
 
         info.addSectionHeading("Tactical Situation & Intel", Alignment.MID, 10f);
 
@@ -306,20 +335,33 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
             info.addPara("The destruction of the Grand Armada has severely disrupted Protectorate command. A temporary truce/reprieve is active for approximately %s more days.",
                 5f, Misc.getTextColor(), Misc.getPositiveHighlightColor(), String.format("%.0f", daysLeft));
         } else {
-            CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
-            CampaignFleetAPI player = Global.getSector().getPlayerFleet();
+            CampaignFleetAPI hunter = null;
+            CampaignFleetAPI player = null;
+            if (Global.getSector() != null) {
+                player = Global.getSector().getPlayerFleet();
+                if (Global.getSector().getMemoryWithoutUpdate() != null) {
+                    hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+                }
+            }
             if (hunter != null && hunter.isAlive()) {
                 String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
                 info.addPara("• Active Pacification Fleet: %s in %s (Fleet FP: %s)", 5f, Misc.getTextColor(), Misc.getNegativeHighlightColor(),
                     hunter.getName(), hunterLoc, "" + hunter.getFleetPoints());
 
-                float distLY = (player != null) ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
-                float etaDays = (player != null) ? RouteLocationCalculator.getTravelDays(hunter, player) : 0f;
+                float distLY = (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null) ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
+                float etaDays = 0f;
+                if (player != null) {
+                    try {
+                        etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
+                    } catch (Throwable t) {
+                        etaDays = 0f;
+                    }
+                }
                 boolean inSameLocation = player != null && hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
 
                 String contactState = "IN TRANSIT";
                 Color stateColor = Misc.getHighlightColor();
-                if (inSameLocation) {
+                if (inSameLocation && hunter.getLocation() != null && player.getLocation() != null) {
                     float distUnits = Misc.getDistance(hunter.getLocation(), player.getLocation());
                     if (distUnits < 1000f) {
                         contactState = "ENGAGING";
@@ -347,6 +389,7 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     @Override
     public List<ArrowData> getArrowData(SectorMapAPI map) {
         List<ArrowData> arrows = new ArrayList<>();
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return arrows;
         CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
         CampaignFleetAPI player = Global.getSector().getPlayerFleet();
         if (hunter != null && hunter.isAlive() && player != null) {
@@ -361,8 +404,11 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
 
     @Override
     public SectorEntityToken getMapLocation(SectorMapAPI map) {
-        CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(data.campaign.fleets.magellan_NecksnapperManager.HUNTER_FLEET_KEY);
-        if (hunter != null && hunter.isAlive()) return hunter;
+        if (Global.getSector() == null) return null;
+        if (Global.getSector().getMemoryWithoutUpdate() != null) {
+            CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(data.campaign.fleets.magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+            if (hunter != null && hunter.isAlive()) return hunter;
+        }
         StarSystemAPI khamn = Global.getSector().getStarSystem("Khamn");
         if (khamn == null) khamn = Global.getSector().getStarSystem("khamn");
         return khamn != null ? khamn.getCenter() : null;

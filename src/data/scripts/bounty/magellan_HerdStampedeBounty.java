@@ -27,23 +27,30 @@ public class magellan_HerdStampedeBounty extends BaseIntelPlugin implements Flee
     protected int REWARD = 150000;
 
     public magellan_HerdStampedeBounty() {
-        List<StarSystemAPI> systems = Global.getSector().getStarSystems();
-        for (StarSystemAPI system : systems) {
-            if (!system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
-                hideout = system.getCenter();
-                break;
+        List<StarSystemAPI> systems = Global.getSector() != null ? Global.getSector().getStarSystems() : null;
+        if (systems != null) {
+            for (StarSystemAPI system : systems) {
+                if (system != null && !system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
+                    hideout = system.getCenter();
+                    break;
+                }
+            }
+            if (hideout == null && !systems.isEmpty() && systems.get(0) != null) {
+                hideout = systems.get(0).getCenter();
             }
         }
-        if (hideout == null) hideout = Global.getSector().getStarSystems().get(0).getCenter();
     }
 
     public void startEvent() {
+        if (hideout == null || hideout.getContainingLocation() == null || hideout.getLocation() == null) return;
         LocationAPI loc = hideout.getContainingLocation();
         Vector2f spawnPos = new Vector2f(hideout.getLocation().x + 500f, hideout.getLocation().y + 500f);
 
         // Spawn Derelict (using an orbital habitat for visual representation of a massive pristine derelict)
         derelict = loc.addCustomEntity(null, "Domain-era Derelict", "orbital_habitat", Factions.NEUTRAL);
-        derelict.setLocation(spawnPos.x, spawnPos.y);
+        if (derelict != null) {
+            derelict.setLocation(spawnPos.x, spawnPos.y);
+        }
 
         // Spawn Debris Field (Rule: Must name dynamically generated terrain)
         DebrisFieldTerrainPlugin.DebrisFieldParams params = new DebrisFieldTerrainPlugin.DebrisFieldParams(
@@ -51,8 +58,10 @@ public class magellan_HerdStampedeBounty extends BaseIntelPlugin implements Flee
         );
         params.source = DebrisFieldTerrainPlugin.DebrisFieldSource.MIXED;
         debrisField = loc.addTerrain(Entities.DEBRIS_FIELD_SHARED, params);
-        debrisField.setName("Massive Debris Field");
-        debrisField.setLocation(spawnPos.x, spawnPos.y);
+        if (debrisField != null) {
+            debrisField.setName("Massive Debris Field");
+            debrisField.setLocation(spawnPos.x, spawnPos.y);
+        }
 
         // Spawn Main Fleet
         FleetParamsV3 paramsLarge = new FleetParamsV3(
@@ -66,13 +75,19 @@ public class magellan_HerdStampedeBounty extends BaseIntelPlugin implements Flee
         );
         paramsLarge.forceAllowPhaseShipsEtc = true;
         targetFleet = FleetFactoryV3.createFleet(paramsLarge);
-        targetFleet.setName("Herd Stampede Vanguard");
-        targetFleet.getFleetData().addFleetMember("magellan_herdcarrier_std");
-        targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
-        loc.addEntity(targetFleet);
-        targetFleet.setLocation(spawnPos.x, spawnPos.y);
-        targetFleet.addAssignment(FleetAssignment.ORBIT_PASSIVE, derelict, 1000f);
-        targetFleet.addEventListener(this);
+        if (targetFleet != null && targetFleet.getFleetData() != null) {
+            targetFleet.setName("Herd Stampede Vanguard");
+            targetFleet.getFleetData().addFleetMember("magellan_herdcarrier_std");
+            if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
+                targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+            }
+            loc.addEntity(targetFleet);
+            targetFleet.setLocation(spawnPos.x, spawnPos.y);
+            if (derelict != null) {
+                targetFleet.addAssignment(FleetAssignment.ORBIT_PASSIVE, derelict, 1000f);
+            }
+            targetFleet.addEventListener(this);
+        }
 
         // Spawn Escorts
         for (int i = 0; i < 2; i++) {
@@ -87,13 +102,19 @@ public class magellan_HerdStampedeBounty extends BaseIntelPlugin implements Flee
             );
             paramsMed.forceAllowPhaseShipsEtc = true;
             CampaignFleetAPI escort = FleetFactoryV3.createFleet(paramsMed);
-            escort.setName("Herd Escort Flotilla");
-            loc.addEntity(escort);
-            escort.setLocation(spawnPos.x, spawnPos.y);
-            escort.addAssignment(FleetAssignment.ORBIT_PASSIVE, targetFleet, 1000f);
+            if (escort != null) {
+                escort.setName("Herd Escort Flotilla");
+                loc.addEntity(escort);
+                escort.setLocation(spawnPos.x, spawnPos.y);
+                if (targetFleet != null) {
+                    escort.addAssignment(FleetAssignment.ORBIT_PASSIVE, targetFleet, 1000f);
+                }
+            }
         }
 
-        Global.getSector().getIntelManager().addIntel(this);
+        if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
+            Global.getSector().getIntelManager().addIntel(this);
+        }
     }
 
     @Override
@@ -101,13 +122,17 @@ public class magellan_HerdStampedeBounty extends BaseIntelPlugin implements Flee
         if (isDone) return;
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
-            Global.getSector().getMemoryWithoutUpdate().set("magellan_herdstampede_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("$magellan_herdstampede_done", true);
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+            if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+                Global.getSector().getMemoryWithoutUpdate().set("magellan_herdstampede_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("$magellan_herdstampede_done", true);
+            }
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().getCredits().add(REWARD);
             }
-            Global.getSector().getCampaignUI().addMessage("The Herd Stampede Vanguard has been shattered. Earned " + Misc.getWithDGS(REWARD) + " credits.");
-            if (Global.getSector().getIntelManager() != null) {
+            if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                Global.getSector().getCampaignUI().addMessage("The Herd Stampede Vanguard has been shattered. Earned " + Misc.getWithDGS(REWARD) + " credits.");
+            }
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
                 Global.getSector().getIntelManager().removeIntel(this);
             }
             if (fleet != null) {

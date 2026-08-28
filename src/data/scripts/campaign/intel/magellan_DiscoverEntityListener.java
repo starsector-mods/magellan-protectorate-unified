@@ -12,13 +12,22 @@ public class magellan_DiscoverEntityListener
 implements DiscoverEntityListener {
     public static final Logger LOG = Global.getLogger(magellan_DiscoverEntityListener.class);
 
+    public static final String FLAG_BEACON_INTEL = "magellan_beaconIntelAdded";
+    public static final String FLAG_BEACON_INTEL_DOLLAR = "$magellan_beaconIntelAdded";
+
     public void reportEntityDiscovered(SectorEntityToken entity) {
         if (entity != null && entity.hasTag(magellan_Tags.MG_EXILE_BEACON)) {
-            if (entity.getMemoryWithoutUpdate() != null &&
-                !entity.getMemoryWithoutUpdate().getBoolean("$magellan_beaconIntelAdded")) {
-                entity.getMemoryWithoutUpdate().set("$magellan_beaconIntelAdded", true);
-                magellan_DistressBeaconIntel intel = new magellan_DistressBeaconIntel(entity);
-                Global.getSector().getIntelManager().addIntel((IntelInfoPlugin)intel);
+            if (entity.getMemoryWithoutUpdate() != null) {
+                boolean alreadyAdded = entity.getMemoryWithoutUpdate().getBoolean(FLAG_BEACON_INTEL)
+                        || entity.getMemoryWithoutUpdate().getBoolean(FLAG_BEACON_INTEL_DOLLAR);
+                if (!alreadyAdded) {
+                    entity.getMemoryWithoutUpdate().set(FLAG_BEACON_INTEL, true);
+                    entity.getMemoryWithoutUpdate().set(FLAG_BEACON_INTEL_DOLLAR, true);
+                    if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
+                        magellan_DistressBeaconIntel intel = new magellan_DistressBeaconIntel(entity);
+                        Global.getSector().getIntelManager().addIntel((IntelInfoPlugin)intel);
+                    }
+                }
             }
         }
     }

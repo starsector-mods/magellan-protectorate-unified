@@ -31,9 +31,12 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
 
     @Override
     public boolean shouldShowAtMarket(MarketAPI market) {
-        if (market == null || market.getFactionId().equals("pirates")) return false;
+        if (market == null || "pirates".equals(market.getFactionId())) return false;
         if (market.getSize() < 3) return false;
-        if (Global.getSector().getPlayerPerson().getStats().getLevel() < 5) return false;
+        if (Global.getSector() == null || Global.getSector().getPlayerPerson() == null
+                || Global.getSector().getPlayerPerson().getStats() == null
+                || Global.getSector().getPlayerPerson().getStats().getLevel() < 5) return false;
+        if (Global.getSector().getMemoryWithoutUpdate() == null) return false;
         if (Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_dunerunner_done") ||
             Global.getSector().getMemoryWithoutUpdate().getBoolean("$magellan_dunerunner_done")) return false;
         if (Global.getSector().getIntelManager() != null && Global.getSector().getIntelManager().hasIntelOfClass(magellan_DunerunnerBounty.class)) return false;
@@ -48,7 +51,9 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
 
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
-        this.eventMarket = dialog.getInteractionTarget().getMarket();
+        if (dialog != null && dialog.getInteractionTarget() != null) {
+            this.eventMarket = dialog.getInteractionTarget().getMarket();
+        }
         
         dialog.getTextPanel().addPara("The operative gives a sharp, subtle nod, gesturing toward the empty booth opposite them. The faint high-frequency hum of an active audio dampener clipped to their belt confirms this isn't casual tavern chatter.");
         dialog.getTextPanel().addPara("\"Sit, Captain. Keep your voice low and your hands where I can see them.\" They push the flask aside. \"I represent the Association of Interstellar Mercenaries. AIM has taken on a high-priority liquidation contract regarding a rogue Dunerunner salvage detail.\"");
@@ -56,14 +61,18 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
         dialog.getTextPanel().addPara("They tap the dataslate, displaying intercepted telemetry. \"Signal analysis confirms they're still hauling their stolen prize—including an ancient Corrupted Nanoforge. Obliterate their flagship, and AIM will look the other way while you salvage the forge.\"");
         
         // Pick a target system
-        List<StarSystemAPI> systems = Global.getSector().getStarSystems();
-        for (StarSystemAPI system : systems) {
-            if (!system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
-                hideout = system.getCenter();
-                break;
+        List<StarSystemAPI> systems = Global.getSector() != null ? Global.getSector().getStarSystems() : null;
+        if (systems != null) {
+            for (StarSystemAPI system : systems) {
+                if (system != null && !system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
+                    hideout = system.getCenter();
+                    break;
+                }
+            }
+            if (hideout == null && !systems.isEmpty() && systems.get(0) != null) {
+                hideout = systems.get(0).getCenter();
             }
         }
-        if (hideout == null) hideout = Global.getSector().getStarSystems().get(0).getCenter();
 
         dialog.getOptionPanel().addOption("\"Send me their vector.\" (Accept - 75,000 credits + salvaged Nanoforge)", "ACCEPT");
         dialog.getOptionPanel().addOption("\"I don't get involved in merc guild feuds.\" (Decline)", "DECLINE");
@@ -71,16 +80,22 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
 
     @Override
     public void optionSelected(String optionText, Object optionData) {
-        InteractionDialogAPI dialog = Global.getSector().getCampaignUI().getCurrentInteractionDialog();
+        InteractionDialogAPI dialog = (Global.getSector() != null && Global.getSector().getCampaignUI() != null)
+                ? Global.getSector().getCampaignUI().getCurrentInteractionDialog() : null;
+        if (dialog == null) return;
         if ("ACCEPT".equals(optionData)) {
             isAccepted = true;
             spawnFleet();
-            Global.getSector().getIntelManager().addIntel(this);
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
+                Global.getSector().getIntelManager().addIntel(this);
+            }
             dialog.getTextPanel().addPara("The agent's scarred features relax into a faint, grim smirk. \"Coordinates transferred. Their flagship is the Corvo—a modified patrol destroyer packed with scavenged ballistics. Expect desperate, ruthless brawlers.\" They pocket the slate and rise. \"Leave no survivors, Captain. AIM expects clean work.\"");
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            dialog.getPlugin().optionSelected(null, "leave");
+            if (dialog.getPlugin() != null) {
+                dialog.getPlugin().optionSelected(null, "leave");
+            }
         }
     }
 
@@ -94,6 +109,7 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
     // --- INTEL METHODS ---
     
     private void spawnFleet() {
+        if (hideout == null || hideout.getLocation() == null || hideout.getContainingLocation() == null) return;
         FleetParamsV3 params = new FleetParamsV3(
             null, 
             hideout.getLocation(), 
@@ -105,10 +121,13 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
         );
         params.forceAllowPhaseShipsEtc = true;
         targetFleet = FleetFactoryV3.createFleet(params);
+        if (targetFleet == null || targetFleet.getFleetData() == null) return;
         targetFleet.setName("Dishonored Dunerunners");
         targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_custom");
-        targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("Corvo");
-        targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+        if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
+            targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("Corvo");
+            targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+        }
         
         hideout.getContainingLocation().addEntity(targetFleet);
         targetFleet.setLocation(hideout.getLocation().x + 200f, hideout.getLocation().y + 200f);
@@ -122,15 +141,19 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
         if (isDone) return;
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
-            Global.getSector().getMemoryWithoutUpdate().set("magellan_dunerunner_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("$magellan_dunerunner_done", true);
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+            if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+                Global.getSector().getMemoryWithoutUpdate().set("magellan_dunerunner_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("$magellan_dunerunner_done", true);
+            }
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().getCredits().add(75000f);
                 Global.getSector().getPlayerFleet().getCargo().addSpecial(new SpecialItemData("corrupted_nanoforge", null), 1);
                 Global.getSector().getPlayerFleet().getCargo().addCommodity("luxury_goods", 231);
             }
-            Global.getSector().getCampaignUI().addMessage("Dunerunner Bounty Completed! The Corvo was shattered in the void. Received 75,000 credits, a Corrupted Nanoforge, and seized luxury goods.");
-            if (Global.getSector().getIntelManager() != null) {
+            if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                Global.getSector().getCampaignUI().addMessage("Dunerunner Bounty Completed! The Corvo was shattered in the void. Received 75,000 credits, a Corrupted Nanoforge, and seized luxury goods.");
+            }
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
                 Global.getSector().getIntelManager().removeIntel(this);
             }
             if (fleet != null) {

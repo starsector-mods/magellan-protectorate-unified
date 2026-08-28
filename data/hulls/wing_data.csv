@@ -35,7 +35,6 @@ magellan_intyellowtail_wing,magellan_intyellowtail_Interceptor,"interceptor3, in
 magellan_hvyfighter_yellowtail_wing,magellan_hvyfighter_yellowtail_Fighter,"fighter5, fighter, magellan_yellowtail, magellan_yellowtail_bp",3,,5,9,V,4000,500,300,2,BOMBER,Strike Fighter,9,10500,3
 magellan_corvette_yellowtail_wing,magellan_corvette_yellowtail_Escort,"fighter7, fighter, magellan_yellowtail, magellan_yellowtail_bp",3,,7,14,CLAW,0,1000,,2,SUPPORT,Heavy Escort,21,25000,3
 magellan_bomberyellowtail_wing,magellan_bomberyellowtail_Bomber,"bomber5, bomber, magellan_yellowtail, magellan_yellowtail_bp",3,,5,14,V,4000,2500,300,2,BOMBER,Bomber,18,10000,10
-
 # === Magellan Content ===,,,,,,,,,,,,,,,,
 #Standard,,,,,,,,,,,,,,,,
 magellan_bomber_civ_wing,magellan_bomber_civ_support,"fighter3, fighter, rare_bp, hist1t, magellan, magellan_civ, roider, merc",1,,7,15,V,0,2000,750,2,SUPPORT,Fire Support,20,8000,11

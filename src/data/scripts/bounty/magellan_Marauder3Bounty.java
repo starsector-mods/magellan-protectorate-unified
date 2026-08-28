@@ -33,9 +33,12 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
     public boolean shouldShowAtMarket(MarketAPI market) {
         if (market == null) return false;
         String factionId = market.getFactionId();
-        if (!factionId.equals("magellan_protectorate") && !factionId.equals("independent")) return false;
+        if (!"magellan_protectorate".equals(factionId) && !"independent".equals(factionId)) return false;
         if (market.getSize() < 3) return false;
-        if (Global.getSector().getPlayerPerson().getStats().getLevel() < 5) return false;
+        if (Global.getSector() == null || Global.getSector().getPlayerPerson() == null
+                || Global.getSector().getPlayerPerson().getStats() == null
+                || Global.getSector().getPlayerPerson().getStats().getLevel() < 5) return false;
+        if (Global.getSector().getMemoryWithoutUpdate() == null) return false;
         if (!Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_marauder2_done") &&
             !Global.getSector().getMemoryWithoutUpdate().getBoolean("$magellan_marauder2_done")) return false;
         if (Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_marauder3_done") ||
@@ -52,21 +55,27 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
 
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
-        this.eventMarket = dialog.getInteractionTarget().getMarket();
+        if (dialog != null && dialog.getInteractionTarget() != null) {
+            this.eventMarket = dialog.getInteractionTarget().getMarket();
+        }
         
         dialog.getTextPanel().addPara("\"It's him. Tai Cor-Lan.\" Kiderra's voice is gravel, his jaw locked tight. \"The old whispers were true. He didn't die during the border purge—he vanished into the deep dark, building his strength. Every time the Kaplan slipped our grasp, he was binding the fringe syndicates and rogue crews together. He has forged a full combat armada.\"");
         dialog.getTextPanel().addPara("He activates a holographic projector on his gauntlet. Swarms of crimson tactical icons fill the air—stolen Magellan battlecruisers, dreadnought hulls, line destroyers, and phase escorts arranged in a terrifying siege wall.");
         dialog.getTextPanel().addPara("\"Cor-Lan commands from the Kaplan itself—a lethal, custom-engineered Edger-class carrier retrofitted with military nanoforges. He has concentrated enough firepower to threaten a planetary orbital station. If we do not shatter his fleet now, he will burn the outer Protectorate systems to cinders.\"");
         dialog.getTextPanel().addPara("Kiderra fixes his gaze on yours. \"Fleet Command has opened the armories and authorized absolute clearance: " + Misc.getWithDGS(REWARD) + " credits, weapon nanoforge schematics, and if you board and secure the Kaplan intact... she's yours. Along with whatever surviving crew surrenders to your flag. End his rebellion, Captain. Put this ghost in the ground.\"");
         
-        List<StarSystemAPI> systems = Global.getSector().getStarSystems();
-        for (StarSystemAPI system : systems) {
-            if (!system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
-                hideout = system.getCenter();
-                break;
+        List<StarSystemAPI> systems = Global.getSector() != null ? Global.getSector().getStarSystems() : null;
+        if (systems != null) {
+            for (StarSystemAPI system : systems) {
+                if (system != null && !system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
+                    hideout = system.getCenter();
+                    break;
+                }
+            }
+            if (hideout == null && !systems.isEmpty() && systems.get(0) != null) {
+                hideout = systems.get(0).getCenter();
             }
         }
-        if (hideout == null) hideout = Global.getSector().getStarSystems().get(0).getCenter();
 
         dialog.getOptionPanel().addOption("\"I'll bring you his head.\" (Accept - " + Misc.getWithDGS(REWARD) + " credits + the Kaplan + Tai Cor-Lan's crew)", "ACCEPT");
         dialog.getOptionPanel().addOption("\"This is a suicide run, Kiderra.\" (Decline)", "DECLINE");
@@ -74,16 +83,22 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
 
     @Override
     public void optionSelected(String optionText, Object optionData) {
-        InteractionDialogAPI dialog = Global.getSector().getCampaignUI().getCurrentInteractionDialog();
+        InteractionDialogAPI dialog = (Global.getSector() != null && Global.getSector().getCampaignUI() != null)
+                ? Global.getSector().getCampaignUI().getCurrentInteractionDialog() : null;
+        if (dialog == null) return;
         if ("ACCEPT".equals(optionData)) {
             isAccepted = true;
             spawnFleet();
-            Global.getSector().getIntelManager().addIntel(this);
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
+                Global.getSector().getIntelManager().addIntel(this);
+            }
             dialog.getTextPanel().addPara("For the first time since you've known him, the Blackcollar officer offers a faint, genuine smile—grim, exhausted, but filled with deep respect. \"I knew you were the right weapon for this strike.\" He downloads the final battle coordinates. \"Cor-Lan's armada is entrenched deep within the gravity well. There will be no subtlety, no retreat. But against odds like these...\" He meets your eyes. \"...you've always fought your best. Good hunting, Captain.\"");
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            dialog.getPlugin().optionSelected(null, "leave");
+            if (dialog.getPlugin() != null) {
+                dialog.getPlugin().optionSelected(null, "leave");
+            }
         }
     }
 
@@ -95,6 +110,7 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
     public boolean isAlwaysShow() { return false; }
     
     private void spawnFleet() {
+        if (hideout == null || hideout.getLocation() == null || hideout.getContainingLocation() == null) return;
         FleetParamsV3 params = new FleetParamsV3(
             null, 
             hideout.getLocation(), 
@@ -107,26 +123,33 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
         params.forceAllowPhaseShipsEtc = true;
         params.officerNumberBonus = 5;
         targetFleet = FleetFactoryV3.createFleet(params);
+        if (targetFleet == null || targetFleet.getFleetData() == null) return;
         targetFleet.setName("Tai Cor-Lan's Fleet");
         targetFleet.getFleetData().addFleetMember("magellan_carrier_marauder_custom");
         
-        com.fs.starfarer.api.fleet.FleetMemberAPI flagship = targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1);
-        flagship.setShipName("Kaplan");
-        targetFleet.getFleetData().setFlagship(flagship);
-        
-        com.fs.starfarer.api.characters.PersonAPI commander = Global.getSector().getFaction("pirates").createRandomPerson();
-        commander.setId("tai_cor_lan");
-        commander.getName().setFirst("Tai");
-        commander.getName().setLast("Cor-Lan");
-        commander.getStats().setLevel(7);
-        commander.getStats().setSkillLevel("combat_endurance", 2);
-        commander.getStats().setSkillLevel("target_analysis", 2);
-        commander.getStats().setSkillLevel("field_modulation", 2);
-        commander.getStats().setSkillLevel("helmsmanship", 2);
-        commander.getStats().setSkillLevel("ordnance_expertise", 2);
-        commander.getStats().setSkillLevel("polarized_armor", 2);
-        flagship.setCaptain(commander);
-        targetFleet.setCommander(commander);
+        if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
+            com.fs.starfarer.api.fleet.FleetMemberAPI flagship = targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1);
+            flagship.setShipName("Kaplan");
+            targetFleet.getFleetData().setFlagship(flagship);
+            
+            if (Global.getSector() != null && Global.getSector().getFaction("pirates") != null) {
+                com.fs.starfarer.api.characters.PersonAPI commander = Global.getSector().getFaction("pirates").createRandomPerson();
+                if (commander != null) {
+                    commander.setId("tai_cor_lan");
+                    commander.getName().setFirst("Tai");
+                    commander.getName().setLast("Cor-Lan");
+                    commander.getStats().setLevel(7);
+                    commander.getStats().setSkillLevel("combat_endurance", 2);
+                    commander.getStats().setSkillLevel("target_analysis", 2);
+                    commander.getStats().setSkillLevel("field_modulation", 2);
+                    commander.getStats().setSkillLevel("helmsmanship", 2);
+                    commander.getStats().setSkillLevel("ordnance_expertise", 2);
+                    commander.getStats().setSkillLevel("polarized_armor", 2);
+                    flagship.setCaptain(commander);
+                    targetFleet.setCommander(commander);
+                }
+            }
+        }
         
         targetFleet.getFleetData().addFleetMember("magellan_battleship_std");
         targetFleet.getFleetData().addFleetMember("magellan_herdcarrier_std");
@@ -163,36 +186,44 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
         if (isDone) return;
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
-            Global.getSector().getMemoryWithoutUpdate().set("magellan_marauder3_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("$magellan_marauder3_done", true);
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+            if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+                Global.getSector().getMemoryWithoutUpdate().set("magellan_marauder3_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("$magellan_marauder3_done", true);
+            }
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().getCredits().add(REWARD);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelrod_gun", 2);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelscatter_flak", 2);
                 Global.getSector().getPlayerFleet().getCargo().addCrew(1500);
             }
             
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getFleetData() != null) {
-                com.fs.starfarer.api.fleet.FleetMemberAPI kaplan = Global.getFactory().createFleetMember(com.fs.starfarer.api.fleet.FleetMemberType.SHIP, "magellan_carrier_marauder_custom");
-                kaplan.setShipName("Kaplan");
-                Global.getSector().getPlayerFleet().getFleetData().addFleetMember(kaplan);
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getFleetData() != null) {
+                if (Global.getFactory() != null) {
+                    com.fs.starfarer.api.fleet.FleetMemberAPI kaplan = Global.getFactory().createFleetMember(com.fs.starfarer.api.fleet.FleetMemberType.SHIP, "magellan_carrier_marauder_custom");
+                    if (kaplan != null) {
+                        kaplan.setShipName("Kaplan");
+                        Global.getSector().getPlayerFleet().getFleetData().addFleetMember(kaplan);
+                    }
+                }
                 
                 if (fleet != null && fleet.getCommander() != null && "tai_cor_lan".equals(fleet.getCommander().getId())) {
                     Global.getSector().getPlayerFleet().getFleetData().addOfficer(fleet.getCommander());
                 }
             }
 
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().addSpecial(new com.fs.starfarer.api.campaign.SpecialItemData("weapon_bp", "magellan_fuelrod_gun"), 1);
                 Global.getSector().getPlayerFleet().getCargo().addSpecial(new com.fs.starfarer.api.campaign.SpecialItemData("weapon_bp", "magellan_fuelscatter_flak"), 1);
             }
 
-            Global.getSector().getCampaignUI().addMessage("The Kaplan drifts derelict in a halo of vented plasma and cold debris, her main drive bells crushed. From the heart of the wreckage, an armored escape pod transmits an unencrypted surrender ping.");
-            Global.getSector().getCampaignUI().addMessage("Tai Cor-Lan stands before you in the brig, his uniform scorched, bloody, but carrying the fierce dignity of an unbroken tactician. He speaks not of piracy, but of betrayal—of corrupt Admiralty lords who framed his battle-group, sold out his supply lines, and left an entire Magellan division to die in the borderlands.");
-            Global.getSector().getCampaignUI().addMessage("Whether truth or grandiose self-justification, his tactical genius and mastery of void warfare are beyond dispute.");
-            Global.getSector().getCampaignUI().addMessage("\"My battlegroup is dust, my carrier is taken, and my vendetta is finished,\" Cor-Lan says quietly, looking into your eyes. \"Yet here you stand—a commander who actually understands the brutality of the void. Give me a bridge and a gun, Captain. Let me fight under someone worthy of victory.\"");
-            Global.getSector().getCampaignUI().addMessage("Tai Cor-Lan has joined your fleet as an elite officer. The Kaplan has been salvaged into your battle-line. " + Misc.getWithDGS(REWARD) + " credits, weapon blueprints, and 1,500 veteran crew received.");
-            if (Global.getSector().getIntelManager() != null) {
+            if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                Global.getSector().getCampaignUI().addMessage("The Kaplan drifts derelict in a halo of vented plasma and cold debris, her main drive bells crushed. From the heart of the wreckage, an armored escape pod transmits an unencrypted surrender ping.");
+                Global.getSector().getCampaignUI().addMessage("Tai Cor-Lan stands before you in the brig, his uniform scorched, bloody, but carrying the fierce dignity of an unbroken tactician. He speaks not of piracy, but of betrayal—of corrupt Admiralty lords who framed his battle-group, sold out his supply lines, and left an entire Magellan division to die in the borderlands.");
+                Global.getSector().getCampaignUI().addMessage("Whether truth or grandiose self-justification, his tactical genius and mastery of void warfare are beyond dispute.");
+                Global.getSector().getCampaignUI().addMessage("\"My battlegroup is dust, my carrier is taken, and my vendetta is finished,\" Cor-Lan says quietly, looking into your eyes. \"Yet here you stand—a commander who actually understands the brutality of the void. Give me a bridge and a gun, Captain. Let me fight under someone worthy of victory.\"");
+                Global.getSector().getCampaignUI().addMessage("Tai Cor-Lan has joined your fleet as an elite officer. The Kaplan has been salvaged into your battle-line. " + Misc.getWithDGS(REWARD) + " credits, weapon blueprints, and 1,500 veteran crew received.");
+            }
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
                 Global.getSector().getIntelManager().removeIntel(this);
             }
             if (fleet != null) {

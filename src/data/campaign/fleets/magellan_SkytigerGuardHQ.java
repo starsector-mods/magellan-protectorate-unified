@@ -37,15 +37,16 @@ FleetEventListener {
     protected float returningPatrolValue = 0.0f;
 
     public boolean isHidden() {
-        return !this.market.getFactionId().equals("magellan_protectorate");
+        return this.market == null || !"magellan_protectorate".equals(this.market.getFactionId());
     }
 
     public boolean isFunctional() {
-        return super.isFunctional() && this.market.getFactionId().equals("magellan_protectorate");
+        return super.isFunctional() && this.market != null && "magellan_protectorate".equals(this.market.getFactionId());
     }
 
     public void apply() {
         super.apply(true);
+        if (this.market == null) return;
         int size = this.market.getSize();
         this.demand("supplies", size - 1);
         this.demand("fuel", size - 1);
@@ -57,19 +58,24 @@ FleetEventListener {
         this.applyDeficitToProduction(1, deficit, new String[]{"marines"});
         this.modifyStabilityWithBaseMod();
         MemoryAPI memory = this.market.getMemoryWithoutUpdate();
-        Misc.setFlagWithReason((MemoryAPI)memory, (String)"$patrol", (String)this.getModId(), (boolean)true, (float)-1.0f);
-        Misc.setFlagWithReason((MemoryAPI)memory, (String)"$military", (String)this.getModId(), (boolean)true, (float)-1.0f);
+        if (memory != null) {
+            Misc.setFlagWithReason((MemoryAPI)memory, (String)"$patrol", (String)this.getModId(), (boolean)true, (float)-1.0f);
+            Misc.setFlagWithReason((MemoryAPI)memory, (String)"$military", (String)this.getModId(), (boolean)true, (float)-1.0f);
+        }
         if (!this.isFunctional()) {
-            this.supply.clear();
+            if (this.supply != null) this.supply.clear();
             this.unapply();
         }
     }
 
     public void unapply() {
         super.unapply();
+        if (this.market == null) return;
         MemoryAPI memory = this.market.getMemoryWithoutUpdate();
-        Misc.setFlagWithReason((MemoryAPI)memory, (String)"$patrol", (String)this.getModId(), (boolean)false, (float)-1.0f);
-        Misc.setFlagWithReason((MemoryAPI)memory, (String)"$military", (String)this.getModId(), (boolean)false, (float)-1.0f);
+        if (memory != null) {
+            Misc.setFlagWithReason((MemoryAPI)memory, (String)"$patrol", (String)this.getModId(), (boolean)false, (float)-1.0f);
+            Misc.setFlagWithReason((MemoryAPI)memory, (String)"$military", (String)this.getModId(), (boolean)false, (float)-1.0f);
+        }
         this.unmodifyStabilityWithBaseMod();
     }
 
@@ -203,20 +209,23 @@ FleetEventListener {
     }
 
     public void reportFleetDespawnedToListener(CampaignFleetAPI fleet, CampaignEventListener.FleetDespawnReason reason, Object param) {
-        RouteManager.RouteData route;
-        if (!this.isFunctional()) {
+        if (!this.isFunctional() || RouteManager.getInstance() == null) {
             return;
         }
-        if (reason == CampaignEventListener.FleetDespawnReason.REACHED_DESTINATION && (route = RouteManager.getInstance().getRoute(this.getRouteSourceId(), fleet)).getCustom() instanceof MilitaryBase.PatrolFleetData) {
-            MilitaryBase.PatrolFleetData custom = (MilitaryBase.PatrolFleetData)route.getCustom();
-            if (custom.spawnFP > 0) {
-                float fraction = fleet.getFleetPoints() / custom.spawnFP;
-                this.returningPatrolValue += fraction;
+        if (reason == CampaignEventListener.FleetDespawnReason.REACHED_DESTINATION) {
+            RouteManager.RouteData route = RouteManager.getInstance().getRoute(this.getRouteSourceId(), fleet);
+            if (route != null && route.getCustom() instanceof MilitaryBase.PatrolFleetData) {
+                MilitaryBase.PatrolFleetData custom = (MilitaryBase.PatrolFleetData)route.getCustom();
+                if (custom.spawnFP > 0 && fleet != null) {
+                    float fraction = fleet.getFleetPoints() / custom.spawnFP;
+                    this.returningPatrolValue += fraction;
+                }
             }
         }
     }
 
     public CampaignFleetAPI spawnFleet(RouteManager.RouteData route) {
+        if (route == null || !(route.getCustom() instanceof MilitaryBase.PatrolFleetData)) return null;
         MilitaryBase.PatrolFleetData custom = (MilitaryBase.PatrolFleetData)route.getCustom();
         FleetFactory.PatrolType type = custom.type;
         Random random = route.getRandom();
@@ -245,7 +254,9 @@ FleetEventListener {
         if (fleet == null || fleet.isEmpty()) {
             return null;
         }
-        fleet.setFaction(this.market.getFactionId());
+        if (this.market != null) {
+            fleet.setFaction(this.market.getFactionId());
+        }
         String customName = (type == FleetFactory.PatrolType.HEAVY) ? "Skytiger Guard Detachment" : "Skytiger Guard Patrol";
         fleet.setName(customName);
         fleet.addEventListener((FleetEventListener)this);
@@ -265,11 +276,17 @@ FleetEventListener {
                 rankId = Ranks.SPACE_CAPTAIN;
             }
         }
-        fleet.getCommander().setPostId(postId);
-        fleet.getCommander().setRankId(rankId);
-        this.market.getContainingLocation().addEntity((SectorEntityToken)fleet);
-        fleet.setFacing((float)Math.random() * 360.0f);
-        fleet.setLocation(this.market.getPrimaryEntity().getLocation().x, this.market.getPrimaryEntity().getLocation().y);
+        if (fleet.getCommander() != null) {
+            fleet.getCommander().setPostId(postId);
+            fleet.getCommander().setRankId(rankId);
+        }
+        if (this.market != null && this.market.getContainingLocation() != null) {
+            this.market.getContainingLocation().addEntity((SectorEntityToken)fleet);
+            fleet.setFacing((float)Math.random() * 360.0f);
+            if (this.market.getPrimaryEntity() != null && this.market.getPrimaryEntity().getLocation() != null) {
+                fleet.setLocation(this.market.getPrimaryEntity().getLocation().x, this.market.getPrimaryEntity().getLocation().y);
+            }
+        }
         fleet.addScript((EveryFrameScript)new PatrolAssignmentAIV4(fleet, route));
         if (custom.spawnFP <= 0) {
             custom.spawnFP = fleet.getFleetPoints();

@@ -31,9 +31,12 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
 
     @Override
     public boolean shouldShowAtMarket(MarketAPI market) {
-        if (market == null || market.getFactionId().equals("pirates")) return false;
+        if (market == null || "pirates".equals(market.getFactionId())) return false;
         if (market.getSize() < 3) return false;
-        if (Global.getSector().getPlayerPerson().getStats().getLevel() < 10) return false;
+        if (Global.getSector() == null || Global.getSector().getPlayerPerson() == null
+                || Global.getSector().getPlayerPerson().getStats() == null
+                || Global.getSector().getPlayerPerson().getStats().getLevel() < 10) return false;
+        if (Global.getSector().getMemoryWithoutUpdate() == null) return false;
         if (Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_waywardscion_done") ||
             Global.getSector().getMemoryWithoutUpdate().getBoolean("$magellan_waywardscion_done") ||
             Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_waywardScion_done") ||
@@ -50,7 +53,9 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
 
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
-        this.eventMarket = dialog.getInteractionTarget().getMarket();
+        if (dialog != null && dialog.getInteractionTarget() != null) {
+            this.eventMarket = dialog.getInteractionTarget().getMarket();
+        }
         
         dialog.getTextPanel().addPara("\"Captain.\" Their voice is silk over tempered titanium. \"I represent the Voscune lineage. You may recognize the name—our family holds preeminent industrial and political holdings within the Protectorate's high council. What I am about to disclose never leaves this booth.\"");
         dialog.getTextPanel().addPara("They slide a gold-trimmed dataslate across the table. The screen resolves into an image of a young man in a customized officer's uniform—handsome, sharp-jawed, fiercely defiant.");
@@ -58,14 +63,18 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
         dialog.getTextPanel().addPara("\"Two hundred thousand credits upon confirmed termination. Furthermore, you may claim full salvage rights to his vessel, including the corvette blueprint and whatever prototype strike craft survive the engagement. This conversation never took place.\"");
         
         // Pick a target system
-        List<StarSystemAPI> systems = Global.getSector().getStarSystems();
-        for (StarSystemAPI system : systems) {
-            if (!system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
-                hideout = system.getCenter();
-                break;
+        List<StarSystemAPI> systems = Global.getSector() != null ? Global.getSector().getStarSystems() : null;
+        if (systems != null) {
+            for (StarSystemAPI system : systems) {
+                if (system != null && !system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
+                    hideout = system.getCenter();
+                    break;
+                }
+            }
+            if (hideout == null && !systems.isEmpty() && systems.get(0) != null) {
+                hideout = systems.get(0).getCenter();
             }
         }
-        if (hideout == null) hideout = Global.getSector().getStarSystems().get(0).getCenter();
 
         dialog.getOptionPanel().addOption("\"Consider it done.\" (Accept - 200,000 credits + salvage)", "ACCEPT");
         dialog.getOptionPanel().addOption("\"I don't do family business.\" (Decline)", "DECLINE");
@@ -73,16 +82,22 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
 
     @Override
     public void optionSelected(String optionText, Object optionData) {
-        InteractionDialogAPI dialog = Global.getSector().getCampaignUI().getCurrentInteractionDialog();
+        InteractionDialogAPI dialog = (Global.getSector() != null && Global.getSector().getCampaignUI() != null)
+                ? Global.getSector().getCampaignUI().getCurrentInteractionDialog() : null;
+        if (dialog == null) return;
         if ("ACCEPT".equals(optionData)) {
             isAccepted = true;
             spawnFleet();
-            Global.getSector().getIntelManager().addIntel(this);
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
+                Global.getSector().getIntelManager().addIntel(this);
+            }
             dialog.getTextPanel().addPara("The fixer's immaculate composure does not waver, but a glint of cold satisfaction sharpens their gaze. \"His burn vectors are being transmitted to your vessel. He is surrounded by fanatical partisans and stolen naval hardware—he will not yield. Treat him as hostile ordnance.\" They slide their leather gloves on with deliberate, fluid grace. \"Once his transponder goes dark, the transfer will clear anonymously. We will not speak again.\"");
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            dialog.getPlugin().optionSelected(null, "leave");
+            if (dialog.getPlugin() != null) {
+                dialog.getPlugin().optionSelected(null, "leave");
+            }
         }
     }
 
@@ -96,6 +111,7 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
     // --- INTEL METHODS ---
     
     private void spawnFleet() {
+        if (hideout == null || hideout.getLocation() == null || hideout.getContainingLocation() == null) return;
         FleetParamsV3 params = new FleetParamsV3(
             null, 
             hideout.getLocation(), 
@@ -108,10 +124,13 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
         params.forceAllowPhaseShipsEtc = true;
         params.officerNumberBonus = 3;
         targetFleet = FleetFactoryV3.createFleet(params);
+        if (targetFleet == null || targetFleet.getFleetData() == null) return;
         targetFleet.setName("Leveller Defectors");
         targetFleet.getFleetData().addFleetMember("magellan_corvette_strikecraft_leveller");
-        targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("LVS Rusalka");
-        targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+        if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
+            targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("LVS Rusalka");
+            targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+        }
         
         targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_custom");
         targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_attack");
@@ -135,11 +154,13 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
         if (isDone) return;
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
-            Global.getSector().getMemoryWithoutUpdate().set("magellan_waywardscion_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("$magellan_waywardscion_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("magellan_waywardScion_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("$magellan_waywardScion_done", true);
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+            if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+                Global.getSector().getMemoryWithoutUpdate().set("magellan_waywardscion_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("$magellan_waywardscion_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("magellan_waywardScion_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("$magellan_waywardScion_done", true);
+            }
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().getCredits().add(200000f);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelrod_gun", 2);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelscatter_flak", 2);
@@ -150,16 +171,24 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
                 Global.getSector().getPlayerFleet().getCargo().addSpecial(new com.fs.starfarer.api.campaign.SpecialItemData("ship_bp", "magellan_corvette_strikecraft_leveller"), 1);
             }
 
-            Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addTag("magellan_levellercore_bp");
+            if (Global.getSettings() != null && Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller") != null) {
+                Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addTag("magellan_levellercore_bp");
+            }
 
-            Global.getSector().getFaction("magellan_leveller").getKnownShips().add("magellan_corvette_strikecraft_leveller");
-            Global.getSector().getFaction("magellan_leveller").addUseWhenImportingShip("magellan_corvette_strikecraft_leveller");
-            Global.getSector().getFaction("magellan_leveller").addPriorityShip("magellan_corvette_strikecraft_leveller");
+            if (Global.getSector() != null && Global.getSector().getFaction("magellan_leveller") != null) {
+                com.fs.starfarer.api.campaign.FactionAPI levFaction = Global.getSector().getFaction("magellan_leveller");
+                if (levFaction.getKnownShips() != null) {
+                    levFaction.getKnownShips().add("magellan_corvette_strikecraft_leveller");
+                }
+                levFaction.addUseWhenImportingShip("magellan_corvette_strikecraft_leveller");
+                levFaction.addPriorityShip("magellan_corvette_strikecraft_leveller");
+                levFaction.clearShipRoleCache();
+            }
 
-            Global.getSector().getFaction("magellan_leveller").clearShipRoleCache();
-
-            Global.getSector().getCampaignUI().addMessage("The wayward scion's flotilla has been destroyed. Among the burning wreckage: classified Dassault-Mikoyan fighter prototypes, an experimental Leveller strike corvette blueprint, and salvaged heavy armaments. 200,000 credits transferred anonymously.");
-            if (Global.getSector().getIntelManager() != null) {
+            if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                Global.getSector().getCampaignUI().addMessage("The wayward scion's flotilla has been destroyed. Among the burning wreckage: classified Dassault-Mikoyan fighter prototypes, an experimental Leveller strike corvette blueprint, and salvaged heavy armaments. 200,000 credits transferred anonymously.");
+            }
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
                 Global.getSector().getIntelManager().removeIntel(this);
             }
             if (fleet != null) {

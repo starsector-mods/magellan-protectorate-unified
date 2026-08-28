@@ -44,7 +44,12 @@ public class magellan_LevellerInsurgencyIntelTest {
         factionMock = mock(FactionAPI.class);
 
         com.fs.starfarer.api.campaign.CampaignClockAPI clockMock = mock(com.fs.starfarer.api.campaign.CampaignClockAPI.class);
+        com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI listenerManagerMock = mock(com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI.class);
+        com.fs.starfarer.api.campaign.rules.MemoryAPI memoryMock = mock(com.fs.starfarer.api.campaign.rules.MemoryAPI.class);
+
         when(sectorMock.getClock()).thenReturn(clockMock);
+        when(sectorMock.getListenerManager()).thenReturn(listenerManagerMock);
+        when(sectorMock.getMemoryWithoutUpdate()).thenReturn(memoryMock);
         when(clockMock.getElapsedDaysSince(anyLong())).thenReturn(0.0f);
         when(sectorMock.getIntelManager()).thenReturn(intelManagerMock);
         when(sectorMock.getEconomy()).thenReturn(economyMock);
@@ -66,7 +71,7 @@ public class magellan_LevellerInsurgencyIntelTest {
             magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
             Set<String> tags = intel.getIntelTags(null);
 
-            assertTrue(tags.contains(Tags.INTEL_MAJOR_EVENT));
+            assertFalse(tags.contains(Tags.INTEL_MAJOR_EVENT));
             assertTrue(tags.contains(Tags.INTEL_MILITARY));
             assertTrue(tags.contains(magellan_Tags.INTEL_FACTIONS));
             assertTrue(tags.contains("factions"));
@@ -77,70 +82,89 @@ public class magellan_LevellerInsurgencyIntelTest {
 
     @Test
     public void testLogisticsRating() {
-        magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
-        assertEquals(0.70f, intel.getLogisticsRating(), 0.01f);
+        try (MockedStatic<Global> globalMock = mockStatic(Global.class)) {
+            globalMock.when(Global::getSector).thenReturn(sectorMock);
+            globalMock.when(Global::getSettings).thenReturn(settingsMock);
 
-        intel.setLogisticsRating(0.85f);
-        assertEquals(0.85f, intel.getLogisticsRating(), 0.01f);
+            magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
+            assertEquals(0.70f, intel.getLogisticsRating(), 0.01f);
 
-        // Clamping bounds
-        intel.setLogisticsRating(1.5f);
-        assertEquals(1.0f, intel.getLogisticsRating(), 0.01f);
+            intel.setLogisticsRating(0.85f);
+            assertEquals(0.85f, intel.getLogisticsRating(), 0.01f);
 
-        intel.setLogisticsRating(-0.2f);
-        assertEquals(0.0f, intel.getLogisticsRating(), 0.01f);
+            // Clamping bounds
+            intel.setLogisticsRating(1.5f);
+            assertEquals(1.0f, intel.getLogisticsRating(), 0.01f);
+
+            intel.setLogisticsRating(-0.2f);
+            assertEquals(0.0f, intel.getLogisticsRating(), 0.01f);
+        }
     }
 
     @Test
     public void testTargetMarketsAndSorties() {
-        magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
-        MarketAPI marketMock = mock(MarketAPI.class);
-        SectorEntityToken entityMock = mock(SectorEntityToken.class);
+        try (MockedStatic<Global> globalMock = mockStatic(Global.class)) {
+            globalMock.when(Global::getSector).thenReturn(sectorMock);
+            globalMock.when(Global::getSettings).thenReturn(settingsMock);
 
-        when(marketMock.getPrimaryEntity()).thenReturn(entityMock);
+            magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
+            MarketAPI marketMock = mock(MarketAPI.class);
+            SectorEntityToken entityMock = mock(SectorEntityToken.class);
 
-        intel.addTargetMarket(marketMock);
-        assertTrue(intel.getTargetMarkets().contains(marketMock));
-        assertTrue(intel.getActiveTargetColonies().contains(marketMock));
+            when(marketMock.getPrimaryEntity()).thenReturn(entityMock);
 
-        intel.addSortieLocation(entityMock);
-        assertTrue(intel.getSortieLocations().contains(entityMock));
-        assertTrue(intel.getActiveSortieLocations().contains(entityMock));
+            intel.addTargetMarket(marketMock);
+            assertTrue(intel.getTargetMarkets().contains(marketMock));
+            assertTrue(intel.getActiveTargetColonies().contains(marketMock));
 
-        assertEquals(entityMock, intel.getMapLocation(null));
+            intel.addSortieLocation(entityMock);
+            assertTrue(intel.getSortieLocations().contains(entityMock));
+            assertTrue(intel.getActiveSortieLocations().contains(entityMock));
 
-        intel.removeTargetMarket(marketMock);
-        assertFalse(intel.getTargetMarkets().contains(marketMock));
+            assertEquals(entityMock, intel.getMapLocation(null));
 
-        intel.removeSortieLocation(entityMock);
-        assertFalse(intel.getSortieLocations().contains(entityMock));
+            intel.removeTargetMarket(marketMock);
+            assertFalse(intel.getTargetMarkets().contains(marketMock));
+
+            intel.removeSortieLocation(entityMock);
+            assertFalse(intel.getSortieLocations().contains(entityMock));
+        }
     }
 
     @Test
     public void testOperationsAndArrowData() {
-        magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
-        SectorEntityToken originMock = mock(SectorEntityToken.class);
-        SectorEntityToken targetMock = mock(SectorEntityToken.class);
-        MarketAPI marketMock = mock(MarketAPI.class);
+        try (MockedStatic<Global> globalMock = mockStatic(Global.class)) {
+            globalMock.when(Global::getSector).thenReturn(sectorMock);
+            globalMock.when(Global::getSettings).thenReturn(settingsMock);
 
-        LevellerOperation op = new LevellerOperation(
-                "Arms Smuggling Run", originMock, targetMock, marketMock, 0.8f, "Active"
-        );
+            magellan_LevellerInsurgencyIntel intel = new magellan_LevellerInsurgencyIntel();
+            SectorEntityToken originMock = mock(SectorEntityToken.class);
+            SectorEntityToken targetMock = mock(SectorEntityToken.class);
+            MarketAPI marketMock = mock(MarketAPI.class);
+            com.fs.starfarer.api.campaign.LocationAPI locMock = mock(com.fs.starfarer.api.campaign.LocationAPI.class);
 
-        intel.addOperation(op);
-        assertTrue(intel.getOperations().contains(op));
+            when(originMock.getContainingLocation()).thenReturn(locMock);
+            when(targetMock.getContainingLocation()).thenReturn(locMock);
 
-        List<ArrowData> arrows = intel.getArrowData(null);
-        assertEquals(1, arrows.size());
-        assertEquals(originMock, arrows.get(0).from);
-        assertEquals(targetMock, arrows.get(0).to);
+            LevellerOperation op = new LevellerOperation(
+                    "Arms Smuggling Run", originMock, targetMock, marketMock, 0.8f, "Active"
+            );
 
-        intel.removeOperation(op);
-        assertFalse(intel.getOperations().contains(op));
+            intel.addOperation(op);
+            assertTrue(intel.getOperations().contains(op));
+
+            List<ArrowData> arrows = intel.getArrowData(null);
+            assertEquals(1, arrows.size());
+            assertEquals(originMock, arrows.get(0).from);
+            assertEquals(targetMock, arrows.get(0).to);
+
+            intel.removeOperation(op);
+            assertFalse(intel.getOperations().contains(op));
+        }
     }
 
     @Test
-    public void testCreateIntelInfoAndSmallDescription() {
+    public void testCreateIntelInfoAndAfterStageDescriptions() {
         try (MockedStatic<Global> globalMock = mockStatic(Global.class)) {
             globalMock.when(Global::getSector).thenReturn(sectorMock);
             globalMock.when(Global::getSettings).thenReturn(settingsMock);
@@ -151,10 +175,8 @@ public class magellan_LevellerInsurgencyIntelTest {
             intel.createIntelInfo(infoMock, IntelInfoPlugin.ListInfoMode.INTEL);
             verify(infoMock, atLeastOnce()).addPara(eq(intel.getName()), any(), anyFloat());
 
-            intel.createSmallDescription(infoMock, 800f, 600f);
+            intel.afterStageDescriptions(infoMock);
             verify(infoMock, atLeastOnce()).addSectionHeading(contains("Strategic Logistics"), any(), any(), any(), anyFloat());
-            verify(infoMock, atLeastOnce()).addSectionHeading(contains("Path I: Allied Insurgent Support"), any(), any(), any(), anyFloat());
-            verify(infoMock, atLeastOnce()).addSectionHeading(contains("Path II: Protectorate Counter-Insurgency"), any(), any(), any(), anyFloat());
         }
     }
 
@@ -162,6 +184,7 @@ public class magellan_LevellerInsurgencyIntelTest {
     public void testSingletonAndCreationAccessors() {
         try (MockedStatic<Global> globalMock = mockStatic(Global.class)) {
             globalMock.when(Global::getSector).thenReturn(sectorMock);
+            globalMock.when(Global::getSettings).thenReturn(settingsMock);
 
             // Initially null
             when(intelManagerMock.getFirstIntel(magellan_LevellerInsurgencyIntel.class)).thenReturn(null);

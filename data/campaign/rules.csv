@@ -5,7 +5,6 @@ $faction.friendlyToPlayer","$menuState = fleetConvMain 0
 FireAll PopulateOptions","""Pleased to meet you, captain. How does the day find you?""
 OR
 The screen flickers, and $personName smiles slightly as the comm channel stabilizes.
-
 ""It's nice to see a friendly face, captain.""
 OR
 ""Fleet Command welcomes you to Magellan space, captain.""",,
@@ -19,15 +18,12 @@ GreetingMagellanHostileWeakerDefiant,OpenCommLink,"$faction.id == magellan_prote
 $entity.isHostile
 $entity.relativeStrength <0
 $entity.weakerThanPlayerbutHolding",$entity.ignorePlayerCommRequests = true 1,"""If I survive, I expect to laugh about this later.""
-
 The comm channel closes.
 OR
 ""I didn't expect to grow old and die in bed, captain.""
-
 The comm link cuts out.
 OR
 ""The Fleet has faced hopeless odds before.""
-
 The channel snaps off abruptly.",cutCommLink:Cut the comm link,
 GreetingMagellanHostileStronger,OpenCommLink,"$faction.id == magellan_protectorate
 $entity.isHostile
@@ -53,7 +49,8 @@ PRINT identity confirmed.
 PRINT STATUS target friendly.
 PRINT GREETING welcome.
 PRINT ERROR it has been so long. so alone.
-PRINT ERROR the void is one. be one with the void. rejoice. rejoice. rejoice. OR
+PRINT ERROR the void is one. be one with the void. rejoice. rejoice. rejoice.
+OR
 PRINT identity confirmed.
 PRINT STATUS target friendly.
 PRINT [CORRUPTED]
@@ -102,15 +99,12 @@ CMSNTextRejectHostile_magellan,CMSNTextRejectHostile,$faction.id == magellan_pro
 CMSNTextHasOther_magellan,CMSNTextHasOther,$faction.id == magellan_protectorate,,"""You're already commissioned by $theOtherCommissionFaction. Unfortunately, we've found that privateers with uncertain loyalties are more trouble than they are benefit; you'll have to resign that commission before your application would be accepted.""",,
 CMSNTextUnsuited_magellan,CMSNTextUnsuited,$faction.id == magellan_protectorate,,"""We only commission captains with clean records as privateers in our space. Run along, or the Fleet will be scraping you off their hull plating in short order.""",,
 CMSNTextSuitedPart1_magellan,CMSNTextSuitedPart1,$faction.id == magellan_protectorate,,"""Hmm, well, OFI gives you a clean bill of health; if you're a criminal or a revolutionary, it's not in their database.
-
 Accepting a commission from the Protectorate is a serious matter. You will be required to come to the defense of Annore and Jeshad, and protect Magellan supply lines in time of war. Above all, you must be loyal to the Protector and the State, not to individuals. 
-
 You have the right to resign your commission at any time. After resignation, of course, you can expect to be viewed with considerable suspicion by both the Fleet and the Protector's government.""",,
 CMSNTextSuitedPart2_magellan,CMSNTextSuitedPart2,$faction.id == magellan_protectorate,,"""In the name of the Protector and Fleet Command, I offer you commission as a privateer to the Magellan Fleet. Do you wish to sign on?""",,
 CMSNTextWelcomePart1_magellan,CMSNTextWelcomePart1,$faction.id == magellan_protectorate,,"""Very well. On behalf of the Protector and the Magellan State, your Fleet privateer commission has been granted.""",,
 CMSNTextWelcomePart2_magellan,CMSNTextWelcomePart2,$faction.id == magellan_protectorate,,"""Anything else I can do for you?""",,
 CMSNTextChangeMind_magellan,CMSNTextChangeMind,$faction.id == magellan_protectorate,,"""Privateering isn't for everyone - especially not for a poor and isolated power, far from the centers of commerce. No one would blame you for being unwilling to face the guns of the Hegemony, after all.
-
 Anything else I can do for you?""",,
 CMSNResignAskToConfirm_magellan,CMSNResignAskToConfirm,$faction.id == magellan_protectorate,,"""Are you sure? $TheFaction needs people it can rely on, and turning your back like this won't be easily forgotten.""",,
 CMSNResignConfirmed_magellan,CMSNResignConfirmed,$faction.id == magellan_protectorate,,"""I can see there's no changing your mind. For what it's worth, you have the Protector's gratitude for services rendered - however much that means these days.""",,
@@ -119,17 +113,14 @@ CMSNResignCancelled_magellan,CMSNResignCancelled,$faction.id == magellan_protect
 beaconOpenDialogMagellanExileFleet_Secondary,OpenInteractionDialog,"$tag:magellan_exile_distressbeacon
 $magellanWreckSecondary","ShowDefaultVisual
 SetShortcut beaconLeave ""ESCAPE""","This autonomous distress beacon emits a looping message. The static crackle threatens to overwhelm the voice, which speaks with a thick, archaic accent.
-
 ""SOS: we have encountered insurmountable failures of multiple critical systems. Propulsion systems are no longer adequate to maintain formation. If there's anyone out there, send help.""",beaconLeave:Leave,
 beaconOpenDialogMagellanExileFleetPrimary,OpenInteractionDialog,"$tag:magellan_exile_distressbeacon
 $magellanWreckPrimary","ShowDefaultVisual
 SetShortcut beaconLeave ""ESCAPE""","This autonomous distress beacon emits a looping message. The static crackle threatens to overwhelm the voice, which speaks with a thick, archaic accent.
-
 ""SOS: we have encountered insurmountable failures of multiple critical systems. Propulsion systems are no longer adequate to maintain formation. If there's anyone out there, send help.""",beaconLeave:Leave,
 beaconOpenDialogMagellanExileFleetHomestar,OpenInteractionDialog,"$tag:magellan_exile_distressbeacon
 $magellanWreckHomestar","ShowDefaultVisual
 SetShortcut beaconLeave ""ESCAPE""","This autonomous distress beacon emits a looping message. The static crackle threatens to overwhelm the voice, which speaks with a thick, archaic accent.
-
 ""SOS: we have encountered insurmountable failures of multiple critical systems. Propulsion systems are no longer adequate to maintain formation. If there's anyone out there, send help.""",beaconLeave:Leave,
 #Wreck dialogues,,,,,,
 sal_magellanWreckDefault,OpenInteractionDialog,"$tag:salvageable
@@ -152,9 +143,7 @@ $hasStation",SalvageDefenderInteraction,"As your $shipOrFleet moves in closer, y
 MothershipFleetOpenDefault,BeginFleetEncounter,"$isStation
 $faction.id == magellan_derelict
 !$printedDesc",$printedDesc = true 0,"The massive, triangular shape of the mothership fills your viewscreen. A bridge officer re-scales the tactical target display so that its entire mass can be seen at once. 
-
 The ancient, pitted form of the exile craft is striking; it embodies the hope and the desperation of the founding Magellan exiles, to trust their survival to this mote of dust in a journey that spanned light-years. What relics does this ship contain? What secrets of the long, forgotten history of the Magellan people are buried deep within some bay or alcove?
-
 Your combat computer indicates that the mothership is under emergency AI control; the ship itself appears to be fully operational. Attempts at communication are met with no response.",,
 sal_magellanMotherShipDetails,ShowSalvageEntityDetails,$customType == magellan_mothership_wreck,"ShowDefaultVisual
 FireBest DerelictPrintExtraInfo","The vast bulk of the mothership is burned and battered by centuries of service to the exiled Fleet, a drifting forgotten hulk, though sensors indicate that some systems are still nominally active.",,
@@ -172,9 +161,7 @@ magellan_blackcollarBaseOpenDialog,PopulateOptions,"$tag:magellan_blackcollarBas
 magellan_blackcollarBaseOpenDialog_Done,PopulateOptions,"$tag:magellan_blackcollarBase
 $player.magellan_blackcollarBaseStoryDone",,,0:magellan_blackcollarBaseVisit:Visit the Blackcollar tomb,Landing Dialogue
 magellan_blackcollarBaseVisit,DialogOptionSelected,$option == magellan_blackcollarBaseVisit,"SetShortcut magellan_blackcollarBaseLeave ""ESCAPE""","In stark contrast to the hollow triumphalism and gilded monuments of the Core Worlds, the Blackcollar memorial bay on Crucible Base is vast, echoing, and dead silent. The air is bone-cold, smelling faintly of ancient ozone and chilled composite armor.
-
 At the center of the pressurized cavern—carved directly out of the keel of the original exile sporeship—rises a monumental monolith of matte-black carbon-titanium. The lower third is dense with laser-etched micro-inscriptions. Every fallen soldier of the Legion is recorded in immutable, egalitarian succession: Service ID, Name, Casualty Date, System Vector. There is no distinction of rank, caste, or origin; no flowery eulogies or moral judgments. Overhead, optical laser scribes hum in near-imperceptible pulses, engraving the latest casualties into the stone with pitiless mechanical precision.
-
 Two Legionaries in matte-black powered armor stand motionless vigil with mag-clamped rifles, unblinking as statuary. As your HUD interfaces with the memorial's optical index, thousands of amber names flicker across your vision. You depart in subdued silence, humbled by the weight of so much sacrifice recorded with such clinical, uncompromising honor.",0:magellan_blackcollarBaseLeave:Return to station,Visit Dialogue
 magellan_blackcollarBaseLeave,DialogOptionSelected,$option == magellan_blackcollarBaseLeave,FireAll PopulateOptions,,,Leave Dialogue
 #Leveller Habitat dialogue,,,,,,
@@ -185,22 +172,17 @@ magellan_leveller_qm_options,PopulateOptions,$activePerson.magellan_leveller_qua
 2:magellan_leveller_qm_leave:That will be all.",Quartermaster Options
 magellan_leveller_qm_leave,DialogOptionSelected,$option == magellan_leveller_qm_leave,EndConversation,,,
 magellan_oldLevellerHabitatVisit,DialogOptionSelected,$option == magellan_oldLevellerHabitatVisit,"SetShortcut magellan_oldLevellerHabitatLeave ""ESCAPE""","You follow the faded yellow guide-stripes through the vibration-rattled utility tunnels of Rosebriar. The air grows dense, heavy with the scent of ozone, machine coolant, and the faint, sweet tang of dried desert petals.
-
 As the passage widens into the cavernous central atrium, you are met with a breathtaking, sprawling monument to defiance. The entire aft bulkhead is a jagged mosaic of memory. Thousands of artificial poppies—woven from red and purple syn-silk—cascade down the reinforced steel walls, framing the personal relics of those who fell to the Protectorate's guns.","0:magellan_monument_inspect_relics:Inspect the physical relics and jury-rigged weapons
 1:magellan_monument_inspect_letters:Read the thermal flimsies and radical poetry
 2:magellan_monument_inspect_footage:Watch the flickering CRT monitors
 3:magellan_oldLevellerHabitatLeave:Leave the memorial",Visit Dialogue
 magellan_monument_inspect_relics,DialogOptionSelected,$option == magellan_monument_inspect_relics,,"You step closer to a cluster of physical artifacts illuminated by amber lumen-strips. A cracked worker's hardhat rests on a shattered riot shield, both deeply scored by kinetic impacts. Beside them lies a jury-rigged kinetic carbine—its barrel warped from overheating, its stock wrapped in blood-stained grip tape.
-
 A small holo-cube next to the weapon projects the grainy image of a young engineer, her face smeared with grease, raising the very same rifle in defiance. It is a testament to the brutal, asymmetric reality of the First Uprising: shipyard tools turned against military-grade armor.","0:magellan_oldLevellerHabitatVisit_return:Step back",Inspect Relics
 magellan_monument_inspect_letters,DialogOptionSelected,$option == magellan_monument_inspect_letters,,"Pinned to the steel bulkhead with thick solder wire are hundreds of thermal flimsies. You lean in to read them. Many are radical manifestos demanding labor rights and an end to the Admiralty's martial law, their ink smeared by time and handling.
-
 Others are desperately personal: last letters written to spouses left behind on Valca, poetry composed in the dark hours of a Protectorate siege, and crude sketches of a free Rosebriar. One crumpled note simply reads, ""They can bomb the habitats, but they cannot bomb the hunger.""","0:magellan_oldLevellerHabitatVisit_return:Step back",Inspect Letters
 magellan_monument_inspect_footage,DialogOptionSelected,$option == magellan_monument_inspect_footage,,"In the center of the shrine, a bank of cracked, mismatched CRT monitors plays a silent, endless loop of shaky helmet-cam footage.
-
 You watch a grainy, black-and-white charge through a Magellan logistics depot. Partisans throw homemade thermite charges into the treads of Protectorate heavy mechs before being cut down in a hail of autocannon fire. The camera falls sideways, capturing a final, freezing frame of a Magellan boot stepping over the lens. It is a grim, unflinching reminder of the blood already spilled in the name of liberty.","0:magellan_oldLevellerHabitatVisit_return:Step back",Inspect Footage
 magellan_oldLevellerHabitatVisit_return,DialogOptionSelected,$option == magellan_oldLevellerHabitatVisit_return,,"You step back, taking in the full breadth of the memorial once more.
-
 A group of off-duty dockers in patched, blast-scarred overalls stand nearby in hushed reverie. As you approach, one of them raises a battered tin cup toward the flickering screens. The first rebellion may have been drowned in fire by the Admiralty's boot, but this memorial does not mourn defeat. It smolders with the quiet, terrifying certainty that the second revolution is merely waiting for the spark.","0:magellan_monument_inspect_relics:Inspect the physical relics and jury-rigged weapons
 1:magellan_monument_inspect_letters:Read the thermal flimsies and radical poetry
 2:magellan_monument_inspect_footage:Watch the flickering CRT monitors
@@ -208,13 +190,10 @@ A group of off-duty dockers in patched, blast-scarred overalls stand nearby in h
 magellan_oldLevellerHabitatLeave,DialogOptionSelected,$option == magellan_oldLevellerHabitatLeave,FireAll PopulateOptions,,,Leave Dialogue
 magellan_oldLevellerHabitatDonationAlreadyMade,DialogOptionSelected,"$option == magellan_oldLevellerHabitatMakeDonation
 $entity.magellan_LevellerDonationMade score:150",,"The Leveller logistics quartermaster hails you over an encrypted comm-link, shaking their head against a backdrop of humming gantry cranes.
-
 ""Your solidarity is noted, Captain, but our engineering bays are still processing your last shipment across the Rose Nebula berths. If we stack any more munitions crates in plain view of the airlocks, Protectorate reconnaissance skiffs will pick up the thermal bloom. Let us cycle this materiel through the refit lines before you haul in another payload.""",0:magellan_oldLevellerHabitatLeave:Return to station,
 magellan_oldLevellerHabitatDonationMenu,DialogOptionSelected,"$option == magellan_oldLevellerHabitatMakeDonation
 !$player.magellan_oldLevellerHabitatStoryDone","SetStoryOption magellan_oldLevellerHabitatStory 1 generic_story_point ui_char_spent_story_point ""Shared classified patrol intel""","You pass through reinforced hydraulic bulkheads flanked by armed sentries into the subterranean engineering caverns of Rosebriar Station. The cavernous docking bays thunder with the roar of plasma torches and the heavy thud of hydraulic presses as insurgent mechanics refit turncoat warships for the struggle.
-
 A logistics quartermaster in grease-stained tactical coveralls wipes soot from their brow and looks up from a flickering holographic schematic.
-
 ""Welcome to the forge, Captain. Out here in the Rose Nebula, our crews are working around the clock to keep our flotillas battle-ready against the Protectorate's iron grip. If you've come to fuel the cause, we have an insatiable appetite for heavy machinery, munitions, and combat supplies. What can your fleet spare?""","0:magellan_oldLevellerHabitatDonateA:Field Repair Aid (50 Heavy Machinery)
 1:magellan_oldLevellerHabitatDonateB:Industrial Foundry Support (200 Heavy Machinery)
 2:magellan_oldLevellerHabitatDonateC:Arms & Munitions Delivery (100 Hand Weapons, 100 Supplies)
@@ -222,9 +201,7 @@ A logistics quartermaster in grease-stained tactical coveralls wipes soot from t
 4:magellan_oldLevellerHabitatStory:Share classified Protectorate patrol schedules with the insurgents",
 magellan_oldLevellerHabitatDonationMenu_StoryDone,DialogOptionSelected,"$option == magellan_oldLevellerHabitatMakeDonation
 $player.magellan_oldLevellerHabitatStoryDone",,"You pass through reinforced hydraulic bulkheads flanked by armed sentries into the subterranean engineering caverns of Rosebriar Station. The cavernous docking bays thunder with the roar of plasma torches and the heavy thud of hydraulic presses as insurgent mechanics refit turncoat warships for the struggle.
-
 A logistics quartermaster in grease-stained tactical coveralls wipes soot from their brow and looks up from a flickering holographic schematic.
-
 ""Welcome to the forge, Captain. Out here in the Rose Nebula, our crews are working around the clock to keep our flotillas battle-ready against the Protectorate's iron grip. If you've come to fuel the cause, we have an insatiable appetite for heavy machinery, munitions, and combat supplies. What can your fleet spare?""","0:magellan_oldLevellerHabitatDonateA:Field Repair Aid (50 Heavy Machinery)
 1:magellan_oldLevellerHabitatDonateB:Industrial Foundry Support (200 Heavy Machinery)
 2:magellan_oldLevellerHabitatDonateC:Arms & Munitions Delivery (100 Hand Weapons, 100 Supplies)
@@ -232,7 +209,6 @@ A logistics quartermaster in grease-stained tactical coveralls wipes soot from t
 magellan_oldLevellerHabitatDonateA_Enough,DialogOptionSelected,"$option == magellan_oldLevellerHabitatDonateA
 $player.heavy_machinery >= 50","SetTextHighlightColors buttonShortcut
 SetTextHighlights 50","The quartermaster taps the requisitions terminal with an appreciative nod. ""Fifty units of heavy machinery will keep three emergency drydock teams running double shifts, repairing punctured armor belts and replacing sheared thruster mounts on our commerce raiders.""
-
 Do you wish to transfer 50 units of heavy machinery to the Leveller engineering corps?","0:magellan_oldLevellerHabitatGiveDonationA:Confirm transfer of 50 heavy machinery
 1:magellan_oldLevellerHabitatCancelDonation:Never mind",
 magellan_oldLevellerHabitatDonateA_NotEnough,DialogOptionSelected,"$option == magellan_oldLevellerHabitatDonateA
@@ -247,7 +223,6 @@ FireAll PopulateOptions",,,
 magellan_oldLevellerHabitatDonateB_Enough,DialogOptionSelected,"$option == magellan_oldLevellerHabitatDonateB
 $player.heavy_machinery >= 200","SetTextHighlightColors buttonShortcut
 SetTextHighlights 200","The quartermaster lets out a low whistle over the din of the foundries. ""Two hundred units of industrial heavy machinery... With tooling of this caliber, our subterranean casting pits can forge capital-grade composite armor plates and machine entire spinal coil-assemblies directly from asteroid ore.""
-
 Do you wish to transfer 200 units of heavy machinery to the Rosebriar industrial foundries?","0:magellan_oldLevellerHabitatGiveDonationB:Confirm transfer of 200 heavy machinery
 1:magellan_oldLevellerHabitatCancelDonation:Never mind",
 magellan_oldLevellerHabitatDonateB_NotEnough,DialogOptionSelected,"$option == magellan_oldLevellerHabitatDonateB
@@ -263,7 +238,6 @@ magellan_oldLevellerHabitatDonateC_Enough,DialogOptionSelected,"$option == magel
 $player.hand_weapons >= 100
 $player.supplies >= 100","SetTextHighlightColors buttonShortcut buttonShortcut
 SetTextHighlights 100 100","The quartermaster's eyes gleam as they inspect the cargo scan. ""One hundred crates of tactical firearms and one hundred containers of sealed supplies. That's enough small arms to equip three covert insurgent cells on the inner worlds, and enough field rations to sustain our boarding cadres through a protracted naval blockade.""
-
 Do you wish to deliver 100 hand weapons and 100 supplies to the Leveller insurgent armory?","0:magellan_oldLevellerHabitatGiveDonationC:Confirm delivery of 100 hand weapons and 100 supplies
 1:magellan_oldLevellerHabitatCancelDonation:Never mind",
 magellan_oldLevellerHabitatDonateC_NotEnough,DialogOptionSelected,$option == magellan_oldLevellerHabitatDonateC,"SetTextHighlightColors buttonShortcut buttonShortcut
@@ -277,7 +251,6 @@ $global.magellan_leveller_logistics_score += 125
 FireAll PopulateOptions",,,
 magellan_oldLevellerHabitatCancelDonation,DialogOptionSelected,$option == magellan_oldLevellerHabitatCancelDonation,FireAll PopulateOptions,,,
 magellan_rosebriar_insurgency_briefing,DialogOptionSelected,$option == magellan_rosebriar_insurgency_briefing,"magellan_rosebriar_insurgency_briefing","You step onto the observation catwalk above the subterranean coordination nexus. Holographic tactical projectors cast a crimson glow across the steel chamber, tracing hyperspace jump vectors, commercial shipping arteries, and underground partisan cells embedded across Magellan space.
-
 ""We strike from the heart of the Rose Nebula, Captain,"" the Rebel Coordinator explains, pointing to pulsing convoy markers on the holomap. ""Our commerce raiders bleed the Protectorate's logistical veins, while our smugglers slip heavy arms past naval cordons to arm worker cadres on the factory worlds. Every crate of steel and shot you deliver directly strengthens these sorties across the Sector.""",0:magellan_oldLevellerHabitatLeave:Return to station,Insurgency Briefing
 #Meetpoint Turan dialogue,,,,,,
 magellan_meetpointOpenDialog,OpenInteractionDialog,$tag:magellan_meetpointInt,"PrintDescription 1
@@ -287,17 +260,14 @@ FireBest magellan_meetpointMainOptions",,,Landing Dialogue
 magellan_meetpointMainOptions,magellan_meetpointMainOptions,,"SetShortcut magellan_meetpointLeave ""ESCAPE""",,"0:magellan_meetpointVisit:Visit the Free Trader's guildhall
 10:magellan_meetpointLeave:Leave","Menu Options, starting with 0"
 magellan_meetpointVisit,DialogOptionSelected,$option == magellan_meetpointVisit,"SetShortcut magellan_meetpointLeave ""ESCAPE""","The vaulted guildhall is alive with the warmth of spacer solidarity. Around long communal benches, merchanter families, belter miners, and void-weathered haulers share steaming pans of spicy red crab stew and fresh bread baked from hydroponic grain. An old prospector with a battered acoustic instrument strikes up a chord, and within moments half the hall joins in with clinking tin mugs:
-
 ...There once was a ship that plied the stars,
 And the name of the ship was the Lily of Mars,
 The hyper storms ripped her up and down,
 Take hold, ye spacers, take hold...
-
 ...Soon may the salvageman come,
 To bring us drugs and organs and guns,
 One day, when the scavenging’s done,
 We’ll take our leave and go.
-
 After a chorus of hearty void-ballads and countless invitations to stay for 'just one more draft!', you take your leave with a warmed spirit and the rare feeling of true kinship among the stars.",magellan_meetpointLeave:Leave,Visit Dialogue
 magellan_meetpointLeave,DialogOptionSelected,$option == magellan_meetpointLeave,DismissDialog,,,Leave Dialogue
 # Herd relations,,,,,,
@@ -328,21 +298,17 @@ ms_giveToTichelSel,DialogOptionSelected,$option == ms_giveToTichel,,"""That's ce
 ms_giveToTichelNotNow:""I'm afraid not.""",
 ms_giveToTichelNotNowSel,DialogOptionSelected,$option == ms_giveToTichelNotNow,,"""I see,"" $heOrShe nods. ""You need time to study the ship first. I understand. Please, stay in port for as long as you like. If you want to continue this conversation, I'm always avaliable. Was there anything else?""",cutCommLink:Attend to other business,
 ms_giveToTichelOfferSel,DialogOptionSelected,$option == ms_giveToTichelOffer,,"$personLastName sends you a data package from $hisOrHer terminal, a preview of what's on offer.
-
 ""In exchange for the mothership, Tichel is willing to provide a complete blueprint package for all of our proprietary ship and strike craft designs, including the plans for a Tichel modified version of the mothership itself, once we have it finalized.""
-
 The $personPost is almost breathless in $hisOrHer eagerness. ""Think of it, captain. Not only would you be doing us a great favor, but one day soon, you'll be able to assemble your own fleet of such magnificent behemoths!""","ms_giveToTichelOffer2:""Don't you think the Skytigers would take issue with that?""
 ms_giveToTichelBlueprints:""Sounds like a great deal. I'll take it.""
 ms_giveToTichelNotNow:""I need time to think this over.""",
 ms_giveToTichelOffer2Sel,DialogOptionSelected,$option == ms_giveToTichelOffer2,,"""You mean the idea of 'upstart merchants' and spacers getting our hands on a ship more powerful than their gaudiest dreadnoughts?"" $HeOrShe laughs. ""The Skytigers are always mad about something. You let us worry about that. Although I suppose if you feel concerned about handing over the ship itself, we could make alternative arrangements.""","ms_giveToTichelOffer3:""Go on.""
 ms_giveToTichelNotNow:""I need time to think this over.""",
 ms_giveToTichelOffer3Sel,DialogOptionSelected,$option == ms_giveToTichelOffer3,,"""We convert the mothership into a Tichel command ship, with all the usual upgrades, but you'll keep the finished product. Given what we already understand of the tech, going through the conversion process should be enough for us to reverse engineer a complete blueprint.""
-
 ""Not only that,"" $personLastName pauses for dramatic effect. ""We'd be willing to share the blueprint as well. The Elders can be very generous when they want to be.""","ms_giveToTichelOffer4:""Generous, but what's the catch?""
 ms_giveToTichelNotNow:""I need time to think this over.""",
 ms_giveToTichelOffer4Sel,DialogOptionSelected,$option == ms_giveToTichelOffer4,,"""Observant,"" $personLastName concedes. ""The catch is that main gun. The Elders will want it for study, but I doubt it's something we can duplicate in short order. So the ship we hand back won't have it onboard. Is that agreeable?""","ms_giveToTichelOffer5:""And what if it's not?""",
 ms_giveToTichelOffer5Sel,DialogOptionSelected,$option == ms_giveToTichelOffer5,,"The Tichel representative thinks for a moment. ""Then I would suggest allowing one of our research teams a tour of the ship. I could offer 100,000 credits as a convenience fee, and we'll leave everything as we found it. Not bad for a few hours of your time.""
-
 $personLastName laces $hisOrHer fingers. ""Personally, I wouldn't take that deal. It's not as good as it looks.""","ms_giveToTichelOffer6:""Why is that?""",
 ms_giveToTichelOffer6Sel,DialogOptionSelected,$option == ms_giveToTichelOffer6,,"""Because, captain, the Elders have a reputation to maintain. If you refuse to sell us the mothership now, they won't stoop to grovelling to try and change your mind in the future. Whatever you decide on, that's our final offer. So, what do you say?""","ms_giveToTichelBlueprints:""I'm pleased to conduct a full technology exchange for the mothership.""
 ms_giveToTichelUpgrade:""Feel free to upgrade the ship, but I'm keeping it once you're done.""
@@ -355,10 +321,8 @@ AddRemoveAnyItem SPECIAL magellan_yellowtail_package 1
 AdjustRepActivePerson 25
 AdjustRep magellan_protectorate 25
 AdjustRep magellan_startigers -25","The mothership is brought inside a massive drydock, where teams of highly trained workers soon begin their work. True to $hisOrHer word, the conversion process is completed remarkably quickly. Using the ship's own forge vats to rebuild its systems certainly sped things along.
-
 You promptly receive a full Tichel blueprint package several hours later. Only time will tell what your benefactors will do with the knowledge you just shared with them.",cutCommLink:Attend to other business,
 ms_giveToTichelUpgradeSel,DialogOptionSelected,$option == ms_giveToTichelUpgrade,$player.canReceiveTMCSwap = true,"""Understandable,"" says $personLastName. ""I wouldn't part with it either if I was in your position, but this still helps us a great deal. I'll have the dockyard crews and forge-techs ready to receive the ship. Since we can use its own systems to do most of the heavy lifting, the work won't take long at all.""
-
 $HeOrShe gives a satisfied nod. ""The Tichel Mercantile Concern won't forget this, captain.""",ms_giveToTichelUpgrade2:Continue,
 ms_giveToTichelUpgrade2Sel,DialogOptionSelected,$option == ms_giveToTichelUpgrade2,"$player.finishedDealWithTMC = true
 AddTextSmall ""Konstantin-class Mothership converted and moved to storage"" highlight
@@ -366,17 +330,14 @@ AddRemoveAnyItem SPECIAL ship_bp magellan_mothership_yellowtail 1
 AdjustRepActivePerson 20
 AdjustRep magellan_protectorate 20
 AdjustRep magellan_startigers -20","The mothership is brought inside a massive drydock, where teams of highly trained workers soon begin their work. True to $hisOrHer word, the conversion process is completed remarkably quickly. Using the ship's own forge vats to rebuild its systems certainly sped things along.
-
 Once the process is completed, you promptly receive a blueprint for your new Tichel command ship.",cutCommLink:Attend to other business,
 ms_giveToTichelMoneySel,DialogOptionSelected,$option == ms_giveToTichelMoney,"$player.finishedDealWithTMC = true
 AddCommodity credits 100000
 AdjustRepActivePerson 10
 AdjustRep magellan_protectorate 10","""Can't say I'm not disappointed,"" $personLastName admits. ""Still, I appreciate the offer. Leave the arrangements to me. Good day, captain.""
-
 A team of uniformed technicians arrive onboard a Tichel schooner soon after. They spend the rest of the day touring the gargantuan mothership, running diagnostics and taking meticulous measurements everywhere they go. But if they are aware of any of the ship's still hidden secrets, they make no show of it. After a long day's work, they pack up their equipment and depart, which coincides with a prompt payment to your personal account.",cutCommLink:Attend to other business,
 ms_giveToTichelDeclineSel,DialogOptionSelected,$option == ms_giveToTichelDecline,"$player.finishedDealWithTMC = true
 AdjustRepActivePerson -10","""I see,"" $personLastName replies in a disapproving tone. ""Then we have nothing more to discuss. Good day, captain.""
-
 The line is unceremoniously cut.",cutCommLink:Attend to other business,
 # === Magellan Rules ===,,,,,,
 magellan_tai_3_conclusion_script,magellan_marauderQuestComplete,,magellan_marauderQuestComplete,,,
@@ -390,7 +351,6 @@ AdjustRep magellan_leveller HIGH_IMPACT_BOUNTY
 $global.magellan_leveller_logistics_score += 150
 AddText ""You transmit the encrypted naval routing vectors and Admiralty patrol timetables into the quartermaster's slate. A slow, predatory grin spreads across their face. """"By the stars... these are the Skytiger destroyer sweep schedules through the jump-points. This intel will let our blockade runners slip right beneath their guns and keep hundreds of partisans alive. Rosebriar will never forget this debt, Captain.""""""
 FireAll PopulateOptions",,,
-
 magellan_levellerBossEncounter,OpenInteractionDialog,"$magellan_leveller_boss
 $magellan_boss_flagship","FireBest PopulateOptions","""This is the Leveller Liberation Front! Your oppression ends today. Surrender your vessels or be destroyed!"" The flagship's comm channel is heavily encrypted and unyielding.",,
 magellan_levellerBossEncounter_Attack,DialogOptionSelected,"$option == magellan_levellerBossEncounter_Attack

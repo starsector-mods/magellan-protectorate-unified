@@ -36,13 +36,16 @@ extends DisposableFleetManager {
     }
 
     protected MarketAPI getLargestMarket(String faction) {
-        if (this.currSpawnLoc == null) {
+        if (this.currSpawnLoc == null || faction == null) {
+            return null;
+        }
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null) {
             return null;
         }
         MarketAPI largest = null;
         int maxSize = 0;
         for (MarketAPI market : Global.getSector().getEconomy().getMarkets((LocationAPI)this.currSpawnLoc)) {
-            if (market.isHidden() || !market.getFactionId().equals(faction) || market.getSize() <= maxSize) continue;
+            if (market == null || market.isHidden() || !faction.equals(market.getFactionId()) || market.getSize() <= maxSize) continue;
             maxSize = market.getSize();
             largest = market;
         }

@@ -40,13 +40,15 @@ extends BaseRouteFleetManager {
             return;
         }
         MarketAPI market = this.pickSourceMarket();
-        if (market == null) {
+        if (market == null || this.system == null || this.system.getLocation() == null || market.getLocationInHyperspace() == null) {
             return;
         }
+        if (RouteManager.getInstance() == null) return;
         Long seed = new Random().nextLong();
         String id = this.getRouteSourceId();
         RouteManager.OptionalFleetData extra = new RouteManager.OptionalFleetData(market);
         RouteManager.RouteData route = RouteManager.getInstance().addRoute(id, market, seed, extra, (RouteManager.RouteFleetSpawner)this);
+        if (route == null) return;
         float distLY = Misc.getDistanceLY((Vector2f)market.getLocationInHyperspace(), (Vector2f)this.system.getLocation());
         float travelDays = distLY * 1.5f;
         float prepDays = 2.0f + (float)Math.random() * 3.0f;
@@ -61,13 +63,19 @@ extends BaseRouteFleetManager {
     }
 
     public static float getVeryApproximateSalvageValue(StarSystemAPI system) {
+        if (system == null || system.getEntitiesWithTag("salvageable") == null) return 0f;
         return (float)system.getEntitiesWithTag("salvageable").size() * 1.5f;
     }
 
     public MarketAPI pickSourceMarket() {
+        if (this.system == null || this.system.getLocation() == null) return null;
+        if (Global.getSector() == null || Global.getSector().getEconomy() == null) return null;
         WeightedRandomPicker markets = new WeightedRandomPicker();
         for (MarketAPI market : Global.getSector().getEconomy().getMarketsCopy()) {
-            if (market.getFaction().isHostileTo("independent") || market.getContainingLocation() == null || market.getContainingLocation().isHyperspace() || market.isHidden() || !market.getTags().contains("magellan_indiemarket")) continue;
+            if (market == null || market.getFaction() == null || market.getFaction().isHostileTo("independent")
+                    || market.getContainingLocation() == null || market.getContainingLocation().isHyperspace()
+                    || market.isHidden() || market.getLocationInHyperspace() == null
+                    || !market.getTags().contains("magellan_indiemarket")) continue;
             float distLY = Misc.getDistanceLY((Vector2f)this.system.getLocation(), (Vector2f)market.getLocationInHyperspace());
             float weight = market.getSize();
             float f = Math.max(0.1f, 1.0f - Math.min(1.0f, distLY / 20.0f));

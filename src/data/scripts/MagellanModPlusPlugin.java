@@ -138,16 +138,20 @@ public class MagellanModPlusPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGame() {   
-		(new MagellanGen()).generate(Global.getSector());
+		SectorAPI sector = Global.getSector();
+		if (sector == null) return;
+		(new MagellanGen()).generate(sector);
 		//if lunalib do...
-		(new MagellanGen()).procgenColonyWrecks(Global.getSector());
-		if (!Global.getSector().getListenerManager().hasListenerOfClass(MagellanReplinkerListener.class)) {
-			Global.getSector().getListenerManager().addListener(new MagellanReplinkerListener());
+		(new MagellanGen()).procgenColonyWrecks(sector);
+		if (sector.getListenerManager() != null && !sector.getListenerManager().hasListenerOfClass(MagellanReplinkerListener.class)) {
+			sector.getListenerManager().addListener(new MagellanReplinkerListener());
 		}
     }
 
     @Override
 	public void onNewGameAfterEconomyLoad() {
+		SectorAPI sector = Global.getSector();
+		if (sector == null) return;
 		setupLevellerFleetManager();
 		setupLevellerInsurgencyManager();
 		setupHerdFleetManager();
@@ -156,16 +160,20 @@ public class MagellanModPlusPlugin extends BaseModPlugin {
 		addMagellanExileBeaconListener();
 		registerBarEvents();
 		MagellanReplinkerListener.syncRepToMagellan();
-		if (!Global.getSector().getListenerManager().hasListenerOfClass(data.scripts.plugins.MagellanBountyPlugin.class)) {
-			Global.getSector().getListenerManager().addListener(new data.scripts.plugins.MagellanBountyPlugin(true));
+		if (sector.getListenerManager() != null && !sector.getListenerManager().hasListenerOfClass(data.scripts.plugins.MagellanBountyPlugin.class)) {
+			sector.getListenerManager().addListener(new data.scripts.plugins.MagellanBountyPlugin(true));
 		}
-		Global.getSector().getMemoryWithoutUpdate().set("$magellan_finished_setup", true);
+		if (sector.getMemoryWithoutUpdate() != null) {
+			sector.getMemoryWithoutUpdate().set("$magellan_finished_setup", true);
+		}
 	}
     
     @Override
     public void onGameLoad(boolean newGame) {
-		Global.getSector().addTransientScript(new MagellanBlockedHullmodDisplayScript());
-		(new MagellanGen()).procgenColonyWrecks(Global.getSector());
+		SectorAPI sector = Global.getSector();
+		if (sector == null) return;
+		sector.addTransientScript(new MagellanBlockedHullmodDisplayScript());
+		(new MagellanGen()).procgenColonyWrecks(sector);
 		setupLevellerFleetManager();
 		setupLevellerInsurgencyManager();
 		setupHerdFleetManager();
@@ -174,27 +182,29 @@ public class MagellanModPlusPlugin extends BaseModPlugin {
 		registerBarEvents();
 	
 		MagellanReplinkerListener.syncRepToMagellan();
-		if (!Global.getSector().getListenerManager().hasListenerOfClass(MagellanReplinkerListener.class)) {
-			Global.getSector().getListenerManager().addListener(new MagellanReplinkerListener());
+		if (sector.getListenerManager() != null && !sector.getListenerManager().hasListenerOfClass(MagellanReplinkerListener.class)) {
+			sector.getListenerManager().addListener(new MagellanReplinkerListener());
 		}
-		if (!Global.getSector().getListenerManager().hasListenerOfClass(data.scripts.plugins.MagellanBountyPlugin.class)) {
-			Global.getSector().getListenerManager().addListener(new data.scripts.plugins.MagellanBountyPlugin(true));
+		if (sector.getListenerManager() != null && !sector.getListenerManager().hasListenerOfClass(data.scripts.plugins.MagellanBountyPlugin.class)) {
+			sector.getListenerManager().addListener(new data.scripts.plugins.MagellanBountyPlugin(true));
 		}
-		if (!Global.getSector().getMemoryWithoutUpdate().is("$magellan_finished_setup", true)) {
+		if (sector.getMemoryWithoutUpdate() != null && !sector.getMemoryWithoutUpdate().is("$magellan_finished_setup", true)) {
 			setUpPlanets();
-			Global.getSector().getMemoryWithoutUpdate().set("$magellan_finished_setup", true);
+			sector.getMemoryWithoutUpdate().set("$magellan_finished_setup", true);
 		}
     }
     
 	public void addMagellanExileBeaconListener() {
 		SectorAPI sector = Global.getSector();
-		if (!Global.getSector().getListenerManager().hasListenerOfClass(magellan_DiscoverEntityListener.class)) {
-			Global.getSector().getListenerManager().addListener(new magellan_DiscoverEntityListener()); 
+		if (sector == null || sector.getListenerManager() == null) return;
+		if (!sector.getListenerManager().hasListenerOfClass(magellan_DiscoverEntityListener.class)) {
+			sector.getListenerManager().addListener(new magellan_DiscoverEntityListener()); 
 		}
 	}
 
 	private void registerBarEvents() {
 		BarEventManager barManager = BarEventManager.getInstance();
+		if (barManager == null) return;
 		if (!barManager.hasEventCreator(magellan_DunerunnerBarEventCreator.class)) {
 			barManager.addEventCreator(new magellan_DunerunnerBarEventCreator());
 		}
@@ -226,8 +236,8 @@ public class MagellanModPlusPlugin extends BaseModPlugin {
 		if (!sector.hasScript(magellan_LevellerInsurgencyManager.class)) {
 			sector.addScript(new magellan_LevellerInsurgencyManager());
 		}
-		if (!Global.getSector().getIntelManager().hasIntelOfClass(data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.class)) {
-			Global.getSector().getIntelManager().addIntel(new data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel());
+		if (sector.getIntelManager() != null && !sector.getIntelManager().hasIntelOfClass(data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.class)) {
+			sector.getIntelManager().addIntel(new data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel());
 		}
 	}
 	
@@ -244,8 +254,8 @@ public class MagellanModPlusPlugin extends BaseModPlugin {
 		if (!sector.hasScript(magellan_NecksnapperManager.class)) {
 			sector.addScript(new magellan_NecksnapperManager());
 		}
-		if (!Global.getSector().getIntelManager().hasIntelOfClass(magellan_NecksnapperIntel.class)) {
-			Global.getSector().getIntelManager().addIntel(new magellan_NecksnapperIntel());
+		if (sector.getIntelManager() != null && !sector.getIntelManager().hasIntelOfClass(magellan_NecksnapperIntel.class)) {
+			sector.getIntelManager().addIntel(new magellan_NecksnapperIntel());
 		}
 	}
 }

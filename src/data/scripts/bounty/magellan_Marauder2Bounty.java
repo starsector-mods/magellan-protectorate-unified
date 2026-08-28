@@ -32,9 +32,12 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
     public boolean shouldShowAtMarket(MarketAPI market) {
         if (market == null) return false;
         String factionId = market.getFactionId();
-        if (!factionId.equals("magellan_protectorate") && !factionId.equals("independent")) return false;
+        if (!"magellan_protectorate".equals(factionId) && !"independent".equals(factionId)) return false;
         if (market.getSize() < 3) return false;
-        if (Global.getSector().getPlayerPerson().getStats().getLevel() < 5) return false;
+        if (Global.getSector() == null || Global.getSector().getPlayerPerson() == null
+                || Global.getSector().getPlayerPerson().getStats() == null
+                || Global.getSector().getPlayerPerson().getStats().getLevel() < 5) return false;
+        if (Global.getSector().getMemoryWithoutUpdate() == null) return false;
         if (!Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_marauder1_done") &&
             !Global.getSector().getMemoryWithoutUpdate().getBoolean("$magellan_marauder1_done")) return false;
         if (Global.getSector().getMemoryWithoutUpdate().getBoolean("magellan_marauder2_done") ||
@@ -51,20 +54,26 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
 
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
-        this.eventMarket = dialog.getInteractionTarget().getMarket();
+        if (dialog != null && dialog.getInteractionTarget() != null) {
+            this.eventMarket = dialog.getInteractionTarget().getMarket();
+        }
         
         dialog.getTextPanel().addPara("\"Captain.\" He leans in immediately, his voice barely above a murmur. \"Your strike against their vanguard was devastating—the wreckage is still cooling across the sector. But the head of the snake is still breathing, and they've reinforced far faster than Admiralty intelligence anticipated.\"");
         dialog.getTextPanel().addPara("He taps a fresh tactical slate. Red battle-lines illuminate the dark booth. \"The Kaplan has resurfaced under escort from heavy cruiser-weight hulls and carrier tenders. They've been striking Tichel Mercantile freight lanes and orbital staging yards, using the chaos to field-test a lethal new Ace Heavy Fighter wing.\"");
         dialog.getTextPanel().addPara("\"Admiralty is in a panic, but faction politics prevent an overt fleet mobilization. They have cleared me to raise the bounty to " + Misc.getWithDGS(REWARD) + " credits, backed with salvaged flak batteries and munitions. We need you to strike their main battle-line, scatter their cruiser screen, and drive the Kaplan back into the dark before they consolidate their hold over the shipping lanes.\"");
         
-        List<StarSystemAPI> systems = Global.getSector().getStarSystems();
-        for (StarSystemAPI system : systems) {
-            if (!system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
-                hideout = system.getCenter();
-                break;
+        List<StarSystemAPI> systems = Global.getSector() != null ? Global.getSector().getStarSystems() : null;
+        if (systems != null) {
+            for (StarSystemAPI system : systems) {
+                if (system != null && !system.hasPulsar() && !system.getPlanets().isEmpty() && system.hasTag("theme_ruins")) {
+                    hideout = system.getCenter();
+                    break;
+                }
+            }
+            if (hideout == null && !systems.isEmpty() && systems.get(0) != null) {
+                hideout = systems.get(0).getCenter();
             }
         }
-        if (hideout == null) hideout = Global.getSector().getStarSystems().get(0).getCenter();
 
         dialog.getOptionPanel().addOption("\"Send me the coordinates.\" (Accept - " + Misc.getWithDGS(REWARD) + " credits)", "ACCEPT");
         dialog.getOptionPanel().addOption("\"Find someone else.\" (Decline)", "DECLINE");
@@ -72,16 +81,22 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
 
     @Override
     public void optionSelected(String optionText, Object optionData) {
-        InteractionDialogAPI dialog = Global.getSector().getCampaignUI().getCurrentInteractionDialog();
+        InteractionDialogAPI dialog = (Global.getSector() != null && Global.getSector().getCampaignUI() != null)
+                ? Global.getSector().getCampaignUI().getCurrentInteractionDialog() : null;
+        if (dialog == null) return;
         if ("ACCEPT".equals(optionData)) {
             isAccepted = true;
             spawnFleet();
-            Global.getSector().getIntelManager().addIntel(this);
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
+                Global.getSector().getIntelManager().addIntel(this);
+            }
             dialog.getTextPanel().addPara("\"You're a true professional, Captain. That kind of dependability is scarce in this sector.\" Kiderra uploads the encrypted burn vectors to your ship's log. \"This battlefleet is heavily armored and led by veteran deck officers—do not underestimate their line cruisers.\" He pauses, his tone dropping even lower. \"And keep your sensors sharp. A rogue group this well-equipped didn't get here by stealing ration packs. Someone in the higher echelons is feeding them doctrine.\"");
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            dialog.getPlugin().optionSelected(null, "leave");
+            if (dialog.getPlugin() != null) {
+                dialog.getPlugin().optionSelected(null, "leave");
+            }
         }
     }
 
@@ -93,6 +108,7 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
     public boolean isAlwaysShow() { return false; }
     
     private void spawnFleet() {
+        if (hideout == null || hideout.getLocation() == null || hideout.getContainingLocation() == null) return;
         FleetParamsV3 params = new FleetParamsV3(
             null, 
             hideout.getLocation(), 
@@ -105,10 +121,13 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
         params.forceAllowPhaseShipsEtc = true;
         params.officerNumberBonus = 3;
         targetFleet = FleetFactoryV3.createFleet(params);
+        if (targetFleet == null || targetFleet.getFleetData() == null) return;
         targetFleet.setName("Marauder Splinter");
         targetFleet.getFleetData().addFleetMember("magellan_carrier_marauder_2_custom");
-        targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("Kaplan");
-        targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+        if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
+            targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("Kaplan");
+            targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
+        }
         
         targetFleet.getFleetData().addFleetMember("magellan_carrier_theherd_std");
         targetFleet.getFleetData().addFleetMember("magellan_supportcruiser_theherd_std");
@@ -135,15 +154,19 @@ public class magellan_Marauder2Bounty extends BaseIntelPlugin implements Portsid
         if (isDone) return;
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
-            Global.getSector().getMemoryWithoutUpdate().set("magellan_marauder2_done", true);
-            Global.getSector().getMemoryWithoutUpdate().set("$magellan_marauder2_done", true);
-            if (Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
+            if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
+                Global.getSector().getMemoryWithoutUpdate().set("magellan_marauder2_done", true);
+                Global.getSector().getMemoryWithoutUpdate().set("$magellan_marauder2_done", true);
+            }
+            if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().getCredits().add(REWARD);
                 Global.getSector().getPlayerFleet().getCargo().addCommodity("hand_weapons", 56);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelscatter_flak", 2);
             }
-            Global.getSector().getCampaignUI().addMessage("The Marauders, Part II: The Kaplan's escorts were annihilated and the carrier fled burning into the hyperspace fringe. " + Misc.getWithDGS(REWARD) + " credits, heavy scatter-flak batteries, and small arms secured.");
-            if (Global.getSector().getIntelManager() != null) {
+            if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                Global.getSector().getCampaignUI().addMessage("The Marauders, Part II: The Kaplan's escorts were annihilated and the carrier fled burning into the hyperspace fringe. " + Misc.getWithDGS(REWARD) + " credits, heavy scatter-flak batteries, and small arms secured.");
+            }
+            if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
                 Global.getSector().getIntelManager().removeIntel(this);
             }
             if (fleet != null) {

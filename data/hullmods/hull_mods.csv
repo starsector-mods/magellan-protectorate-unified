@@ -4,10 +4,8 @@ Magellan Robust Architecture,magellan_engineering,4,,Magellan,magellan_core_hull
 Magellan Ablative Composites,magellan_noshield,4,,Magellan,,,,,TRUE,,0,0,0,0,data.hullmods.magellan_AblativeComposites,"This older ship lacks a shield generator, and therefore has been constructed with titanic slabs of ablative/absorptive armor composite. While still vulnerable to damage, it's fearsomely resilient.",Increases armor rating by %s and reduces EMP damage taken by %s.,,graphics/Magellan/hullmods/magellan_composites.png
 Magellan Converted Shuttle Bay,magellan_convertedbay,4,,Magellan,,,,,TRUE,,0,0,0,0,data.hullmods.magellan_ConvertedShuttleBay,"This ship's unusually spacious shuttle bay has been converted to carry fighter LPCs. Thanks to typically overbuilt Magellan systems, there's no degradation of fighter performance.",%s,,graphics/hullmods/converted_hangar.png
 Magellan Spacious Hangars,magellan_spacious_hangars,4,,Magellan,,,,,TRUE,,0,0,0,0,data.hullmods.magellan.SpaciousHangars,"The vast hangars aboard this carrier are well suited for arming and repairing heavy strike craft, although the cavernous spacing within the hull noticeably weakens the ship's superstructure.
-
 Squadrons that cost %s or more OP have cost reduced by %s. Negates the refitting time penalty of %s. Hangars reduce hull integrity by %s.",,,graphics/Magellan/hullmods/magellan_spacious_hangars.png
 Magellan Trajectory Analyzer,magellan_trajectory_analyzer,1,,Magellan,"magellan_core_hullmod, magellan_core_bp, magellan","Weapons, Magellan",2500,,,,4,8,12,20,data.hullmods.magellan.TrajectoryAnalyzer,"An older generation missile targeting computer that has been updated to function on modern warships. Although effective, the esoteric systems architecture has greatly limited its adoption outside of the Magellan Protectorate.
-
 Increases the range of %s composite weapons by %s and conventional missile weapons by %s.",Archaic composite weapon range bonus increased to %s.,,graphics/Magellan/hullmods/magellan_trajectory_analyzer.png
 ,,,,,,,,,,,,,,,,,,,
 #Refit Hullmods,,,,,,,,,,,,,,,,,,,
@@ -50,18 +48,18 @@ Magellan Battleline Doctrine,magellan_battleline,,,,,,,,TRUE,,0,0,0,0,data.hullm
 #Hullmod Blocker,,,,,,,,,,,,,,,,,,,
 HULLMOD CONFLICT,MagellanBlockedBlankHullmod,,,,,,,FALSE,TRUE,,0,0,0,0,data.hullmods.MagellanBlockedBlankHullmod,"%s, the hullmod you tried to install conflicts with this hull or another previously installed hullmod.",,Blocks incompatible hullmods.,graphics/icons/intel/investigation.png
 Mazian Shuttle Bay,magellan_maizan_shuttlebay,,,,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.magellan.MaizanBay,"(Hidden) blocks converted shuttlebay and penalizes BCR variant hull, also I misspelled Mazian when I first added this and now I can't fix it without breaking backwards compatability lol",,,graphics/icons/intel/investigation.png
-
+,,,,,,,,,,,,,,,,,,,
 # === Magellan Content ===,,,,,,,,,,,,,,,,,,,
 Magellan Smuggler Upgrades,magellan_smugglerMod,4,,Unique Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_smugglerMod,This ship has been significantly upgraded from the standard spec using a variety of difficult-to-acquire parts from across the sector.,,,graphics/Magellan/hullmods/magellan_smugglermod.png
 ,,,,,,,,,,,,,,,,,,,
 Magellan Marauder Modifications,magellan_marauderMod,4,,Unique Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_marauderMod,This ship has been heavily modified by the Marauders to better control the battlespace with rapid hammer-and-anvil tactics.,,,graphics/Magellan/hullmods/magellan_maraudermod.png
 ,,,,,,,,,,,,,,,,,,,
-
+,,,,,,,,,,,,,,,,,,,
 Antique Duncan Testbed,magellan_duncanMod,4,,Unique Ancient Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_duncanMod,"This vessel was most likely modified to be an experimental testbed for military and technological theory of the day. Despite the different design priorities of the overhaul, her underlying construction remains strong and unhindered.",,,graphics/Magellan/hullmods/magellan_duncanmod.png
 Antique Anomalous Overdrive,magellan_duncanOverdriveMod,4,,Unique Ancient Magellan,,,,,TRUE,,0,0,0,0,data.hullmods.magellan_duncanOverdriveMod,"This ship has a non-modular rangekeeper targeting core, closely integrated into the ship's system. When the ship system is engaged, range is boosted considerably, though range suffers afterwards until the system can cool down.
 Your chief engineer also reports anomolous readings across the ship's subsystems. The full effects are not yet understood, but what is known is that time passes more quickly aboard this vessel when rigged for combat.",,,graphics/Magellan/hullmods/magellan_duncanoverdrivemod.png
 ,,,,,,,,,,,,,,,,,,,
-
+,,,,,,,,,,,,,,,,,,,
 Flight Deck: Bastardsword (BCR),magellan_corvetteConversion,2,,Magellan,"offensive, no_drop, no_build_in, magellan_exclusive_hullmod, magellan","Special, Fighters",0,,TRUE,,0,0,0,0,data.hullmods.magellan_corvetteConversion,Reconfigures built-in Jitte bays to manufacture and launch heavy Bastardsword Corvettes. Click (uninstall) to cycle to Lochaber (BCR).,,Reconfigures built-in bays to Bastardsword Corvettes.,graphics/Magellan/hullmods/magellan_corvetteconversion.png
 Flight Deck: Lochaber (BCR),magellan_bomberConversion,2,,Magellan,"offensive, no_drop, no_build_in, magellan_exclusive_hullmod, magellan","Special, Fighters",0,,TRUE,,0,0,0,0,data.hullmods.magellan_bomberConversion,Reconfigures built-in Jitte bays to manufacture and launch Lochaber Bombers. Click (uninstall) to cycle to standard Jitte (BCR).,,Reconfigures built-in bays to Lochaber Bombers.,graphics/Magellan/hullmods/magellan_bomberconversion.png
 ,,,,,,,,,,,,,,,,,,,
@@ -81,8 +79,8 @@ Ancient's Wrath,magellan_ancientWrath,4,,,,,,,TRUE,,0,0,0,0,data.hullmods.magell
 ,,,,,,,,,,,,,,,,,,,
 #Unused,,,,,,,,,,,,,,,,,,,
 #Adaptive Targeting Core,magellan_adaptiveTargetingCore,4,,Magellan,,,,,TRUE,,0,0,0,0,data.hullmods.magellan_adaptiveTargetingCore,Increases non-PD ballistic and energy weapons range of the fighter depending hull size of the carrier.,,,graphics/Magellan/hullmods/magellan_classicdesign.png
-
+,,,,,,,,,,,,,,,,,,,
 Magellan Copyright Strike,magellan_copyright_strike,1,,Magellan,,,0,TRUE,,,0,0,0,0,data.hullmods.magellan.CopyrightStrike,"A highly aggressive Domain-era Digital Rights Management protocol deeply embedded within the hull's firmware. Designed to prevent unlicensed reverse-engineering of proprietary schematics, it forcefully degrades subsystem efficiency by throttling reactor output, hard-locking safety overrides, and polluting tactical networks with high-priority cease-and-desist injunctions.",,Reduces all combat stats by %s and increases logistics costs by %s.,graphics/fx/question_mark.png
-
+,,,,,,,,,,,,,,,,,,,
 Flight Deck: Jitte (BCR),magellan_swap_bays,2,,Magellan,"magellan, magellan_exclusive_hullmod","Special, Fighters, Magellan",0,,,,0,0,0,0,data.hullmods.magellan_swap_bays,Configured to manufacture and launch standard Jitte Fighters from built-in bays. Click (uninstall) to cycle to Bastardsword (BCR).,,Cycles the flight deck to the next configuration.,graphics/Magellan/hullmods/magellan_fighter_mod.png
 Magellan Logistics Network,myMod_logistics_hullmod,1,,Magellan,"logistics, magellan","Logistics, Magellan",0,TRUE,,,2,4,6,9,data.hullmods.magellan_LogisticsTest,"Equips the ship with dedicated logistics distribution relays, providing fleet-wide supply maintenance and travel fuel reductions scaling with ship hull size.",,,graphics/Magellan/hullmods/magellan_fleetops.png

@@ -27,7 +27,13 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
     protected Object readResolve() {
         // Re-initialize transient fields after deserialization
         if (Global.getSector() != null) {
-            Global.getSector().addListener(this);
+            if (Global.getSector().getListenerManager() != null) {
+                if (!Global.getSector().getListenerManager().hasListener(this)) {
+                    Global.getSector().getListenerManager().addListener(this);
+                }
+            } else {
+                Global.getSector().addListener(this);
+            }
         }
         return this;
     }
@@ -44,6 +50,7 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
 
     @Override
     public void advance(float amount) {
+        if (Global.getSector() == null || Global.getSector().getClock() == null || Global.getSector().getMemoryWithoutUpdate() == null || Global.getSector().isPaused()) return;
         float days = Global.getSector().getClock().convertToDays(amount);
         
         // Cooldown tick
@@ -90,6 +97,7 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
     }
 
     private void checkSpawns() {
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return;
         float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(KEY);
         if (threat <= 0) return;
         
@@ -109,19 +117,39 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
     }
 
     private void spawnHunter(int stage) {
+        if (Global.getSector() == null) return;
         CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
         if (playerFleet == null || playerFleet.getContainingLocation() == null) return;
 
-        // Duplicate spawn guard: search all star systems for an already-existing
+        // Duplicate spawn guard: search hyperspace and all star systems for an already-existing
         // necksnapper hunter fleet to avoid creating duplicates on save reload.
-        for (StarSystemAPI sys : Global.getSector().getStarSystems()) {
-            if (sys == null) continue;
-            for (CampaignFleetAPI existing : sys.getFleets()) {
+        LocationAPI hyper = Global.getSector().getHyperspace();
+        if (hyper != null && hyper.getFleets() != null) {
+            for (CampaignFleetAPI existing : hyper.getFleets()) {
                 if (existing != null && existing.isAlive()
+                        && existing.getMemoryWithoutUpdate() != null
                         && existing.getMemoryWithoutUpdate().is("$magellan_necksnapper_fleet", true)) {
-                    // Re-register the existing fleet and bail out
-                    Global.getSector().getMemoryWithoutUpdate().set(HUNTER_FLEET_KEY, existing);
+                    if (Global.getSector().getMemoryWithoutUpdate() != null) {
+                        Global.getSector().getMemoryWithoutUpdate().set(HUNTER_FLEET_KEY, existing);
+                    }
                     return;
+                }
+            }
+        }
+
+        if (Global.getSector().getStarSystems() != null) {
+            for (StarSystemAPI sys : Global.getSector().getStarSystems()) {
+                if (sys == null || sys.getFleets() == null) continue;
+                for (CampaignFleetAPI existing : sys.getFleets()) {
+                    if (existing != null && existing.isAlive()
+                            && existing.getMemoryWithoutUpdate() != null
+                            && existing.getMemoryWithoutUpdate().is("$magellan_necksnapper_fleet", true)) {
+                        // Re-register the existing fleet and bail out
+                        if (Global.getSector().getMemoryWithoutUpdate() != null) {
+                            Global.getSector().getMemoryWithoutUpdate().set(HUNTER_FLEET_KEY, existing);
+                        }
+                        return;
+                    }
                 }
             }
         }

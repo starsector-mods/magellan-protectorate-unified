@@ -26,28 +26,39 @@ public class magellan_marauderQuestComplete extends BaseCommandPlugin {
     public boolean execute(String s, InteractionDialogAPI interactionDialogAPI, List<Misc.Token> list, Map<String, MemoryAPI> map) {
 
         // first, add in new BCR ships that will appear in Magellan fleets after this quest is finished
-        Global.getSettings().getHullSpec("magellan_carrier_blackcollar").addTag("magellan_blackcollar");
+        if (Global.getSettings() != null && Global.getSettings().getHullSpec("magellan_carrier_blackcollar") != null) {
+            Global.getSettings().getHullSpec("magellan_carrier_blackcollar").addTag("magellan_blackcollar");
+        }
 
-        Global.getSector().getFaction("magellan_protectorate").getKnownShips().add("magellan_carrier_blackcollar");
-
-        Global.getSector().getFaction("magellan_protectorate").addPriorityShip("magellan_carrier_blackcollar");
+        FactionAPI mpFaction = Global.getSector() != null ? Global.getSector().getFaction("magellan_protectorate") : null;
+        if (mpFaction != null) {
+            if (mpFaction.getKnownShips() != null) {
+                mpFaction.getKnownShips().add("magellan_carrier_blackcollar");
+            }
+            mpFaction.addPriorityShip("magellan_carrier_blackcollar");
+        }
 
         /*
          * the following is strictly for variants of already existing ships that shouldn't be present before this quest is finished
          * in this case, a pair of new variants for the two BCR ships with flight decks
          */
-        Global.getSettings().addDefaultEntryForRole("combatMedium", "magellan_patroldestroyer_blackcollar_elite2", 1);
-        Global.getSettings().addDefaultEntryForRole("combatMedium", "magellan_patroldestroyer_blackcollar_elite3", 1);
+        if (Global.getSettings() != null) {
+            Global.getSettings().addDefaultEntryForRole("combatMedium", "magellan_patroldestroyer_blackcollar_elite2", 1);
+            Global.getSettings().addDefaultEntryForRole("combatMedium", "magellan_patroldestroyer_blackcollar_elite3", 1);
 
-        Global.getSettings().addDefaultEntryForRole("combatCapital", "magellan_battlecruiser_blackcollar_elite2", 1);
-        Global.getSettings().addDefaultEntryForRole("combatCapital", "magellan_battlecruiser_blackcollar_elite3", 1);
+            Global.getSettings().addDefaultEntryForRole("combatCapital", "magellan_battlecruiser_blackcollar_elite2", 1);
+            Global.getSettings().addDefaultEntryForRole("combatCapital", "magellan_battlecruiser_blackcollar_elite3", 1);
+        }
 
         // add in the new hullmods to the pool for fleet and player use
-        Global.getSector().getFaction("magellan_protectorate").addKnownHullMod("magellan_corvetteConversion");
-        Global.getSector().getFaction("magellan_protectorate").addKnownHullMod("magellan_bomberConversion");
-
-        Global.getSector().getFaction("magellan_protectorate").clearShipRoleCache();
-        Global.getSettings().resetCached();
+        if (mpFaction != null) {
+            mpFaction.addKnownHullMod("magellan_corvetteConversion");
+            mpFaction.addKnownHullMod("magellan_bomberConversion");
+            mpFaction.clearShipRoleCache();
+        }
+        if (Global.getSettings() != null) {
+            Global.getSettings().resetCached();
+        }
 
         // un-hiding the hullmods so they can actually be found and/or bought
 
@@ -55,30 +66,36 @@ public class magellan_marauderQuestComplete extends BaseCommandPlugin {
          * the following written by Wisp
          * next, generate a new contact on Jeshad (or highest pop world in random sector)
          */
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return true;
         boolean personCreated = Global.getSector().getMemoryWithoutUpdate().getBoolean(personCreatedKey) ||
                                 Global.getSector().getMemoryWithoutUpdate().getBoolean("$" + personCreatedKey);
-        if (!personCreated) {
-            FactionAPI mpFaction = Global.getSector().getFaction("magellan_protectorate");
-
+        if (!personCreated && mpFaction != null && Global.getFactory() != null) {
             PersonAPI person = Global.getFactory().createPerson();
             person.setName(new FullName("Morik", "Kiderra", FullName.Gender.MALE));
-            person.setPortraitSprite(Global.getSettings().getSpriteName("characters", "morik_kiderra"));
+            if (Global.getSettings() != null) {
+                person.setPortraitSprite(Global.getSettings().getSpriteName("characters", "morik_kiderra"));
+            }
             person.setFaction(magellan_Factions.MG_PROTECTORATE);
             person.setImportance(PersonImportance.HIGH);
             person.addTag(Tags.CONTACT_MILITARY);
             person.setRankId(Ranks.SPACE_COMMANDER);
             person.setPostId(Ranks.POST_FLEET_COMMANDER);
             person.setVoice(Voices.SOLDIER);
-            person.getRelToPlayer().adjustRelationship(0.2f,RepLevel.FAVORABLE);
+            if (person.getRelToPlayer() != null) {
+                person.getRelToPlayer().adjustRelationship(0.2f, RepLevel.FAVORABLE);
+            }
             person.setId(MAGELLAN_KIDERRA);
             // set the rest of the person properties
 
             List<PlanetAPI> planets = new ArrayList<>();
 
-            for (StarSystemAPI system : Global.getSector().getStarSystems()) {
-                for (PlanetAPI planet : system.getPlanets()) {
-                    if (planet.getFaction().equals(mpFaction)) {
-                        planets.add(planet);
+            if (Global.getSector().getStarSystems() != null) {
+                for (StarSystemAPI system : Global.getSector().getStarSystems()) {
+                    if (system == null || system.getPlanets() == null) continue;
+                    for (PlanetAPI planet : system.getPlanets()) {
+                        if (planet != null && planet.getFaction() != null && planet.getFaction().equals(mpFaction)) {
+                            planets.add(planet);
+                        }
                     }
                 }
             }
@@ -97,12 +114,14 @@ public class magellan_marauderQuestComplete extends BaseCommandPlugin {
                 }
             });
 
-            MarketAPI market = largestPlanet.getMarket();
-            Global.getLogger(this.getClass()).info("Placing person " + person.getName() + " on " + market.getName());
-            person.setMarket(market);
-            ContactIntel.addPotentialContact(1f, person, market, null);
-            Global.getSector().getMemory().set(personCreatedKey, true);
-            Global.getSector().getMemory().set("$" + personCreatedKey, true);
+            MarketAPI market = largestPlanet != null ? largestPlanet.getMarket() : null;
+            if (market != null) {
+                Global.getLogger(this.getClass()).info("Placing person " + person.getName() + " on " + market.getName());
+                person.setMarket(market);
+                ContactIntel.addPotentialContact(1f, person, market, null);
+                Global.getSector().getMemoryWithoutUpdate().set(personCreatedKey, true);
+                Global.getSector().getMemoryWithoutUpdate().set("$" + personCreatedKey, true);
+            }
         } else {
             Global.getLogger(this.getClass()).info("Person already exists because " + personCreatedKey + " is true.");
         }

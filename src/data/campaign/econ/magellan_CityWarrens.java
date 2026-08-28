@@ -21,21 +21,26 @@ extends BaseMarketConditionPlugin {
     }
 
     public void apply(String id) {
-        if (Arrays.asList(magellanFactions).contains(this.market.getFactionId())) {
-            this.market.getStats().getDynamic().getMod("ground_defenses_mod").modifyMult(id, DEFENSE_BONUS_MAGELLAN, this.getString("citywarrens_title"));
-        } else {
-            this.market.getStats().getDynamic().getMod("ground_defenses_mod").modifyMult(id, DEFENSE_BONUS_OTHER, this.getString("citywarrens_title"));
+        if (this.market == null) return;
+        boolean isMagellan = this.market.getFactionId() != null && Arrays.asList(magellanFactions).contains(this.market.getFactionId());
+        if (this.market.getStats() != null && this.market.getStats().getDynamic() != null && this.market.getStats().getDynamic().getMod("ground_defenses_mod") != null) {
+            float bonus = isMagellan ? DEFENSE_BONUS_MAGELLAN : DEFENSE_BONUS_OTHER;
+            this.market.getStats().getDynamic().getMod("ground_defenses_mod").modifyMult(id, bonus, this.getString("citywarrens_title"));
         }
-        if (Arrays.asList(magellanFactions).contains(this.market.getFactionId())) {
-            this.market.getStability().modifyFlat(id, 1.0f, this.getString("citywarrens_desc"));
-        } else {
-            this.market.getStability().modifyFlat(id, -2.0f, this.getString("citywarrens_desc"));
+        if (this.market.getStability() != null) {
+            float stab = isMagellan ? 1.0f : -2.0f;
+            this.market.getStability().modifyFlat(id, stab, this.getString("citywarrens_desc"));
         }
     }
 
     public void unapply(String id) {
-        this.market.getStats().getDynamic().getMod("ground_defenses_mod").unmodify(id);
-        this.market.getStability().unmodify(id);
+        if (this.market == null) return;
+        if (this.market.getStats() != null && this.market.getStats().getDynamic() != null && this.market.getStats().getDynamic().getMod("ground_defenses_mod") != null) {
+            this.market.getStats().getDynamic().getMod("ground_defenses_mod").unmodify(id);
+        }
+        if (this.market.getStability() != null) {
+            this.market.getStability().unmodify(id);
+        }
     }
 
     protected void createTooltipAfterDescription(TooltipMakerAPI tooltip, boolean expanded) {

@@ -35,9 +35,11 @@ public class magellan_rosebriar_insurgency_briefingTest {
         memoryMock = mock(MemoryAPI.class);
         dialogMock = mock(InteractionDialogAPI.class);
         textPanelMock = mock(TextPanelAPI.class);
+        com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI listenerManagerMock = mock(com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI.class);
 
         when(sectorMock.getIntelManager()).thenReturn(intelManagerMock);
         when(sectorMock.getMemoryWithoutUpdate()).thenReturn(memoryMock);
+        when(sectorMock.getListenerManager()).thenReturn(listenerManagerMock);
         when(dialogMock.getTextPanel()).thenReturn(textPanelMock);
         when(settingsMock.getColor(anyString())).thenReturn(Color.YELLOW);
         when(settingsMock.getDesignTypeColor(anyString())).thenReturn(Color.YELLOW);

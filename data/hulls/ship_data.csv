@@ -77,7 +77,6 @@ Ramey-B [LV],magellan_lev_lancefrig,Corvette,Leveller,magellan_ionchargelayer,5,
 Terschad,magellan_modularfrigate,Frigate,Antique,magellan_flakpods,5,2400,400,2000,2000,160,50,,120,125,100,60,105,240,OMNI,,120,0.4,1,,,20,40,60,20,2,10,9,15000,10,15,210,0.2,4,4,,,,,,,HIDE_IN_CODEX,"magellan_derelict_manned, no_sell, no_dealer, no_autofit",,0.3,2,2,,202
 Konstantin,magellan_mothership_base,Mothership,Antique,magellan_fightercom,30,24000,2500,22000,25000,1000,360,3,25,12,8,4,6,5400,OMNI,,240,0.2,0.6,,,1400,2400,800,400,10,40,8,1000000,5,12,840,0.25,60,50,,,,,,,"NO_AUTO_ESCORT, HIDE_IN_CODEX","magellan_derelict_manned, no_sell, no_dealer, no_autofit",,0.3,3,5,,507
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-
 # === Magellan Content ===,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Fighters,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Bastardsword [BCR],magellan_corvette_blackcollar,,Blackcollar Magellan,flarelauncher_single,,1000,200,500,,150,0,,140,300,270,105,180,56,OMNI,,210,0,1,,,4,4,,,,,,,,,,,,,,,,,,,,,,0,,,,104

@@ -130,7 +130,40 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
         if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
             Global.getSector().getMemoryWithoutUpdate().set(KEY, this);
         }
+        repopulateActiveFleetsFromSector();
         return this;
+    }
+
+    public void repopulateActiveFleetsFromSector() {
+        if (Global.getSector() == null) return;
+        cleanActiveFleets();
+
+        // Scan Hyperspace
+        com.fs.starfarer.api.campaign.LocationAPI hyper = Global.getSector().getHyperspace();
+        if (hyper != null && hyper.getFleets() != null) {
+            for (CampaignFleetAPI fleet : hyper.getFleets()) {
+                if (fleet != null && fleet.isAlive() && !fleet.isDespawning() && fleet.getMemoryWithoutUpdate() != null) {
+                    if (fleet.getMemoryWithoutUpdate().is(FLAG_INSURGENT_SORTIE, true) && !activeFleets.contains(fleet)) {
+                        activeFleets.add(fleet);
+                    }
+                }
+            }
+        }
+
+        // Scan Star Systems
+        List<StarSystemAPI> systems = Global.getSector().getStarSystems();
+        if (systems != null) {
+            for (StarSystemAPI system : systems) {
+                if (system == null || system.getFleets() == null) continue;
+                for (CampaignFleetAPI fleet : system.getFleets()) {
+                    if (fleet != null && fleet.isAlive() && !fleet.isDespawning() && fleet.getMemoryWithoutUpdate() != null) {
+                        if (fleet.getMemoryWithoutUpdate().is(FLAG_INSURGENT_SORTIE, true) && !activeFleets.contains(fleet)) {
+                            activeFleets.add(fleet);
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public SectorEntityToken getRosebriarStation() {
@@ -286,16 +319,11 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
         FleetParamsV3 params;
         String fleetName = profile.getDefaultFleetName();
 
-        float logisticsScore = 0f;
-        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-            logisticsScore = Global.getSector().getMemoryWithoutUpdate().getFloat("magellan_leveller_logistics_score");
-        }
+        float logisticsScore = (float) data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.getLogisticsScore();
         
-        float scoreMult = 0.5f; // Level 1 (0-99)
-        if (logisticsScore >= 800) scoreMult = 3.0f; // Level 5
-        else if (logisticsScore >= 500) scoreMult = 2.0f; // Level 4
-        else if (logisticsScore >= 250) scoreMult = 1.25f; // Level 3
-        else if (logisticsScore >= 100) scoreMult = 0.8f; // Level 2
+        float scoreMult = 0.6f; // Stage 1 (0-99: Underground Agitation)
+        if (logisticsScore >= 200f) scoreMult = 1.8f; // Stage 3 (200-300: Revolution)
+        else if (logisticsScore >= 100f) scoreMult = 1.0f; // Stage 2 (100-199: Insurgency)
         
         float baseQuality = 1.0f + (scoreMult - 1.0f) * 0.15f; // Quality scales slightly with level
 
@@ -505,7 +533,7 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
         Iterator<CampaignFleetAPI> iter = activeFleets.iterator();
         while (iter.hasNext()) {
             CampaignFleetAPI fleet = iter.next();
-            if (fleet == null || !fleet.isAlive() || fleet.isDespawning()) {
+            if (fleet == null || !fleet.isAlive() || fleet.isEmpty() || fleet.isDespawning()) {
                 iter.remove();
             }
         }
