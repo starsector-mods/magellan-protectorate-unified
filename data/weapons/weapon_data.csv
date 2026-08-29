@@ -69,41 +69,41 @@ Modular Fusion Cannon,magellan_mfc,3,0.3,10000,800,,400,,0,8,25,6,0.5,3,ENERGY,6
 #Built-in,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Linked Flak,magellan_linkflak,3,,500,500,,100,,4,30,5,,,,FRAGMENTATION,25,,,1.25,1,,0.15,0.75,0.15,15,,900,,,100,,,"PD, PD_ONLY, SYSTEM","he3, pd7",,Magellan,,Point Defense,,,,,,,,,,1.8
 Electron Charge PD,magellan_triflak,3,,1250,700,,120,,4,40,7,,,,ENERGY,100,,,0.75,1,,2,6,2,6,,500,750,15,360,,,"BOMB, PD, PD_ONLY, SYSTEM","energy5, pd8",,Magellan,,Point Defense,,,,,Chaff rounds %s for a short time after detonation.,decoy missiles,,,,1.8
-Charge Launcher,magellan_flakcharge,2,,800,500,,75,,50,45,4,,,,HIGH_EXPLOSIVE,60,,,0.75,1,,3,9,3,10,,500,750,10,200,,,SYSTEM,he7,,Magellan,,Anti Armor,,,,,,,,,,1.5
+Charge Launcher,magellan_flakcharge,0,,800,500,,75,,50,45,4,,,,HIGH_EXPLOSIVE,60,,,0.75,1,,3,9,3,10,,500,750,10,200,,,SYSTEM,he7,,Magellan,,Anti Armor,,,,,,,,,,1.5
 Stormfire MRM-C Launcher,magellan_clusterlrm_builtin,3,,3000,2500,,750,,25,0,25,40,0.1667,4,HIGH_EXPLOSIVE,0,,,11.3,4,0.5,2,10,2,10,,325,100,25,225,,,"DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM",missile15,,Magellan,,Fire Support,Medium,Good,,,Submunitions each do %s additional damage to armor. This damage is not reduced by armor.,150,,,TRUE,2.1
-Balefire MRM Launcher,magellan_cruiserlrm_builtin,3,,5000,2000,,600,,25,0,25,32,0.1,4,ENERGY,100,,,14.5,4,0.5,2,10,2,10,,400,100,12.5,275,,,"DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM",missile16,,Magellan,,Fire Support,Medium,Good,,,Unstable fusion warheads do %s extra %s damage on hits to armor or hull.,150-300 | Energy,,,TRUE,2.1
+Balefire MRM Launcher,magellan_cruiserlrm_builtin,0,,5000,2000,,600,,25,0,25,32,0.1,4,ENERGY,100,,,14.5,4,0.5,2,10,2,10,,400,100,12.5,275,,,"DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM, SYSTEM",missile16,,Magellan,,Fire Support,Medium,Good,,,Unstable fusion warheads do %s extra %s damage on hits to armor or hull.,150-300 | Energy,,,TRUE,2.1
 Heavy Fusion Cannon,magellan_scatterblaster,3,,4000,700,,600,,0,15,15,,,,ENERGY,900,,0.1,1.4,1,,1,5,2,10,,750,,,,,,SYSTEM,energy20,,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,150-300 | Energy,,,,4.75
 Triple Fusion Cannon,magellan_trinitycannon,3,,10000,800,,400,,0,8,30,,,,ENERGY,600,,0.2,2,1.5,0.4,2,8,1.5,10,,800,,,,,,"STRIKE, USE_VS_FRIGATES, SYSTEM",energy20,,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,100-200 | Energy,,,,4.75
 Heavy Electron Lance,magellan_bursttpc,3,,7500,1200,1200.5,,400,0,7,20,,,,ENERGY,,1714,0.2,2.4,0.6,2.2,,,,,30000,,,,,,,SYSTEM,"energy20, beam10",,Magellan,,General,,,,,,,,,,20
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Fighter built-in,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Light Flenser Pod,magellan_smciws_ftr,3,,300,350,,25,,1,75,2,,,,HIGH_EXPLOSIVE,8,,,0.55,1,0.05,2,7,1,10,,1100,,,10,,,"PD, SYSTEM","pd7, SR",,Magellan,,Point Defense,,,,,One in four rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range.,100% | 50% | 50%,,,,1.6
-Heavy Flenser Pod,magellan_medciws_ftr,3,,1200,450,,50,,1,60,10,,,,HIGH_EXPLOSIVE,25,,,0.73,6,0.07,4,12,2,10,,1100,,,10,,,"PD, PD_ALSO, SYSTEM","pd11, SR",,Magellan,,Point Defense,,,,,One in four rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range.,100% | 50% | 50%,,,,1.7
-Mini PD Maser,magellan_dronemaser,3,,500,500,75,,100,0,105,4,,,,FRAGMENTATION,,25,0.1,0.1,,,,,,,10000,,,,,,,"PD, SYSTEM","pd7, beam4",,Magellan,,Point Defense,,,,,,,,,,1.9
-Targeting Laser,magellan_targetingbeam,3,,2000,1200,1,,,0,30,5,,,,ENERGY,,1,0.1,0.1,,,,,,,40000,,,,,,,SYSTEM,"energy0, beam0",,,,Targeting,,,,,Paints targets for the ship's missiles.,,,,,1.9
+Heavy Flenser Pod,magellan_medciws_ftr,0,,1200,450,,50,,1,60,10,,,,HIGH_EXPLOSIVE,25,,,0.73,6,0.07,4,12,2,10,,1100,,,10,,,"PD, PD_ALSO, SYSTEM, SYSTEM","pd11, SR",,Magellan,,Point Defense,,,,,One in four rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range.,100% | 50% | 50%,,,,1.7
+Mini PD Maser,magellan_dronemaser,0,,500,500,75,,100,0,105,4,,,,FRAGMENTATION,,25,0.1,0.1,,,,,,,10000,,,,,,,"PD, SYSTEM, SYSTEM","pd7, beam4",,Magellan,,Point Defense,,,,,,,,,,1.9
+Targeting Laser,magellan_targetingbeam,0,,2000,1200,1,,,0,30,5,,,,ENERGY,,1,0.1,0.1,,,,,,,40000,,,,,,,SYSTEM,"energy0, beam0",,,,Targeting,,,,,Paints targets for the ship's missiles.,,,,,1.9
 Ripfire SRM Bay,magellan_ripfireftr,0,,600,800,,150,,10,4,2,9,,,HIGH_EXPLOSIVE,0,,,4.9,3,0.05,0,0,0,0,,500,100,5,100,,,"DO_NOT_AIM, MISSILE_SPREAD, DIRECT_AIM, GROUP_LINKED, SYSTEM","strike9, missile4",,Magellan,,Strike,Fast,Good,,,Volatile micro-warheads do %s additional damage to armor. This damage is not reduced by armor.,150,,,TRUE,2.1
-Electron Microbolter,magellan_ebolter_ftr,3,,300,400,,35,,1,75,9,,,,ENERGY,20,,,0.325,1.5,0.1,0,0,0,0,,1600,,,45,,,SYSTEM,energy12,,Magellan,,General,,,,,,,,,,1.3
-Electron Bomb Bay,magellan_electrontorp_ftr,3,,1000,500,,300,400,0,30,8,2,,,ENERGY,0,,,0.65,1,0.35,1,4,4,5,,350,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,,,,,,19.75
+Electron Microbolter,magellan_ebolter_ftr,0,,300,400,,35,,1,75,9,,,,ENERGY,20,,,0.325,1.5,0.1,0,0,0,0,,1600,,,45,,,SYSTEM,energy12,,Magellan,,General,,,,,,,,,,1.3
+Electron Bomb Bay,magellan_electrontorp_ftr,0,,1000,500,,300,400,0,30,8,2,,,ENERGY,0,,,0.65,1,0.35,1,4,4,5,,350,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,,,,,,19.75
 Light Fusion Lance,magellan_minifusion_lance,1,,1500,600,900,,,0,45,8,,,,ENERGY,,900,0.25,0.5,1,3.87,,,,,30000,,,,,,,SYSTEM,"energy12, beam8",,Magellan,,General,,,,,,,,,,20
-Bonechipper,magellan_bonesaw_ftr,3,,300,450,,120,,1,75,3,,,,FRAGMENTATION,30,,,0.6,2.5,0.1,1,6,1,20,,950,,,45,,,SYSTEM,he7,,Magellan,,General,,,,,,,,,,1.3
-Bonechip Flak,magellan_boneshaker_ftr,3,,300,600,,120,,1,60,10,,,,FRAGMENTATION,30,,,0.4,1,,2,8,1,15,,800,,,45,,,"PD, PD_ALSO, SYSTEM","he11, pd",,Magellan,,General,,,,,,,,,,1.3
-Chasefire AFM Rack,magellan_crackerftrsingle,3,,500,750,,200,200,50,0,2,2,0.12,1,FRAGMENTATION,0,,,2,1,,0,0,0,0,,425,175,3.5,150,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM",missile3,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
-Chasefire AFM Bay,magellan_crackerftr,3,,500,750,,200,200,50,0,3,4,0.3,2,FRAGMENTATION,0,,,2,1,,0,0,0,0,,425,175,3.5,150,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM",missile4,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
-Chasefire AFM Bay (Double),magellan_crackerftrdouble,3,,500,750,,200,200,50,0,4,8,0.3,4,FRAGMENTATION,0,,,2.38,2,0.12,0,0,0,0,,425,175,3.5,150,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM",missile5,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
-Balefire MRM Pod,magellan_balefiremrm_ftr,1,,2500,2000,,400,,25,10,6,6,,,ENERGY,0,,,6,1,,2,8,2,10,,400,100,6,225,,,"SYSTEM, DO_NOT_AIM, GROUP_ALTERNATING, DO_NOT_CONSERVE","utility9, missile5",,Magellan,,Fire Support,Medium,Good,,,Unstable fusion warheads do %s extra %s damage on hits to armor or hull.,100-200 | Energy,,,,2.1
+Bonechipper,magellan_bonesaw_ftr,0,,300,450,,120,,1,75,3,,,,FRAGMENTATION,30,,,0.6,2.5,0.1,1,6,1,20,,950,,,45,,,SYSTEM,he7,,Magellan,,General,,,,,,,,,,1.3
+Bonechip Flak,magellan_boneshaker_ftr,0,,300,600,,120,,1,60,10,,,,FRAGMENTATION,30,,,0.4,1,,2,8,1,15,,800,,,45,,,"PD, PD_ALSO, SYSTEM, SYSTEM","he11, pd",,Magellan,,General,,,,,,,,,,1.3
+Chasefire AFM Rack,magellan_crackerftrsingle,0,,500,750,,200,200,50,0,2,2,0.12,1,FRAGMENTATION,0,,,2,1,,0,0,0,0,,425,175,3.5,150,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM, SYSTEM",missile3,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
+Chasefire AFM Bay,magellan_crackerftr,0,,500,750,,200,200,50,0,3,4,0.3,2,FRAGMENTATION,0,,,2,1,,0,0,0,0,,425,175,3.5,150,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM, SYSTEM",missile4,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
+Chasefire AFM Bay (Double),magellan_crackerftrdouble,0,,500,750,,200,200,50,0,4,8,0.3,4,FRAGMENTATION,0,,,2.38,2,0.12,0,0,0,0,,425,175,3.5,150,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM, SYSTEM",missile5,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
+Balefire MRM Pod,magellan_balefiremrm_ftr,0,,2500,2000,,400,,25,10,6,6,,,ENERGY,0,,,6,1,,2,8,2,10,,400,100,6,225,,,"SYSTEM, DO_NOT_AIM, GROUP_ALTERNATING, DO_NOT_CONSERVE","utility9, missile5",,Magellan,,Fire Support,Medium,Good,,,Unstable fusion warheads do %s extra %s damage on hits to armor or hull.,100-200 | Energy,,,,2.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Leveller Weapons,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Light Electron Lance,magellan_electrolance_med,3,,3000,1200,600,,200,0,12,12,,,,ENERGY,,857,0.15,1.8,0.9,1.65,,,,,30000,,,,,,,SYSTEM,"energy20, beam10",,Leveller,,General,,,,,,,,,,20
 Heavy Electron Bolter,magellan_ebolter,3,0.3,1500,500,,75,200,0,30,7,,,,ENERGY,100,,0.1,0.5,1,,0,3,1,15,,1000,,,,,,,"energy10, LR, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,"Hits on hull or armor have a %s chance to %s, dealing extra damage equal to the original hit.",30% | arc to weapons and engines,,,,19.25
 Spreadfire Bolter,magellan_eflak,3,0.6,900,300,,50,100,0,120,6,12,2,3,FRAGMENTATION,30,,0.1,0.4,1,,1,6,1,12,,700,,,,,,"PD, PD_ALSO","energy8, pd10, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,Point Defense,,,,Spread Pattern,,,,,,19.25
-Diffusion Gun,magellan_diffusiongun,2,0.5,1200,600,,120,,5,40,5,,,,FRAGMENTATION,30,,0.1,0.5,1.5,0.15,0,0,0,0,,1200,,,,,,,"energy9, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,,,,,,20
+Diffusion Gun,magellan_diffusiongun,0,0.5,1200,600,,120,,5,40,5,,,,FRAGMENTATION,30,,0.1,0.5,1.5,0.15,0,0,0,0,,1200,,,,,,SYSTEM,"energy9, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,,,,,,20
 Diffusion Pulser,magellan_diffusionlaser,3,0.5,3000,700,,200,,5,25,10,30,2,5,FRAGMENTATION,50,,0.1333,0.0333,1,,0,0,0,0,,1500,,,,,,,"energy15, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,,,,,,20
 Diffusion Heavy Repeater,magellan_diffusionheavy,3,0.5,7500,800,,200,,5,15,25,,,,FRAGMENTATION,50,,0.1,0.025,1,,0,0,0,0,,1500,,,,,,,"energy18, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,,,,,,20
 Stunfire Missile Pod,magellan_stunfire_rack,2,0.3,400,1500,,350,,30,10,4,10,,,HIGH_EXPLOSIVE,0,,0.1,5.75,2,0.15,4,8,2,5,,800,100,8,200,,,GUIDED_POOR,"strike5, missile4, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,Anti Armor,Fast,Good,,,Shaped-charge warheads have %s/%s/%s chances to do %s/%s/%s additional damage to armor. This damage is not reduced by armor.,20% | 60% | 20% | 50 | 100 | 150,,,TRUE,9.8
 Shockfire Needle Battery,magellan_electromissile_pod,3,0.3,4000,2000,,300,200,50,12,12,48,,,HIGH_EXPLOSIVE,,,,10.95,8,0.15,5,15,3,15,,600,150,12,200,,,"DO_NOT_AIM, GROUP_LINKED","strike13, missile9, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,Strike,Fast,Excellent,,,"Hits on hull or armor will %s, dealing extra damage equal to %s of the original hit.",arc to weapons and engines | 25%,,,TRUE,2.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Arcfire AMM,magellan_emissile_ftr,3,,800,1200,,100,400,50,0,3,5,0.0333,1,FRAGMENTATION,,,,6,1,,0,0,0,0,,325,25,10,125,,,"GROUP_LINKED, DO_NOT_CONSERVE, DO_NOT_AIM, SYSTEM","utility6, missile4",,Leveller,,Support,Fast,Good,,,"Hits on hull or armor will %s, dealing extra damage equal to %s of the original hit.",arc to weapons and engines | 25%,,,TRUE,2.1
-Stunfire Missiles,magellan_stunfire_ftr,3,,400,1200,,350,,30,10,4,3,,,HIGH_EXPLOSIVE,0,,,2.7,3,0.15,4,8,2,5,,600,50,8,200,,,"GUIDED_POOR, SYSTEM","strike5, missile4",,Leveller,,Anti Armor,Fast,Good,,,Shaped-charge warheads have %s/%s/%s chances to do %s/%s/%s additional damage to armor. This damage is not reduced by armor.,20% | 60% | 20% | 50 | 100 | 150,,,TRUE,9.8
+Stunfire Missiles,magellan_stunfire_ftr,0,,400,1200,,350,,30,10,4,3,,,HIGH_EXPLOSIVE,0,,,2.7,3,0.15,4,8,2,5,,600,50,8,200,,,"GUIDED_POOR, SYSTEM, SYSTEM","strike5, missile4",,Leveller,,Anti Armor,Fast,Good,,,Shaped-charge warheads have %s/%s/%s chances to do %s/%s/%s additional damage to armor. This damage is not reduced by armor.,20% | 60% | 20% | 50 | 100 | 150,,,TRUE,9.8
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Antique Weapons,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Converging Beam Laser,magellan_tribeamlaser,2,,1500,800,600,,,0,30,9,,,,ENERGY,,300,1.5,0.3,0.9,1.8,,,,,7200,,,,,,,,"beam13, magellan_civ, magellan_antique, hist2t, MG_BEAM_NEGATIVE_CONVERGE_OFFSET",,Antique,,Close Support,,,,,"Fully-charged beam %s on hull or armor, dealing %s extra %s damage.",deflagrates | 300 | High Explosive,Multiple beams will %s to full power.,converge as the weapon charges,,82
@@ -122,10 +122,10 @@ Magnetic Hypercannon,magellan_supersolenoid,3,,12000,1000,,1000,400,30,20,30,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Antique Built-ins,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Burst Machine Gun,magellan_emg_ftr,3,,200,350,,40,,1,75,4,,,,KINETIC,8,,,0.5,2,0.1,1,4,1,20,,1350,,,30,,,"PD, PD_ALSO, SYSTEM",kinetic5,,Antique,,General,,,,,High-velocity projectiles improve the chances of a hit on fast targets.,,,,,1.3
-Twin Machine Gun,magellan_estat_ftr,3,,400,400,,30,,1,60,6,,,,KINETIC,6,,,0.1,2,0.1,1,4,1,20,,1350,,,30,,,"PD, PD_ALSO, SYSTEM",kinetic9,,Antique,,General,,,,,High-velocity projectiles improve the chances of a hit on fast targets.,,,,,1.3
+Twin Machine Gun,magellan_estat_ftr,0,,400,400,,30,,1,60,6,,,,KINETIC,6,,,0.1,2,0.1,1,4,1,20,,1350,,,30,,,"PD, PD_ALSO, SYSTEM, SYSTEM",kinetic9,,Antique,,General,,,,,High-velocity projectiles improve the chances of a hit on fast targets.,,,,,1.3
 Spark AMM Bay,magellan_smartafm_bay,3,,1200,600,,150,,50,0,3,6,0.2,2,HIGH_EXPLOSIVE,0,,,2,1,,0,0,0,0,,480,120,5,200,,,"ANTI_FTR, DO_NOT_CONSERVE, DO_NOT_AIM, DIRECT_AIM, SYSTEM",missile6,,Antique,,Anti-fighter,Medium,Good,,,,,,,TRUE,2.1
-Heavy Bomb Bay,magellan_dumbbombs,3,,1500,1200,,1000,,25,30,10,3,,,HIGH_EXPLOSIVE,0,,0,1,1,,0,0,0,0,,150,250,10,1500,,,"SYSTEM, STRIKE, BOMB",utility8,,Antique,,Strike,Very Slow,None,,,,,,,TRUE,13.5
-Magnetic Hypergun,magellan_supersolenoid_sm,3,0.1,5000,800,,400,200,15,40,15,,,,KINETIC,600,,0.4,2.1,1,,0,0,0,0,,2000,,,300,0.25,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE","kinetic15, LR, no_sell, restricted",,Antique,,General,,,,,"Hits on hull or armor raise the target's soft flux by %s, and additionally %s, dealing extra damage equal to %s of the original hit.",200 | arc to weapons and engines | 10%,,,,1.5
+Heavy Bomb Bay,magellan_dumbbombs,0,,1500,1200,,1000,,25,30,10,3,,,HIGH_EXPLOSIVE,0,,0,1,1,,0,0,0,0,,150,250,10,1500,,,"SYSTEM, STRIKE, BOMB",utility8,,Antique,,Strike,Very Slow,None,,,,,,,TRUE,13.5
+Magnetic Hypergun,magellan_supersolenoid_sm,0,0.1,5000,800,,400,200,15,40,15,,,,KINETIC,600,,0.4,2.1,1,,0,0,0,0,,2000,,,300,0.25,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE","kinetic15, LR, no_sell, restricted",,Antique,,General,,,,,"Hits on hull or armor raise the target's soft flux by %s, and additionally %s, dealing extra damage equal to %s of the original hit.",200 | arc to weapons and engines | 10%,,,,1.5
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Other Subfaction Weapons,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Light Gamma Torch,magellan_radflamer,3,0.1,1000,400,,30,,0,30,9,400,,,ENERGY,15,,0.1,3.9,5,0.05,0,0,0,0,,450,,,,,,SYSTEM,"he9, SR, no_sell, no_drop, restricted",,The Herd,,Anti Armor,,,,,Each shot deals an additional %s damage to armor over %s seconds. This damage is not reduced by armor.,100 | 10,,,,
@@ -136,9 +136,9 @@ Fuel Rod Projector,magellan_fuelrod_gun,3,0.05,4000,1000,,300,200,0,12,12,,,,ENE
 Fuel Pellet Shotgun,magellan_fuelscatter_flak,3,0.5,2100,800,,750,,0,20,14,,,,ENERGY,750,,,2.5,1,,1,3,2,10,,450,600,,500,,,,"he12,SR,hist2t",,The Herd,,General,,,,Spread Pattern,"Fires %s projectiles, each doing %s damage, plus %s additional damage to armor. This damage is not reduced by armor.",9-12 | 75 | 25,,,,1.5
 Pellet Flak Sub,magellan_fuelscatter_sub,3,,0,850,,75,,0,20,0,,,,ENERGY,75,,,1,,,,,,,,450,600,,300,,,SYSTEM,,,,,,,,,,,,,,,1.5
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Fusion Bomb Bay,magellan_fusbomb_ftr,3,,1350,600,,250,,0,30,8,3,,,HIGH_EXPLOSIVE,0,,,0.6,3,0.2,3,5,1,10,,200,400,8,300,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,50-150 | Energy,,,,19.75
+Fusion Bomb Bay,magellan_fusbomb_ftr,0,,1350,600,,250,,0,30,8,3,,,HIGH_EXPLOSIVE,0,,,0.6,3,0.2,3,5,1,10,,200,400,8,300,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,50-150 | Energy,,,,19.75
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Strikefire MRM Bay,magellan_electromissile_single,3,,0,1000,,500,,50,0,2,2,,,ENERGY,,,,5,1,,0,0,0,0,,500,150,8,300,,,"STRIKE, USE_VS_FRIGATES, GUIDED_POOR, DIRECT_AIM, SYSTEM",strike9,,Tichel,,Strike,Medium,Average,,,Hits to armor or hull do %s additional damage to armor. This damage is not reduced by armor.,250,,,TRUE,2.1
+Strikefire MRM Bay,magellan_electromissile_single,0,,0,1000,,500,,50,0,2,2,,,ENERGY,,,,5,1,,0,0,0,0,,500,150,8,300,,,"STRIKE, USE_VS_FRIGATES, GUIDED_POOR, DIRECT_AIM, SYSTEM, SYSTEM",strike9,,Tichel,,Strike,Medium,Average,,,Hits to armor or hull do %s additional damage to armor. This damage is not reduced by armor.,250,,,TRUE,2.1
 Strikefire MRM Tube,magellan_strikefire_tube,3,,0,1000,,500,,50,0,5,6,,,ENERGY,,,0.1,6.9,1,,0,0,0,0,,500,150,8,300,,,"STRIKE, USE_VS_FRIGATES, GUIDED_POOR, DIRECT_AIM, SYSTEM",strike10,,Tichel,,Strike,Medium,Average,,,Hits to armor or hull do %s additional damage to armor. This damage is not reduced by armor.,250,,,TRUE,2.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Smokelayer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -147,7 +147,7 @@ Smokelaying Mortar,magellan_smokelauncher_bad,,,,800,,50,,,,,,0,,FRAGMENTATION,0
 E-Charge Mortar,magellan_ionchargelauncher,,,,700,,100,400,50,,,,0,,ENERGY,0,0,,0.3,5,0.5,5,10,1,10,,300,500,7,300,,,SYSTEM,,,,,,,,,,,,,,,164
 Microflare,magellan_microflares,,,,400,,0,,,,,,0,,FRAGMENTATION,0,0,,0,1,0,,,,,,90,60,6,30,,,SYSTEM,,,,,,,,,,,,,,,164
 Microflare brief,magellan_microflare_brief,,,,200,,0,,,,,,0,,FRAGMENTATION,0,0,,0,1,0,,,,,,20,15,1,25,,,SYSTEM,,,,,,,,,,,,,,,164
-Drone Missile Conversion,magellan_missiledrone_wpn,3,,0,1500,,600,,200,0,0,1,,,HIGH_EXPLOSIVE,0,,0,1,1,,0,0,0,0,,600,0,10,100000,,,"DIRECT_AIM, SYSTEM",restricted,,,,Missile,Fast,Medium,,,,,,,TRUE,41
+Drone Missile Conversion,magellan_missiledrone_wpn,0,,0,1500,,600,,200,0,0,1,,,HIGH_EXPLOSIVE,0,,0,1,1,,0,0,0,0,,600,0,10,100000,,,"DIRECT_AIM, SYSTEM, SYSTEM",restricted,,,,Missile,Fast,Medium,,,,,,,TRUE,41
 Flak Pods,magellan_flakpod_wpn,,,,300,,150,,,,,,0,,HIGH_EXPLOSIVE,0,0,0,0.1,8,0.5,150,150,0,0,,50,150,4,150,,,SYSTEM,,,,,,,,,,,,,,,35.5
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Beam Mount Armor,magellan_modfrigate_deco_yellowtail,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,Tichel,,,,,,,,,,,,71
@@ -170,7 +170,7 @@ Ripfire SRM Bay,magellan_ripfiresrmftr,0,,600,800,,300,,10,4,4,4,0.24,2,FRAGMENT
 Balefire MRM Launcher,magellan_balefiremrm_ftr2,0,,500,1200,,600,,25,500,5,4,,,ENERGY,0,,,10,1,,1,4,2,15,,400,100,12.5,275,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE, DO_NOT_CONSERVE, BOMB, GROUP_LINKED","utility5, missile6",,Magellan,,Fire Support,Medium,Good,,,Unstable fusion warheads do %s extra %s damage on hits to armor or hull.,150-300 | Energy,,,TRUE,2.4
 Ripfire SRM Launcher,magellan_ripfiresrmftr2,0,,600,1200,,300,,10,500,4,16,,,FRAGMENTATION,0,,,9.88,2,0.12,0,0,0,0,,560,140,6,100,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE, DO_NOT_CONSERVE, BOMB, DO_NOT_AIM, GROUP_LINKED, MISSILE_SPREAD, DIRECT_AIM","strike9, missile4",,Magellan,,Strike,Fast,Good,,,Volatile micro-warheads do %s additional damage to armor. This damage is not reduced by armor.,120,,,TRUE,2.3
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Slamfire Torpedo Tube,magellan_slamfire_tube,1,,500,1200,,1200,,30,10,5,4,,,HIGH_EXPLOSIVE,0,,,8,1,,0,2,2,5,,750,500,3,350,,,"SYSTEM, STRIKE","strike6, rocket3",,Magellan,,Torpedo,Fast,None,,,Volatile warheads do %s additional damage to armor. This damage is not reduced by armor.,300,,,TRUE,9.9
+Slamfire Torpedo Tube,magellan_slamfire_tube,0,,500,1200,,1200,,30,10,5,4,,,HIGH_EXPLOSIVE,0,,,8,1,,0,2,2,5,,750,500,3,350,,,"SYSTEM, STRIKE","strike6, rocket3",,Magellan,,Torpedo,Fast,None,,,Volatile warheads do %s additional damage to armor. This damage is not reduced by armor.,300,,,TRUE,9.9
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Bonethrower Cannon,magellan_bonecrusher_ftr,0,,3200,1200,,800,200,0,12,12,3,0.6,3,FRAGMENTATION,200,,0.1,0.9,1,,2,8,1,10,,800,,,100,,,"SYSTEM, DO_NOT_CONSERVE",he13,,Antique Magellan,,Anti Armor,,,,,"Hits on hull or armor have a %s chance to arc to weapons and engines, dealing %s extra %s damage.",20% | 100 | Energy,,,,13
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -219,9 +219,9 @@ Flak Pods,magellan_anomalous_flakpod,,,,300,,150,,,,,,0,,HIGH_EXPLOSIVE,0,0,0,0.
 Anomalous Flak Pods,magellan_anomalous_flakpod_rift,,,,300,,200,,,,,,0,,HIGH_EXPLOSIVE,0,,,0.1,1,,150,150,0,0,,50,150,4,150,,,SYSTEM,,,,,,,,,,,,,,,35.5
 Anomalous Flak Pods,magellan_anomalous_flakpod_rift_boss,,,,300,,200,,,,,,0,,HIGH_EXPLOSIVE,0,,,0.1,1,,150,150,0,0,,50,150,4,150,,,SYSTEM,,,,,,,,,,,,,,,35.5
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Arrochar Top,magellan_bomber_civ_top_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,12
-Kaplan Top,magellan_carrier_marauder_top_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,18
-Hada Top,magellan_corvette_strikecraft_marauder_top_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,19
+Arrochar Top,magellan_bomber_civ_top_deco,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,12
+Kaplan Top,magellan_carrier_marauder_top_deco,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,18
+Hada Top,magellan_corvette_strikecraft_marauder_top_deco,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,19
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Unused,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -248,13 +248,13 @@ Will target missiles if no other targets are in range.,100% | 70% | 50%,,,,5,,,,
 #Bonecracker Core,magellan_bonecracker_ftr_core,3,,0,475,,75,,50,0,0,,,,HIGH_EXPLOSIVE,40,,,1,,,,,,,,600,,,,,,SYSTEM,,,,,,,,,,,,,,,13.1
 #Bonecracker Sub,magellan_bonecracker_ftr_sub,3,,0,475,,25,,25,0,0,,,,FRAGMENTATION,5,,,1,,,,,,,,600,,,,,,SYSTEM,,,,,,,,,,,,,,,13.2
 #Fuel Pellet Core,magellan_fuelpelletshotgun_core,0,,0,475,,75,,50,0,0,,,,ENERGY,40,,,1,,,,,,,,600,,,,,,SYSTEM,,,,,,,,,,,,,,,5.4
-#Lao Top,magellan_targdrone_mod_top_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,16
+#Lao Top,magellan_targdrone_mod_top_deco,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,16
 #ER Light Autogun,magellan_sniperautogun_drone,0,,250,800,,30,,5,25,3,,,,KINETIC,30,,,0.4,1,,1,5,2,5,,900,,,30,,,SYSTEM,kinetic4,,Magellan,,Fire Support,,,,,"Range extended by %s/%s/%s/%s, depending on the hull size of the carrier.",10% | 25% | 50% | 75%,,,,15
 #Chasefire AFM Rack,magellan_crackerftrsingle_drone,0,,500,600,,200,,50,0,2,2,0.12,1,FRAGMENTATION,0,,,2,1,,0,0,0,0,,425,175,3.5,150,,,"SYSTEM, ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE",missile3,,Magellan,,Anti-fighter,Medium,Good,,,,,,,TRUE,14
 #Bounder Top,magellan_bounder_top_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,12
 #Custom Bonegrinder Chaingun,magellan_bonegrinder_marauder,0,,1050,450,,300,,3,45,18,30,2.5,5,FRAGMENTATION,75,,,0.15,5,0.15,2,15,1,10,,1350,,,150,,,"SYSTEM, DO_NOT_CONSERVE",he16,,Unique Magellan,,Close Assault,,,,,One in three rounds is a tracer.,,,,,5.1
 #Custom Bonegrinder Chaingun Tracers,magellan_bonegrinder_marauder_tracer,0,,0,450,,150,,3,0,0,,,,ENERGY,0,,,0.1,1,,0,0,0,0,,1350,,,150,,,SYSTEM,,,Unique Magellan,,,,,,,,,,,,5.2
 #Strikefire MRM Bay,magellan_strikefire_marauder,0,,0,800,,250,,50,0,4,8,,,ENERGY,,,,5,1,,0,0,0,0,,500,150,8,300,,,"SYSTEM, STRIKE, USE_VS_FRIGATES, GUIDED_POOR, DIRECT_AIM",strike9,,Unique Magellan,,Strike,Medium,Average,,,Hits to armor or hull do %s additional damage to armor. This damage is not reduced by armor.,250,,,TRUE,2.1
-Electron Bomb Bay,magellan_electrontorp_marauder,3,,1000,500,,75,600,0,30,8,4,,,ENERGY,0,,,0.65,1,0.35,1,4,4,5,,350,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,,,,,,19.75
-Fusion Bomb Bay,magellan_fusbomb_marauder,3,,1350,600,,75,,0,30,8,4,,,HIGH_EXPLOSIVE,0,,,0.6,2,0.2,3,5,1,10,,200,400,8,300,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,50-150 | Energy,,,,19.75
-Burst Cutting Laser,magellan_herdlaser_marauder,3,,400,1000,500,,,0,16,5,,,,HIGH_EXPLOSIVE,,100,0.1,1.0,2.0,1.0,,,,,,2400,,,,,,,SYSTEM,"beam10, LR, no_sell, no_drop, restricted",,The Herd,,Strike,,,,,,,,,18
+Electron Bomb Bay,magellan_electrontorp_marauder,0,,1000,500,,75,600,0,30,8,4,,,ENERGY,0,,,0.65,1,0.35,1,4,4,5,,350,,,100,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,,,,,,19.75
+Fusion Bomb Bay,magellan_fusbomb_marauder,0,,1350,600,,75,,0,30,8,4,,,HIGH_EXPLOSIVE,0,,,0.6,2,0.2,3,5,1,10,,200,400,8,300,,,"STRIKE, USE_VS_FRIGATES, GROUP_LINKED, SYSTEM, SYSTEM",strike10,SR_strike_only,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,50-150 | Energy,,,,19.75
+Burst Cutting Laser,magellan_herdlaser_marauder,0,,400,1000,500,,,0,16,5,,,,HIGH_EXPLOSIVE,,100,0.1,1.0,2.0,1.0,,,,,,2400,,,,,,SYSTEM,SYSTEM,"beam10, LR, no_sell, no_drop, restricted",,The Herd,,Strike,,,,,,,,,18
