@@ -10,8 +10,7 @@
 	"fringeColor":[235,205,95,255],
 	"coreColor":[255,245,195,255],
 	"hitGlowRadius":10,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0,
-	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell_sm.png",
-}
+	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell_sm.png"}

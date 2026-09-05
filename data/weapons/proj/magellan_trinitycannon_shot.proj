@@ -14,7 +14,7 @@
 	"glowRadius":30,
 	"hitGlowRadius":40,
 	"passThroughMissiles":true,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0
 }

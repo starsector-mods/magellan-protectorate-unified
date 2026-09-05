@@ -1,5 +1,5 @@
 {
-	"id":"magellan_emg_ftr",  # this id must match what's in the spreadsheet
+	"id":"magellan_emg_ftr",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"SMALL",
@@ -10,17 +10,17 @@
 	"hardpointOffsets":[9, 0],
 	"hardpointAngleOffsets":[0],
 	"renderHints":[RENDER_BARREL_BELOW],
-	"barrelMode":"ALTERNATING_BURST", # ALTERNATING, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING_BURST", 
 	"animationType":"MUZZLE_FLASH",
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"muzzleFlashSpec":{"length":15.0,   # only used if animationType = MUZZLE_FLASH
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":15.0,   
 					   "spread":1.0,
 					   "particleSizeMin":5.0,
 					   "particleSizeRange":10.0,
 					   "particleDuration":0.05,
 					   "particleCount":15,
 					   "particleColor":[175,215,245,155]},
-	"projectileSpecId":"magellan_estat_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_estat_shot",  
 	"fireSoundTwo":"magellan_estat_ftr_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

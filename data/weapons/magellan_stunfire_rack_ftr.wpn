@@ -12,7 +12,7 @@
 	"barrelMode":"ALTERNATING",
 	"animationType":"SMOKE",
 	"renderHints":[RENDER_LOADED_MISSILES_UNLESS_HIDDEN],
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"autocharge":true,  
 	"interruptibleBurst":false,
 	"smokeSpec":{"particleSizeMin":15.0,
 				 "particleSizeRange":20.0,

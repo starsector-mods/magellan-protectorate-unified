@@ -8,24 +8,24 @@
 	"center":[2.5,5],
 	"collisionRadius":8,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[40,90,105,100],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":50, # purely visual
-	#"alwaysAccelerate":true,
-	#"reduceDamageWhileFading":true,
+	"explosionColor":[40,90,105,100],  
+	"explosionRadius":50, 
+	
+	
 	"noCollisionWhileFading":false,
-	"useHitGlowWhenDealingDamage":true, # using the scripted rift explosion instead
-	"useHitGlowWhenDestroyed":true, # instead of the default explosion
+	"useHitGlowWhenDealingDamage":true, 
+	"useHitGlowWhenDestroyed":true, 
 	"dudProbabilityOnFlameout":0,
 	"fizzleOnReachingWeaponRange":true,					 
 	"armingTime":0,
-	"flameoutTime":0.1, # total time from flameout to full fadeout
-	"noEngineGlowTime":0.1, # time spent without the engine glow being rendered
-	"fadeTime":0.1, # fadeout duration
+	"flameoutTime":0.1, 
+	"noEngineGlowTime":0.1, 
+	"fadeTime":0.1, 
 	"glowColor":[40,90,105,100],
 	"glowRadius":30,	
-	"explosionSpec":{"duration":0.1, # not visual
+	"explosionSpec":{"duration":0.1, 
 					 "radius":50,
-					 "coreRadius":30, # full damage within core radius
+					 "coreRadius":30, 
 					 "collisionClass":MISSILE_NO_FF,
 					 "collisionClassByFighter":MISSILE_NO_FF},
 	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
@@ -35,7 +35,7 @@
 					"vsMissileRange":20,
 					"explosionSpec":{"duration":0.1,
 									 "radius":40,
-									 "coreRadius":20, # full damage within core radius - at least equal to proximity fuse range
+									 "coreRadius":20, 
 									 "collisionClass":PROJECTILE_NO_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":5.0,
@@ -51,8 +51,7 @@
 									 "detailedExplosionFlashDuration":0.1,
 									 "detailedExplosionFlashColorFringe":[40,90,105,100],
 									 "detailedExplosionFlashColorCore":[120,180,210,125],
-									 "sound":"system_canister_flak_explosion"},									 
-					},
+									 "sound":"system_canister_flak_explosion"}},
 	"engineSpec":{"turnAcc":100,
 				  "turnRate":10,
 				  "acc":200,

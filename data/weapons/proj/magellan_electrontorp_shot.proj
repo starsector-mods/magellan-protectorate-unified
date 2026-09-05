@@ -2,7 +2,7 @@
 	"id":"magellan_electrontorp_shot",
 	"specClass":"projectile",
 	"onHitEffect":"data.scripts.weapons.magellan_ElectroTorpOnHit",
-	#"spawnType":"BEAM",
+	
 	"spawnType":"BALLISTIC",
 	"collisionClass":"PROJECTILE_FF",
 	"collisionClassByFighter":"PROJECTILE_FIGHTER",
@@ -15,7 +15,6 @@
 	"glowRadius":20,
 	"hitGlowRadius":50,
 	"passThroughMissiles":true,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":64.0,
-	"pixelsPerTexel":5.0,
-}
+	"pixelsPerTexel":5.0}

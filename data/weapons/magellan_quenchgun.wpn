@@ -1,5 +1,5 @@
 {
-	"id":"magellan_quenchgun",  # this id must match what's in the spreadsheet
+	"id":"magellan_quenchgun",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_QuenchGunFX",
 	"type":"BALLISTIC",
@@ -8,15 +8,15 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_quenchgun_turret_recoil.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_quenchgun_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_quenchgun_hardpoint_recoil.png",	
-	"visualRecoil":3.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3.0,  
 	"renderHints":[RENDER_BARREL_BELOW],
 	"turretOffsets":[30, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[30, 0],
 	"hardpointAngleOffsets":[0],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
+	"barrelMode":"ALTERNATING", 
+	"animationType":"SMOKE",  
+	"autocharge":true,  
 	"smokeSpec":{"particleSizeMin":15.0,
 				 "particleSizeRange":9.0,
 				 "cloudParticleCount":7,
@@ -27,6 +27,6 @@
 				 "blowbackLength":18.0,
 				 "blowbackSpread":12.0,
 				 "particleColor":[200,200,225,75]},
-	"projectileSpecId":"magellan_quenchgun_shot",  # projectile that will be fired	
+	"projectileSpecId":"magellan_quenchgun_shot",  
 	"fireSoundTwo":"magellan_quenchgun_fire"
 }

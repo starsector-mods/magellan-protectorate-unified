@@ -1,5 +1,5 @@
 {
-	"id":"magellan_largebonecrusher",  # this id must match what's in the spreadsheet
+	"id":"magellan_largebonecrusher",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_BonecrusherFX",
 	"type":"BALLISTIC",
@@ -11,23 +11,23 @@
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_largebonecrusher_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_largebonecrusher_hardpoint_recoil.png",
 	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_largebonecrusher_hardpoint_glow.png",	
-	"visualRecoil":4,  # the gun sprites are only used if this is non-0
+	"visualRecoil":4,  
 	"glowColor":[255,235,200,155],
 	"turretOffsets":[21, -6, 21, 6],
 	"turretAngleOffsets":[0, 0],
 	"hardpointOffsets":[25, -6, 25, 6],
 	"hardpointAngleOffsets":[0, 0],
 	"renderHints":[RENDER_BARREL_BELOW],
-	"barrelMode":"ALTERNATING", # DUAL, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING", 
 	"animationType":"GLOW_AND_FLASH",
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"muzzleFlashSpec":{"length":28.0,   # only used if animationType = MUZZLE_FLASH
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":28.0,   
 					   "spread":10.0,
 					   "particleSizeMin":9.0,
 					   "particleSizeRange":15.0,
 					   "particleDuration":0.16,
 					   "particleCount":28,
 					   "particleColor":[255,235,200,255]},
-	"projectileSpecId":"magellan_bonecrusher_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_bonecrusher_shot",  
 	"fireSoundTwo":"magellan_bonecrusher_fire"
 }

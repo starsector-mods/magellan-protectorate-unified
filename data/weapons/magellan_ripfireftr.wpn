@@ -5,8 +5,8 @@
 	"type":"MISSILE",
 	"size":"SMALL",
 	"displayArcRadius":700,
-	#"turretSprite":"",
-	#"hardpointSprite":"",
+	
+	
 	"turretSprite":"graphics/Magellan/weapons/magellan_ripfire_turret_base.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_ripfire_hardpoint_base.png",	
 	"hardpointOffsets":[12, 0, 12, 0, 12, 0],

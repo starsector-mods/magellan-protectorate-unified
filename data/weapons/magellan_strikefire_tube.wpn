@@ -13,7 +13,7 @@
 	"animationType":"SMOKE",
 	"renderHints":[RENDER_LOADED_MISSILES_UNLESS_HIDDEN],
 	"interruptibleBurst":false,
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"autocharge":true,  
 	"displayArcRadius":300,
 	"smokeSpec":{"particleSizeMin":20.0,
 				 "particleSizeRange":20.0,

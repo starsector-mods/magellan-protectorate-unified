@@ -23,5 +23,4 @@
 				 "blowbackSpread":10.0,
 				 "particleColor":[100,100,100,150]},
 	"projectileSpecId":"magellan_anomalous_flakpod_rift_boss_proj",
-	"fireSoundTwo":"system_canister_flak_fire",
-}
+	"fireSoundTwo":"system_canister_flak_fire"}

@@ -10,7 +10,7 @@
 	"fadeTime":0.15,
 	"fringeColor":[255,235,200,200],
 	"coreColor":[255,235,200,255],
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-24.0,
 	"pixelsPerTexel":1.0,
 	"bulletSprite":"graphics/Magellan/missiles/magellan_miniblaster_long_bolt.png",
@@ -20,7 +20,7 @@
 					"vsMissileRange":8,
 					"explosionSpec":{"duration":0.1,
 									 "radius":40,
-									 "coreRadius":16, # full damage within core radius - also equal to proximity fuse range
+									 "coreRadius":16, 
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":2.0,
@@ -36,6 +36,5 @@
 									 "detailedExplosionFlashDuration":0.15,
 									 "detailedExplosionFlashColorFringe":[155,135,100,75],
 									 "detailedExplosionFlashColorCore":[255,235,200,100],
-									 "sound":"devastator_explosion"},
-					}
+									 "sound":"devastator_explosion"}}
 }

@@ -13,7 +13,7 @@
 	"glowRadius":15,
 	"hitGlowRadius":10,
 	"passThroughMissiles":true,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0,
 	"bulletSprite":"graphics/Magellan/missiles/magellan_medslug.png",
@@ -23,7 +23,7 @@
  				    "vsMissileRange":7,
 					"explosionSpec":{"duration":0.05,
 									 "radius":25,
-									 "coreRadius":10, # full damage within core radius - also equal to proximity fuse range
+									 "coreRadius":10, 
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":5.0,
@@ -32,7 +32,6 @@
 									 "particleCount":12,
 									 "particleColor":[255,235,200,255],
 									 "explosionColor":[255,235,200,100],
-									 "sound":"magellan_bonesaw_crit"},
-					}
+									 "sound":"magellan_bonesaw_crit"}}
 					
 }

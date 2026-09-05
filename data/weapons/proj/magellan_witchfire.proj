@@ -17,21 +17,20 @@
 					"loc":[-10, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"QUAD_STRIP", 
 						"engineColor":[40,100,220,120],
 						"contrailDuration":1,
 						"contrailWidthMult":1,
-						"contrailWidthAddedFractionAtEnd":3,  # positive or negative
-						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailWidthAddedFractionAtEnd":3,  
+						"contrailMinSeg":5, 
 						"contrailMaxSpeedMult":0.5,
 						"contrailAngularVelocityMult":0.5,
 						"contrailColor":[80,140,220,75],
-						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+						"type":"SMOKE" 
 					},
 				    "width":14.0,
 				    "length":70.0,
-				    "angle":180.0},
-				    ],
+				    "angle":180.0}],
 	"behaviorSpec":{"behavior":"MIRV",
 					"splitRange":800,
 					"minTimeToSplit":3,
@@ -39,16 +38,16 @@
 					"splitSound":"engine_disabled",
 					"numShots":1,
 					"damage":1000,
-					"emp":0, # needs to match highlight in weapon_data.csv
+					"emp":0, 
 					"damageType":KINETIC,
 					"hitpoints":500,
-					#"evenSpread":true,
+					
 					"arc":180,
 					"spreadInaccuracy":0,
-					#"spreadSpeed":300,
+					
 					"spreadSpeed":0,
 					"spreadSpeedRange":0,
-					#"projectileRange":600, # only needed if not a missile
+					
 					"projectileSpec":"magellan_witchfire_stagetwo",
 					"debrisSmall":0,
 					"debrisMedium":0,

@@ -8,16 +8,16 @@
 	"center":[3,6],
 	"collisionRadius":10,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[200,165,50,75],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":20, # purely visual
-	#"alwaysAccelerate":true,
-	#"reduceDamageWhileFading":true,
+	"explosionColor":[200,165,50,75],  
+	"explosionRadius":20, 
+	
+	
 	"noCollisionWhileFading":true,
 	"dudProbabilityOnFlameout":0,
 	"fizzleOnReachingWeaponRange":true,
-	"explosionSpec":{"duration":0.1, # not visual
+	"explosionSpec":{"duration":0.1, 
 					 "radius":40,
-					 "coreRadius":24, # full damage within core radius
+					 "coreRadius":24, 
 					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
 					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
 					 "particleSizeMin":5.0,
@@ -31,11 +31,10 @@
 					 "detailedExplosionFlashRadius":40,
 					 "detailedExplosionFlashDuration":0.2,
 					 "detailedExplosionFlashColorFringe":[200,165,50,155],
-					 "detailedExplosionFlashColorCore":[200,165,50,75],
-				 	},
-	"flameoutTime":0.75, # total time from flameout to full fadeout
-	"noEngineGlowTime":0.35, # time spent without the engine glow being rendered
-	"fadeTime":0.35, # fadeout duration	
+					 "detailedExplosionFlashColorCore":[200,165,50,75]},
+	"flameoutTime":0.75, 
+	"noEngineGlowTime":0.35, 
+	"fadeTime":0.35, 
 	"engineSpec":{"turnAcc":480,
 				  "turnRate":120,
 				  "maxSpeed":800,
@@ -45,18 +44,18 @@
 					"loc":[-6, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"QUAD_STRIP", 
 						"engineColor":[255,235,125,200],
 						"glowAlternateColor":[155,135,25,155],
 						"contrailDuration":0.4,
 						"contrailWidthMult":1.6,
-						"contrailWidthAddedFractionAtEnd":2,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailWidthAddedFractionAtEnd":2,  
+						"contrailMinSeg":5, 
 						"contrailMaxSpeedMult":0.0,
 						"contrailAngularVelocityMult":0.5,
-						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailSpawnDistMult":0, 
 						"contrailColor":[155,135,100,200],
-						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+						"type":"SMOKE" 
 					},
 				    "width":3.2,
 				    "length":24.0,

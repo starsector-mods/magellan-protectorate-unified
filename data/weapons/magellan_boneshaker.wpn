@@ -1,5 +1,5 @@
 {
-	"id":"magellan_boneshaker",  # this id must match what's in the spreadsheet
+	"id":"magellan_boneshaker",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_BonesawFX",
 	"type":"BALLISTIC",
@@ -8,22 +8,22 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_boneshaker_turret_recoil.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_boneshaker_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_boneshaker_hardpoint_recoil.png",
-	"visualRecoil":3,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3,  
 	"turretOffsets":[12, -6.5, 12, 6.5],
 	"turretAngleOffsets":[0, 0],
 	"hardpointOffsets":[12, -6.5, 12, 6.5],
 	"hardpointAngleOffsets":[0, 0],
 	"renderHints":[RENDER_BARREL_BELOW],
-	"barrelMode":"ALTERNATING", # ALTERNATING, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING", 
 	"animationType":"MUZZLE_FLASH",
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"muzzleFlashSpec":{"length":21.0,   # only used if animationType = MUZZLE_FLASH
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":21.0,   
 					   "spread":10.0,
 					   "particleSizeMin":6.0,
 					   "particleSizeRange":9.0,
 					   "particleDuration":0.2,
 					   "particleCount":18,
 					   "particleColor":[255,235,200,255]},
-	"projectileSpecId":"magellan_boneshaker_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_boneshaker_shot",  
 	"fireSoundTwo":"magellan_boneshaker_fire"
 }

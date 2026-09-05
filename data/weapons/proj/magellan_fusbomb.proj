@@ -11,11 +11,11 @@
 	"collisionRadius":20,
 	"armingTime":0.5,
 	"collisionClass":"MISSILE_FF",
-	"flameoutTime":0.1, # total time from flameout to full fadeout
-	"fadeTime":0.1, # fadeout duration
-	"noEngineGlowTime":0.15, # time spent without the engine glow being rendered
-	"explosionColor":[240,30,90,155],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":250, # purely visual
+	"flameoutTime":0.1, 
+	"fadeTime":0.1, 
+	"noEngineGlowTime":0.15, 
+	"explosionColor":[240,30,90,155],  
+	"explosionRadius":250, 
 	"engineSpec":{"turnAcc":0,
 				  "turnRate":0,
 				  "acc":0,
@@ -32,7 +32,7 @@
 					"windupDelay":0.5,
 					"explosionSpec":{"duration":0.1,
 									 "radius":200,
-									 "coreRadius":100, # full damage within core radius
+									 "coreRadius":100, 
 									 "collisionClass":MISSILE_FF,
 									 "collisionClassByFighter":MISSILE_FF,
 									 "particleSizeMin":5.0,
@@ -42,8 +42,5 @@
 									 "particleColor":[240,30,90,255],
 									 "explosionColor":[240,30,90,155],
 									 "useDetailedExplosion":true,
-									 "sound":"magellan_fusion_crit"},
-					}	
+									 "sound":"magellan_fusion_crit"}}	
 }
-
-

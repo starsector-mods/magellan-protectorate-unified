@@ -1,5 +1,5 @@
 {
-	"id":"magellan_bonegrinder_hvy_tracer",  # this id must match what's in the spreadsheet
+	"id":"magellan_bonegrinder_hvy_tracer",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"LARGE",
@@ -11,9 +11,9 @@
 	"turretAngleOffsets":[0, 0.1, -0.1],
 	"hardpointOffsets":[34, 0, 34, 0, 34, 0],
 	"hardpointAngleOffsets":[0, 0.1, -0.1],
-	"barrelMode":"ALTERNATING", # ALTERNATING, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
+	"barrelMode":"ALTERNATING", 
+	"animationType":"SMOKE",  
+	"autocharge":true,  
 	"smokeSpec":{"particleSizeMin":15.0,
 				 "particleSizeRange":9.0,
 				 "cloudParticleCount":5,
@@ -24,7 +24,7 @@
 				 "blowbackLength":16.0,
 				 "blowbackSpread":9.0,
 				 "particleColor":[205,185,155,50]},
-	"projectileSpecId":"magellan_bonegrinder_hvy_tracershot",  # projectile that will be fired
+	"projectileSpecId":"magellan_bonegrinder_hvy_tracershot",  
 	"fireSoundTwo":"magellan_boneshaker_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

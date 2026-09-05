@@ -15,5 +15,4 @@
 	"textureType":"SMOOTH",
 	"textureScrollSpeed":64.0,
 	"pixelsPerTexel":1.0,
-	"bulletSprite":"graphics/Magellan/missiles/magellan_kineticshell.png",
-}
+	"bulletSprite":"graphics/Magellan/missiles/magellan_kineticshell.png"}

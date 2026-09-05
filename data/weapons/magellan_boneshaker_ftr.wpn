@@ -1,5 +1,5 @@
 {
-	"id":"magellan_boneshaker_ftr",  # this id must match what's in the spreadsheet
+	"id":"magellan_boneshaker_ftr",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"SMALL",
@@ -9,17 +9,17 @@
 	"turretAngleOffsets":[0, 0],
 	"hardpointOffsets":[8, -4, 8, 4],
 	"hardpointAngleOffsets":[0, 0],
-	"barrelMode":"ALTERNATING_BURST", # ALTERNATING, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING_BURST", 
 	"animationType":"MUZZLE_FLASH",
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"muzzleFlashSpec":{"length":14.0,   # only used if animationType = MUZZLE_FLASH
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":14.0,   
 					   "spread":6.0,
 					   "particleSizeMin":8.0,
 					   "particleSizeRange":12.0,
 					   "particleDuration":0.15,
 					   "particleCount":11,
 					   "particleColor":[255,235,200,255]},
-	"projectileSpecId":"magellan_bonechip_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_bonechip_shot",  
 	"fireSoundTwo":"magellan_bonesaw_ftr_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

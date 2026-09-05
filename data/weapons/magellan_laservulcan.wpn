@@ -1,5 +1,5 @@
 {
-	"id":"magellan_laservulcan",  # this id must match what's in the spreadsheet
+	"id":"magellan_laservulcan",  
 	"specClass":"projectile",
 	"type":"ENERGY",
 	"size":"SMALL",
@@ -12,17 +12,17 @@
 	"turretAngleOffsets":[0, 0],
 	"hardpointOffsets":[4, -1.5, 4, 1.5],
 	"hardpointAngleOffsets":[0, 0],
-	"barrelMode":"LINKED", # or ALTERNATING.  whether barrels fire at the same time or alternate.
+	"barrelMode":"LINKED", 
 	"animationType":"GLOW_AND_FLASH",
-	"muzzleFlashSpec":{"length":15.0,   # only used if animationType = MUZZLE_FLASH
+	"muzzleFlashSpec":{"length":15.0,   
 					   "spread":5.0,
 					   "particleSizeMin":8.0,
 					   "particleSizeRange":4.0,
 					   "particleDuration":0.1,
 					   "particleCount":8,
 					   "particleColor":[120,180,210,175]},
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"projectileSpecId":"magellan_laservulcan_shot",  # projectile that will be fired
+	"autocharge":true,  
+	"projectileSpecId":"magellan_laservulcan_shot",  
 	"fireSoundTwo":"magellan_laservulcan_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

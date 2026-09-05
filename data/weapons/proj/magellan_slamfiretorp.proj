@@ -8,11 +8,11 @@
 	"center":[4.5,11.5],
 	"collisionRadius":15,
 	"collisionClass":"MISSILE_FF",
-	"explosionColor":[200,165,50,75],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":75, # purely visual
-	"explosionSpec":{"duration":0.1, # not visual
+	"explosionColor":[200,165,50,75],  
+	"explosionRadius":75, 
+	"explosionSpec":{"duration":0.1, 
 					 "radius":90,
-					 "coreRadius":60, # full damage within core radius
+					 "coreRadius":60, 
 					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
 					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
 				 	 "particleSizeMin":9.0,
@@ -25,12 +25,11 @@
 					 "detailedExplosionFlashRadius":90,
 					 "detailedExplosionFlashDuration":0.2,
 					 "detailedExplosionFlashColorFringe":[200,165,50,155],
-					 "detailedExplosionFlashColorCore":[200,165,50,75],
-				 	},
-	"flameoutTime":0.75, # total time from flameout to full fadeout
+					 "detailedExplosionFlashColorCore":[200,165,50,75]},
+	"flameoutTime":0.75, 
 	"armingTime":0.3,
-	"noEngineGlowTime":0.3, # time spent without the engine glow being rendered
-	"fadeTime":0.3, # fadeout duration	
+	"noEngineGlowTime":0.3, 
+	"fadeTime":0.3, 
 	"engineSpec":{"turnAcc":240,
 				  "turnRate":90,
 				  "maxSpeed":1200,
@@ -40,19 +39,19 @@
 					"loc":[-11.5, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"QUAD_STRIP", 
 						"engineColor":[255,235,125,200],
 						"glowAlternateColor":[155,135,25,155],
 						"glowSizeMult":2.0,
 						"contrailDuration":1.6,
 						"contrailWidthMult":1.6,
-						"contrailWidthAddedFractionAtEnd":3,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailWidthAddedFractionAtEnd":3,  
+						"contrailMinSeg":5, 
 						"contrailMaxSpeedMult":0.25,
 						"contrailAngularVelocityMult":0.5,
-						"contrailSpawnDistMult":0.25, # how far away from engine it starts
+						"contrailSpawnDistMult":0.25, 
 						"contrailColor":[155,135,100,200],
-						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+						"type":"SMOKE" 
 					},
 				    "width":5.0,
 				    "length":40.0,

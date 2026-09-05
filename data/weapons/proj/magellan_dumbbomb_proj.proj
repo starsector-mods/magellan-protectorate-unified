@@ -1,22 +1,22 @@
 {
 	"id":"magellan_dumbbomb_proj",
 	"specClass":"missile",
-	#"missileType":"BOMB",
+	
 	"missileType":"BOMB_WITH_SLOW",
 	"sprite":"graphics/Magellan/missiles/magellan_mortarshell.png",
 	"size":[10,18],	
 	"center":[5,9],
 	"collisionRadius":18,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[210,170,90,200],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":200, # purely visual
+	"explosionColor":[210,170,90,200],  
+	"explosionRadius":200, 
 	"armingTime":0.1,	
-	"fadeTime":0.3, # fadeout duration
+	"fadeTime":0.3, 
 	"glowColor":[145,125,30,90],
 	"glowRadius":20,
-	"explosionSpec":{"duration":0.2, # not visual
+	"explosionSpec":{"duration":0.2, 
 					 "radius":150,
-					 "coreRadius":75, # full damage within core radius
+					 "coreRadius":75, 
 					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
 					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS},				  
 	"engineSpec":{"turnAcc":500,
@@ -29,7 +29,7 @@
 					"slowToMaxSpeed":true,
 					"explosionSpec":{"duration":0.2,
 									 "radius":150,
-									 "coreRadius":75, # full damage within core radius
+									 "coreRadius":75, 
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":5.0,
@@ -45,6 +45,5 @@
 									 "detailedExplosionFlashDuration":0.2,
 									 "detailedExplosionFlashColorFringe":[145,125,60,60],
 									 "detailedExplosionFlashColorCore":[210,170,90,120],
-									 "sound":"magellan_mine_explosion_sm"},									 
-					}
+									 "sound":"magellan_mine_explosion_sm"}}
 }

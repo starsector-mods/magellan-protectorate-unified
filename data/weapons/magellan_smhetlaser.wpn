@@ -2,7 +2,7 @@
 	"id":"magellan_smhetlaser",
 	"specClass":"projectile",
 	"type":"ENERGY",
-	#"mountTypeOverride":"HYBRID",
+	
 	"size":"SMALL",
 	"everyFrameEffect":"data.scripts.weapons.magellan_FusCutterEffect",
 	"turretSprite":"graphics/Magellan/weapons/magellan_smhetlaser_turret_base.png",
@@ -14,19 +14,19 @@
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[4, 0],
 	"hardpointAngleOffsets":[0],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING", 
 	"unaffectedByProjectileSpeedBonuses":true,
 	"animationType":"GLOW_AND_FLASH",
-	"muzzleFlashSpec":{"length":38.0,   # only used if animationType = MUZZLE_FLASH
+	"muzzleFlashSpec":{"length":38.0,   
 					   "spread":18.0,
 					   "particleSizeMin":10.0,
 					   "particleSizeRange":12.0,
 					   "particleDuration":0.09,
 					   "particleCount":13,
 					   "particleColor":[255,75,100,225]},
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"projectileSpecId":"magellan_smfuscutter_shot",  # projectile that will be fired
+	"autocharge":true,  
+	"projectileSpecId":"magellan_smfuscutter_shot",  
 	"noImpactSounds":true,
-	#"fireSoundTwo":"cryoflamer_fire",
+	
 	"fireSoundThree":"cryoflamer_loop"
 }

@@ -1,5 +1,5 @@
 {
-	"id":"magellan_bonegrinder_hvy",  # this id must match what's in the spreadsheet
+	"id":"magellan_bonegrinder_hvy",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_BonegrinderFX",
 	"type":"BALLISTIC",
@@ -12,16 +12,16 @@
 	"turretAngleOffsets":[0, 0.1, -0.1],
 	"hardpointOffsets":[34, 0, 34, 0, 34, 0],
 	"hardpointAngleOffsets":[0, 0.1, -0.1],
-	"barrelMode":"ALTERNATING", # ALTERNATING, ALTERNATING_BURST or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
-	"muzzleFlashSpec":{"length":30.0,   # only used if animationType = MUZZLE_FLASH
+	"barrelMode":"ALTERNATING", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":30.0,   
 					   "spread":15.0,
 					   "particleSizeMin":4.0,
 					   "particleSizeRange":16.0,
 					   "particleDuration":0.05,
 					   "particleCount":40,
 				 	   "particleColor":[205,185,155,125]},
-	"projectileSpecId":"magellan_bonegrinder_hvy_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_bonegrinder_hvy_shot",  
 	"fireSoundTwo":"magellan_boneshaker_fire"
 }

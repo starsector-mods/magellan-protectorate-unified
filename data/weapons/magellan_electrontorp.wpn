@@ -1,7 +1,7 @@
 {
-	"id":"magellan_electrontorp",  # this id must match what's in the spreadsheet
+	"id":"magellan_electrontorp",  
 	"specClass":"projectile",
-	#"everyFrameEffect": "data.scripts.weapons.magellan_ElectroTorpFX",
+	
 	"type":"ENERGY",
 	"size":"SMALL",
 	"turretSprite":"graphics/Magellan/weapons/magellan_electrontorp_turret_base.png",
@@ -10,23 +10,23 @@
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_electrontorp_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_electrontorp_hardpoint_recoil.png",
 	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_electrontorp_hardpoint_glow.png",
-	"visualRecoil":3.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3.0,  
 	"glowColor":[100,110,255,255],
 	"turretOffsets":[14, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[14, 0],
 	"hardpointAngleOffsets":[0],
 	"renderHints":[RENDER_BARREL_BELOW],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING", 
 	"animationType":"GLOW_AND_FLASH",
-	"muzzleFlashSpec":{"length":16.0,   # only used if animationType = MUZZLE_FLASH
+	"muzzleFlashSpec":{"length":16.0,   
 					   "spread":6.0,
 					   "particleSizeMin":10.0,
 					   "particleSizeRange":12.0,
 					   "particleDuration":0.15,
 					   "particleCount":16,
 					   "particleColor":[100,110,255,255]},
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"projectileSpecId":"magellan_electrontorp_shot",  # projectile that will be fired
+	"autocharge":true,  
+	"projectileSpecId":"magellan_electrontorp_shot",  
 	"fireSoundTwo":"magellan_electrontorpedo_fire"
 }

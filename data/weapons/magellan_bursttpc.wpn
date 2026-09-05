@@ -1,5 +1,5 @@
 {
-	"id":"magellan_bursttpc",  # this id must match what's in the spreadsheet
+	"id":"magellan_bursttpc",  
 	"specClass":"beam",
   	"everyFrameEffect": "data.scripts.weapons.magellan_beamOscillationScript",
 	"type":"ENERGY",

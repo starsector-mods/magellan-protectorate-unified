@@ -14,8 +14,7 @@
 	"glowRadius":30,
 	"hitGlowRadius":25,
 	"passThroughMissiles":true,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0,
-	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell.png",
-}
+	"bulletSprite":"graphics/Magellan/missiles/magellan_fragshell.png"}

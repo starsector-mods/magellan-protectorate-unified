@@ -10,7 +10,7 @@
 	"fadeTime":0.2,
 	"fringeColor":[255,75,100,135],
 	"coreColor":[255,75,100,145],
-	"textureType":"SMOOTH",  # only needed for BEAM spawnType
+	"textureType":"SMOOTH",  
 	"textureScrollSpeed":-256,
 	"pixelsPerTexel":5.0
 }

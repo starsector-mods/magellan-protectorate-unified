@@ -1,5 +1,5 @@
 {
-	"id":"magellan_flenser_tracer",  # this id must match what's in the spreadsheet
+	"id":"magellan_flenser_tracer",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"SMALL",
@@ -9,9 +9,9 @@
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[0, 0],
 	"hardpointAngleOffsets":[0],	
-	"barrelMode":"LINKED", # ALTERNATING or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"barrelMode":"LINKED", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
 	"muzzleFlashSpec":{"length":17.0, 
                             "spread":12.0,
                             "particleSizeMin":3.0,
@@ -19,7 +19,7 @@
                             "particleDuration":0.12,
                             "particleCount":12,
 					        "particleColor":[255,225,165,175]},
-	"projectileSpecId":"magellan_minigun_tracer_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_minigun_tracer_shot",  
 	"fireSoundTwo":"magellan_lmg_fire",	
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

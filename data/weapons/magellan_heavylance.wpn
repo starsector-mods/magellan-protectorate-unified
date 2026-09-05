@@ -65,7 +65,4 @@
     PROJECTILE_FIGHTER,
     MISSILE_FF,
     MISSILE_NO_FF
-  ],
-  #"fireSoundOne": "magellan_heavylance_fire",
-  #"fireSoundTwo": "magellan_heavylance_fire"
-}
+  ]}

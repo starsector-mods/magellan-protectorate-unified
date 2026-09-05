@@ -21,7 +21,7 @@
 					"range":0,
 					"explosionSpec":{"duration":0.1,
 									 "radius":40,
-									 "coreRadius":20, # full damage within core radius - also equal to proximity fuse range
+									 "coreRadius":20, 
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":4.0,
@@ -30,6 +30,5 @@
 									 "particleCount":15,
 									 "particleColor":[255,205,155,100],
 									 "explosionColor":[105,85,55,60],
-									 "sound":"devastator_explosion"},
-					}
+									 "sound":"devastator_explosion"}}
 }

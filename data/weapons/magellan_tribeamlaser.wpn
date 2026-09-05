@@ -24,6 +24,6 @@
 	"textureScrollSpeed":72.0,
 	"pixelsPerTexel":2.0,
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER],
-	#"fireSoundOne":"system_canister_flak_fire",
+	
 	"fireSoundTwo":"laser_loop"
 }

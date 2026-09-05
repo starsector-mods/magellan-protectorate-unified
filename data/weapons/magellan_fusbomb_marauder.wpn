@@ -1,5 +1,5 @@
 {
-	"id":"magellan_fusbomb_marauder",  # this id must match what's in the spreadsheet
+	"id":"magellan_fusbomb_marauder",  
 	"specClass":"projectile",
 	"type":"MISSILE",
 	"size":"SMALL",
@@ -9,24 +9,24 @@
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_electrontorp_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_electrontorp_hardpoint_recoil.png",
 	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_electrontorp_hardpoint_glow.png",
-	"visualRecoil":3.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3.0,  
 	"glowColor":[255,75,100,255],
 	"turretOffsets":[0, -2, 0, 0, 0, 2],
 	"turretAngleOffsets":[-3, 0, 3],
 	"hardpointOffsets":[0, -2, 0, 0, 0, 2],
 	"hardpointAngleOffsets":[-3, 0, 3],
 	"renderHints":[RENDER_BARREL_BELOW],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING", 
 	"animationType":"GLOW_AND_FLASH",
-	"muzzleFlashSpec":{"length":12.0,   # only used if animationType = MUZZLE_FLASH
+	"muzzleFlashSpec":{"length":12.0,   
 					   "spread":6.0,
 					   "particleSizeMin":10.0,
 					   "particleSizeRange":12.0,
 					   "particleDuration":0.15,
 					   "particleCount":12,
 					   "particleColor":[255,75,100,255]},
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"projectileSpecId":"magellan_fusbomb_ftr_shot",  # projectile that will be fired
+	"autocharge":true,  
+	"projectileSpecId":"magellan_fusbomb_ftr_shot",  
 	"fireSoundTwo":"magellan_electrontorpedo_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

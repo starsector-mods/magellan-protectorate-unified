@@ -1,5 +1,5 @@
 {
-	"id":"magellan_beehive_core",  # this id must match what's in the spreadsheet
+	"id":"magellan_beehive_core",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"MEDIUM",
@@ -7,16 +7,16 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_beehive_turret_recoil.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_beehive_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_beehive_hardpoint_recoil.png",	
-	"visualRecoil":4.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":4.0,  
 	"renderHints":[RENDER_BARREL_BELOW],
 	"turretOffsets":[25, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[25, 0],
 	"hardpointAngleOffsets":[0],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"barrelMode":"ALTERNATING", 
 	"unaffectedByProjectileSpeedBonuses":true,
-	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
+	"animationType":"SMOKE",  
+	"autocharge":true,  
 	"smokeSpec":{"particleSizeMin":15.0,
 				 "particleSizeRange":9.0,
 				 "cloudParticleCount":7,
@@ -27,7 +27,7 @@
 				 "blowbackLength":18.0,
 				 "blowbackSpread":12.0,
 				 "particleColor":[235,215,165,90]},
-	"projectileSpecId":"magellan_beehive_core_shot",  # projectile that will be fired	
+	"projectileSpecId":"magellan_beehive_core_shot",  
 	"fireSoundTwo":"magellan_beehive_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

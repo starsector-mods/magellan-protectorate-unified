@@ -7,7 +7,7 @@
 	"displayArcRadius":1000,
 	"turretSprite":"graphics/Magellan/weapons/magellan_radmissile_turret.png",
 	"hardpointSprite":"",	
-	"hardpointOffsets":[0, 18, 0, -18,],
+	"hardpointOffsets":[0, 18, 0, -18],
 	"turretOffsets":[0, 18, 0, -18],
 	"hardpointAngleOffsets":[60, -60],
 	"turretAngleOffsets":[60, -60],

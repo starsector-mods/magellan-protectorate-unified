@@ -8,11 +8,11 @@
 	"center":[2.5,6],
 	"collisionRadius":12,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[173,255,47,145],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":50, # purely visual
-	"explosionSpec":{"duration":0.1, # not visual
+	"explosionColor":[173,255,47,145],  
+	"explosionRadius":50, 
+	"explosionSpec":{"duration":0.1, 
 					 "radius":50,
-					 "coreRadius":30, # full damage within core radius
+					 "coreRadius":30, 
 					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
 					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
 					 "particleSizeMin":5.0,
@@ -20,7 +20,7 @@
 					 "particleDuration":1.2,
 					 "particleCount":15,
 					 "particleColor":[173,255,47,200]},
-	"fadeTime":1, # fadeout duration
+	"fadeTime":1, 
 	"engineSpec":{"turnAcc":720,
 				  "turnRate":180,
 				  "acc":900,
@@ -29,21 +29,19 @@
 					"loc":[-5, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"QUAD_STRIP", 
 						"engineColor":[173,255,47,175],
 						"contrailDuration":2.0,
 						"contrailWidthMult":0.5,
-						"contrailWidthAddedFractionAtEnd":2,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":15, # min segment length, in pixels
+						"contrailWidthAddedFractionAtEnd":2,  
+						"contrailMinSeg":15, 
 						"contrailMaxSpeedMult":0.0,
 						"contrailAngularVelocityMult":0.5,
-						"contrailSpawnDistMult":0.5, # how far away from engine it starts
+						"contrailSpawnDistMult":0.5, 
 						"contrailColor":[125,125,125,175],
-						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+						"type":"SMOKE" 
 					},
 				    "width":4.0,
 				    "length":24.0,
 				    "angle":180.0}
-		],    
-}
-
+		]}

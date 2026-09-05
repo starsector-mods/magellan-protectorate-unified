@@ -14,7 +14,6 @@
 	"glowColor":[143,200,17,60],
 	"glowRadius":10,
 	"hitGlowRadius":6,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-256.0,
-	"pixelsPerTexel":1.0,
-}
+	"pixelsPerTexel":1.0}

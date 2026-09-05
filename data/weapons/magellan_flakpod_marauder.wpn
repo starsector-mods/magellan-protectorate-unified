@@ -1,7 +1,7 @@
 {
 	"id":"magellan_flakpod_marauder",
 	"specClass":"projectile",
-	#"everyFrameEffect": "data.scripts.weapons.magellan_RevGrenadeFX",
+	
 	"type":"MISSILE",
 	"size":"SMALL",
 	"displayArcRadius":1000,
@@ -9,7 +9,7 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_triflak_turret_recoil.png",	
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_ioncharge_hardpoint_base.png",	
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_triflak_hardpoint_recoil.png",	
-	"visualRecoil":3.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3.0,  
 	"hardpointOffsets":[10, 3.5, 10, 0, 10, -3.5,
 						12, -5.5, 12, -2.5, 12, 2.5, 12, 5.5,
 						14, 3.5, 14, 0, 14, -3.5],

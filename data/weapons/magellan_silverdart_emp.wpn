@@ -1,5 +1,5 @@
 {
-	"id":"magellan_silverdart_emp",  # this id must match what's in the spreadsheet
+	"id":"magellan_silverdart_emp",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"SMALL",
@@ -9,9 +9,9 @@
 	"turretAngleOffsets":[0, 1, -1],
 	"hardpointOffsets":[22, 0, 22, 0, 22, 0],
 	"hardpointAngleOffsets":[0, 1, -1],	
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"barrelMode":"ALTERNATING", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
 	"muzzleFlashSpec":{"length":20.0, 
                             "spread":18.0,
                             "particleSizeMin":5.0,
@@ -19,7 +19,7 @@
                             "particleDuration":0.15,
                             "particleCount":16,
                             "particleColor":[150,225,255,155]},	
-	"projectileSpecId":"magellan_silverdart_emp_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_silverdart_emp_shot",  
 	"fireSoundTwo":"magellan_estat_ftr_fire",	
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"

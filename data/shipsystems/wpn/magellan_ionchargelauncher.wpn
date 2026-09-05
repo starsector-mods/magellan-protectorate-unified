@@ -11,8 +11,8 @@
 	"hardpointAngleOffsets":[0, -4, 4, -8, 8],
 	"turretAngleOffsets":[0, -4, 4, -8, 8],
 	"barrelMode":"ALTERNATING",
-	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"animationType":"SMOKE",  
+	"autocharge":true,  
 	"smokeSpec":{"particleSizeMin":9.0,
 				 "particleSizeRange":9.0,
 				 "cloudParticleCount":2,
@@ -23,6 +23,5 @@
 				 "blowbackLength":25.0,
 				 "blowbackSpread":10.0,
 				 "particleColor":[155,180,200,125]},
-	"projectileSpecId":"magellan_ionsmokeround",  # projectile that will be fired
-	"fireSoundTwo":"system_canister_flak_fire",	
-}
+	"projectileSpecId":"magellan_ionsmokeround",  
+	"fireSoundTwo":"system_canister_flak_fire"}

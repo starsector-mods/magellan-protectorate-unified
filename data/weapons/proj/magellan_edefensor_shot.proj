@@ -11,7 +11,7 @@
 	"fringeColor":[255,235,200,200],
 	"coreColor":[255,235,200,255],
 	"hitGlowRadius":16,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0	
 }

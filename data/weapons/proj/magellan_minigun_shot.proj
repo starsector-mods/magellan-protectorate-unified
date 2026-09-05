@@ -21,7 +21,7 @@
  				    "vsMissileRange":5,
 					"explosionSpec":{"duration":0.05,
 									 "radius":10,
-									 "coreRadius":6, # full damage within core radius - also equal to proximity fuse range
+									 "coreRadius":6, 
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":6.0,
@@ -30,6 +30,5 @@
 									 "particleCount":4,
 									 "particleColor":[255,225,115,100],
 									 "explosionColor":[105,85,55,75],
-									 "sound":"magellan_mg_boom"},
-					}
+									 "sound":"magellan_mg_boom"}}
 }

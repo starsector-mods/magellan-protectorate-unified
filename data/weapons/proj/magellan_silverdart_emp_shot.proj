@@ -15,5 +15,4 @@
 	"glowRadius":15,
 	"textureScrollSpeed":64.0,
 	"pixelsPerTexel":5.0,
-	"bulletSprite":"graphics/Magellan/missiles/magellan_lightslug.png",
-}
+	"bulletSprite":"graphics/Magellan/missiles/magellan_lightslug.png"}

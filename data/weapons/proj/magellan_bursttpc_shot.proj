@@ -9,8 +9,7 @@
 	"fadeTime":0.3,
 	"fringeColor":[255,0,0,255],
 	"coreColor":[225,200,255,255],
-	"textureType":"LASER",  # now also used for "BALLISTIC_AS_BEAM", if specified
-	#"textureType":["graphics/fx/emp_arcs.png","graphics/fx/emp_arcs.png"],
+	"textureType":"LASER",  
+	
 	"textureScrollSpeed":-256,
-	"pixelsPerTexel":1.0,
-}
+	"pixelsPerTexel":1.0}

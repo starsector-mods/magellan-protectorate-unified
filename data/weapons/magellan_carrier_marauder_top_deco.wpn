@@ -1,10 +1,10 @@
 {
-	"id":"magellan_carrier_marauder_top_deco",  # this id must match what's in the spreadsheet
+	"id":"magellan_carrier_marauder_top_deco",  
 	"specClass":"beam",
 	"type":"DECORATIVE",
 	"size":"SMALL",
 	"showDamageWhenDecorative":true,
-	#"renderHints":["RENDER_ADDITIVE"],	
+	
 	"renderBelowAllWeapons":"false",
 	"turretSprite":"graphics/Magellan/ships/marauders/magellan_carrier_marauder_cover.png",
 	"hardpointSprite":"graphics/Magellan/ships/marauders/magellan_carrier_marauder_cover.png",

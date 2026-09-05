@@ -1,5 +1,5 @@
 {
-	"id":"magellan_scatterblaster",  # this id must match what's in the spreadsheet
+	"id":"magellan_scatterblaster",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_FusionBlasterFX",
 	"type":"ENERGY",
@@ -13,16 +13,16 @@
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[16, 0],
 	"hardpointAngleOffsets":[0],
-	"barrelMode":"LINKED", # or ALTERNATING.  whether barrels fire at the same time or alternate.
+	"barrelMode":"LINKED", 
 	"animationType":"GLOW_AND_FLASH",
-	"muzzleFlashSpec":{"length":36.0,   # only used if animationType = MUZZLE_FLASH
+	"muzzleFlashSpec":{"length":36.0,   
 					   "spread":7.0,
 					   "particleSizeMin":24.0,
 					   "particleSizeRange":12.0,
 					   "particleDuration":0.2,
 					   "particleCount":24,
 					   "particleColor":[240,30,90,255]},
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"projectileSpecId":"magellan_scatterblaster_shot",  # projectile that will be fired
+	"autocharge":true,  
+	"projectileSpecId":"magellan_scatterblaster_shot",  
 	"fireSoundTwo":"magellan_electrogun_fire"
 }

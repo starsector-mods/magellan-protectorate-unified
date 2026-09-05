@@ -10,7 +10,7 @@
 	"fringeColor":[135,80,245,200],
 	"coreColor":[210,145,255,255],
 	"hitGlowRadius":25,
-	"textureType":"LASER",  # only needed for BEAM spawnType
+	"textureType":"LASER",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0
 }

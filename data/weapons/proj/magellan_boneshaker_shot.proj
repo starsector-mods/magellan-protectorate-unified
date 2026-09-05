@@ -16,5 +16,4 @@
 	"hitGlowRadius":10,
 	"textureType":"SMOOTH",
 	"textureScrollSpeed":-256.0,
-	"pixelsPerTexel":1.0,
-}
+	"pixelsPerTexel":1.0}

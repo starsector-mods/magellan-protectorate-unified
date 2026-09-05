@@ -4,8 +4,8 @@
 	"type":"MISSILE",
 	"size":"SMALL",
 	"displayArcRadius":1000,
-	#"turretSprite":"",
-	#"hardpointSprite":"",
+	
+	
 	"turretSprite":"graphics/Magellan/weapons/magellan_cracker_turret.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_cracker_hardpoint.png",	
 	"hardpointOffsets":[7, 4, 7, -4,
@@ -16,7 +16,7 @@
 	"turretAngleOffsets":[20, -20, 12, -12],
 	"barrelMode":"DUAL",
 	"animationType":"SMOKE",
-	#"renderHints":[RENDER_LOADED_MISSILES],
+	
 	"interruptibleBurst":false,
 	"smokeSpec":{"particleSizeMin":12.0,
 				 "particleSizeRange":12.0,

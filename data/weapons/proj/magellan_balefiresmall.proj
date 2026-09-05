@@ -10,11 +10,11 @@
 	"center":[4,9],
 	"collisionRadius":12,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[155,25,50,135],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":15, # purely visual
-	"explosionSpec":{"duration":0.1, # not visual
+	"explosionColor":[155,25,50,135],  
+	"explosionRadius":15, 
+	"explosionSpec":{"duration":0.1, 
 					 "radius":50,
-					 "coreRadius":30, # full damage within core radius
+					 "coreRadius":30, 
 					 "collisionClass":HITS_SHIPS_AND_ASTEROIDS,
 					 "collisionClassByFighter":HITS_SHIPS_AND_ASTEROIDS,
 					 "particleSizeMin":5.0,
@@ -22,10 +22,10 @@
 					 "particleDuration":3,
 					 "particleCount":24,
 					 "particleColor":[240,30,90,255]},
-	#"fizzleOnReachingWeaponRange":true,
-	"flameoutTime":2, # total time from flameout to full fadeout
-	"noEngineGlowTime":0.1, # time spent without the engine glow being rendered
-	"fadeTime":0.2, # fadeout duration	
+	
+	"flameoutTime":2, 
+	"noEngineGlowTime":0.1, 
+	"fadeTime":0.2, 
 	"engineSpec":{"turnAcc":200,
 				  "turnRate":40,
 				  "acc":1000,
@@ -34,7 +34,7 @@
 					"loc":[-1, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"PARTICLES", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"PARTICLES", 
 						"engineColor":[240,30,90,175],
                         "contrailParticleSizeMult":7.5,
                         "contrailParticleDuration":0.2,
@@ -43,7 +43,7 @@
                         "contrailAngularVelocityMult":-0.9,
                         "contrailColor":[255,30,90,155],
                         "engineGlowGlowMult":0,
-                        "type":"GLOW" # GLOW or SMOKE
+                        "type":"GLOW" 
                     },
                 	"width":4.0,
                 	"length":4.0,
@@ -53,16 +53,16 @@
 					"loc":[-8, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"QUAD_STRIP", 
 						"engineColor":[240,30,90,255],
 						"contrailDuration":0.3,
 						"contrailWidthMult":2.4,
-						"contrailWidthAddedFractionAtEnd":-0.6,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":2, # min segment length, in pixels
+						"contrailWidthAddedFractionAtEnd":-0.6,  
+						"contrailMinSeg":2, 
 						"contrailMaxSpeedMult":0.1,
 						"contrailAngularVelocityMult":-0.1,
 						"contrailColor":[240,30,90,155],
-                        "type":"GLOW" # GLOW or SMOKE
+                        "type":"GLOW" 
                     },
                 	"width":4.0,
                 	"length":16.0,

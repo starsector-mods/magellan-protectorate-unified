@@ -8,7 +8,7 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_turret_recoil.png",	
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_fuelrodgun_hardpoint_recoil.png",	
-	"visualRecoil":5.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":5.0,  
 	"hardpointOffsets":[18, 0],
 	"turretOffsets":[18, 0],
 	"hardpointAngleOffsets":[0],
@@ -17,7 +17,7 @@
 	"animationType":"SMOKE",
 	"renderHints":[RENDER_LOADED_MISSILES, RENDER_BARREL_BELOW],
 	"interruptibleBurst":false,
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"autocharge":true,  
 	"smokeSpec":{"particleSizeMin":12.0,
 				 "particleSizeRange":8.0,
 				 "cloudParticleCount":4,

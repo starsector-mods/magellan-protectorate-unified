@@ -1,5 +1,5 @@
 {
-	"id":"magellan_medgatling",  # this id must match what's in the spreadsheet
+	"id":"magellan_medgatling",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_ClusterACFX",
 	"type":"BALLISTIC",
@@ -8,15 +8,15 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_medgatling_turret_recoil.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_medgatling_hardpoint_base.png",	
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_medgatling_hardpoint_recoil.png",	
-	"visualRecoil":4.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":4.0,  
 	"renderHints":[RENDER_BARREL_BELOW],
 	"turretOffsets":[25, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[27, 0],
 	"hardpointAngleOffsets":[0],	
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"barrelMode":"ALTERNATING", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
 	"muzzleFlashSpec":{"length":27.0, 
                             "spread":21.0,
                             "particleSizeMin":12.0,
@@ -24,6 +24,6 @@
                             "particleDuration":0.2,
                             "particleCount":24,
                             "particleColor":[200,200,255,155]},	
-	"projectileSpecId":"magellan_medkinetic_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_medkinetic_shot",  
 	"fireSoundTwo":"magellan_medgat_fire"
 }

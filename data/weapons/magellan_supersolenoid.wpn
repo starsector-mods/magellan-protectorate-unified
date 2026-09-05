@@ -1,5 +1,5 @@
 {
-	"id":"magellan_supersolenoid",  # this id must match what's in the spreadsheet
+	"id":"magellan_supersolenoid",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_SuperSolenoidFX",
 	"type":"BALLISTIC",
@@ -10,22 +10,22 @@
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_supersolenoid_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_supersolenoid_hardpoint_recoil.png",
 	"hardpointGlowSprite":"graphics/Magellan/weapons/magellan_supersolenoid_hardpoint_glow.png",	
-	"visualRecoil":9.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":9.0,  
 	"glowColor":[255,155,100,255],
 	"turretOffsets":[59, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[59, 0],
 	"hardpointAngleOffsets":[0],	
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"GLOW_AND_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"muzzleFlashSpec":{"length":90.0,   # only used if animationType = MUZZLE_FLASH
+	"barrelMode":"ALTERNATING", 
+	"animationType":"GLOW_AND_FLASH",  
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":90.0,   
 					   "spread":2.0,
 					   "particleSizeMin":15.0,
 					   "particleSizeRange":21.0,
 					   "particleDuration":0.2,
 					   "particleCount":40,
 					   "particleColor":[200,200,225,125]},	
-	"projectileSpecId":"magellan_supersolenoid_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_supersolenoid_shot",  
 	"fireSoundTwo":"magellan_supersolenoid_fire"
 }

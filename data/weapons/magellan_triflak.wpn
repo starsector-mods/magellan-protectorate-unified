@@ -1,5 +1,5 @@
 {
-	"id":"magellan_triflak",  # this id must match what's in the spreadsheet
+	"id":"magellan_triflak",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_IonChargeFX",
 	"type":"BALLISTIC",
@@ -8,22 +8,22 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_triflak_turret_recoil.png",	
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_triflak_turret_base.png",	
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_triflak_turret_recoil.png",	
-	"visualRecoil":3.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3.0,  
 	"renderHints":[RENDER_BARREL_BELOW],
 	"turretOffsets":[11, 0],
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[11, 0],
 	"hardpointAngleOffsets":[0],	
-	"barrelMode":"LINKED", # DUAL, LINKED or ALTERNATING.  whether barrels fire at the same time, linked, or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
-	"muzzleFlashSpec":{"length":21.0,   # only used if animationType = MUZZLE_FLASH
+	"barrelMode":"LINKED", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
+	"muzzleFlashSpec":{"length":21.0,   
 					   "spread":7.0,
 					   "particleSizeMin":8.0,
 					   "particleSizeRange":12.0,
 					   "particleDuration":0.15,
 					   "particleCount":16,
 					   "particleColor":[120,180,210,175]},
-	"projectileSpecId":"magellan_ionsmokeround",  # projectile that will be fired
+	"projectileSpecId":"magellan_ionsmokeround",  
 	"fireSoundTwo":"devastator_fire"
 }

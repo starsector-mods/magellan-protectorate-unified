@@ -8,16 +8,16 @@
 	"center":[3.75,7.5],
 	"collisionRadius":15,
 	"collisionClass":"MISSILE_NO_FF",
-	"explosionColor":[200,200,255,235],  # purely visual, will get a white additively blended core on top of this color
-	"explosionRadius":60, # purely visual
-	#"alwaysAccelerate":true,
-	#"reduceDamageWhileFading":true,
+	"explosionColor":[200,200,255,235],  
+	"explosionRadius":60, 
+	
+	
 	"noCollisionWhileFading":true,
 	"dudProbabilityOnFlameout":0,
 	"fizzleOnReachingWeaponRange":true,
-	"flameoutTime":1, # total time from flameout to full fadeout
-	"noEngineGlowTime":0.5, # time spent without the engine glow being rendered
-	"fadeTime":0.5, # fadeout duration	
+	"flameoutTime":1, 
+	"noEngineGlowTime":0.5, 
+	"fadeTime":0.5, 
 	"engineSpec":{"turnAcc":320,
 				  "turnRate":160,
 				  "maxSpeed":1000,
@@ -27,17 +27,17 @@
 					"loc":[-7.5, 0],
 				    "style":"CUSTOM",
 					"styleSpec":{
-						"mode":"QUAD_STRIP", # PARTICLES or QUAD_STRIP, determines which params are used
+						"mode":"QUAD_STRIP", 
 						"engineColor":[200,200,255,225],
 						"contrailDuration":0.2,
 						"contrailWidthMult":2,
-						"contrailWidthAddedFractionAtEnd":2,  # can be negative. makes trail spread out/narrow at the end
-						"contrailMinSeg":5, # min segment length, in pixels
+						"contrailWidthAddedFractionAtEnd":2,  
+						"contrailMinSeg":5, 
 						"contrailMaxSpeedMult":0.0,
 						"contrailAngularVelocityMult":0.5,
-						"contrailSpawnDistMult":0, # how far away from engine it starts
+						"contrailSpawnDistMult":0, 
 						"contrailColor":[75,75,75,150],
-						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
+						"type":"GLOW" 
 					},
 				    "width":4.0,
 				    "length":32.0,

@@ -1,5 +1,5 @@
 {
-	"id":"magellan_medciws_ftr",  # this id must match what's in the spreadsheet
+	"id":"magellan_medciws_ftr",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_CIWS_TracerFX",
 	"type":"BALLISTIC",
@@ -12,9 +12,9 @@
 	"turretAngleOffsets":[0, 0.1, -0.1],
 	"hardpointOffsets":[28, 0, 28, 0, 28, 0],
 	"hardpointAngleOffsets":[0, 0.1, -0.1],
-	"barrelMode":"ALTERNATING", # ALTERNATING or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"barrelMode":"ALTERNATING", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
 	"muzzleFlashSpec":{"length":25.0, 
                        "spread":7.0,
                        "particleSizeMin":4.0,
@@ -22,6 +22,6 @@
                        "particleDuration":0.1,
                        "particleCount":14,
 					   "particleColor":[255,225,165,155]},
-	"projectileSpecId":"magellan_lgminigun_shot",  # projectile that will be fired
+	"projectileSpecId":"magellan_lgminigun_shot",  
 	"fireSoundTwo":"magellan_hmg_fire"
 }

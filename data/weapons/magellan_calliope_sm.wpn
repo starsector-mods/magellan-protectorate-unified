@@ -15,10 +15,10 @@
 					 9, 2, 9, -2],
 	"hardpointAngleOffsets":[6, -6, 4, -4, 8, -8],
 	"turretAngleOffsets":[6, -6, 4, -4, 8, -8],
-	#"barrelMode":"DUAL", #or ALTERNATING
+	
 	"barrelMode":"ALTERNATING",
 	"animationType":"SMOKE",
-	#"renderHints":[RENDER_LOADED_MISSILES],
+	
 	"interruptibleBurst":false,
 	"smokeSpec":{"particleSizeMin":13.0,
 				 "particleSizeRange":7.0,

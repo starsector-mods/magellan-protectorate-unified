@@ -10,7 +10,7 @@
 	"fringeColor":[100,150,200,125],
 	"coreColor":[120,180,210,155],
 	"hitGlowRadius":8,
-	"textureType":"LASER",  # only needed for BEAM spawnType
+	"textureType":"LASER",  
 	"textureScrollSpeed":-256.0,
 	"pixelsPerTexel":1.0,
 	"behaviorSpec":{"behavior":"PROXIMITY_FUSE",
@@ -18,7 +18,7 @@
  				    "vsMissileRange":2,
 					"explosionSpec":{"duration":0.1,
 									 "radius":5,
-									 "coreRadius":3, # full damage within core radius - also equal to proximity fuse range
+									 "coreRadius":3, 
 									 "collisionClass":PROJECTILE_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":4.0,
@@ -27,6 +27,5 @@
 									 "particleCount":2,
 									 "particleColor":[120,180,210,175],
 									 "explosionColor":[60,90,105,125],
-									 "sound":"magellan_mg_boom"},
-					}
+									 "sound":"magellan_mg_boom"}}
 }

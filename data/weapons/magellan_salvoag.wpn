@@ -1,5 +1,5 @@
 {
-	"id":"magellan_salvoag",  # this id must match what's in the spreadsheet
+	"id":"magellan_salvoag",  
 	"specClass":"projectile",
 	"everyFrameEffect": "data.scripts.weapons.magellan_SalvoAGFX",
 	"type":"BALLISTIC",
@@ -8,15 +8,15 @@
 	"turretGunSprite":"graphics/Magellan/weapons/magellan_salvoag_turret_recoil.png",
 	"hardpointSprite":"graphics/Magellan/weapons/magellan_salvoag_hardpoint_base.png",
 	"hardpointGunSprite":"graphics/Magellan/weapons/magellan_salvoag_hardpoint_recoil.png",	
-	"visualRecoil":3.0,  # the gun sprites are only used if this is non-0
+	"visualRecoil":3.0,  
 	"renderHints":[RENDER_BARREL_BELOW],
 	"turretOffsets":[16, 4, 16, -4, 16, 0],
 	"turretAngleOffsets":[0, 0, 0],
 	"hardpointOffsets":[16, 4, 16, -4, 16, 0],
 	"hardpointAngleOffsets":[0, 0, 0],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"SMOKE",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held	
+	"barrelMode":"ALTERNATING", 
+	"animationType":"SMOKE",  
+	"autocharge":true,  
 	"smokeSpec":{"particleSizeMin":10.0,
 				 "particleSizeRange":6.0,
 				 "cloudParticleCount":5,
@@ -27,6 +27,6 @@
 				 "blowbackLength":12.0,
 				 "blowbackSpread":8.0,
 				 "particleColor":[75,75,75,155]},
-	"projectileSpecId":"magellan_salvoag_shot",  # projectile that will be fired	
+	"projectileSpecId":"magellan_salvoag_shot",  
 	"fireSoundTwo":"magellan_salvoag_fire"
 }

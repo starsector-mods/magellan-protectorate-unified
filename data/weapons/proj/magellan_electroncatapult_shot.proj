@@ -7,15 +7,15 @@
 	"length":50.0,
 	"width":10.0,
 	"fadeTime":0.5,
-	"explosionRadius":30, # purely visual
-	"explosionColor":[60,90,120,75],  # purely visual, will get a white additively blended core on top of this color
+	"explosionRadius":30, 
+	"explosionColor":[60,90,120,75],  
 	"fringeColor":[115,123,236,255],
 	"coreColor":[52,74,211,255],
-	#"glowColor":[56, 57, 204,155],
-	#"glowRadius":20,
+	
+	
 	"hitGlowRadius":50,
 	"passThroughMissiles":true,
-	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureType":"ROUGH",  
 	"textureScrollSpeed":5.0,
 	"pixelsPerTexel":5.0,
 	"noImpactSounds":true,
@@ -25,7 +25,7 @@
 					"range":25,
 					"explosionSpec":{"duration":0.1,
 									 "radius":50,
-									 "coreRadius":30, # full damage within core radius - at least equal to proximity fuse range
+									 "coreRadius":30, 
 									 "collisionClass":PROJECTILE_NO_FF,
 									 "collisionClassByFighter":PROJECTILE_FIGHTER,
 									 "particleSizeMin":5.0,
@@ -41,6 +41,4 @@
 									 "detailedExplosionFlashDuration":0.1,
 									 "detailedExplosionFlashColorFringe":[25,25,150,100],
 									 "detailedExplosionFlashColorCore":[110,110,238,150],
-									 "sound":"magellan_electron_crit_sm"},
-					},
-}
+									 "sound":"magellan_electron_crit_sm"}}}

@@ -1,5 +1,5 @@
 {
-	"id":"magellan_autoshotgun_sub",  # this id must match what's in the spreadsheet
+	"id":"magellan_autoshotgun_sub",  
 	"specClass":"projectile",
 	"type":"BALLISTIC",
 	"size":"MEDIUM",
@@ -9,9 +9,9 @@
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[0, 0],
 	"hardpointAngleOffsets":[0],
-	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
-	"animationType":"MUZZLE_FLASH",  # NONE, GLOW, MUZZLE_FLASH, SMOKE
-	"autocharge":true,  # whether the weapon will continue charging and fire if the LMB is tapped instead of held
+	"barrelMode":"ALTERNATING", 
+	"animationType":"MUZZLE_FLASH",  
+	"autocharge":true,  
 	"muzzleFlashSpec":{"length":27.0, 
                             "spread":18.0,
                             "particleSizeMin":5.0,
@@ -19,7 +19,7 @@
                             "particleDuration":0.12,
                             "particleCount":24,
                             "particleColor":[200,200,255,155]},	
-	"projectileSpecId":"magellan_smkinetic_shot",  # projectile that will be fired	
+	"projectileSpecId":"magellan_smkinetic_shot",  
 	"fireSoundTwo":"magellan_medgat_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
