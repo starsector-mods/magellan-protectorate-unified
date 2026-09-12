@@ -460,13 +460,10 @@ public class magellan_LevellerInsurgencyIntel extends BaseIntelPlugin {
         tierLabel.setHighlight(tier);
         tierLabel.setHighlightColors(tierColor);
 
-        float barWidth = Math.max(220f, Math.min(width - 24f, 440f));
-        magellan_SolidProgressBarPlugin.addSolidProgressBar(info, barWidth, 12f, score / (float) MAX_LOGISTICS, tierColor, spad + 2f);
-
-        int pct = (int) Math.round((score / (float) MAX_LOGISTICS) * 100f);
-        LabelAPI barLabel = info.addPara("Logistics Score: %s / %s Points (%s)", spad, tc, hl, "" + score, "" + MAX_LOGISTICS, pct + "%");
-        barLabel.setHighlight("" + score, "" + MAX_LOGISTICS, pct + "%");
-        barLabel.setHighlightColors(tierColor, hl, hl);
+        String progressStr = getProgressBar(score, MAX_LOGISTICS, 40);
+        LabelAPI barLabel = info.addPara("Logistics Score: %s / %s Points\n%s", spad + 2f, tc, hl, "" + score, "" + MAX_LOGISTICS, progressStr);
+        barLabel.setHighlight("" + score, "" + MAX_LOGISTICS, progressStr);
+        barLabel.setHighlightColors(tierColor, hl, tierColor);
 
         LabelAPI ratLabel = info.addPara("Fleet Logistics Efficiency: %s Operational Readiness", spad, tc, hl, String.format("%.0f%%", rating * 100f));
         ratLabel.setHighlight(String.format("%.0f%%", rating * 100f));

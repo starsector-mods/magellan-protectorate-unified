@@ -258,13 +258,10 @@ public class magellan_NecksnapperIntel extends BaseIntelPlugin {
         statusLabel.setHighlight(stageTitle);
         statusLabel.setHighlightColors(stageColor);
 
-        float barWidth = Math.max(220f, Math.min(width - 24f, 440f));
-        magellan_SolidProgressBarPlugin.addSolidProgressBar(info, barWidth, 12f, threat / (float) MAX_THREAT, stageColor, spad + 2f);
-
-        int pct = (int) Math.round((threat / (float) MAX_THREAT) * 100f);
-        LabelAPI barLabel = info.addPara("Threat Metric: %s / %s Points (%s)", spad, tc, hl, "" + (int) threat, "" + MAX_THREAT, pct + "%");
-        barLabel.setHighlight("" + (int) threat, "" + MAX_THREAT, pct + "%");
-        barLabel.setHighlightColors(stageColor, hl, hl);
+        String progressStr = getProgressBar((int) threat, MAX_THREAT, 40);
+        LabelAPI barLabel = info.addPara("Threat Metric: %s / %s Points\n%s", spad + 2f, tc, hl, "" + (int) threat, "" + MAX_THREAT, progressStr);
+        barLabel.setHighlight("" + (int) threat, "" + MAX_THREAT, progressStr);
+        barLabel.setHighlightColors(stageColor, hl, stageColor);
 
         // Stage synopsis
         String synopsis;
