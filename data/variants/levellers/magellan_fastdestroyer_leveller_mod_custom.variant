@@ -55,12 +55,12 @@
         "WS0001": "magellan_laservulcan",
         "WS0007": "magellan_laservulcan",
         "WS0008": "magellan_laservulcan",
-        "WS0012": "magellan_multipdnode",
-        "WS0013": "magellan_multipdnode",
-        "WS0014": "magellan_multipdnode",
-        "WS0015": "magellan_multipdnode",
-        "WS0016": "magellan_multipdnode",
-        "WS0017": "magellan_multipdnode"
+        "WS0012": "magellan_laservulcan",
+        "WS0013": "magellan_laservulcan",
+        "WS0014": "magellan_laservulcan",
+        "WS0015": "magellan_laservulcan",
+        "WS0016": "magellan_laservulcan",
+        "WS0017": "magellan_laservulcan"
       }
     }
   ],
