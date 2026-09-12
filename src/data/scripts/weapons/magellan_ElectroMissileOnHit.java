@@ -24,7 +24,7 @@ implements OnHitEffectPlugin {
             return;
         }
         if (!shieldHit && !projectile.isFading() && target instanceof ShipAPI) {
-            float dam = projectile.getDamageAmount() * 0.25f;
+            float dam = projectile.getDamageAmount() * 0.15f;
             float emp = projectile.getEmpAmount() * 1.0f;
             int arcs = MathUtils.getRandomNumberInRange(2, 3);
             Vector2f loc_target = new Vector2f(target.getLocation());
