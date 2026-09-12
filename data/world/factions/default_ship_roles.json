@@ -135,6 +135,7 @@
     },
     "carrierSmall": {
         "magellan_patroldestroyer_std": 10,
+        "magellan_patroldestroyer_startiger": 10,
         "magellan_patroldestroyer_explorer": 5,
         "magellan_patroldestroyer_leveller_turncoat": 8,
         "magellan_patroldestroyer_blackcollar_elite": 8,

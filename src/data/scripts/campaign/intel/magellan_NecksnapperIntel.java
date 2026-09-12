@@ -4,28 +4,33 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.SectorEntityToken;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin;
 import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ArrowData;
 import com.fs.starfarer.api.impl.campaign.fleets.RouteLocationCalculator;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
-import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel;
-import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip;
+import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.CustomPanelAPI;
+import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.SectorMapAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 import data.campaign.fleets.magellan_NecksnapperManager;
+
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 /**
- * Native Event Intel tracker for Magellan Protectorate Escalation using Starsector's graphical Event Progress Bar.
+ * Strictly text-only Fleet Intel tracker for the Magellan Necksnapper Protocol escalation framework.
+ * Adheres to vanilla Starsector and Orbiting Spoons UI conventions with clean typography,
+ * text-rendered telemetry, and structured tactical readouts.
  */
-public class magellan_NecksnapperIntel extends BaseEventIntel {
+public class magellan_NecksnapperIntel extends BaseIntelPlugin {
 
     public static final String INTEL_KEY = "$magellan_NecksnapperIntel";
+    public static final int MAX_THREAT = 350;
 
     public enum Stage {
         INACTIVE,
@@ -54,46 +59,77 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
         if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
             Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
         }
-        setupStages();
     }
 
     protected Object readResolve() {
-        if (stages == null || stages.isEmpty() || getDataFor(Stage.CLIMAX) == null) {
-            setupStages();
-        }
         if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
             Global.getSector().getMemoryWithoutUpdate().set(INTEL_KEY, this);
         }
         return this;
     }
 
-    protected void setupStages() {
-        if (stages != null) stages.clear();
-
-        setMaxProgress(350);
-
-        addStage(Stage.INACTIVE, 0, StageIconSize.LARGE);
-        addStage(Stage.WARNING, 100, StageIconSize.MEDIUM);
-        addStage(Stage.CRISIS, 200, StageIconSize.MEDIUM);
-        addStage(Stage.CLIMAX, 300, StageIconSize.LARGE);
-
-        if (getDataFor(Stage.INACTIVE) != null) getDataFor(Stage.INACTIVE).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.WARNING) != null) getDataFor(Stage.WARNING).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.CRISIS) != null) getDataFor(Stage.CRISIS).keepIconBrightWhenLaterStageReached = true;
-        if (getDataFor(Stage.CLIMAX) != null) getDataFor(Stage.CLIMAX).keepIconBrightWhenLaterStageReached = true;
+    public static float getCurrentThreat() {
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return 0f;
+        return Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
     }
 
-    @Override
-    public float getImageSizeForStageDesc(Object stageId) {
-        return 64f;
+    public static boolean isInCooldown() {
+        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return false;
+        return Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
     }
 
-    @Override
-    public float getImageIndentForStageDesc(Object stageId) {
-        if (stageId == Stage.INACTIVE) {
-            return 0f;
+    public static Stage getCurrentStage() {
+        if (isInCooldown()) return Stage.INACTIVE;
+        float threat = getCurrentThreat();
+        if (threat >= 300) return Stage.CLIMAX;
+        if (threat >= 200) return Stage.CRISIS;
+        if (threat >= 100) return Stage.WARNING;
+        return Stage.INACTIVE;
+    }
+
+    public static String getStageTitle(Stage stage, boolean inCooldown) {
+        if (inCooldown) return "Truce / Rebuilding (Ceasefire Active)";
+        switch (stage) {
+            case CLIMAX:
+                return "Stage 3: Climax (Grand Armada Mobilized)";
+            case CRISIS:
+                return "Stage 2: Crisis (Assault Task Force)";
+            case WARNING:
+                return "Stage 1: Warning (Skytiger Interceptors)";
+            case INACTIVE:
+            default:
+                return "Stage 0: Reconnaissance (Calm / Passive)";
         }
-        return 16f;
+    }
+
+    public static Color getStageColor(Stage stage, boolean inCooldown) {
+        if (inCooldown) return Misc.getPositiveHighlightColor();
+        switch (stage) {
+            case CLIMAX:
+                return Color.RED;
+            case CRISIS:
+                return Color.YELLOW;
+            case WARNING:
+                return Color.GREEN;
+            case INACTIVE:
+            default:
+                return Misc.getGrayColor();
+        }
+    }
+
+    public static String getProgressBar(int current, int max, int totalBars) {
+        int filled = (int) Math.round(((double) Math.max(0, current) / Math.max(1, max)) * totalBars);
+        filled = Math.max(0, Math.min(totalBars, filled));
+        StringBuilder sb = new StringBuilder();
+        sb.append("[ ");
+        for (int i = 0; i < totalBars; i++) {
+            if (i < filled) sb.append("|");
+            else sb.append("-");
+        }
+        sb.append(" ] ");
+        int pct = (int) Math.round(((double) Math.max(0, current) / Math.max(1, max)) * 100.0);
+        sb.append(pct).append("%");
+        return sb.toString();
     }
 
     @Override
@@ -120,50 +156,26 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     }
 
     @Override
-    protected void advanceImpl(float amount) {
-        super.advanceImpl(amount);
-        if (stages == null || stages.isEmpty() || getDataFor(Stage.INACTIVE) == null) {
-            setupStages();
-        }
-        if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) return;
-        float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
-        if (Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY)) {
-            setProgress(0);
-        } else {
-            setProgress((int) Math.max(0, Math.min(350, threat)));
-        }
-    }
-
-    @Override
     public void createIntelInfo(TooltipMakerAPI info, ListInfoMode mode) {
         Color c = getTitleColor(mode);
         info.addPara(getName(), c, 0f);
+        addBulletPoints(info, mode);
+    }
 
-        float threat = 0f;
-        boolean inCooldown = false;
-        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-            threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
-            inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
-        }
-        String stageName = "Recon / Calm";
-        Color stageColor = Misc.getGrayColor();
+    @Override
+    protected void addBulletPoints(TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float pad) {
+        float threat = getCurrentThreat();
+        boolean inCooldown = isInCooldown();
+        Stage stage = getCurrentStage();
+        String stageName = getStageTitle(stage, inCooldown);
+        Color stageColor = getStageColor(stage, inCooldown);
 
-        if (inCooldown) {
-            stageName = "Truce / Rebuilding";
-            stageColor = Misc.getPositiveHighlightColor();
-        } else if (threat >= 300) {
-            stageName = "Stage 3: Climax (Grand Armada)";
-            stageColor = Color.RED;
-        } else if (threat >= 200) {
-            stageName = "Stage 2: Crisis (Assault Task Force)";
-            stageColor = Color.YELLOW;
-        } else if (threat >= 100) {
-            stageName = "Stage 1: Warning (Skytiger Interceptors)";
-            stageColor = Color.GREEN;
-        }
+        // Bullet 1: Alert Level & Threat points
+        LabelAPI b1 = info.addPara("Alert Level: %s (%s/%s Threat)", pad, tc, stageColor, stageName, "" + (int) threat, "" + MAX_THREAT);
+        b1.setHighlight(stageName, "" + (int) threat, "" + MAX_THREAT);
+        b1.setHighlightColors(stageColor, Misc.getHighlightColor(), Misc.getHighlightColor());
 
-        info.addPara("Current Alert: %s (Threat %s/350)", 3f, getBulletColorForMode(mode), stageColor, stageName, "" + (int) threat);
-
+        // Bullet 2: Fleet / Truce Status
         CampaignFleetAPI hunter = null;
         CampaignFleetAPI player = null;
         if (Global.getSector() != null) {
@@ -172,25 +184,26 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
                 hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
             }
         }
-        if (hunter != null && hunter.isAlive()) {
+
+        if (inCooldown) {
+            float daysLeft = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.COOLDOWN_KEY);
+            LabelAPI b2 = info.addPara("Status: Ceasefire active (~%s days remaining)", pad, tc, Misc.getPositiveHighlightColor(), String.format("%.0f", daysLeft));
+            b2.setHighlight("Ceasefire active", String.format("%.0f", daysLeft));
+            b2.setHighlightColors(Misc.getPositiveHighlightColor(), Misc.getHighlightColor());
+        } else if (hunter != null && hunter.isAlive()) {
             String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
-            if (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null) {
-                float distLY = Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace());
-                float etaDays = 0f;
-                try {
-                    etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
-                } catch (Throwable t) {
-                    etaDays = 0f;
-                }
-                boolean inSameLocation = hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
-                if (inSameLocation || distLY < 0.2f) {
-                    info.addPara("Pacification Fleet: %s in %s (In same system - Intercept imminent)", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc);
-                } else {
-                    info.addPara("Pacification Fleet: %s in %s (Distance: %s LY, ETA: ~%s days)", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc, String.format("%.1f", distLY), String.format("%.0f", etaDays));
-                }
-            } else {
-                info.addPara("Pacification Fleet: %s in %s", 3f, Misc.getTextColor(), Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc);
-            }
+            float distLY = (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null)
+                    ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
+            boolean inSame = player != null && hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
+
+            String locDesc = inSame ? "In System" : String.format("%.1f LY away", distLY);
+            LabelAPI b2 = info.addPara("Pacification Fleet: %s in %s (%s)", pad, tc, Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc, locDesc);
+            b2.setHighlight(hunter.getName(), locDesc);
+            b2.setHighlightColors(Misc.getNegativeHighlightColor(), inSame ? Misc.getNegativeHighlightColor() : Misc.getHighlightColor());
+        } else {
+            LabelAPI b2 = info.addPara("Active Patrols: Routine monitoring (No dedicated hunter fleet deployed)", pad, tc, Misc.getGrayColor());
+            b2.setHighlight("Routine monitoring");
+            b2.setHighlightColors(Misc.getPositiveHighlightColor());
         }
     }
 
@@ -200,140 +213,90 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     }
 
     @Override
+    public void createSmallDescription(TooltipMakerAPI info, float width, float height) {
+        info.addSpacer(24f); // Clear top-right "Show on map" button
+        createDescriptionContent(info, width - 12f, height, false);
+    }
+
+    @Override
     public boolean hasLargeDescription() {
-        return false;
+        return true;
     }
 
     @Override
-    public Color getBarColor() {
-        return new Color(180, 50, 40);
+    public void createLargeDescription(CustomPanelAPI panel, float width, float height) {
+        float scrollbarPad = 14f;
+        TooltipMakerAPI desc = panel.createUIElement(width, height, true);
+        createDescriptionContent(desc, width - scrollbarPad, height, true);
+        panel.addUIElement(desc).inTL(0, 0);
     }
 
-    @Override
-    public Color getBarProgressIndicatorColor() {
-        float threat = getProgress();
-        if (threat >= 300) return Color.RED;
-        if (threat >= 200) return Color.YELLOW;
-        if (threat >= 100) return Color.GREEN;
-        return Misc.getHighlightColor();
-    }
+    protected void createDescriptionContent(TooltipMakerAPI info, float width, float height, boolean isExpanded) {
+        float opad = 10f;
+        float spad = 3f;
+        Color tc = Misc.getTextColor();
+        Color hl = Misc.getHighlightColor();
+        Color pos = Misc.getPositiveHighlightColor();
+        Color neg = Misc.getNegativeHighlightColor();
 
-    @Override
-    protected Color getBaseStageColor(Object stageId) {
-        if (stageId == Stage.CLIMAX) return Color.RED;
-        if (stageId == Stage.CRISIS) return Color.YELLOW;
-        if (stageId == Stage.WARNING) return Color.GREEN;
-        return Misc.getHighlightColor();
-    }
+        float threat = getCurrentThreat();
+        boolean inCooldown = isInCooldown();
+        Stage stage = getCurrentStage();
+        String stageTitle = getStageTitle(stage, inCooldown);
+        Color stageColor = getStageColor(stage, inCooldown);
 
-    @Override
-    protected Color getDarkStageColor(Object stageId) {
-        Color base = getBaseStageColor(stageId);
-        return Misc.interpolateColor(base, Color.BLACK, 0.75f);
-    }
+        // Narrative Overview
+        info.addPara(
+            "The Necksnapper Protocol is the Magellan Protectorate's high-readiness retaliation and suppression framework. As hostile or rogue forces inflict damage on Protectorate commerce, naval outposts, and security patrols, Admiralty algorithms continuously escalate the scale of dedicated pacification battlegroups dispatched to neutralize the threat.",
+            opad
+        );
 
-    @Override
-    protected Color getStageColor(Object stageId) {
-        return super.getStageColor(stageId);
-    }
+        // Escalation Threat Telemetry
+        info.addSectionHeading("Escalation Threat Level", Alignment.MID, opad);
 
-    @Override
-    protected Color getStageIconColor(Object stageId) {
-        int reqProgress = getRequiredProgress(stageId);
-        if (reqProgress > getProgress()) {
-            return new Color(255, 255, 255, 65); // Dimmed & translucent until reached
-        }
-        return Color.WHITE; // Fully illuminated when active/reached
-    }
+        LabelAPI statusLabel = info.addPara("Current Posture: %s", opad, tc, stageColor, stageTitle);
+        statusLabel.setHighlight(stageTitle);
+        statusLabel.setHighlightColors(stageColor);
 
-    @Override
-    protected Color getStageLabelColor(Object stageId) {
-        int reqProgress = getRequiredProgress(stageId);
-        if (getProgress() >= reqProgress) {
-            return getBaseStageColor(stageId);
-        }
-        return Misc.getGrayColor();
-    }
+        float barWidth = Math.max(220f, Math.min(width - 24f, 440f));
+        magellan_SolidProgressBarPlugin.addSolidProgressBar(info, barWidth, 12f, threat / (float) MAX_THREAT, stageColor, spad + 2f);
 
-    @Override
-    protected String getStageLabel(Object stageId) {
-        if (stageId == Stage.CLIMAX) return "Climax (Grand Armada)";
-        if (stageId == Stage.CRISIS) return "Crisis (Assault Force)";
-        if (stageId == Stage.WARNING) return "Warning (Skytigers)";
-        return "Calm (Surveillance)";
-    }
+        int pct = (int) Math.round((threat / (float) MAX_THREAT) * 100f);
+        LabelAPI barLabel = info.addPara("Threat Metric: %s / %s Points (%s)", spad, tc, hl, "" + (int) threat, "" + MAX_THREAT, pct + "%");
+        barLabel.setHighlight("" + (int) threat, "" + MAX_THREAT, pct + "%");
+        barLabel.setHighlightColors(stageColor, hl, hl);
 
-    @Override
-    protected String getStageIconImpl(Object stageId) {
-        if (stageId == Stage.CLIMAX) return "graphics/icons/intel/war.png";
-        if (stageId == Stage.CRISIS) return "graphics/icons/intel/important.png";
-        if (stageId == Stage.WARNING) return "graphics/icons/intel/fleet_log.png";
-        return "graphics/icons/intel/events.png";
-    }
-
-    @Override
-    public TooltipMakerAPI.TooltipCreator getStageTooltipImpl(final Object stageId) {
-        final EventStageData esd = getDataFor(stageId);
-        if (esd == null) return null;
-
-        return new BaseFactorTooltip() {
-            @Override
-            public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
-                float opad = 10f;
-                tooltip.addTitle(getStageLabel(stageId), getBaseStageColor(stageId));
-                addStageDesc(tooltip, stageId, opad, true);
-                esd.addProgressReq(tooltip, opad);
+        // Stage synopsis
+        String synopsis;
+        if (inCooldown) {
+            synopsis = "The destruction of the Grand Armada has severely crippled Protectorate naval command. A temporary ceasefire is in effect while command hierarchies regroup.";
+        } else {
+            switch (stage) {
+                case CLIMAX:
+                    synopsis = "Tier-1 Existential Threat declaration active. The Admiralty Grand Armada has mobilized for sector-wide interdiction.";
+                    break;
+                case CRISIS:
+                    synopsis = "Blackcollar heavy kinetic assault task forces are deployed to crush insurgent or pirate resistance with overwhelming firepower.";
+                    break;
+                case WARNING:
+                    synopsis = "Skytiger high-speed interceptor detachments are deployed on aggressive pursuit vectors across regional trade lanes.";
+                    break;
+                case INACTIVE:
+                default:
+                    synopsis = "The Admiralty currently categorizes your fleet as a minor nuisance or routine civilian presence. Local patrols operate normally.";
+                    break;
             }
-        };
-    }
-
-    @Override
-    public void addStageDescriptionText(TooltipMakerAPI info, float width, Object stageId) {
-        EventStageData stage = getDataFor(stageId);
-        if (stage == null) return;
-
-        if (isStageActiveAndLast(stageId)) {
-            addStageDesc(info, stageId, 5f, false);
         }
-    }
+        info.addPara(synopsis, stageColor, spad);
 
-    public void addStageDesc(TooltipMakerAPI info, Object stageId, float pad, boolean forTooltip) {
-        if (stageId == Stage.INACTIVE) {
-            info.addPara("Stage 0 (0-99 Threat): The Admiralty considers you a minor nuisance. Passive patrols only.", pad);
-        } else if (stageId == Stage.WARNING) {
-            info.addPara("Stage 1 (100-199 Threat): Skytiger interceptor fleets deploy with high-burn chase vectors.", pad);
-        } else if (stageId == Stage.CRISIS) {
-            info.addPara("Stage 2 (200-299 Threat): Blackcollar heavy kinetic assault task forces mobilize to crush resistance.", pad);
-        } else if (stageId == Stage.CLIMAX) {
-            info.addPara("Stage 3 (300+ Threat): Tier-1 Existential Threat declaration. The Admiralty Grand Armada is dispatched.", pad);
-        }
-    }
-
-    @Override
-    public boolean withMonthlyFactors() {
-        return false;
-    }
-
-    @Override
-    public boolean withOneTimeFactors() {
-        return false;
-    }
-
-    @Override
-    public void afterStageDescriptions(TooltipMakerAPI info) {
-        float threat = 0f;
-        boolean inCooldown = false;
-        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-            threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
-            inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
-        }
-
-        info.addSectionHeading("Tactical Situation & Intel", Alignment.MID, 10f);
+        // Tactical Situation & Hunter Operations
+        info.addSectionHeading("Tactical Situation & Fleet Telemetry", Alignment.MID, opad);
 
         if (inCooldown) {
             float daysLeft = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.COOLDOWN_KEY);
-            info.addPara("The destruction of the Grand Armada has severely disrupted Protectorate command. A temporary truce/reprieve is active for approximately %s more days.",
-                5f, Misc.getTextColor(), Misc.getPositiveHighlightColor(), String.format("%.0f", daysLeft));
+            LabelAPI cdLabel = info.addPara("• Post-Climax Ceasefire: Protectorate task forces stand down for approximately %s more days.", opad, tc, pos, String.format("%.0f", daysLeft));
+            cdLabel.setHighlight(String.format("%.0f", daysLeft));
+            cdLabel.setHighlightColors(hl);
         } else {
             CampaignFleetAPI hunter = null;
             CampaignFleetAPI player = null;
@@ -343,12 +306,14 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
                     hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
                 }
             }
+
             if (hunter != null && hunter.isAlive()) {
                 String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
-                info.addPara("• Active Pacification Fleet: %s in %s (Fleet FP: %s)", 5f, Misc.getTextColor(), Misc.getNegativeHighlightColor(),
-                    hunter.getName(), hunterLoc, "" + hunter.getFleetPoints());
+                info.addPara("• Active Pacification Fleet: %s in %s (Fleet Points: %s)", opad, tc, neg,
+                        hunter.getName(), hunterLoc, "" + hunter.getFleetPoints());
 
-                float distLY = (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null) ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
+                float distLY = (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null)
+                        ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
                 float etaDays = 0f;
                 if (player != null) {
                     try {
@@ -357,33 +322,46 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
                         etaDays = 0f;
                     }
                 }
-                boolean inSameLocation = player != null && hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
+                boolean inSame = player != null && hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
 
                 String contactState = "IN TRANSIT";
-                Color stateColor = Misc.getHighlightColor();
-                if (inSameLocation && hunter.getLocation() != null && player.getLocation() != null) {
+                Color stateColor = hl;
+                if (inSame && hunter.getLocation() != null && player.getLocation() != null) {
                     float distUnits = Misc.getDistance(hunter.getLocation(), player.getLocation());
                     if (distUnits < 1000f) {
                         contactState = "ENGAGING";
-                        stateColor = Misc.getNegativeHighlightColor();
+                        stateColor = neg;
                     } else {
                         contactState = "IN SYSTEM";
-                        stateColor = Misc.getNegativeHighlightColor();
+                        stateColor = neg;
                     }
                 }
 
-                info.addPara("• Intercept Vector & Status: Contact State: %s | Distance: %s LY | Estimated Transit: %s days",
-                    3f, Misc.getTextColor(), stateColor, contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
+                LabelAPI trackLabel = info.addPara("• Intercept Telemetry: Contact State: %s | Distance: %s LY | Estimated Transit: ~%s days",
+                        spad, tc, stateColor, contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
+                trackLabel.setHighlight(contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
+                trackLabel.setHighlightColors(stateColor, hl, hl);
             } else if (threat >= 100) {
-                info.addPara("• Threat level is currently at %s. An active response fleet is mobilizing or preparing an intercept course.", 5f, Misc.getTextColor(), Misc.getHighlightColor(), "" + (int) threat);
+                info.addPara("• Mobilization Notice: Threat level is elevated. A dedicated response fleet is currently staging in Magellan core space.", opad, tc, hl);
             } else {
-                info.addPara("• Threat level is stable at %s/350. No dedicated strike forces are hunting your fleet.", 5f, Misc.getTextColor(), Misc.getHighlightColor(), "" + (int) threat);
+                info.addPara("• Operational Calm: Threat level is stable. No specialized hunter battlegroups are tracking your fleet.", opad, tc, pos);
             }
 
-            info.addPara("• Threat Accumulation: Raiding Magellan trade convoys, attacking outposts, or destroying customs patrols will advance the threat level.", Misc.getTextColor(), 3f);
-            info.addPara("• Retaliation Rules: Defeating an active pacification fleet will immediately trigger the next escalation tier until the Grand Armada is broken.", Misc.getNegativeHighlightColor(), 3f);
-            info.addPara("• Passive Decay: Threat decreases by ~0.5/day when no active fleet is hunting you.", Misc.getPositiveHighlightColor(), 3f);
+            bullet(info);
+            info.addPara("Threat Accumulation: Attacking Protectorate trade convoys, raiding commercial ports, or engaging patrol flotillas increases escalation points.", spad);
+            info.addPara("Retaliation Dynamics: Defeating an active response fleet immediately advances the protocol toward higher-tier battlegroups.", spad);
+            info.addPara("Passive Threat Decay: When no hunter fleet is engaged in an active chase, threat decays at ~0.5 points per day.", spad);
+            unindent(info);
         }
+
+        // Escalation Tier Reference
+        info.addSectionHeading("Escalation Tier Directory", Alignment.MID, opad);
+        bullet(info);
+        info.addPara("Stage 0: Reconnaissance (0 - 99 Points) - Routine customs patrols, no dedicated interception forces.", spad);
+        info.addPara("Stage 1: Warning (100 - 199 Points) - High-speed Skytiger aerospace detachments deployed to harry commerce raiders.", spad);
+        info.addPara("Stage 2: Crisis (200 - 299 Points) - Heavy Blackcollar assault battlegroups deployed with heavy armor and kinetic artillery.", spad);
+        info.addPara("Stage 3: Climax (300 - 350 Points) - Admiralty Grand Armada dispatched to deliver decisive, crushing suppression.", spad);
+        unindent(info);
     }
 
     @Override
@@ -406,7 +384,7 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     public SectorEntityToken getMapLocation(SectorMapAPI map) {
         if (Global.getSector() == null) return null;
         if (Global.getSector().getMemoryWithoutUpdate() != null) {
-            CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(data.campaign.fleets.magellan_NecksnapperManager.HUNTER_FLEET_KEY);
+            CampaignFleetAPI hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
             if (hunter != null && hunter.isAlive()) return hunter;
         }
         StarSystemAPI khamn = Global.getSector().getStarSystem("Khamn");
@@ -417,114 +395,9 @@ public class magellan_NecksnapperIntel extends BaseEventIntel {
     @Override
     public Set<String> getIntelTags(SectorMapAPI map) {
         Set<String> tags = super.getIntelTags(map);
-        tags.remove(Tags.INTEL_MAJOR_EVENT);
         tags.add(Tags.INTEL_MILITARY);
         tags.add(Tags.INTEL_HOSTILITIES);
         tags.add("Magellan");
         return tags;
     }
-    @Override
-    public void createSmallDescription(TooltipMakerAPI info, float width, float height) {
-        Color h = Misc.getHighlightColor();
-        Color tc = Misc.getTextColor();
-        float opad = 10f;
-        float pad = 3f;
-
-        if (Global.getSector() != null && Global.getSector().getFaction("magellan_protectorate") != null) {
-            info.addImage(Global.getSector().getFaction("magellan_protectorate").getLogo(), width, 96, opad);
-        }
-
-        float threat = 0f;
-        boolean inCooldown = false;
-        if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-            threat = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.KEY);
-            inCooldown = Global.getSector().getMemoryWithoutUpdate().contains(magellan_NecksnapperManager.COOLDOWN_KEY);
-        }
-
-        String stageName = "Stage 0: Calm (Reconnaissance)";
-        String stageSummary = "The Admiralty considers you a minor nuisance. Passive patrols only.";
-        Color stageColor = Misc.getGrayColor();
-
-        if (inCooldown) {
-            stageName = "Truce / Rebuilding";
-            stageSummary = "The destruction of the Grand Armada has severely disrupted Protectorate command. A temporary truce is active.";
-            stageColor = Misc.getPositiveHighlightColor();
-        } else if (threat >= 300) {
-            stageName = "Stage 3: Climax (Grand Armada)";
-            stageSummary = "Tier-1 Existential Threat declaration. The Admiralty Grand Armada is dispatched.";
-            stageColor = Color.RED;
-        } else if (threat >= 200) {
-            stageName = "Stage 2: Crisis (Assault Task Force)";
-            stageSummary = "Blackcollar heavy kinetic assault task forces mobilize to crush resistance.";
-            stageColor = Color.YELLOW;
-        } else if (threat >= 100) {
-            stageName = "Stage 1: Warning (Skytiger Interceptors)";
-            stageSummary = "Skytiger interceptor fleets deploy with high-burn chase vectors.";
-            stageColor = Color.GREEN;
-        }
-
-        info.addSectionHeading("Escalation Threat Level", getFactionForUIColors().getBaseUIColor(), getFactionForUIColors().getDarkUIColor(), Alignment.MID, opad);
-        info.addPara("Current Status: %s", opad, tc, stageColor, stageName);
-        info.addPara("Escalation Threat Points: %s / 350", pad, tc, h, "" + (int) threat);
-        info.addPara(stageSummary, opad);
-
-        info.addSectionHeading("Tactical Situation & Intel", Alignment.MID, opad);
-
-        if (inCooldown) {
-            float daysLeft = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.COOLDOWN_KEY);
-            info.addPara("A temporary ceasefire/reprieve is active for approximately %s more days.",
-                opad, tc, Misc.getPositiveHighlightColor(), String.format("%.0f", daysLeft));
-        } else {
-            CampaignFleetAPI hunter = null;
-            CampaignFleetAPI player = null;
-            if (Global.getSector() != null) {
-                player = Global.getSector().getPlayerFleet();
-                if (Global.getSector().getMemoryWithoutUpdate() != null) {
-                    hunter = (CampaignFleetAPI) Global.getSector().getMemoryWithoutUpdate().get(magellan_NecksnapperManager.HUNTER_FLEET_KEY);
-                }
-            }
-
-            if (hunter != null && hunter.isAlive()) {
-                String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
-                info.addPara("• Active Pacification Fleet: %s in %s (Fleet FP: %s)", opad, tc, Misc.getNegativeHighlightColor(),
-                    hunter.getName(), hunterLoc, "" + hunter.getFleetPoints());
-
-                float distLY = (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null) ? Misc.getDistanceLY(hunter.getLocationInHyperspace(), player.getLocationInHyperspace()) : 0f;
-                float etaDays = 0f;
-                if (player != null) {
-                    try {
-                        etaDays = RouteLocationCalculator.getTravelDays(hunter, player);
-                    } catch (Throwable t) {
-                        etaDays = 0f;
-                    }
-                }
-                boolean inSameLocation = player != null && hunter.getContainingLocation() != null && hunter.getContainingLocation() == player.getContainingLocation();
-
-                String contactState = "IN TRANSIT";
-                Color stateColor = Misc.getHighlightColor();
-                if (inSameLocation && hunter.getLocation() != null && player.getLocation() != null) {
-                    float distUnits = Misc.getDistance(hunter.getLocation(), player.getLocation());
-                    if (distUnits < 1000f) {
-                        contactState = "ENGAGING";
-                        stateColor = Misc.getNegativeHighlightColor();
-                    } else {
-                        contactState = "IN SYSTEM";
-                        stateColor = Misc.getNegativeHighlightColor();
-                    }
-                }
-
-                info.addPara("• Intercept Vector & Status: Contact State: %s | Distance: %s LY | Estimated Transit: %s days",
-                    pad, tc, stateColor, contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
-            } else if (threat >= 100) {
-                info.addPara("• Threat level is currently at %s. An active response fleet is mobilizing or preparing an intercept course.", opad, tc, h, "" + (int) threat);
-            } else {
-                info.addPara("• Threat level is stable at %s/350. No dedicated strike forces are hunting your fleet.", opad, tc, h, "" + (int) threat);
-            }
-
-            info.addPara("• Threat Accumulation: Raiding Magellan trade convoys, attacking outposts, or destroying customs patrols will advance the threat level.", tc, pad);
-            info.addPara("• Retaliation Rules: Defeating an active pacification fleet will immediately trigger the next escalation tier until the Grand Armada is broken.", Misc.getNegativeHighlightColor(), pad);
-            info.addPara("• Passive Decay: Threat decreases by ~0.5/day when no active fleet is hunting you.", Misc.getPositiveHighlightColor(), pad);
-        }
-    }
 }
-
