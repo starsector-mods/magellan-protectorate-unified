@@ -42,7 +42,7 @@
       		"type": "LAUNCH_BAY"
     	}
     },
-	"builtInMods":["magellan_herdmod", "magellan_converted_herd", "degraded_engines"],
+	"builtInMods":["magellan_herdmod", "magellan_converted_herd"],
 	"builtInWings":[
 		"magellan_herdintercept_wing",
 		"magellan_herdintercept_wing"

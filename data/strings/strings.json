@@ -81,6 +81,7 @@
         "magellan_LevellerRefitDesc4": "Maneuverability increased by %s.",
         "magellan_HerdRefitTitle": "Herd Refit",
         "magellan_HerdRefitDesc3": "Top speed increased %s/%s/%s/%s, by hull size.",
+        "magellan_HerdRefitDescSpeedPenalty": "Maximum combat speed reduced by %s.",
         "magellan_HerdRefitDesc4": "Target leading is degraded by %s.",
         "magellan_HerdRefitDesc5": "Engines take %s more damage in combat.",
         "magellan_YellowtailModTitle": "Tichel Concern Refit",

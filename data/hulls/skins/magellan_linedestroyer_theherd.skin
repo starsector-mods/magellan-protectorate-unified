@@ -35,7 +35,7 @@
       		"type": "BUILT_IN"
     	}
     },
-	"builtInMods":["magellan_herdmod", "converted_hangar", "degraded_engines"],
+	"builtInMods":["magellan_herdmod", "converted_hangar"],
 	"builtInWings":[
 		"magellan_hvyfighter_theherd_wing"
 	],

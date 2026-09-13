@@ -22,7 +22,7 @@
       		"type": "BALLISTIC"
     	}
 	},
-	"builtInMods":["magellan_herdmod", "shield_shunt", "degraded_engines"],
+	"builtInMods":["magellan_herdmod", "shield_shunt"],
 	"builtInWeapons":{
 		"WS0001": "magellan_radmissile_launcher"
 	},

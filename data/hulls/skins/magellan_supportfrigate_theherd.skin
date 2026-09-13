@@ -25,7 +25,7 @@
       		"type": "MISSILE"
     	}
     },
-    "builtInMods":["magellan_herdmod", "degraded_engines"],
+    "builtInMods":["magellan_herdmod"],
 	"builtInWeapons":{
 		"WS0005": "magellan_radflamer"
 	}

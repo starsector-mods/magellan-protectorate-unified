@@ -13,8 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "magellan_herdmod",
-    "dedicated_targeting_core",
-    "degraded_engines"
+    "dedicated_targeting_core"
   ],
   "builtInWings": [
     "magellan_herdintercept_wing",

@@ -27,6 +27,7 @@ extends BaseHullMod {
     public static final float HEALTH_BONUS = 100.0f;
     public static final float TURN_PENALTY = 20.0f;
     public static float DMOD_AVOID_CHANCE;
+    public static final float SPEED_PENALTY_PERCENT = -5.0f;
     public static final float AUTOFIRE_MALUS = -15.0f;
     public static final float FLAMEOUT_CHANCE_SO = 0.01f;
     private Color color = new Color(175, 225, 175, 200);
@@ -48,6 +49,7 @@ extends BaseHullMod {
         stats.getWeaponTurnRateBonus().modifyMult(id, 0.8f);
         stats.getDynamic().getMod("dmod_acquire_prob_mod").modifyMult(id, 1.0f - DMOD_AVOID_CHANCE * 0.01f);
         stats.getMaxSpeed().modifyFlat(id, ((Float)speed.get(hullSize)).floatValue());
+        stats.getMaxSpeed().modifyPercent(id, SPEED_PENALTY_PERCENT);
         stats.getAcceleration().modifyMult(id, 1.0f + ((Float)accmult.get(hullSize)).floatValue() / 2.0f);
         stats.getDeceleration().modifyMult(id, ((Float)accmult.get(hullSize)).floatValue());
         stats.getEngineDamageTakenMult().modifyMult(id, 2.0f);
@@ -83,6 +85,7 @@ extends BaseHullMod {
         LabelAPI label = tooltip.addPara("\u2014\u2014\u2014 " + this.getString("HerdRefitTitle") + " \u2014\u2014\u2014", herd, 4.0f);
         label.setAlignment(Alignment.MID);
         tooltip.addPara("- " + this.getString("HerdRefitDesc3"), 4.0f, h, new String[]{"45", "30", "15", "5"});
+        tooltip.addPara("- " + this.getString("HerdRefitDescSpeedPenalty"), 2.0f, bad, new String[]{"5%"});
         tooltip.addPara("- " + this.getString("HerdRefitDesc4"), 2.0f, h, new String[]{"15%"});
         tooltip.addPara("- " + this.getString("HerdRefitDesc5"), 2.0f, h, new String[]{"100%"});
         tooltip.addSectionHeading(this.getString("IncompTitle"), bad, badbg, Alignment.MID, 10.0f);
