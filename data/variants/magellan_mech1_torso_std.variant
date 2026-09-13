@@ -8,6 +8,28 @@
   "permaMods": [],
   "sMods": [],
   "variantId": "magellan_mech1_torso_std",
-  "weaponGroups": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_R_ARM": "magellan_smgatling_mechR"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_SHOULDER": "magellan_mech_shoulderlauncher"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_L_ARM": "magellan_smciws_mechL"
+      }
+    }
+  ],
   "wings": []
 }

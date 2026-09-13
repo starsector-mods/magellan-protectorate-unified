@@ -1,40 +1,29 @@
 {
   "id": "magellan_smciws_mechL",
   "specClass": "projectile",
+  "everyFrameEffect": "data.scripts.weapons.magellan_CIWS_TracerFX",
   "type": "BALLISTIC",
   "size": "SMALL",
   "turretSprite": "graphics/Magellan/weapons/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",
   "hardpointSprite": "graphics/Magellan/weapons/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",
-  "turretOffsets": [
-    0,
-    0
-  ],
-  "turretAngleOffsets": [
-    0
-  ],
-  "hardpointOffsets": [
-    0,
-    0
-  ],
-  "hardpointAngleOffsets": [
-    0
-  ],
-  "barrelMode": "ALTERNATING",
+  "numFrames": 4,
+  "frameRate": 72,
+  "turretOffsets": [12, 0],
+  "turretAngleOffsets": [0],
+  "hardpointOffsets": [12, 0],
+  "hardpointAngleOffsets": [0],
+  "barrelMode": "LINKED",
   "animationType": "MUZZLE_FLASH",
+  "autocharge": true,
   "muzzleFlashSpec": {
-    "length": 20,
-    "spread": 10,
-    "particleSizeMin": 5,
-    "particleSizeRange": 5,
-    "particleDuration": 0.1,
+    "length": 17.0,
+    "spread": 5.0,
+    "particleSizeMin": 3.0,
+    "particleSizeRange": 12.0,
+    "particleDuration": 0.08,
     "particleCount": 10,
-    "particleColor": [
-      255,
-      200,
-      150,
-      255
-    ]
+    "particleColor": [255, 225, 115, 200]
   },
-  "projectileSpecId": "lightneedler_shot",
-  "fireSoundTwo": "light_needler_fire"
+  "projectileSpecId": "magellan_minigun_shot",
+  "fireSoundTwo": "magellan_lmg_fire"
 }
