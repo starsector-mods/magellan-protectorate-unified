@@ -166,7 +166,8 @@ Two Legionaries in matte-black powered armor stand motionless vigil with mag-cla
 magellan_blackcollarBaseLeave,DialogOptionSelected,$option == magellan_blackcollarBaseLeave,FireAll PopulateOptions,,,Leave Dialogue
 #Leveller Habitat dialogue,,,,,,
 magellan_oldLevellerHabitatOpenDialog,PopulateOptions,$tag:magellan_oldLevellerHabitat,,,0:magellan_oldLevellerHabitatVisit:Visit the Leveller memorial wall,Landing Dialogue
-magellan_leveller_qm_open,OpenInteractionDialog,$activePerson.magellan_leveller_quartermaster,,"Welcome to the forge, Captain. Out here in the Rose Nebula, our crews are working around the clock to keep our flotillas battle-ready against the Protectorate's iron grip. If you've come to fuel the cause, we have an insatiable appetite for heavy machinery, munitions, and combat supplies. What can your fleet spare?",,Quartermaster Greeting
+magellan_leveller_qm_open,OpenInteractionDialog,"$activePerson.magellan_leveller_quartermaster
+!$isRemote",,"Welcome to the forge, Captain. Out here in the Rose Nebula, our crews are working around the clock to keep our flotillas battle-ready against the Protectorate's iron grip. If you've come to fuel the cause, we have an insatiable appetite for heavy machinery, munitions, and combat supplies. What can your fleet spare?",,Quartermaster Greeting
 magellan_leveller_qm_options,PopulateOptions,$activePerson.magellan_leveller_quartermaster,,,"0:magellan_oldLevellerHabitatMakeDonation:Donate equipment to the cause
 1:magellan_rosebriar_insurgency_briefing:Inquire about active Leveller operations across the Sector
 2:magellan_leveller_qm_leave:That will be all.",Quartermaster Options
@@ -253,7 +254,8 @@ magellan_oldLevellerHabitatCancelDonation,DialogOptionSelected,$option == magell
 magellan_rosebriar_insurgency_briefing,DialogOptionSelected,$option == magellan_rosebriar_insurgency_briefing,"magellan_rosebriar_insurgency_briefing","You step onto the observation catwalk above the subterranean coordination nexus. Holographic tactical projectors cast a crimson glow across the steel chamber, tracing hyperspace jump vectors, commercial shipping arteries, and underground partisan cells embedded across Magellan space.
 ""We strike from the heart of the Rose Nebula, Captain,"" the Rebel Coordinator explains, pointing to pulsing convoy markers on the holomap. ""Our commerce raiders bleed the Protectorate's logistical veins, while our smugglers slip heavy arms past naval cordons to arm worker cadres on the factory worlds. Every crate of steel and shot you deliver directly strengthens these sorties across the Sector.""",0:magellan_oldLevellerHabitatLeave:Return to station,Insurgency Briefing
 #Meetpoint Turan dialogue,,,,,,
-magellan_meetpointOpenDialog,OpenInteractionDialog,$tag:magellan_meetpointInt,"PrintDescription 1
+magellan_meetpointOpenDialog,OpenInteractionDialog,"$tag:magellan_meetpointInt
+!$isRemote","PrintDescription 1
 AddText ""Meetpoint Turan is owned and governed by the Guild of Free Traders, administered by a stationmaster elected during their biannual open conclave. It remains one of the few ports in the sector where an ordinary spacer is treated as a shared stakeholder rather than an expendable vagrant. The atmospheric scrubbers run clean, the taverns serve unwatered spirits, and the dock wardens are unarmed and genuinely helpful—a stark and welcome departure from the suffocating bureaucracy of the Core Worlds.""
 ShowDefaultVisual
 FireBest magellan_meetpointMainOptions",,,Landing Dialogue
