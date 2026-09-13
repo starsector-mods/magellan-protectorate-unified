@@ -19,11 +19,6 @@
             "weapons": {"WS0009": "magellan_largemortar"}
         },
         {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS0010": "magellan_cruiserradmissile_builtin"}
-        },
-        {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS0008": "magellan_herdlaser"}

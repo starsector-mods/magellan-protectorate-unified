@@ -7,6 +7,10 @@
 	"tags":["no_dealer", "restricted"],
 	"tech":"The Herd",
 	"addHints":["UNBOARDABLE", "HIDE_IN_CODEX"],
+	"systemId":"reservewing",
+	"removeBuiltInWeapons":[
+		"WS0010"
+	],
 	"builtInWings":[
 		"magellan_corvette_strikecraft_marauder_wing",
 		"magellan_bomber_marauder_wing"
