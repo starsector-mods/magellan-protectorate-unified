@@ -14,10 +14,13 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.setFleetTagline(FleetSide.PLAYER, "Test: Blackcollar");
         api.setFleetTagline(FleetSide.ENEMY, "Target Fleet");
 
+
         api.addToFleet(FleetSide.PLAYER, "magellan_battlecarrier_blackcollar_Hull", FleetMemberType.SHIP, true);
         api.addToFleet(FleetSide.PLAYER, "magellan_battlecruiser_blackcollar_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_carrier_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_carrierconverted_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_fastdestroyer_blackcollar_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_fastdestroyerarmor_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_fastfrigate_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_lightcruiser_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_linedestroyer_blackcollar_Hull", FleetMemberType.SHIP, false);
@@ -26,8 +29,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_supportcruiser_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supportdestroyer_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supportfrigate_blackcollar_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_carrier_blackcollar_Hull", FleetMemberType.SHIP, false);
-
         api.addToFleet(FleetSide.ENEMY, "magellan_battleship_line", FleetMemberType.SHIP, "ISS Target", false);
         api.addToFleet(FleetSide.ENEMY, "magellan_linedestroyer_std", FleetMemberType.SHIP, "ISS Escort", false);
 

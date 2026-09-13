@@ -14,6 +14,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.setFleetTagline(FleetSide.PLAYER, "Test: Yellowtail");
         api.setFleetTagline(FleetSide.ENEMY, "Target Fleet");
 
+
         api.addToFleet(FleetSide.PLAYER, "magellan_battlecruiser_yellowtail_Hull", FleetMemberType.SHIP, true);
         api.addToFleet(FleetSide.PLAYER, "magellan_carrier_yellowtail_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_lightcruiser_yellowtail_Hull", FleetMemberType.SHIP, false);
@@ -25,7 +26,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_schooner_yellowtail_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supply_yellowtail_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supportdestroyer_yellowtail_Hull", FleetMemberType.SHIP, false);
-
         api.addToFleet(FleetSide.ENEMY, "magellan_battleship_line", FleetMemberType.SHIP, "ISS Target", false);
         api.addToFleet(FleetSide.ENEMY, "magellan_linedestroyer_std", FleetMemberType.SHIP, "ISS Escort", false);
 
