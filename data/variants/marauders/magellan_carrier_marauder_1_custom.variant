@@ -1,7 +1,7 @@
 {
     "displayName": "Custom",
     "fluxCapacitors": 0,
-    "fluxVents": 19,
+    "fluxVents": 9,
     "goalVariant": true,
     "hullId": "magellan_carrier_marauder_1",
     "hullMods": [

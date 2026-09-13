@@ -8,6 +8,11 @@
 	"tech":"The Herd",
 	"addHints":["UNBOARDABLE", "HIDE_IN_CODEX"],
 	"systemId":"magellan_fightercom",
+	"fighterBays":2,
+	"fleetPoints":25,
+	"suppliesToRecover":25,
+	"suppliesPerMonth":25,
+	"ordnancePoints":135,
 	"builtInWings":[
 		"magellan_bomber_marauder_wing",
 		"magellan_hvyfighter_strikecraft_marauder_wing"

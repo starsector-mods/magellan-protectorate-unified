@@ -4,7 +4,7 @@
 	"hullName":"Mazian [SKT]",
 	"descriptionId":"magellan_battleship",
 	"descriptionPrefix":"Befitting the bloodthirsty temperament of its aristocratic officers, no expense has been spared to upgrade the performance, and appearance, of this this Skytiger Guards warship.",
-	"tags":["magellan_startiger", "no_dealer"],
+	"tags":["magellan_startiger", "no_dealer", "special_allows_system_use", "system_allows_special_use"],
 	"tech":"Skytiger Guards Division",
     "fleetPoints":35,
     "ordnancePoints":360,
@@ -23,7 +23,7 @@
       		"type": "HYBRID"
     	}
     },
-    "builtInMods":["magellan_startigermod", "magellan_convertedbay"],
+    "builtInMods":["magellan_startigermod"],
     "builtInWings":[
 
 	],

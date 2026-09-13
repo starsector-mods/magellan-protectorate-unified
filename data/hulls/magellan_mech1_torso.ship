@@ -1,0 +1,100 @@
+{
+  "hullName": "Mech1 Torso",
+  "hullId": "magellan_mech1_torso",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/Magellan/ships/unused/mech1/magellan_mech1_torso.png",
+  "style": "MAGELLAN",
+  "height": 40,
+  "width": 34,
+  "center": [
+    17,
+    20
+  ],
+  "collisionRadius": 28.0,
+  "shieldCenter": [
+    0,
+    0
+  ],
+  "shieldRadius": 30.0,
+  "viewOffset": 0,
+  "builtInMods": [],
+  "weaponSlots": [
+    {
+      "id": "WS_HEAD",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 0,
+      "angle": 0,
+      "locations": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "WS_L_ARM",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": 0,
+      "locations": [
+        0,
+        10
+      ]
+    },
+    {
+      "id": "WS_R_ARM",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": 0,
+      "locations": [
+        0,
+        -10
+      ]
+    },
+    {
+      "id": "WS_SHOULDER",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 45,
+      "angle": 0,
+      "locations": [
+        -10,
+        -5
+      ]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [
+        -16,
+        0
+      ],
+      "length": 30,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 10,
+      "style": "MagellanFighterFlare"
+    }
+  ],
+  "bounds": [
+    17,
+    -20,
+    -17,
+    -20,
+    -17,
+    20,
+    17,
+    20
+  ],
+  "builtInWeapons": {
+    "WS_HEAD": "magellan_mech_head",
+    "WS_L_ARM": "magellan_smciws_mechL",
+    "WS_R_ARM": "magellan_smgatling_mechR",
+    "WS_SHOULDER": "magellan_mech_shoulderlauncher"
+  }
+}

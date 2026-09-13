@@ -11,19 +11,20 @@ public class MissionDefinition implements MissionDefinitionPlugin {
     public void defineMission(MissionDefinitionAPI api) {
         api.initFleet(FleetSide.PLAYER, "FSS", FleetGoal.ATTACK, false, 5);
         api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true, 5);
-        api.setFleetTagline(FleetSide.PLAYER, "Test: Relics & Derelicts");
+        api.setFleetTagline(FleetSide.PLAYER, "Test: Ancient & Drones");
         api.setFleetTagline(FleetSide.ENEMY, "Target Fleet");
 
 
         api.addToFleet(FleetSide.PLAYER, "magellan_battleship_ancient_Hull", FleetMemberType.SHIP, true);
+        api.addToFleet(FleetSide.PLAYER, "magellan_mothership_base_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_modularfrigate_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_dronecarrier_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_dronegunner_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_dronemissilefrig_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_droneship_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_droneturret_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_dronemissilefrig_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_dronegunner_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_targdrone_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_lev_dronefrig_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_mothership_base_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_targdrone_mod_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.ENEMY, "magellan_battleship_line", FleetMemberType.SHIP, "ISS Target", false);
         api.addToFleet(FleetSide.ENEMY, "magellan_linedestroyer_std", FleetMemberType.SHIP, "ISS Escort", false);
 

@@ -8,9 +8,17 @@
 	"tech":"The Herd",
 	"addHints":["UNBOARDABLE", "HIDE_IN_CODEX"],
 	"systemId":"reservewing",
+	"removeWeaponSlots":[
+		"WS0010"
+	],
 	"removeBuiltInWeapons":[
 		"WS0010"
 	],
+	"fighterBays":2,
+	"fleetPoints":22,
+	"suppliesToRecover":22,
+	"suppliesPerMonth":22,
+	"ordnancePoints":125,
 	"builtInWings":[
 		"magellan_corvette_strikecraft_marauder_wing",
 		"magellan_bomber_marauder_wing"

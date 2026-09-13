@@ -30,9 +30,9 @@
       		"type": "ENERGY"
     	}
     },
-    "builtInMods":["magellan_levellermod", "magellan_convertedbay", "magellan_contraMod"],
+    "builtInMods":["magellan_levellermod", "magellan_contraMod"],
     "builtInWings":[
-		"magellan_swarmfighter_half_wing"
+		"magellan_swarmfighter_wing"
 	],
 	"engineSlotChanges":{
 		"0":{

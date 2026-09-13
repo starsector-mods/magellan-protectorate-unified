@@ -16,7 +16,7 @@
     "reduced_explosion"
   ],
   "builtInWings": [
-    "magellan_swarmfighter_half_wing"
+    "magellan_swarmfighter_wing"
   ],
   "builtInWeapons": {
     "WS0001": "magellan_diffusionlaser_ftr",

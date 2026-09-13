@@ -4,7 +4,7 @@
 	"hullName":"Graff [Herd]",
 	"descriptionId":"magellan_linedestroyer",
 	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. A makeshift gamma torch has been crudely attached to the bow, providing both a fearsome close-range weapon, and a safety valve for the dangerously overtuned drive rig.",
-	"tags":["magellan_theherd", "restricted"],
+	"tags":["magellan_theherd", "restricted", "special_allows_system_use", "system_allows_special_use"],
 	"tech":"The Herd",
     "fleetPoints":10,
     "ordnancePoints":105,
@@ -37,7 +37,7 @@
     },
 	"builtInMods":["magellan_herdmod", "converted_hangar", "degraded_engines"],
 	"builtInWings":[
-		"magellan_hvyfighter_theherd_single_wing"
+		"magellan_hvyfighter_theherd_wing"
 	],
 	"builtInWeapons":{
 		"WS0008": "magellan_radflamer_med"

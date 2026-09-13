@@ -44,7 +44,7 @@ public class magellan_contraMod extends BaseHullMod {
         } else if (hullId.contains("patroldestroyer")) {
             return "magellan_swarmfighter_wing";
         } else if (hullId.contains("supportdestroyer")) {
-            return "magellan_swarmfighter_half_wing";
+            return "magellan_swarmfighter_wing";
         }
         return "magellan_swarmfighter_wing";
     }

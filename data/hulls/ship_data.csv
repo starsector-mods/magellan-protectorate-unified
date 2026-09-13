@@ -44,7 +44,7 @@ Capella,magellan_fastdestroyer,Destroyer-Leader,Magellan,magellan_burstjets,12,3
 ,magellan_fastdestroyerarmor,Plating,Magellan,,1,2000,600,200,2500,200,5,,0,0,0,10,10,125,NONE,,0,0,0,,,0,0,0,0,1,0,,20000,,1,,,0,0,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","module_unselectable, module_refit_bright, module_hull_bar_only",,,,1,2,3,,305
 Capella [BCR],magellan_fastdestroyer_bc,Destroyer-Leader,Blackcollar Regiment,magellan_burstjets,13,3500,300,7200,7333,440,115,,120,120,60,35,50,320,OMNI,,180,0.4,1,,,50,70,80,50,2,25,9,90000,5,20,300,0.25,12,16,,,,,,,SHIP_WITH_MODULES,"magellan_blackcollar, no_dealer",,,,0.5,2,3,,306
 ,magellan_fastdestroyerarmor_bc,Plating,Blackcollar Regiment,,1,2000,600,200,2500,200,5,,0,0,0,10,10,125,NONE,,,,,,,0,0,0,0,1,0,,20000,,1,,,0,0,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","module_unselectable, module_refit_bright, module_hull_bar_only",,,,1,2,3,,307
-Graff,magellan_linedestroyer,Destroyer,Magellan,magellan_burndrive,950,6000,3000,4000,3333,200,110,,60,40,20,30,20,600,NONE,,0,0,0,,,100,180,90,90,3,30,9,39000,5,12,400,0.2,9,9,,,,,,,,"rare_bp, hist1t, magellan_core_bp, special_allows_system_use, system_allows_special_use",,,,0.4,2,3,,301
+Graff,magellan_linedestroyer,Destroyer,Magellan,magellan_burndrive,950,6000,3000,4000,3333,200,110,,60,40,20,30,20,600,PHASE,magellan_flakpods,0,0,0,,,100,180,90,90,3,30,9,39000,5,12,400,0.2,9,9,,,,,,,,"rare_bp, hist1t, magellan_core_bp, special_allows_system_use, system_allows_special_use",,,,0.4,2,3,,301
 Ayres,magellan_carrierconverted,Light Carrier,Magellan,fastmissileracks,11,5500,500,2000,1833,200,65,2,80,60,50,25,40,500,OMNI,,120,0.3,0.7,,,80,140,100,40,2,20,10,60000,5,12,360,0.25,12,12,,,,,,,"CARRIER, COMBAT","rare_bp, hist1t, magellan_core_bp, no_auto_escort",,,,0.5,2,3,,308
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Cruisers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -53,13 +53,13 @@ Edger,magellan_carrier,Carrier,Magellan,magellan_fightercom,18,9000,1200,4800,60
 Sung,magellan_supportcruiser,Cruiser,Magellan,magellan_ammofeed,17,8000,1000,10000,10500,520,120,,60,30,20,15,24,1200,OMNI,,180,0.4,0.8,,,140,200,120,80,2.4,36,8,140000,3,12,450,0.25,24,24,,,,,,,,"rare_bp, hist2t, magellan_adv_bp",,,,0.6,2,4,,403
 Keu,magellan_phasecruiser,Phase Cruiser,Magellan,fastmissileracks,21,7500,1500,9600,18000,800,130,,80,60,50,30,30,1050,PHASE,magellan_phasecloak,90,,,0.05,0.05,60,80,120,150,3,50,8,235000,4,20,450,0.25,30,30,,,,,,,PHASE,"rare_bp, hist3t, magellan_adv_bp",,,,0.4,2,3,,404
 Mallory [CIV],magellan_skipjack,Clipper,Antique,magellan_microburn,20,9000,1200,8400,7500,540,125,2,75,50,30,12,30,1400,OMNI,,180,0.2,1,,,80,400,400,300,3,60,9,425000,3,15,480,0.2,22,18,,,,,,,,"rare_bp, hist3t, magellan_adv_bp",,,0.1,0.3,2,3,,405
-Kreshov,magellan_cruiser,Protected Cruiser,Magellan,magellan_burndrive,1600,10800,5000,8000,8400,360,170,,45,25,15,12,16,2250,NONE,,0,0,0,,,300,400,150,100,3,33,8,105000,3,12,480,0.2,24,24,,,,,,,,"rare_bp, hist2t, magellan_core_bp",,,1.5,0.3,2,3,,401
+Kreshov,magellan_cruiser,Protected Cruiser,Magellan,magellan_burndrive,1600,10800,5000,8000,8400,360,170,,45,25,15,12,16,2250,PHASE,magellan_flakpods,0,0,0,,,300,400,150,100,3,33,8,105000,3,12,480,0.2,24,24,,,,,,,,"rare_bp, hist2t, magellan_core_bp, special_allows_system_use, system_allows_special_use",,,1.5,0.3,2,3,,401
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Goforth [Herd],magellan_herdcarrier,Carrier,The Herd,microburn,16,10000,1500,6000,5200,260,105,3,30,20,30,12,10,2600,OMNI,,180,0.2,1,,,210,300,200,40,4,10,7,160000,3,20,480,0.3,24,24,,,,,,,"CARRIER, COMBAT","magellan_theherd, no_dealer, no_auto_escort",,,,0.6,3,4,,402
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Capitals,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Porey,magellan_battlecruiser,Battlecruiser,Magellan,magellan_ammofeed,26,14000,1500,18000,18000,720,250,1,60,45,25,8,12,3000,OMNI,,140,0.2,1.2,,,400,480,150,240,8,30,8,300000,3,15,620,0.25,40,40,,,,,,,,"rare_bp, hist3t, magellan_adv_bp",,,,0.5,2,4,,501
-Mazian,magellan_battleship,Dreadnought,Magellan,magellan_burndrive,2000,30000,7500,14400,15000,600,325,,30,30,16,8,16,4000,NONE,,0,0,0,,,1000,1500,250,300,14,12,7,400000,3,15,680,0.2,50,50,,,,,,,,"rare_bp, hist3t, magellan_adv_bp",,,0.2,0.4,2,4,,502
+Mazian,magellan_battleship,Dreadnought,Magellan,magellan_burndrive,2000,30000,7500,14400,15000,600,325,,30,30,16,8,16,4000,PHASE,magellan_flakpods,0,0,0,,,1000,1500,250,300,14,12,7,400000,3,15,680,0.2,50,50,,,,,,,,"rare_bp, hist3t, magellan_adv_bp, special_allows_system_use, system_allows_special_use",,,0.2,0.4,2,4,,502
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Levellers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Swarmfighter,magellan_swarmfighter,,Leveller,magellan_burstjets_ftr,,300,40,150,,40,0,,350,600,500,120,360,16,OMNI,,160,0,1,,,0,0,,,,,,,,,,,,,,,,,,,HIDE_IN_CODEX,,,,,0,,,,106
@@ -89,7 +89,7 @@ Abban,magellan_bomber_civ,,Magellan,,,450,75,500,,100,0,,180,225,200,100,180,40,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Marauders,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kaplan,magellan_carrier_marauder,Mod-Carrier,Unique Magellan,magellan_ammofeed,25,9240,1300,7500,4000,500,135,3,55,25,20,12.5,15,2100,FRONT,,150,0.2,0.9,,,250,250,50,50,4,12,8,350000,3,15,420,0.25,30,30,,,,,,,"HIDE_IN_CODEX, CARRIER, COMBAT","no_sell, no_dealer",,,,0.2,2,2,,5
+Kaplan,magellan_carrier_marauder,Mod-Carrier,Unique Magellan,magellan_ammofeed,28,9500,1300,8000,4000,550,140,3,55,25,20,12.5,15,2100,FRONT,,150,0.2,0.9,,,250,250,50,50,4,12,8,350000,3,15,420,0.25,28,28,,,,,,,"HIDE_IN_CODEX, CARRIER, COMBAT","no_sell, no_dealer",,,,0.2,2,2,,5
 Stavros,magellan_bomber_marauder,,Unique Magellan,,,600,125,500,,100,0,,180,225,200,90,180,40,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,,,,,0,,,,10
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Niun,magellan_hvyfighter_strikecraft_marauder,Mod-Fighter,Unique Magellan,magellan_burstjets_ftr,10,750,110,500,,125,30,,350,550,330,144,288,45,OMNI,,160,0.75,1,,,1,1,0,0,0.5,,11,150000,10,20,180,0.25,10,10,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, fake_fighter, play_fighter_overload_sounds",,,,0,,,,4.3
@@ -111,12 +111,4 @@ Advanced Maser,magellan_flakdrone_smuggler,,Unique Magellan,,,500,50,400,,100,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Ancient,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Duncan,magellan_battleship_ancient,Dreadnought,Unique Ancient Magellan,magellan_anomalous_overdrive,1800,26000,6000,14400,6,700,290,,33,33,18,9,18,3600,PHASE,magellan_anomalous_flakpods,,,,,,1250,1500,250,200,16,7,8,1000000,3,20,450,0.3,60,60,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, special_allows_system_use, system_allows_special_use",,,,0.2,2,3,,6
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-#Unused,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-#Forge,magellan_mech1,,Magellan,,,1250,200,750,,150,,,150,150,150,120,120,65,OMNI,,360,0,1,,,2,2,,,,,,40000,,,,,,,,,,,,,,,,,,0,,,,3.1
-#Jitte,magellan_hvyfighter_mod1,Mod-Fighter,Unique Magellan,magellan_ammofeed,8,800,100,500,,125,30,,325,460,300,150,260,45,OMNI,,150,0.5,1,,,1,1,0,0,0.5,,11,100000,10,20,120,0.25,8,8,,,,,,,"HIDE_IN_CODEX, PLAY_FIGHTER_OVERLOAD_SOUNDS","no_sell, no_dealer, restricted, fake_fighter",,,,0,,,,4.3
-#Kapisi Old,magellan_carrier_mod,Mod-Carrier,Unique Magellan,magellan_fightercom,22,9240,1300,5000,4000,360,125,3,50,18,9,9,9,2100,OMNI,,120,0.4,1,,,220,300,120,60,4,15,8,300000,4,12,420,0.25,22,22,,,,,,,"HIDE_IN_CODEX, CARRIER, COMBAT","no_sell, no_dealer, restricted",,,,0.2,2,2,,5
-#Bastardsword [MOD],magellan_corvette_mod1,Mod-Corvette,Unique Magellan,magellan_ammofeed,9,1500,200,1500,,200,30,,140,330,300,115,200,70,OMNI,,240,0.75,1,,,4,4,0,0,0.5,,11,100000,10,20,120,0.25,9,9,,,,,,,"HIDE_IN_CODEX, PLAY_FIGHTER_OVERLOAD_SOUNDS","no_sell, no_dealer, restricted, fake_fighter",,,,0,,,,4.2
-#Lao,magellan_targdrone_mod,,Unique Magellan,,,200,50,200,,100,,,200,300,300,200,480,8,FRONT,,360,0,1,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,0,,,,10
-#Bounder,magellan_bounder,Heavy Fighter,Magellan,magellan_smokelayer,7,500,100,1000,,100,40,,220,420,480,210,320,40,OMNI,,180,0.5,1,,,1,1,0,0,0.5,,11,15000,15,15,180,0.25,7,7,,,,,,,PLAY_FIGHTER_OVERLOAD_SOUNDS,"no_dealer, fake_fighter",,,,0,,,,8
+Magellan Mech,magellan_mech1_torso,Mech,Magellan,,10,4000,400,3000,2000,60,0,0,90,50,50,60,80,600,OMNI,,360,0.4,1,,,50,50,50,30,2,12,9,30000,5,15,240,0.3,10,10,,,,,,,"HIDE_IN_CODEX",,,,,1,2,3,,1007

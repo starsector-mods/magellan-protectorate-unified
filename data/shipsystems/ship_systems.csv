@@ -16,12 +16,12 @@ Electron Charge Flak,magellan_ionchargelayer,,,,,,,,3,0.05,,,,3,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Command Datalink,magellan_fightercom,,,,,,0.3,,,,0.5,20,0.5,10,,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_fighter.png
 Drone Strike,magellan_drone_strike,,,,250,,,,3,0.1,0,0.05,0.2,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png
-Area Defense Charges,magellan_flakpods,,,,,,,,2,0.05,,,,3,,,,,,,,,,,,,
+Area Defense Charges,magellan_flakpods,,,,,,,,2,0.05,,,,3,,,,,,,,,,,,defensive,graphics/icons/hullsys/canister_flak.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Phase Cloak,magellan_phasecloak,,,,,,,,,,0.6,,0.4,3,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,,graphics/icons/hullsys/phase_cloak.png
 # === Magellan Content ===,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Anomalous Overdrive,magellan_anomalous_overdrive,,,,,,,,,,0.5,,0.5,0.5,TRUE,,,,,,,,,,,,graphics/Magellan/icons/hullsys/magellan_ballistic.png
-Area Defense Charges,magellan_anomalous_flakpods,,,,,,,,2,0.05,,,,3,,,,,,,,,,,,,
+Area Defense Charges,magellan_anomalous_flakpods,,,,,,,,2,0.05,,,,3,,,,,,,,,,,,defensive,graphics/icons/hullsys/canister_flak.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Shatter Protocol,magellan_drone_strike_leveller,,,,500,,,,,,0,0.05,0.2,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_high.png
 Area Defense Charges,magellan_flakpods_ftr,,,,,,,,2,0.1,,,,5,,,,,,,,,,,,,

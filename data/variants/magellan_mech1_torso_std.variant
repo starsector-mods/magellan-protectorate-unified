@@ -1,0 +1,13 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "magellan_mech1_torso",
+  "hullMods": [],
+  "permaMods": [],
+  "sMods": [],
+  "variantId": "magellan_mech1_torso_std",
+  "weaponGroups": [],
+  "wings": []
+}
