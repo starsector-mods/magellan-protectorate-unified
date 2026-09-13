@@ -3,8 +3,8 @@
   "specClass": "projectile",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/Magellan/weapons/unused/mech/magellan_bonesaw_mechL_base.png",
-  "hardpointSprite": "graphics/Magellan/weapons/unused/mech/magellan_bonesaw_mechL_base.png",
+  "turretSprite": "graphics/Magellan/weapons/mech/magellan_bonesaw_mechL_base.png",
+  "hardpointSprite": "graphics/Magellan/weapons/mech/magellan_bonesaw_mechL_base.png",
   "turretOffsets": [
     0,
     0

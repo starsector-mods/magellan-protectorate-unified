@@ -3,8 +3,8 @@
   "specClass": "projectile",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/Magellan/weapons/unused/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",
-  "hardpointSprite": "graphics/Magellan/weapons/unused/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",
+  "turretSprite": "graphics/Magellan/weapons/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",
+  "hardpointSprite": "graphics/Magellan/weapons/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",
   "turretOffsets": [
     0,
     0

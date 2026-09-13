@@ -3,8 +3,8 @@
   "specClass": "projectile",
   "type": "MISSILE",
   "size": "SMALL",
-  "turretSprite": "graphics/Magellan/weapons/unused/mech/magellan_mech_shoulderlauncher.png",
-  "hardpointSprite": "graphics/Magellan/weapons/unused/mech/magellan_mech_shoulderlauncher.png",
+  "turretSprite": "graphics/Magellan/weapons/mech/magellan_mech_shoulderlauncher.png",
+  "hardpointSprite": "graphics/Magellan/weapons/mech/magellan_mech_shoulderlauncher.png",
   "turretOffsets": [
     0,
     0

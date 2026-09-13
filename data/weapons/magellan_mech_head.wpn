@@ -3,8 +3,8 @@
   "specClass": "projectile",
   "type": "DECORATIVE",
   "size": "SMALL",
-  "turretSprite": "graphics/Magellan/weapons/unused/mech/magellan_mech_head.png",
-  "hardpointSprite": "graphics/Magellan/weapons/unused/mech/magellan_mech_head.png",
+  "turretSprite": "graphics/Magellan/weapons/mech/magellan_mech_head.png",
+  "hardpointSprite": "graphics/Magellan/weapons/mech/magellan_mech_head.png",
   "turretOffsets": [
     0,
     0

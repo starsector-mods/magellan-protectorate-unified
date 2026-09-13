@@ -3,8 +3,8 @@
   "specClass": "projectile",
   "type": "BALLISTIC",
   "size": "LARGE",
-  "turretSprite": "graphics/Magellan/weapons/unused/flenser_builtin/magellan_flenser_builtin_00.png",
-  "hardpointSprite": "graphics/Magellan/weapons/unused/flenser_builtin/magellan_flenser_builtin_00.png",
+  "turretSprite": "graphics/Magellan/weapons/flenser_builtin/magellan_flenser_builtin_00.png",
+  "hardpointSprite": "graphics/Magellan/weapons/flenser_builtin/magellan_flenser_builtin_00.png",
   "turretOffsets": [
     0,
     0

@@ -3,8 +3,8 @@
   "specClass": "projectile",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "turretSprite": "graphics/Magellan/weapons/unused/magellan_silverdart_ftr_turret_base.png",
-  "hardpointSprite": "graphics/Magellan/weapons/unused/magellan_silverdart_ftr_turret_base.png",
+  "turretSprite": "graphics/Magellan/weapons/magellan_silverdart_ftr_turret_base.png",
+  "hardpointSprite": "graphics/Magellan/weapons/magellan_silverdart_ftr_turret_base.png",
   "turretOffsets": [
     0,
     0
