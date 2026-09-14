@@ -15,6 +15,9 @@
     "magellan_levellermod",
     "rugged"
   ],
+  "builtInWings": [
+    "magellan_swarmdrone_wing"
+  ],
   "builtInWeapons": {
     "WS0001": "magellan_electrolance_med"
   },
@@ -36,24 +39,6 @@
       "arc": 360,
       "angle": 0,
       "locations": [-15, -0]
-    },
-    {
-      "id": "WS0003",
-      "size": "SMALL",
-      "type": "SYSTEM",
-      "mount": "HIDDEN",
-      "arc": 0,
-      "angle": 30,
-      "locations": [3, 14]
-    },
-    {
-      "id": "WS0004",
-      "size": "SMALL",
-      "type": "SYSTEM",
-      "mount": "HIDDEN",
-      "arc": 0,
-      "angle": -30,
-      "locations": [3, -14]
     }
   ],
   "engineSlots": [

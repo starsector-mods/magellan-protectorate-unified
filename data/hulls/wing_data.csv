@@ -26,6 +26,7 @@ magellan_herdintercept_wing,magellan_herdintercept_Fighter,"no_drop, no_sell",2,
 magellan_hvyfighter_theherd_wing,magellan_hvyfighter_theherd_Fighter,"no_drop, no_sell",1,,6,8,V,4000,500,300,3,FIGHTER,Scout Fighter,10,12500,3
 ,,,,,,,,,,,,,,,,
 magellan_swarmfighter_wing,magellan_swarmfighter_Assault,"interceptor5, interceptor, leveller, magellan_levellercore_bp, auto_fighter",3,,5,12,CLAW,3200,300,400,6,FIGHTER,Heavy Swarmer,10,20000,22
+magellan_swarmdrone_wing,magellan_swarmfighter_Assault,"no_drop, no_sell, restricted",3,,5,0,CLAW,0,200,,2,SUPPORT,Escort Drone,10,12000,22
 magellan_rounder_leveller_wing,magellan_rounder_leveller_Bomber,"no_drop, no_sell",3,0.1,8,18,V,4000,2500,600,3,BOMBER,Light Bomber,15,30000,3
 ,,,,,,,,,,,,,,,,
 magellan_intyellowtail_wing,magellan_intyellowtail_Interceptor,"interceptor3, interceptor, magellan_yellowtail, magellan_yellowtail_bp",3,,4,4,V,4000,200,700,4,INTERCEPTOR,Scout,4,5000,7

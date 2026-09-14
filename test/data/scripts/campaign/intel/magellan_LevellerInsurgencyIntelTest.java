@@ -175,8 +175,8 @@ public class magellan_LevellerInsurgencyIntelTest {
             intel.createIntelInfo(infoMock, IntelInfoPlugin.ListInfoMode.INTEL);
             verify(infoMock, atLeastOnce()).addPara(eq(intel.getName()), any(), anyFloat());
 
-            intel.afterStageDescriptions(infoMock);
-            verify(infoMock, atLeastOnce()).addSectionHeading(contains("Strategic Logistics"), any(), any(), any(), anyFloat());
+            intel.createSmallDescription(infoMock, 600f, 400f);
+            verify(infoMock, atLeastOnce()).addSectionHeading(contains("Insurgency Logistics"), any(), anyFloat());
         }
     }
 
