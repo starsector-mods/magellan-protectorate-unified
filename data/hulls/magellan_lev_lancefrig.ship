@@ -1,7 +1,7 @@
 {
-  "hullName": "Lance Frigate",
+  "hullName": "Lance Drone",
   "hullId": "magellan_lev_lancefrig",
-  "hullSize": "FRIGATE",
+  "hullSize": "FIGHTER",
   "spriteName": "graphics/Magellan/ships/levellers/magellan_lev_lancefrig.png",
   "style": "MAGELLAN",
   "height": 120,
@@ -12,14 +12,13 @@
   "shieldRadius": 79,
   "viewOffset": 0,
   "builtInMods": [
-    "magellan_levellermod",
-    "rugged"
-  ],
-  "builtInWings": [
-    "magellan_swarmdrone_wing"
+    "no_weapon_flux",
+    "terminator_core",
+    "magellan_levellermod"
   ],
   "builtInWeapons": {
-    "WS0001": "magellan_electrolance_med"
+    "WS0001": "magellan_electrolance_med",
+    "WS0002": "magellan_laservulcan"
   },
   "weaponSlots": [
     {
@@ -34,7 +33,7 @@
     {
       "id": "WS0002",
       "size": "SMALL",
-      "type": "ENERGY",
+      "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 360,
       "angle": 0,

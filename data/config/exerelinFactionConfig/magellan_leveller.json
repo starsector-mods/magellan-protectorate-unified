@@ -82,13 +82,13 @@
             "magellan_linefrigate_leveller_turncoat"
         ],
         [
-            "magellan_lev_lancefrig_std"
+            "magellan_lev_dronefrig_std"
         ]
     ],
     "startShipsCombatSmall": [
         [
             "magellan_patroldestroyer_leveller_turncoat",
-            "magellan_lev_lancefrig_std"
+            "magellan_lev_dronefrig_std"
         ],
         [
             "magellan_supportdestroyer_leveller_turncoat",
@@ -104,7 +104,7 @@
         [
             "magellan_skipjack_leveller_liberator",
             "magellan_patroldestroyer_leveller_turncoat",
-            "magellan_lev_lancefrig_std"
+            "magellan_lev_dronefrig_strike"
         ]
     ],
     "startShipsCarrierSmall": [
@@ -142,7 +142,7 @@
         [
             "magellan_supportdestroyer_leveller_turncoat",
             "magellan_ltfreight_std",
-            "magellan_lev_lancefrig_std"
+            "magellan_lev_dronefrig_support"
         ]
     ],
     "startShipsSuper": [
