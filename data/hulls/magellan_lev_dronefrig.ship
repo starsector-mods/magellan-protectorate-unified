@@ -15,9 +15,6 @@
     "magellan_levellermod",
     "rugged"
   ],
-  "builtInWings": [
-    "magellan_lev_lancefrig_wing"
-  ],
   "builtInWeapons": {
     "WS0004": "magellan_targetingbeam"
   },
