@@ -83,6 +83,15 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript {
 	public void unapply(MutableShipStatsAPI stats, String id) {
 	}
 	
+	private static final java.util.Map<ShipAPI, List<ShipAPI>> ACTIVE_DRONES = new java.util.WeakHashMap<>();
+
+	public static List<ShipAPI> getActiveDrones(ShipAPI source) {
+		if (source == null) return java.util.Collections.emptyList();
+		List<ShipAPI> list = ACTIVE_DRONES.get(source);
+		if (list == null) return java.util.Collections.emptyList();
+		return list;
+	}
+
 	protected com.fs.starfarer.api.combat.FighterWingAPI activeWing = null;
 	
 	public void spawnDrone(ShipAPI source, Vector2f mineLoc) {
@@ -95,8 +104,30 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript {
 				}
 			}
 		}
+
+		// Face towards the closest enemy to the teleport location, or advance vector
+		ShipAPI nearestEnemy = null;
+		float minDist = Float.MAX_VALUE;
+		for (ShipAPI other : engine.getShips()) {
+			if (other.isHulk() || other.getOwner() == source.getOwner() || other.isShuttlePod()) continue;
+			float d = Misc.getDistance(mineLoc, other.getLocation());
+			if (d < minDist) {
+				minDist = d;
+				nearestEnemy = other;
+			}
+		}
+
+		float spawnFacing = source.getFacing();
+		if (nearestEnemy != null) {
+			spawnFacing = Misc.getAngleInDegrees(mineLoc, nearestEnemy.getLocation());
+		} else {
+			float angleFromSource = Misc.getAngleInDegrees(source.getLocation(), mineLoc);
+			if (Misc.getDistance(source.getLocation(), mineLoc) > 50f) {
+				spawnFacing = angleFromSource;
+			}
+		}
 		
-		ShipAPI leader = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_x2_wing", mineLoc, (float) Math.random() * 360f);
+		ShipAPI leader = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_x2_wing", mineLoc, spawnFacing);
 		if (leader == null) return;
 		
 		activeWing = leader.getWing();
@@ -105,19 +136,27 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript {
 		}
 		
 		float fadeInTime = 0.5f;
+		List<ShipAPI> droneList = new java.util.ArrayList<>();
 		if (activeWing != null) {
 			for (ShipAPI drone : activeWing.getWingMembers()) {
+				drone.setFacing(spawnFacing);
 				drone.getVelocity().scale(0);
 				drone.setAlphaMult(0f);
-				Global.getCombatEngine().addPlugin(createDroneJitterPlugin(drone, fadeInTime));
+				droneList.add(drone);
+				engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
+				engine.addPlugin(new RameyBetaDroneAIPlugin(drone, source));
 				Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
 			}
 		} else {
+			leader.setFacing(spawnFacing);
 			leader.getVelocity().scale(0);
 			leader.setAlphaMult(0f);
-			Global.getCombatEngine().addPlugin(createDroneJitterPlugin(leader, fadeInTime));
+			droneList.add(leader);
+			engine.addPlugin(createDroneJitterPlugin(leader, fadeInTime));
+			engine.addPlugin(new RameyBetaDroneAIPlugin(leader, source));
 			Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, leader.getLocation(), leader.getVelocity());
 		}
+		ACTIVE_DRONES.put(source, droneList);
 	}
 	
 	protected EveryFrameCombatPlugin createDroneJitterPlugin(final ShipAPI drone, final float fadeInTime) {

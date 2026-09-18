@@ -3,7 +3,9 @@ package data.scripts.weapons;
 import com.fs.starfarer.api.combat.BeamAPI;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
+import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
+import com.fs.starfarer.api.util.Misc;
 import java.util.HashMap;
 import java.util.Map;
 import org.lazywizard.lazylib.FastTrig;
@@ -27,6 +29,27 @@ implements EveryFrameWeaponEffectPlugin {
             this.beamMap.clear();
             this.oscillationWidthMap.clear();
             this.runOnce = true;
+
+            // Enforce that spinal lance on Ramey-Beta only fires when facing an enemy
+            ShipAPI ship = weapon.getShip();
+            if (ship != null && ship.isDrone()) {
+                boolean facingEnemy = false;
+                for (ShipAPI enemy : engine.getShips()) {
+                    if (enemy.isHulk() || enemy.getOwner() == ship.getOwner() || enemy.isShuttlePod() || enemy.isPhased()) continue;
+                    float dist = Misc.getDistance(weapon.getLocation(), enemy.getLocation());
+                    if (dist > weapon.getRange() + enemy.getCollisionRadius()) continue;
+                    float angleToEnemy = Misc.getAngleInDegrees(weapon.getLocation(), enemy.getLocation());
+                    float diff = Misc.getAngleDiff(ship.getFacing(), angleToEnemy);
+                    float angularRadius = (float) Math.toDegrees(Math.atan2(enemy.getCollisionRadius(), Math.max(10f, dist)));
+                    if (diff <= (weapon.getArc() * 0.5f + angularRadius)) {
+                        facingEnemy = true;
+                        break;
+                    }
+                }
+                if (!facingEnemy) {
+                    weapon.setForceNoFireOneFrame(true);
+                }
+            }
             return;
         }
         if (weapon.getChargeLevel() > 0.0f && this.runOnce) {
