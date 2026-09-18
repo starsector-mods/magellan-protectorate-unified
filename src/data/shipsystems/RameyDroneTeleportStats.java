@@ -15,11 +15,12 @@ import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.combat.ShipSystemAPI.SystemState;
 import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+import com.fs.starfarer.api.impl.combat.MineStrikeStatsAIInfoProvider;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.lwjgl.util.vector.Vector2f;
 
-public class RameyDroneTeleportStats extends BaseShipSystemScript {
+public class RameyDroneTeleportStats extends BaseShipSystemScript implements MineStrikeStatsAIInfoProvider {
 
 	public static final float RANGE = 1500f;
 	public static final Color JITTER_COLOR = new Color(100, 255, 100, 100);
@@ -266,5 +267,15 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript {
 		}
 		
 		return true;
+	}
+
+	@Override
+	public float getFuseTime() {
+		return 1f;
+	}
+
+	@Override
+	public float getMineRange(ShipAPI ship) {
+		return getRange(ship);
 	}
 }
