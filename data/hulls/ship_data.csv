@@ -20,7 +20,7 @@ Lochaber [TMC],magellan_bomberyellowtail,,Tichel Mercantile Concern,,,750,150,40
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Jitte [CIV],magellan_lightfighter_civ,,Magellan,,,300,60,240,,60,0,,350,500,300,150,270,24,OMNI,,120,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,102
 Skate,magellan_skate,,Antique,,,750,125,750,,100,0,,400,500,300,150,270,28,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,105
-Rounder,magellan_rounder,,Antique,,,500,100,500,,100,0,,200,400,480,210,320,40,OMNI,,180,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,102
+Rounder,magellan_rounder,Torpedo Bomber,Magellan,,,500,100,500,,100,0,,200,400,480,210,320,40,OMNI,,180,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,102
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Civvies/Utility,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Nan,magellan_skiff,Skiff,Antique,magellan_microburn,5,2000,250,1800,1750,140,35,,225,200,150,90,120,180,FRONT,,240,0.2,0.8,,,5,20,80,30,2,15,10,48000,10,10,240,0.2,4,4,,,,,,,FREIGHTER,"rare_bp, hist3t, no_sell, no_dealer",,,,0.4,2,2,,151
@@ -112,4 +112,3 @@ Advanced Maser,magellan_flakdrone_smuggler,,Unique Magellan,,,500,50,400,,100,,,
 #Ancient,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Duncan,magellan_battleship_ancient,Dreadnought,Unique Ancient Magellan,magellan_anomalous_overdrive,1800,26000,6000,14400,6,700,290,,33,33,18,9,18,3600,PHASE,magellan_anomalous_flakpods,,,,,,1250,1500,250,200,16,7,8,1000000,3,20,450,0.3,60,60,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, special_allows_system_use, system_allows_special_use",,,,0.2,2,3,,6
 Claymore,magellan_mech1_torso,Heavy Assault Mech,Magellan,,,1200,250,800,,200,0,0,120,200,180,90,120,75,OMNI,,360,0,0.9,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,1007
-Rounder,magellan_bounder,Heavy Bomber,Magellan,magellan_smokelayer,7,500,100,1000,,100,40,,220,420,480,210,320,40,OMNI,,180,0.5,1,,,1,1,0,0,0.5,,11,15000,15,15,180,0.25,7,7,,,,,,,PLAY_FIGHTER_OVERLOAD_SOUNDS,,,,,0,,,,8
