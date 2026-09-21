@@ -32,7 +32,7 @@ implements EveryFrameWeaponEffectPlugin {
 
             // Enforce that spinal lance on Ramey-Beta only fires when facing an enemy
             ShipAPI ship = weapon.getShip();
-            if (ship != null && ship.isDrone()) {
+            if (ship != null && ship.getHullSpec().getHullId().startsWith("magellan_lev_lancefrig")) {
                 boolean facingEnemy = false;
                 for (ShipAPI enemy : engine.getShips()) {
                     if (enemy.isHulk() || enemy.getOwner() == ship.getOwner() || enemy.isShuttlePod() || enemy.isPhased()) continue;

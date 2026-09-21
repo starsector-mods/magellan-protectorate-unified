@@ -1,7 +1,8 @@
 {
   "id": "magellan_smciws_mechL",
   "specClass": "projectile",
-  "everyFrameEffect": "data.scripts.weapons.magellan_CIWS_TracerFX",
+  "everyFrameEffect": "data.scripts.weapons.magellan_mechArmEffect",
+  "onFireEffect": "data.scripts.weapons.magellan_mechArmEffect",
   "type": "BALLISTIC",
   "size": "SMALL",
   "turretSprite": "graphics/Magellan/weapons/mech/magellan_smciws_mechL/magellan_smciws_mechL_00.png",

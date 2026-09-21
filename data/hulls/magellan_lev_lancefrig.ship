@@ -1,14 +1,20 @@
 {
   "hullName": "Ramey-Beta",
   "hullId": "magellan_lev_lancefrig",
-  "hullSize": "FIGHTER",
+  "hullSize": "FRIGATE",
   "spriteName": "graphics/Magellan/ships/levellers/magellan_lev_lancefrig.png",
   "style": "MAGELLAN",
   "height": 120,
   "width": 44,
-  "center": [22, 45],
+  "center": [
+    22,
+    45
+  ],
   "collisionRadius": 84,
-  "shieldCenter": [3, -0],
+  "shieldCenter": [
+    3,
+    0
+  ],
   "shieldRadius": 79,
   "viewOffset": 0,
   "builtInMods": [
@@ -28,21 +34,30 @@
       "mount": "HARDPOINT",
       "arc": 5,
       "angle": 0,
-      "locations": [71, -6]
+      "locations": [
+        71,
+        -6
+      ]
     },
     {
       "id": "WS0002",
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 360,
+      "arc": 180,
       "angle": 0,
-      "locations": [-15, -0]
+      "locations": [
+        -15,
+        0
+      ]
     }
   ],
   "engineSlots": [
     {
-      "location": [-44, -0],
+      "location": [
+        -44,
+        0
+      ],
       "length": 40,
       "width": 12,
       "angle": 180,
@@ -50,7 +65,10 @@
       "style": "M_HIGH_STD"
     },
     {
-      "location": [-28, 13],
+      "location": [
+        -28,
+        13
+      ],
       "length": 12,
       "width": 4,
       "angle": 160,
@@ -58,7 +76,10 @@
       "style": "M_HIGH_STD"
     },
     {
-      "location": [-28, -13],
+      "location": [
+        -28,
+        -13
+      ],
       "length": 12,
       "width": 4,
       "angle": -160,
@@ -67,20 +88,35 @@
     }
   ],
   "bounds": [
-    69, -10,
-    40, -10,
-    24.5, -15.5,
-    2.5, -14.5,
-    -4, -19,
-    -43.5, -5.5,
-    -43.5, 5.5,
-    -4, 19,
-    2.5, 14.5,
-    24.5, 15.5,
-    55, 4.5,
-    52, 1,
-    29, 1,
-    29, -2,
-    69, -2
+    69,
+    -10,
+    40,
+    -10,
+    24.5,
+    -15.5,
+    2.5,
+    -14.5,
+    -4,
+    -19,
+    -43.5,
+    -5.5,
+    -43.5,
+    5.5,
+    -4,
+    19,
+    2.5,
+    14.5,
+    24.5,
+    15.5,
+    55,
+    4.5,
+    52,
+    1,
+    29,
+    1,
+    29,
+    -2,
+    69,
+    -2
   ]
 }

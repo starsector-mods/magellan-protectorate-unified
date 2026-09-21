@@ -1,7 +1,7 @@
 {
   "id": "magellan_mech_shoulderlauncher",
   "specClass": "projectile",
-  "everyFrameEffect": "data.scripts.weapons.magellan_RipfireLaunchFX",
+  "onFireEffect": "data.scripts.weapons.magellan_RipfireLaunchFX",
   "type": "MISSILE",
   "size": "SMALL",
   "displayArcRadius": 600,

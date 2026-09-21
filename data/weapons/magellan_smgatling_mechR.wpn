@@ -24,5 +24,5 @@
   },
   "projectileSpecId": "magellan_smkinetic_shot",
   "fireSoundTwo": "chaingun_fire",
-  "everyFrameEffect": "data.scripts.plugins.MagellanTrailPlugin"
+  "everyFrameEffect": "data.scripts.weapons.magellan_mechArmEffect"
 }

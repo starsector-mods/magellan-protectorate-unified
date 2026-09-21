@@ -25,7 +25,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	public static final float RANGE = 1500f;
 	public static final Color JITTER_COLOR = new Color(100, 255, 100, 100);
 	public static final Color JITTER_UNDER_COLOR = new Color(100, 255, 100, 60);
-	public static final float MIN_SPAWN_DIST = 70f;
+	public static final float MIN_SPAWN_DIST = 90f;
 	
 	protected boolean fired = false;
 	
@@ -44,6 +44,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		
 		if (state == State.IDLE) {
 			fired = false;
+			return;
 		}
 		
 		float jitterLevel = effectLevel;
@@ -75,7 +76,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 				
 				Vector2f loc1 = findClearLocation(ship, target);
 				if (loc1 != null) {
-					spawnDrone(ship, loc1);
+					teleportDrones(ship, loc1);
 				}
 			}
 		}
@@ -84,29 +85,26 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	public void unapply(MutableShipStatsAPI stats, String id) {
 	}
 	
-	private static final java.util.Map<ShipAPI, List<ShipAPI>> ACTIVE_DRONES = new java.util.WeakHashMap<>();
-
+	@SuppressWarnings("unchecked")
 	public static List<ShipAPI> getActiveDrones(ShipAPI source) {
-		if (source == null) return java.util.Collections.emptyList();
-		List<ShipAPI> list = ACTIVE_DRONES.get(source);
-		if (list == null) return java.util.Collections.emptyList();
-		return list;
-	}
-
-	protected com.fs.starfarer.api.combat.FighterWingAPI activeWing = null;
-	
-	public void spawnDrone(ShipAPI source, Vector2f mineLoc) {
-		CombatEngineAPI engine = Global.getCombatEngine();
+		List<ShipAPI> list = new java.util.ArrayList<>();
+		if (source == null || !source.isAlive()) return list;
 		
-		if (activeWing != null) {
-			for (ShipAPI member : activeWing.getWingMembers()) {
-				if (member.isAlive()) {
-					engine.removeEntity(member);
+		List<ShipAPI> tracked = (List<ShipAPI>) source.getCustomData().get("ramey_betas_list");
+		if (tracked != null) {
+			for (ShipAPI drone : tracked) {
+				if (drone != null && drone.isAlive() && !drone.isHulk()) {
+					list.add(drone);
 				}
 			}
 		}
-
-		// Face towards the closest enemy to the teleport location, or advance vector
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void teleportDrones(ShipAPI source, Vector2f mineLoc) {
+		CombatEngineAPI engine = Global.getCombatEngine();
+		
 		ShipAPI nearestEnemy = null;
 		float minDist = Float.MAX_VALUE;
 		for (ShipAPI other : engine.getShips()) {
@@ -128,36 +126,55 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			}
 		}
 		
-		ShipAPI leader = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_x2_wing", mineLoc, spawnFacing);
-		if (leader == null) return;
-		
-		activeWing = leader.getWing();
-		if (activeWing != null) {
-			activeWing.setSourceShip(source);
-		}
-		
 		float fadeInTime = 0.5f;
-		List<ShipAPI> droneList = new java.util.ArrayList<>();
-		if (activeWing != null) {
-			for (ShipAPI drone : activeWing.getWingMembers()) {
-				drone.setFacing(spawnFacing);
-				drone.getVelocity().scale(0);
-				drone.setAlphaMult(0f);
-				droneList.add(drone);
-				engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
-				engine.addPlugin(new RameyBetaDroneAIPlugin(drone, source));
-				Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
+		List<ShipAPI> active = getActiveDrones(source);
+		
+		// Teleport existing living drones
+		for (ShipAPI drone : active) {
+			Vector2f dest = findClearLocation(source, mineLoc);
+			if (dest == null) dest = mineLoc;
+			drone.getLocation().set(dest.x, dest.y);
+			drone.setFacing(spawnFacing);
+			drone.getVelocity().scale(0.1f);
+			engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
+			Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
+			
+			if (drone.getCustomData().containsKey("ramey_beta_ai_plugin")) {
+				RameyBetaDroneAIPlugin ai = (RameyBetaDroneAIPlugin) drone.getCustomData().get("ramey_beta_ai_plugin");
+				ai.setStrikeMode(6f);
+				drone.setShipAI(ai);
 			}
-		} else {
-			leader.setFacing(spawnFacing);
-			leader.getVelocity().scale(0);
-			leader.setAlphaMult(0f);
-			droneList.add(leader);
-			engine.addPlugin(createDroneJitterPlugin(leader, fadeInTime));
-			engine.addPlugin(new RameyBetaDroneAIPlugin(leader, source));
-			Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, leader.getLocation(), leader.getVelocity());
 		}
-		ACTIVE_DRONES.put(source, droneList);
+		
+		// Respawn dead drones during teleport to maintain the original system mechanics
+		List<ShipAPI> tracked = (List<ShipAPI>) source.getCustomData().get("ramey_betas_list");
+		if (tracked == null) {
+			tracked = new java.util.ArrayList<>();
+			source.setCustomData("ramey_betas_list", tracked);
+		}
+		
+		while (active.size() < 2) {
+			Vector2f spawnLoc = findClearLocation(source, mineLoc);
+			if (spawnLoc == null) spawnLoc = mineLoc;
+			ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
+			if (drone != null) {
+				RameyBetaDroneAIPlugin ai = new RameyBetaDroneAIPlugin(drone, source);
+				drone.setInvalidTransferCommandTarget(true);
+				ai.setStrikeMode(6f);
+				drone.setCustomData("ramey_beta_ai_plugin", ai);
+				drone.setShipAI(ai);
+				
+				// Make the newly spawned drone look like it teleported in
+				drone.getVelocity().scale(0.1f);
+				engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
+				Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
+				
+				active.add(drone);
+				tracked.add(drone);
+			} else {
+			    break; // prevent infinite loop if fleet manager refuses to spawn
+			}
+		}
 	}
 	
 	protected EveryFrameCombatPlugin createDroneJitterPlugin(final ShipAPI drone, final float fadeInTime) {
