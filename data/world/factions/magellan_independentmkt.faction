@@ -121,6 +121,7 @@
 			"magellan_interceptor_civ_wing",
 			"magellan_lightfighter_civ_wing",
 			"magellan_bomber_civ_wing",
+			"magellan_rounder_wing",
 			"hoplon_wing"
 		]
 	},
@@ -129,7 +130,8 @@
 		"fighters":[
 			"magellan_interceptor_civ_wing",
 			"magellan_lightfighter_civ_wing",
-			"magellan_bomber_civ_wing"
+			"magellan_bomber_civ_wing",
+			"magellan_rounder_wing"
 		]
 	},
 	"knownWeapons":{

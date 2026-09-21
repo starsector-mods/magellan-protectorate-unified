@@ -45,7 +45,7 @@
         }
     ],
     "wings": [
-        "magellan_rounder_wing",
+        "magellan_bomber_wing",
         "magellan_bomber_wing",
         "magellan_interceptor_wing"
     ]
