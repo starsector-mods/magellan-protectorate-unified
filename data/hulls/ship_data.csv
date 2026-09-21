@@ -3,24 +3,24 @@ name,id,designation,tech/manufacturer,system id,fleet pts,hitpoints,armor rating
 Targeting Drone,magellan_targdrone,,Magellan,,,30,10,600,,150,0,,100,150,150,120,240,5,NONE,,0,0,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,0,,,,
 Missile,magellan_missiledrone,,Magellan,,,600,120,300,,100,0,,240,300,300,160,300,5,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,0,,,,4
 Flak,magellan_flakdrone,,Magellan,,,750,150,400,,100,0,,200,300,200,140,300,10,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,0,,,,4
-Combat,magellan_dronefighter,,Antique,,,600,200,300,,60,0,,150,200,300,180,240,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,0,,,,102
-Bomber,magellan_dronebomber,,Antique,,,600,300,400,,100,0,,180,240,210,75,150,40,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,,,,,0,,,,103
-Ramey-Beta,magellan_lev_lancefrig,,Leveller,,,450,150,350,,100,0,,210,180,90,50,105,105,OMNI,,140,0.2,0.85,,,0,0,,,,,,,,,,,,,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, restricted",,,,0,,,,4
+Trowel,magellan_dronefighter,,Antique,,,600,200,300,,60,0,,150,200,300,180,240,15,NONE,,0,0,0,,,0,0,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,102
+Mallet,magellan_dronebomber,,Antique,,,600,300,400,,100,0,,180,240,210,75,150,40,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,103
+Ramey-Beta,magellan_lev_lancefrig,,Leveller,magellan_flakpods,,800,200,350,,100,0,,210,180,90,50,105,105,OMNI,,140,0.2,0.85,,,0,0,,,,,,,,,,,,,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, restricted",,,,0,,,,4
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Fighters,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chela,magellan_interceptor,,Magellan,,,200,25,500,,100,0,,325,450,150,180,360,9,NONE,,,,,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,101
-Jitte,magellan_hvyfighter,,Magellan,flarelauncher_fighter,,400,75,300,,75,0,,325,450,270,120,240,30,OMNI,,160,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,102
-Lochaber,magellan_bomber,,Magellan,,,800,125,500,,100,0,,180,225,200,60,120,40,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,,,,,0,,,,103
+Jitte,magellan_hvyfighter,,Magellan,flarelauncher_fighter,,400,75,300,,75,0,,325,450,270,120,240,30,OMNI,,160,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,102
+Lochaber,magellan_bomber,,Magellan,,,800,125,500,,100,0,,180,225,200,60,120,40,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,103
 Bastardsword,magellan_corvette,,Magellan,,,1000,200,500,,150,0,,140,300,270,105,180,56,OMNI,,210,0,1,,,4,4,,,,,,,,,,,,,,,,,,,,,,,,0,,,,104
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Stave,magellan_herdintercept,,The Herd,microburn,,600,200,400,,100,0,,150,180,150,75,105,44,NONE,,0,0,0,,,2,2,,,,,,,,,,,,,,,,,,,,,,,,0,,,,103
+Stave,magellan_herdintercept,,The Herd,microburn,,600,200,400,,100,0,,150,180,150,75,105,44,NONE,,0,0,0,,,2,2,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,103
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Chela [TMC],magellan_intyellowtail,,Tichel Mercantile Concern,,,250,50,300,,100,0,,275,350,150,160,300,12,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,101
-Lochaber [TMC],magellan_bomberyellowtail,,Tichel Mercantile Concern,,,750,150,400,,100,0,,150,200,150,50,105,45,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,,,,,0,,,,103
+Lochaber [TMC],magellan_bomberyellowtail,,Tichel Mercantile Concern,,,750,150,400,,100,0,,150,200,150,50,105,45,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,103
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Jitte [CIV],magellan_lightfighter_civ,,Magellan,,,300,60,240,,60,0,,350,500,300,150,270,24,OMNI,,120,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,102
+Jitte [CIV],magellan_lightfighter_civ,,Magellan,,,300,60,240,,60,0,,350,500,300,150,270,24,OMNI,,120,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,102
 Skate,magellan_skate,,Antique,,,750,125,750,,100,0,,400,500,300,150,270,28,NONE,,0,0,0,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,105
-Rounder,magellan_rounder,,Antique,,,500,100,500,,100,0,,200,400,480,210,320,40,OMNI,,180,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,102
+Rounder,magellan_rounder,,Antique,,,500,100,500,,100,0,,200,400,480,210,320,40,OMNI,,180,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,"no_dealer, fake_fighter",,,,0,,,,102
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Civvies/Utility,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Nan,magellan_skiff,Skiff,Antique,magellan_microburn,5,2000,250,1800,1750,140,35,,225,200,150,90,120,180,FRONT,,240,0.2,0.8,,,5,20,80,30,2,15,10,48000,10,10,240,0.2,4,4,,,,,,,FREIGHTER,"rare_bp, hist3t, no_sell, no_dealer",,,,0.4,2,2,,151
@@ -68,11 +68,11 @@ Lilburne,magellan_swarmfighter,,Leveller,magellan_burstjets_ftr,,300,40,150,,40,
 Ramey-Alpha [LV],magellan_lev_dronefrig,Drone Frigate,Leveller,magellan_droneteleport,7,1200,200,1600,1000,100,30,0,180,180,90,50,105,105,OMNI,,140,0.2,0.6,,,0,5,30,10,0.5,20,10,16000,5,15,150,0.25,7,7,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_levellercore_bp, no_dealer, restricted",,,,0.75,2,2,,601
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Derelict Graveyard,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,magellan_dronegunner,Gun Droneship,Antique,magellan_smokelayer_bad,3,2000,400,1800,1875,150,30,,100,100,75,90,105,150,NONE,,0,0,0,,,0,0,20,20,1,20,9,10000,10,20,480,0.25,3,3,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.6,2,2,,222
-,magellan_dronemissilefrig,Missile Droneship,Antique,fastmissileracks,3,2000,350,1200,1250,100,40,,80,80,60,60,90,180,NONE,,0,0,0,,,0,0,20,20,1,20,9,10000,10,20,480,0.25,3,3,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.5,2,2,,222
-,magellan_droneturret,Defense Turret,Antique,magellan_flakpods,6,3200,1000,4000,4000,320,40,,5,30,30,12,30,300,NONE,,0,0,0,,,0,0,20,20,1,20,9,25000,10,20,480,0.25,5,4,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.3,2,2,,201
-,magellan_droneship,Combat Droneship,Antique,burndrive,9,6000,1000,6800,7000,420,90,,60,40,20,30,20,500,PHASE,damper,0,0,0,,,0,0,40,40,2,20,8,75000,10,20,600,0.25,10,8,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, special_allows_system_use, system_allows_special_use, restricted, auto_rec",,,,0.3,2,3,,201
-,magellan_dronecarrier,Carrier Droneship,Antique,magellan_flakpods,12,4000,600,3600,4000,240,85,2,70,45,15,20,40,450,NONE,,0,0,0,,,0,0,40,40,2,20,8,75000,10,20,520,0.25,12,10,,,,,,,"CARRIER, COMBAT, UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.5,2,3,,201
+Palisade,magellan_dronegunner,Gun Droneship,Antique,magellan_smokelayer_bad,3,2000,400,1800,1875,150,30,,100,100,75,90,105,150,NONE,,0,0,0,,,0,0,20,20,1,20,9,10000,10,20,480,0.25,3,3,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.6,2,2,,222
+Barricade,magellan_dronemissilefrig,Missile Droneship,Antique,fastmissileracks,3,2000,350,1200,1250,100,40,,80,80,60,60,90,180,NONE,,0,0,0,,,0,0,20,20,1,20,9,10000,10,20,480,0.25,3,3,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.5,2,2,,222
+Redoubt,magellan_droneturret,Defense Turret,Antique,magellan_flakpods,6,3200,1000,4000,4000,320,40,,5,30,30,12,30,300,NONE,,0,0,0,,,0,0,20,20,1,20,9,25000,10,20,480,0.25,5,4,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.3,2,2,,201
+Rampart,magellan_droneship,Combat Droneship,Antique,burndrive,9,6000,1000,6800,7000,420,90,,60,40,20,30,20,500,PHASE,damper,0,0,0,,,0,0,40,40,2,20,8,75000,10,20,600,0.25,10,8,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, special_allows_system_use, system_allows_special_use, restricted, auto_rec",,,,0.3,2,3,,201
+Bulwark,magellan_dronecarrier,Carrier Droneship,Antique,magellan_flakpods,12,4000,600,3600,4000,240,85,2,70,45,15,20,40,450,NONE,,0,0,0,,,0,0,40,40,2,20,8,75000,10,20,520,0.25,12,10,,,,,,,"CARRIER, COMBAT, UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.5,2,3,,201
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Terschad,magellan_modularfrigate,Frigate,Antique,magellan_flakpods,5,2400,400,2000,2000,160,50,,120,125,100,60,105,240,OMNI,,120,0.4,1,,,20,40,60,20,2,10,9,15000,10,15,210,0.2,4,4,,,,,,,HIDE_IN_CODEX,"magellan_derelict_manned, no_sell, no_dealer, no_autofit",,,,0.3,2,2,,202
 Konstantin,magellan_mothership_base,Mothership,Antique,magellan_fightercom,30,24000,2500,22000,25000,1000,360,3,25,12,8,4,6,5400,OMNI,,240,0.2,0.6,,,1400,2400,800,400,10,40,8,1000000,5,12,840,0.25,60,50,,,,,,,HIDE_IN_CODEX,"magellan_derelict_manned, no_sell, no_dealer, no_autofit, no_auto_escort",,,,0.3,3,5,,507
@@ -112,3 +112,4 @@ Advanced Maser,magellan_flakdrone_smuggler,,Unique Magellan,,,500,50,400,,100,,,
 #Ancient,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Duncan,magellan_battleship_ancient,Dreadnought,Unique Ancient Magellan,magellan_anomalous_overdrive,1800,26000,6000,14400,6,700,290,,33,33,18,9,18,3600,PHASE,magellan_anomalous_flakpods,,,,,,1250,1500,250,200,16,7,8,1000000,3,20,450,0.3,60,60,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, special_allows_system_use, system_allows_special_use",,,,0.2,2,3,,6
 Claymore,magellan_mech1_torso,Heavy Assault Mech,Magellan,,,1200,250,800,,200,0,0,120,200,180,90,120,75,OMNI,,360,0,0.9,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,1007
+Rounder,magellan_bounder,Heavy Bomber,Magellan,magellan_smokelayer,7,500,100,1000,,100,40,,220,420,480,210,320,40,OMNI,,180,0.5,1,,,1,1,0,0,0.5,,11,15000,15,15,180,0.25,7,7,,,,,,,PLAY_FIGHTER_OVERLOAD_SOUNDS,,,,,0,,,,8

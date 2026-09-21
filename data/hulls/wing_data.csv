@@ -10,8 +10,8 @@ magellan_lightfighter_civ_wing,magellan_lightfighter_civ_Fighter,"fighter4, figh
 magellan_skate_wing,magellan_skate_Escort,"no_drop, no_sell",3,0.1,8,8,V,4000,400,200,4,FIGHTER,Escort Fighter,10,32000,3
 magellan_rounder_wing,magellan_rounder_Fighter,"no_drop, no_sell",3,0.1,7,12,CLAW,4000,500,400,2,FIGHTER,Heavy Fighter,15,50000,3
 ,,,,,,,,,,,,,,,,
-magellan_dronefighter_wing,magellan_dronefighter_std,"fighter5, fighter, magellan_derelict, no_sell, auto_fighter",3,,5,10,V,4000,500,,4,FIGHTER,Support,6,15000,3
-magellan_dronebomber_wing,magellan_dronebomber_std,"bomber5, bomber, magellan_derelict, no_sell, auto_fighter",3,,7,15,V,4000,2500,300,4,BOMBER,Bomber,12,30000,10
+magellan_dronefighter_wing,magellan_dronefighter_std,"fighter5, fighter, magellan_derelict, no_sell, auto_fighter, no_drop",3,,5,10,V,4000,500,,4,FIGHTER,Support,6,15000,3
+magellan_dronebomber_wing,magellan_dronebomber_std,"bomber5, bomber, magellan_derelict, no_sell, auto_fighter, no_drop",3,,7,15,V,4000,2500,300,4,BOMBER,Bomber,12,30000,10
 ,,,,,,,,,,,,,,,,
 magellan_interceptor_blackcollar_wing,magellan_interceptor_blackcollar_Interceptor,"interceptor3, interceptor, magellan_blackcollar",2,,4,5,CLAW,4000,200,700,5,INTERCEPTOR,Interceptor,5,6400,7
 magellan_hvyfighter_blackcollar_wing,magellan_hvyfighter_blackcollar_Fighter,"fighter5, fighter, magellan_blackcollar",2,,6,10,V,4000,700,450,3,BOMBER,Fighter-Bomber,10,13500,3
@@ -56,4 +56,5 @@ magellan_hvyfighter_strikecraft_marauder_wing,magellan_hvyfighter_strikecraft_ma
 #Levellers,,,,,,,,,,,,,,,,
 magellan_dard_wing,magellan_interceptor_Interceptor,"no_drop, no_sell, restricted",0,,2,2,CLAW,3000,300,,4,INTERCEPTOR,Interceptor Drone,6,6000,
 magellan_mech_wing,magellan_mech1_torso_std,"fighter5, fighter, rare_bp, magellan, magellan_adv_bp",2,,8,15,V,4000,500,300,1,FIGHTER,Heavy Assault Mech,20,45000,3
-magellan_lev_lancefrig_x2_wing,magellan_lev_lancefrig_std,"stay_in_front_of_ship, match_leader_facing, no_drop, no_sell, restricted",3,,6,0,V,0,300,150,2,SUPPORT,Ramey-Beta,12,8000,22
+magellan_lev_lancefrig_x2_wing,magellan_lev_lancefrig_std,"stay_in_front_of_ship, match_leader_facing, no_drop, no_sell, restricted",3,,6,0,V,0,300,150,1,SUPPORT,Ramey-Beta,12,8000,22
+magellan_bounder_wing,magellan_bounder_Bomber,"magellan_core_bp, magellan_adv_bp",2,1,5,12,V,4000,500,400,2,BOMBER,Heavy Bomber,12,15000,3

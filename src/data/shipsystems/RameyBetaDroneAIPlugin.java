@@ -100,6 +100,7 @@ public class RameyBetaDroneAIPlugin implements ShipAIPlugin {
 
         // 4. Enforce strict fire control (only fire when facing enemy)
         enforceFireControl(engine, target);
+        manageSystem(engine);
     }
     
     private void manageShields() {
@@ -113,6 +114,33 @@ public class RameyBetaDroneAIPlugin implements ShipAIPlugin {
         }
     }
     
+    
+    private void manageSystem(CombatEngineAPI engine) {
+        ShipSystemAPI system = drone.getSystem();
+        if (system == null || system.isOutOfAmmo() || system.getState() != ShipSystemAPI.SystemState.IDLE) return;
+
+        boolean threat = false;
+        for (MissileAPI missile : engine.getMissiles()) {
+            if (missile.getOwner() == drone.getOwner()) continue;
+            if (com.fs.starfarer.api.util.Misc.getDistance(drone.getLocation(), missile.getLocation()) < 500f) {
+                threat = true;
+                break;
+            }
+        }
+        if (!threat) {
+            for (ShipAPI fighter : engine.getShips()) {
+                if (!fighter.isFighter() || fighter.getOwner() == drone.getOwner() || !fighter.isAlive()) continue;
+                if (com.fs.starfarer.api.util.Misc.getDistance(drone.getLocation(), fighter.getLocation()) < 500f) {
+                    threat = true;
+                    break;
+                }
+            }
+        }
+        if (threat) {
+            drone.giveCommand(ShipCommand.USE_SYSTEM, null, 0);
+        }
+    }
+
     private void strikeTarget(ShipAPI target) {
         float angleToTarget = Misc.getAngleInDegrees(drone.getLocation(), target.getLocation());
         float angleDiff = Misc.getAngleDiff(drone.getFacing(), angleToTarget);

@@ -1,7 +1,7 @@
 {
   "variantId": "magellan_dronefighter_std",
     "hullId": "magellan_dronefighter",
-  "displayName": "Drones",
+  "displayName": "Fighter Drones",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,

@@ -17,7 +17,8 @@
     "magazines"
   ],
   "builtInWings": [
-	
+    "magellan_dronefighter_wing",
+    "magellan_dronebomber_wing"
   ],
   "weaponSlots": [
     {

@@ -9,7 +9,7 @@ import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 public class MissionDefinition implements MissionDefinitionPlugin {
     @Override
     public void defineMission(MissionDefinitionAPI api) {
-        api.initFleet(FleetSide.PLAYER, "FSS", FleetGoal.ATTACK, false, 5);
+        api.initFleet(FleetSide.PLAYER, "ISS", FleetGoal.ATTACK, false, 5);
         api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true, 5);
         api.setFleetTagline(FleetSide.PLAYER, "Test: Civilians & Scavengers");
         api.setFleetTagline(FleetSide.ENEMY, "Target Fleet");
@@ -19,6 +19,9 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_linefrigate_civ_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_patroldestroyer_civ_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supply_civ_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_skiff_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_skiff_d_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_skiff_d2_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.ENEMY, "magellan_battleship_line", FleetMemberType.SHIP, "ISS Target", false);
         api.addToFleet(FleetSide.ENEMY, "magellan_linedestroyer_std", FleetMemberType.SHIP, "ISS Escort", false);
 

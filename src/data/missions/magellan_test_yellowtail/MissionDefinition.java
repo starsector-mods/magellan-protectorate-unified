@@ -9,7 +9,7 @@ import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 public class MissionDefinition implements MissionDefinitionPlugin {
     @Override
     public void defineMission(MissionDefinitionAPI api) {
-        api.initFleet(FleetSide.PLAYER, "FSS", FleetGoal.ATTACK, false, 5);
+        api.initFleet(FleetSide.PLAYER, "TMC", FleetGoal.ATTACK, false, 5);
         api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true, 5);
         api.setFleetTagline(FleetSide.PLAYER, "Test: Yellowtail");
         api.setFleetTagline(FleetSide.ENEMY, "Target Fleet");

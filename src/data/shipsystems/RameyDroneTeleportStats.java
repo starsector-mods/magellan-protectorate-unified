@@ -153,7 +153,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			source.setCustomData("ramey_betas_list", tracked);
 		}
 		
-		while (active.size() < 2) {
+		while (active.size() < 1) {
 			Vector2f spawnLoc = findClearLocation(source, mineLoc);
 			if (spawnLoc == null) spawnLoc = mineLoc;
 			ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);

@@ -42,8 +42,5 @@
             "weapons": {"WS0003": "magellan_laservulcan"}
         }
     ],
-    "wings": [
-        "magellan_dronefighter_wing",
-        "magellan_dronefighter_wing"
-    ]
+    "wings": []
 }

@@ -18,6 +18,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_battlecruiser_Hull", FleetMemberType.SHIP, true);
         api.addToFleet(FleetSide.PLAYER, "magellan_battleship_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_carrier_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_carrier_std", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_carrierconverted_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_cbtfreight_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_cruiser_Hull", FleetMemberType.SHIP, false);
@@ -38,9 +39,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_schooner_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_schooner_d_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_schooner_d2_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_skiff_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_skiff_d_Hull", FleetMemberType.SHIP, false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_skiff_d2_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_skipjack_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_skipjack_militarized_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supply_Hull", FleetMemberType.SHIP, false);
