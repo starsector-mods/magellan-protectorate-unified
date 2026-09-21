@@ -1,13 +1,13 @@
 {
-  "displayName": "Heavy Bomber",
+  "displayName": "Torpedo Bomber",
   "fluxCapacitors": 0,
   "fluxVents": 0,
-  "goalVariant": false,
+  "goalVariant": true,
   "hullId": "magellan_bounder",
   "hullMods": [],
   "permaMods": [],
   "quality": 0,
-  "variantId": "magellan_bounder_Bomber",
+  "variantId": "magellan_rounder_Bomber",
   "weaponGroups": [
     {
       "autofire": false,

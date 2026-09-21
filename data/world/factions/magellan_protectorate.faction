@@ -122,7 +122,6 @@
 			"magellan_bomber_wing",
 			"magellan_corvette_wing",
 			"magellan_rounder_wing",
-			"magellan_bounder_wing",
 			"magellan_mech_wing"
 		]
 	},
@@ -133,8 +132,7 @@
 			"magellan_hvyfighter_wing",
 			"magellan_bomber_wing",
 			"magellan_corvette_wing",
-			"magellan_rounder_wing",
-			"magellan_bounder_wing"
+			"magellan_rounder_wing"
 		]
 	},
 	"knownWeapons":{
