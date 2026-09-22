@@ -56,11 +56,11 @@
                         <additionalClasspathElement>${starsector.dir}/lwjgl_util.jar</additionalClasspathElement>
                         <additionalClasspathElement>${starsector.dir}/json.jar</additionalClasspathElement>
                         <additionalClasspathElement>${starsector.dir}/log4j-1.2.9.jar</additionalClasspathElement>
-                        <additionalClasspathElement>${starsector.dir}/mods/LazyLib-3.0.0/jars/LazyLib.jar</additionalClasspathElement>
-                        <additionalClasspathElement>${starsector.dir}/mods/LazyLib-3.0.0/jars/LazyLib-Kotlin.jar</additionalClasspathElement>
-                        <additionalClasspathElement>${starsector.dir}/mods/zz GraphicsLib-1.12.1/jars/Graphics.jar</additionalClasspathElement>
-                        <additionalClasspathElement>${starsector.dir}/mods/Nexerelin-0.12.1e/jars/ExerelinCore.jar</additionalClasspathElement>
-                        <additionalClasspathElement>${starsector.dir}/mods/MagicLib-1.5.6/jars/MagicLib.jar</additionalClasspathElement>
+                        <additionalClasspathElement>${starsector.dir}/mods/LazyLib/jars/LazyLib.jar</additionalClasspathElement>
+                        <additionalClasspathElement>${starsector.dir}/mods/LazyLib/jars/LazyLib-Kotlin.jar</additionalClasspathElement>
+                        <additionalClasspathElement>${starsector.dir}/mods/GraphicsLib/jars/Graphics.jar</additionalClasspathElement>
+                        <additionalClasspathElement>${starsector.dir}/mods/Nexerelin/jars/ExerelinCore.jar</additionalClasspathElement>
+                        <additionalClasspathElement>${starsector.dir}/mods/MagicLib/jars/MagicLib.jar</additionalClasspathElement>
                         <additionalClasspathElement>${starsector.dir}/mods/Console Commands-4.0.9/jars/lw_Console.jar</additionalClasspathElement>
                     </additionalClasspathElements>
                 </configuration>
@@ -237,14 +237,14 @@
             <artifactId>LazyLib</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${starsector.dir}/mods/LazyLib-3.0.0/jars/LazyLib.jar</systemPath>
+            <systemPath>${starsector.dir}/mods/LazyLib/jars/LazyLib.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>local.starsector</groupId>
             <artifactId>LazyLib-Kotlin</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${starsector.dir}/mods/LazyLib-3.0.0/jars/LazyLib-Kotlin.jar</systemPath>
+            <systemPath>${starsector.dir}/mods/LazyLib/jars/LazyLib-Kotlin.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -252,21 +252,21 @@
             <artifactId>Graphics</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${starsector.dir}/mods/zz GraphicsLib-1.12.1/jars/Graphics.jar</systemPath>
+            <systemPath>${starsector.dir}/mods/GraphicsLib/jars/Graphics.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>local.starsector</groupId>
             <artifactId>ExerelinCore</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${starsector.dir}/mods/Nexerelin-0.12.1e/jars/ExerelinCore.jar</systemPath>
+            <systemPath>${starsector.dir}/mods/Nexerelin/jars/ExerelinCore.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>local.starsector</groupId>
             <artifactId>MagicLib</artifactId>
             <version>1.0</version>
             <scope>system</scope>
-            <systemPath>${starsector.dir}/mods/MagicLib-1.5.6/jars/MagicLib.jar</systemPath>
+            <systemPath>${starsector.dir}/mods/MagicLib/jars/MagicLib.jar</systemPath>
         </dependency>
 
         <!-- Jqwik for property-based testing -->

@@ -18,7 +18,7 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
     private boolean runOnce = false;
     private ShipAPI ship;
     private float overlap = 0f;
-    private final float MAX_OVERLAP = 2.0f; // Subtle visual sway
+    private float MAX_OVERLAP = 2.0f; // Subtle visual sway
     
     private int roundCounter = 0;
 
@@ -39,6 +39,9 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
         if (!runOnce) {
             runOnce = true;
             ship = weapon.getShip();
+            if (ship != null && ship.getHullSpec() != null && ship.getHullSpec().getHullId().contains("breacher")) {
+                MAX_OVERLAP = 0.5f; // Reduce sway significantly for breacher variants
+            }
         }
         
         if (engine == null || engine.isPaused() || ship == null || !ship.isAlive()) {

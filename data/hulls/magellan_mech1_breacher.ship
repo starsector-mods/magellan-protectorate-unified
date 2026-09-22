@@ -29,22 +29,11 @@
     "builtInModules":null,
     "weaponSlots":[
         {
-            "id":"WS_HEAD",
-            "size":"SMALL",
-            "type":"DECORATIVE",
-            "mount":"TURRET",
-            "arc":0,
-            "angle":0,
-            "locations":[
-                       0,        0
-            ]
-        },
-        {
             "id":"WS_L_ARM",
             "size":"SMALL",
             "type":"BUILT_IN",
             "mount":"TURRET",
-            "arc":90,
+            "arc":40,
             "angle":0,
             "locations":[
                        0,       10
@@ -55,7 +44,7 @@
             "size":"SMALL",
             "type":"BUILT_IN",
             "mount":"TURRET",
-            "arc":90,
+            "arc":40,
             "angle":0,
             "locations":[
                        0,      -10
@@ -70,6 +59,17 @@
             "angle":0,
             "locations":[
                      -10,       -5
+            ]
+        },
+        {
+            "id":"WS_HEAD",
+            "size":"SMALL",
+            "type":"DECORATIVE",
+            "mount":"TURRET",
+            "arc":0,
+            "angle":0,
+            "locations":[
+                       0,        0
             ]
         }
     ],
