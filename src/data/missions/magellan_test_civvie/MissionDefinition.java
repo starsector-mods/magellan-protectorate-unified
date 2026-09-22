@@ -21,7 +21,9 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_supply_civ_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_schooner_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_ltfreight_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_ltfreight_cbt_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_skiff_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_skipjack_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.ENEMY, "magellan_battleship_line", FleetMemberType.SHIP, "ISS Target", false);
         api.addToFleet(FleetSide.ENEMY, "magellan_linedestroyer_std", FleetMemberType.SHIP, "ISS Escort", false);
 

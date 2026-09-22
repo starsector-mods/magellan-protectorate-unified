@@ -20,6 +20,7 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_carrier_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_carrierconverted_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_fastdestroyer_blackcollar_Hull", FleetMemberType.SHIP, false);
+        api.addToFleet(FleetSide.PLAYER, "magellan_fastdestroyer_bc_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_fastfrigate_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_lightcruiser_blackcollar_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_linedestroyer_blackcollar_Hull", FleetMemberType.SHIP, false);
