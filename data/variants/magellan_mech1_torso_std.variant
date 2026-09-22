@@ -25,7 +25,7 @@
     },
     {
       "autofire": false,
-      "mode": "ALTERNATING",
+      "mode": "LINKED",
       "weapons": {
         "WS_SHOULDER": "magellan_mech_shoulderlauncher",
         "WS_L_SHOULDER": "magellan_mech_shoulderlauncher"
