@@ -390,7 +390,7 @@ public class KhamnConstellation {
         this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_skipjack_std", ShipRecoverySpecial.ShipCondition.AVERAGE, radius_junkyard - 160.0f, true);
         this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_lightcruiser_elite_proto", ShipRecoverySpecial.ShipCondition.AVERAGE, radius_junkyard, true);
         this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_carrier_startiger_std", ShipRecoverySpecial.ShipCondition.BATTERED, radius_junkyard - 75.0f, false);
-        this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_schooner_std", ShipRecoverySpecial.ShipCondition.AVERAGE, radius_junkyard + 450.0f, true);
+        this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_schooner_restored", ShipRecoverySpecial.ShipCondition.AVERAGE, radius_junkyard + 450.0f, true);
         this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_skiff_std", ShipRecoverySpecial.ShipCondition.AVERAGE, radius_junkyard - 140.0f, true);
         this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_cruiser_obsolete", ShipRecoverySpecial.ShipCondition.WRECKED, radius_junkyard + 75.0f, false);
         this.addDerelict(system_two, (SectorEntityToken)two_star, "magellan_modularfrigate_std", ShipRecoverySpecial.ShipCondition.BATTERED, radius_junkyard + 160.0f, true);
