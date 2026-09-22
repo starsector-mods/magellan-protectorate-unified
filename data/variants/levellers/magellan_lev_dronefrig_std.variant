@@ -6,7 +6,7 @@
     "hullId": "magellan_lev_dronefrig",
     "hullMods": [
         "missleracks",
-        "hardenedshieldemitter"
+        "armoredweapons"
     ],
     "permaMods": [],
     "sMods": [],

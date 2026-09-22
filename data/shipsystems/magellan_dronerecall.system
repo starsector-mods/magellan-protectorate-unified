@@ -1,0 +1,29 @@
+{
+	"id":"magellan_dronerecall",
+	"type":"STAT_MOD",
+	"aiType":"DAMPER_FIELD",
+	
+	"statsScript":"data.shipsystems.RameySlaveGuardStats",
+	
+	"runScriptWhileIdle":true,
+	"canNotCauseOverload":true,
+	
+	"jitterUnderColor":[100,255,100,155],
+	"jitterUnderCopies":15,
+	"jitterUnderMinRange":0,
+	"jitterUnderRange":6,
+	"jitterUnderRangeRadiusFraction":0,
+	
+	"jitterColor":[100,255,100,55],
+	"jitterCopies":2,
+	"jitterMinRange":0,
+	"jitterRange":4,
+	"jitterRangeRadiusFraction":0,
+	
+	"fadeActivationSoundOnChargedown":false,
+	"useSound":"system_recall_device",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	"aiHints":{
+	}
+}

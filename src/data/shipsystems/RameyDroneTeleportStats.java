@@ -133,7 +133,8 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		float fadeInTime = 0.5f;
 		List<ShipAPI> active = getActiveDrones(source);
 		
-		// Teleport existing living drones
+		// Teleport existing living drones - offensive teleport cancels any active guard stance
+		source.getCustomData().remove("ramey_guard_until");
 		for (ShipAPI drone : active) {
 			Vector2f dest = findClearLocation(source, mineLoc);
 			if (dest == null) dest = mineLoc;
@@ -150,42 +151,50 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		}
 		
 		// Respawn dead drones during teleport to maintain the original system mechanics
+		while (active.size() < 1) {
+			Vector2f spawnLoc = findClearLocation(source, mineLoc);
+			if (spawnLoc == null) spawnLoc = mineLoc;
+			ShipAPI drone = spawnDrone(source, spawnLoc, spawnFacing);
+			if (drone != null) {
+				drone.getVelocity().scale(0.1f);
+				engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
+				Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
+				active.add(drone);
+			} else {
+				break;
+			}
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public static ShipAPI spawnDrone(ShipAPI source, Vector2f spawnLoc, float spawnFacing) {
+		CombatEngineAPI engine = Global.getCombatEngine();
+		if (engine == null || source == null || !source.isAlive()) return null;
+
 		List<ShipAPI> tracked = (List<ShipAPI>) source.getCustomData().get("ramey_betas_list");
 		if (tracked == null) {
 			tracked = new java.util.ArrayList<>();
 			source.setCustomData("ramey_betas_list", tracked);
 		}
-		
-		while (active.size() < 1) {
-			Vector2f spawnLoc = findClearLocation(source, mineLoc);
-			if (spawnLoc == null) spawnLoc = mineLoc;
-			final ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
-			if (drone != null) {
-				drone.setInvalidTransferCommandTarget(true);
 
-				ShipAIConfig config = new ShipAIConfig();
-				config.personalityOverride = Personalities.AGGRESSIVE;
-				config.alwaysStrafeOffensively = true;
-				config.backingOffWhileNotVentingAllowed = true;
-				ShipAIPlugin nativeAI = Global.getSettings().createDefaultShipAI(drone, config);
-				drone.setShipAI(nativeAI);
+		final ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
+		if (drone != null) {
+			drone.setInvalidTransferCommandTarget(true);
 
-				engine.addPlugin(createDroneCoordinatorPlugin(drone, source));
-				
-				// Make the newly spawned drone look like it teleported in
-				drone.getVelocity().scale(0.1f);
-				engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
-				Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
-				
-				active.add(drone);
-				tracked.add(drone);
-			} else {
-			    break; // prevent infinite loop if fleet manager refuses to spawn
-			}
+			ShipAIConfig config = new ShipAIConfig();
+			config.personalityOverride = Personalities.AGGRESSIVE;
+			config.alwaysStrafeOffensively = true;
+			config.backingOffWhileNotVentingAllowed = true;
+			ShipAIPlugin nativeAI = Global.getSettings().createDefaultShipAI(drone, config);
+			drone.setShipAI(nativeAI);
+
+			engine.addPlugin(createDroneCoordinatorPlugin(drone, source));
+			tracked.add(drone);
 		}
+		return drone;
 	}
 
-	protected EveryFrameCombatPlugin createDroneCoordinatorPlugin(final ShipAPI drone, final ShipAPI source) {
+	public static EveryFrameCombatPlugin createDroneCoordinatorPlugin(final ShipAPI drone, final ShipAPI source) {
 		return new BaseEveryFrameCombatPlugin() {
 			@Override
 			public void advance(float amount, List<InputEventAPI> events) {
@@ -198,6 +207,25 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					if (drone.getShipAI() != null) {
 						drone.getShipAI().setTargetOverride(null);
 					}
+					return;
+				}
+
+				// Check if defensive guard stance is active
+				boolean isGuarding = false;
+				Float guardUntil = (Float) source.getCustomData().get("ramey_guard_until");
+				if (guardUntil != null && guardUntil > Global.getCombatEngine().getTotalElapsedTime(false)) {
+					isGuarding = true;
+				}
+
+				if (isGuarding) {
+					if (drone.getShipAI() != null) {
+						drone.getShipAI().setTargetOverride(null);
+					}
+					drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
+					drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
+					drone.getAIFlags().setFlag(AIFlags.KEEP_SHIELDS_ON, 1f);
+					drone.getAIFlags().setFlag(AIFlags.DO_NOT_BACK_OFF, 1f);
+					drone.getAIFlags().setFlag(AIFlags.FACING_OVERRIDE_FOR_MOVE_AND_ESCORT_MANEUVERS, 1f, source.getFacing());
 					return;
 				}
 
@@ -222,7 +250,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		};
 	}
 	
-	protected EveryFrameCombatPlugin createDroneJitterPlugin(final ShipAPI drone, final float fadeInTime) {
+	public static EveryFrameCombatPlugin createDroneJitterPlugin(final ShipAPI drone, final float fadeInTime) {
 		return new BaseEveryFrameCombatPlugin() {
 			float elapsed = 0f;
 			@Override
@@ -281,7 +309,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	}
 	
 	private Vector2f findClearLocation(ShipAPI ship, Vector2f dest) {
-		if (isLocationClear(dest)) return dest;
+		if (isLocationClear(ship, dest)) return dest;
 		
 		float incr = 50f;
 		WeightedRandomPicker<Vector2f> tested = new WeightedRandomPicker<Vector2f>();
@@ -292,7 +320,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 				loc.scale(incr * distIndex);
 				Vector2f.add(dest, loc, loc);
 				tested.add(loc);
-				if (isLocationClear(loc)) {
+				if (isLocationClear(ship, loc)) {
 					return loc;
 				}
 			}
@@ -302,8 +330,9 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		return tested.pick();
 	}
 	
-	private boolean isLocationClear(Vector2f loc) {
+	private boolean isLocationClear(ShipAPI ship, Vector2f loc) {
 		for (ShipAPI other : Global.getCombatEngine().getShips()) {
+			if (other == ship) continue;
 			if (other.isShuttlePod()) continue;
 			if (other.isFighter()) continue;
 			
