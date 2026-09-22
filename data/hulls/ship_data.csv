@@ -111,4 +111,4 @@ Advanced Maser,magellan_flakdrone_smuggler,,Unique Magellan,,,500,50,400,,100,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Ancient,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Duncan,magellan_battleship_ancient,Dreadnought,Unique Ancient Magellan,magellan_anomalous_overdrive,1800,26000,6000,14400,6,700,290,,33,33,18,9,18,3600,PHASE,magellan_anomalous_flakpods,,,,,,1250,1500,250,200,16,7,8,1000000,3,20,450,0.3,60,60,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, special_allows_system_use, system_allows_special_use",,,,0.2,2,3,,6
-Claymore,magellan_mech1_torso,Heavy Assault Mech,Magellan,,,1200,250,800,,200,0,0,120,200,180,90,120,75,OMNI,,360,0,0.9,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,1007
+Claymore,magellan_mech1_torso,Heavy Assault Mech,Magellan,magellan_burstjets_ftr,,2000,400,800,,200,0,0,120,200,180,90,120,75,OMNI,,360,0,0.9,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,1007

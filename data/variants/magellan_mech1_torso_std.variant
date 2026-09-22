@@ -17,17 +17,18 @@
       }
     },
     {
-      "autofire": false,
-      "mode": "LINKED",
-      "weapons": {
-        "WS_SHOULDER": "magellan_mech_shoulderlauncher"
-      }
-    },
-    {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS_L_ARM": "magellan_smciws_mechL"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS_SHOULDER": "magellan_mech_shoulderlauncher",
+        "WS_L_SHOULDER": "magellan_mech_shoulderlauncher"
       }
     }
   ],

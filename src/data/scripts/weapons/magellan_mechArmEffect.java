@@ -16,7 +16,6 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
 
     private boolean runOnce = false;
     private ShipAPI ship;
-    private SpriteAPI arm;
     private float overlap = 0;
     private float CENTER_Y;
     private final float MAX_OVERLAP = 2.5f; // Slight visual sway, not too exaggerated
@@ -40,29 +39,40 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
         if(!runOnce){
             runOnce = true;
             ship = weapon.getShip();
-            arm = weapon.getSprite();
-            if (arm != null) {
-                CENTER_Y = arm.getCenterY();
+            if (weapon.getSprite() != null) {
+                CENTER_Y = weapon.getSprite().getCenterY();
             }
         }
         
-        if (engine == null || engine.isPaused() || ship == null || !ship.isAlive() || arm == null) {
+        if (engine == null || engine.isPaused() || ship == null || !ship.isAlive() || weapon.getSprite() == null) {
             return;
         }
         
-        // Momentum math
-        float targetOverlap = 0f;
-        if (ship.getEngineController().isAccelerating()) {
-            targetOverlap = MAX_OVERLAP;
-        } else if (ship.getEngineController().isDecelerating() || ship.getEngineController().isAcceleratingBackwards()) {
-            targetOverlap = -MAX_OVERLAP;
-        }
+        // Physics-based momentum (smooth, ignores AI thruster tapping jitter)
+        Vector2f velocity = ship.getVelocity();
+        float facing = ship.getFacing(); // degrees
+        
+        // Calculate the forward vector based on ship facing
+        Vector2f forward = new Vector2f((float)Math.cos(Math.toRadians(facing)), (float)Math.sin(Math.toRadians(facing)));
+        
+        // Dot product gives us the velocity magnitude precisely along the forward/backward axis
+        float forwardSpeed = Vector2f.dot(velocity, forward);
+        
+        // Normalize it against the mech's max speed (usually 120-200) to get a smooth -1 to 1 ratio
+        float maxSpeed = ship.getMutableStats().getMaxSpeed().getModifiedValue();
+        if (maxSpeed < 1f) maxSpeed = 1f;
+        float speedRatio = forwardSpeed / maxSpeed;
+        
+        // Clamp it just in case of extreme impulse forces (like explosions)
+        speedRatio = Math.max(-1f, Math.min(1f, speedRatio));
+        
+        float targetOverlap = MAX_OVERLAP * speedRatio;
         
         // Smooth frame-rate independent interpolation
         overlap = overlap + (targetOverlap - overlap) * Math.min(1f, amount * 5f);
         
-        // Apply momentum to the sprite center Y
-        arm.setCenterY(CENTER_Y + overlap);
+        // Apply momentum to the current animation frame's sprite center Y
+        weapon.getSprite().setCenterY(CENTER_Y + overlap);
     }
     
     @Override
