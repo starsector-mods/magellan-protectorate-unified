@@ -51,25 +51,15 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
         }
         
         // Momentum math
+        float targetOverlap = 0f;
         if (ship.getEngineController().isAccelerating()) {
-            if (overlap > (MAX_OVERLAP - 0.1f)) {
-                overlap = MAX_OVERLAP;
-            } else {
-                overlap = Math.min(MAX_OVERLAP, overlap + ((MAX_OVERLAP - overlap) * amount * 5));
-            }
-        } else if (ship.getEngineController().isDecelerating() || ship.getEngineController().isAcceleratingBackwards()) {         
-            if (overlap < -(MAX_OVERLAP - 0.1f)) {
-                overlap = -MAX_OVERLAP;
-            } else {   
-                overlap = Math.max(-MAX_OVERLAP, overlap + ((-MAX_OVERLAP - overlap) * amount * 5));
-            }
-        } else {
-            if (Math.abs(overlap) < 0.1f) {
-                overlap = 0;   
-            } else {
-                overlap -= (overlap / 2) * amount * 3;   
-            }
+            targetOverlap = MAX_OVERLAP;
+        } else if (ship.getEngineController().isDecelerating() || ship.getEngineController().isAcceleratingBackwards()) {
+            targetOverlap = -MAX_OVERLAP;
         }
+        
+        // Smooth frame-rate independent interpolation
+        overlap = overlap + (targetOverlap - overlap) * Math.min(1f, amount * 5f);
         
         // Apply momentum to the sprite center Y
         arm.setCenterY(CENTER_Y + overlap);
