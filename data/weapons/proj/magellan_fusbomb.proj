@@ -42,5 +42,11 @@
 									 "particleColor":[240,30,90,255],
 									 "explosionColor":[240,30,90,155],
 									 "useDetailedExplosion":true,
+									 "useDetailedExplosionColorAlpha":true,
+									 "detailedExplosionRadius":75,
+									 "detailedExplosionFlashRadius":100,
+									 "detailedExplosionFlashDuration":0.2,
+									 "detailedExplosionFlashColorFringe":[240,30,90,90],
+									 "detailedExplosionFlashColorCore":[240,30,90,45],
 									 "sound":"magellan_fusion_crit"}}	
 }
