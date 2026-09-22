@@ -8,6 +8,7 @@ import com.fs.starfarer.api.combat.OnFireEffectPlugin;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.graphics.SpriteAPI;
+import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 import data.scripts.plugins.MagellanTrailPlugin;
 import java.awt.Color;
@@ -16,9 +17,8 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
 
     private boolean runOnce = false;
     private ShipAPI ship;
-    private float overlap = 0;
-    private float CENTER_Y;
-    private final float MAX_OVERLAP = 2.5f; // Slight visual sway, not too exaggerated
+    private float overlap = 0f;
+    private final float MAX_OVERLAP = 2.0f; // Subtle visual sway
     
     private int roundCounter = 0;
 
@@ -35,44 +35,52 @@ public class magellan_mechArmEffect implements EveryFrameWeaponEffectPlugin, OnF
             }
         }
         
-        // 2. Setup the momentum sway
-        if(!runOnce){
+        // 2. Setup the weapon references
+        if (!runOnce) {
             runOnce = true;
             ship = weapon.getShip();
-            if (weapon.getSprite() != null) {
-                CENTER_Y = weapon.getSprite().getCenterY();
-            }
         }
         
-        if (engine == null || engine.isPaused() || ship == null || !ship.isAlive() || weapon.getSprite() == null) {
+        if (engine == null || engine.isPaused() || ship == null || !ship.isAlive()) {
             return;
         }
+
+        SpriteAPI sprite = weapon.getSprite();
+        if (sprite == null) {
+            return;
+        }
+
+        // Base center is ALWAYS exactly half the sprite height (27px for 54px arms).
+        // Computing dynamically prevents uninitialized 0.0f values that throw sprites off-screen.
+        float baseCenterY = sprite.getHeight() / 2f;
         
-        // Physics-based momentum (smooth, ignores AI thruster tapping jitter)
-        Vector2f velocity = ship.getVelocity();
-        float facing = ship.getFacing(); // degrees
-        
-        // Calculate the forward vector based on ship facing
-        Vector2f forward = new Vector2f((float)Math.cos(Math.toRadians(facing)), (float)Math.sin(Math.toRadians(facing)));
-        
-        // Dot product gives us the velocity magnitude precisely along the forward/backward axis
-        float forwardSpeed = Vector2f.dot(velocity, forward);
-        
-        // Normalize it against the mech's max speed (usually 120-200) to get a smooth -1 to 1 ratio
-        float maxSpeed = ship.getMutableStats().getMaxSpeed().getModifiedValue();
-        if (maxSpeed < 1f) maxSpeed = 1f;
-        float speedRatio = forwardSpeed / maxSpeed;
-        
-        // Clamp it just in case of extreme impulse forces (like explosions)
-        speedRatio = Math.max(-1f, Math.min(1f, speedRatio));
-        
-        float targetOverlap = MAX_OVERLAP * speedRatio;
+        // When weapon is actively firing or rotated away from hull to aim at an enemy,
+        // lock it firmly into the socket (no sway). Shifting centerY on a rotated turret
+        // displaces the weapon along its aim angle, ripping it out of the socket.
+        float targetOverlap = 0f;
+        boolean isAimingOrFiring = weapon.isFiring() || Math.abs(MathUtils.getShortestRotation(weapon.getCurrAngle(), ship.getFacing())) > 3f;
+
+        if (!isAimingOrFiring) {
+            // Physics-based momentum (smooth, ignores AI thruster tapping jitter)
+            Vector2f velocity = ship.getVelocity();
+            float facing = ship.getFacing(); // degrees
+            Vector2f forward = new Vector2f((float)Math.cos(Math.toRadians(facing)), (float)Math.sin(Math.toRadians(facing)));
+            float forwardSpeed = Vector2f.dot(velocity, forward);
+            
+            float maxSpeed = ship.getMutableStats().getMaxSpeed().getModifiedValue();
+            if (maxSpeed < 1f) maxSpeed = 1f;
+            float speedRatio = forwardSpeed / maxSpeed;
+            speedRatio = Math.max(-1f, Math.min(1f, speedRatio));
+            
+            targetOverlap = MAX_OVERLAP * speedRatio;
+        }
         
         // Smooth frame-rate independent interpolation
         overlap = overlap + (targetOverlap - overlap) * Math.min(1f, amount * 5f);
         
-        // Apply momentum to the current animation frame's sprite center Y
-        weapon.getSprite().setCenterY(CENTER_Y + overlap);
+        // Apply momentum safely. When overlap is 0 (firing/aiming), this guarantees
+        // the sprite is locked at its exact native center with zero displacement.
+        sprite.setCenterY(baseCenterY + overlap);
     }
     
     @Override
