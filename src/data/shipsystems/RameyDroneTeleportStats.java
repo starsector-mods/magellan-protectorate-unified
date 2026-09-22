@@ -11,13 +11,17 @@ import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
+import com.fs.starfarer.api.combat.ShipAIConfig;
+import com.fs.starfarer.api.combat.ShipAIPlugin;
 import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.combat.ShipSystemAPI.SystemState;
 import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
+import com.fs.starfarer.api.impl.campaign.ids.Personalities;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.impl.combat.MineStrikeStatsAIInfoProvider;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
+import data.scripts.weapons.magellan_TargetingBeamEffect;
 import org.lwjgl.util.vector.Vector2f;
 
 public class RameyDroneTeleportStats extends BaseShipSystemScript implements MineStrikeStatsAIInfoProvider {
@@ -139,10 +143,9 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
 			Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
 			
-			if (drone.getCustomData().containsKey("ramey_beta_ai_plugin")) {
-				RameyBetaDroneAIPlugin ai = (RameyBetaDroneAIPlugin) drone.getCustomData().get("ramey_beta_ai_plugin");
-				ai.setStrikeMode(6f);
-				drone.setShipAI(ai);
+			if (drone.getShipAI() != null) {
+				drone.getShipAI().cancelCurrentManeuver();
+				drone.getShipAI().forceCircumstanceEvaluation();
 			}
 		}
 		
@@ -156,13 +159,18 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		while (active.size() < 1) {
 			Vector2f spawnLoc = findClearLocation(source, mineLoc);
 			if (spawnLoc == null) spawnLoc = mineLoc;
-			ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
+			final ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
 			if (drone != null) {
-				RameyBetaDroneAIPlugin ai = new RameyBetaDroneAIPlugin(drone, source);
 				drone.setInvalidTransferCommandTarget(true);
-				ai.setStrikeMode(6f);
-				drone.setCustomData("ramey_beta_ai_plugin", ai);
-				drone.setShipAI(ai);
+
+				ShipAIConfig config = new ShipAIConfig();
+				config.personalityOverride = Personalities.AGGRESSIVE;
+				config.alwaysStrafeOffensively = true;
+				config.backingOffWhileNotVentingAllowed = true;
+				ShipAIPlugin nativeAI = Global.getSettings().createDefaultShipAI(drone, config);
+				drone.setShipAI(nativeAI);
+
+				engine.addPlugin(createDroneCoordinatorPlugin(drone, source));
 				
 				// Make the newly spawned drone look like it teleported in
 				drone.getVelocity().scale(0.1f);
@@ -175,6 +183,43 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			    break; // prevent infinite loop if fleet manager refuses to spawn
 			}
 		}
+	}
+
+	protected EveryFrameCombatPlugin createDroneCoordinatorPlugin(final ShipAPI drone, final ShipAPI source) {
+		return new BaseEveryFrameCombatPlugin() {
+			@Override
+			public void advance(float amount, List<InputEventAPI> events) {
+				if (Global.getCombatEngine().isPaused()) return;
+				if (!drone.isAlive() || drone.isHulk()) {
+					Global.getCombatEngine().removePlugin(this);
+					return;
+				}
+				if (source == null || !source.isAlive() || source.isHulk()) {
+					if (drone.getShipAI() != null) {
+						drone.getShipAI().setTargetOverride(null);
+					}
+					return;
+				}
+
+				ShipAPI painted = magellan_TargetingBeamEffect.getPaintedTarget(source);
+				ShipAPI target = null;
+				if (painted != null && painted.isAlive() && painted.getOwner() != drone.getOwner() && !painted.isPhased()) {
+					target = painted;
+				} else if (source.getShipTarget() != null && source.getShipTarget().isAlive() && source.getShipTarget().getOwner() != drone.getOwner() && !source.getShipTarget().isPhased()) {
+					target = source.getShipTarget();
+				}
+
+				if (drone.getShipAI() != null) {
+					if (target != null) {
+						drone.setShipTarget(target);
+						drone.getShipAI().setTargetOverride(target);
+					} else {
+						drone.getShipAI().setTargetOverride(null);
+						drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
+					}
+				}
+			}
+		};
 	}
 	
 	protected EveryFrameCombatPlugin createDroneJitterPlugin(final ShipAPI drone, final float fadeInTime) {
