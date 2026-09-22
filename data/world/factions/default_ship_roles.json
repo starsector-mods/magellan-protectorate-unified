@@ -205,16 +205,12 @@
     "freighterSmall": {
         "magellan_cbtfreight_frontier": 2,
         "magellan_cbtfreight_civ_std": 4,
-        "magellan_skiff_d_std": 7,
-        "magellan_skiff_d2_std": 10,
-        "magellan_schooner_d_std": 7,
-        "magellan_schooner_d2_std": 10,
+        "magellan_skiff_std": 10,
         "magellan_schooner_yellowtail_std": 5
     },
     "freighterMedium": {
         "magellan_ltfreight_std": 5,
         "magellan_ltfreight_mil_std": 5,
-        "magellan_ltfreight_d_std": 0,
         "magellan_ltfreight_yellowtail_std": 5
     },
     "freighterLarge": {

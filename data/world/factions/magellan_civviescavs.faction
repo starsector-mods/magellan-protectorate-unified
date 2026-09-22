@@ -31,12 +31,9 @@
 		"hulls":{
 			"magellan_linefrigate_civ":2,
 			"magellan_ltfreight":1.5,
-			"magellan_ltfreight_d":2,
 			"magellan_patroldestroyer_civ":2,
-			"magellan_schooner_d":0.5,
-			"magellan_schooner_d2":1.5,
-			"magellan_skiff_d":0.5,
-			"magellan_skiff_d2":2,
+			"magellan_schooner":2,
+			"magellan_skiff":2,
 			"buffalo2":0,
 			"atlas":0.3,
 			"dram":0.7,
@@ -56,12 +53,9 @@
 			"magellan_cbtfreight_civ",
 			"magellan_linefrigate_civ",
 			"magellan_ltfreight",
-			"magellan_ltfreight_d",
 			"magellan_patroldestroyer_civ",
-			"magellan_schooner_d",
-			"magellan_schooner_d2",
-			"magellan_skiff_d",
-			"magellan_skiff_d2",
+			"magellan_schooner",
+			"magellan_skiff",
 			"atlas",
 			"prometheus"
 		]
@@ -72,9 +66,8 @@
 		"hulls":[
 			"magellan_cbtfreight",
 			"magellan_cbtfreight_civ",
-			"magellan_ltfreight_d",
-			"magellan_schooner_d2",
-			"magellan_skiff_d2"
+			"magellan_schooner",
+			"magellan_skiff"
 		]
 	},
 	"knownFighters":{

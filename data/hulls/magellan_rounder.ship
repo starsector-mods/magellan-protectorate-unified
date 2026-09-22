@@ -2,7 +2,7 @@
   "hullName": "Rounder",
   "hullId": "magellan_rounder",
   "hullSize": "FIGHTER",
-  "spriteName": "graphics/Magellan/ships/magellan_rounder.png",
+  "spriteName": "graphics/Magellan/ships/civ/magellan_rounder.png",
   "style": "MAGELLAN",
   "height": 28,
   "width": 40,

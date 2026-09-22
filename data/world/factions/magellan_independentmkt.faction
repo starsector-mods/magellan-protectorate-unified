@@ -42,12 +42,8 @@
 			"magellan_linefrigate_leveller":0.25,
 			"magellan_linedestroyer":0.5,
 			"magellan_ltfreight":2,
-			"magellan_ltfreight_d":5,
 			"magellan_patroldestroyer_civ":2,
-			"magellan_schooner_d":0.5,
-			"magellan_schooner_d2":2,
-			"magellan_skiff_d":0.5,
-			"magellan_skiff_d2":3,
+			"magellan_skiff":3,
 			"magellan_supply_civ":2,
 			"magellan_supportdestroyer":0.5,
 			"magellan_supportdestroyer_leveller":0.1,
@@ -70,9 +66,7 @@
 			"magellan_cbtfreight_civ",
 			"magellan_patroldestroyer_civ",
 			"magellan_supply_civ",
-			"magellan_ltfreight_d",
-			"magellan_skiff_d2",
-			"magellan_schooner_d2"
+			"magellan_skiff",
 		]
 	},
 	"knownShips":{
@@ -85,13 +79,9 @@
 			"magellan_linefrigate_leveller",
 			"magellan_linedestroyer",
 			"magellan_ltfreight",
-			"magellan_ltfreight_d",
 			"magellan_patroldestroyer",
 			"magellan_patroldestroyer_civ",
-			"magellan_schooner_d",
-			"magellan_schooner_d2",
-			"magellan_skiff_d",
-			"magellan_skiff_d2",
+			"magellan_skiff",
 			"magellan_supply_civ",
 			"magellan_supportdestroyer",
 			"magellan_supportdestroyer_leveller",
@@ -109,9 +99,7 @@
 			"magellan_linefrigate_civ",
 			"magellan_patroldestroyer_civ",
 			"magellan_supply_civ",
-			"magellan_ltfreight_d",
-			"magellan_schooner_d2",
-			"magellan_skiff_d2"
+			"magellan_skiff"
 		]
 	},
 	"knownFighters":{

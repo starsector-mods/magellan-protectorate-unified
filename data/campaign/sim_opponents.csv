@@ -33,9 +33,8 @@ magellan_cbtfreight_frontier
 magellan_supply_civ_fighter
 magellan_patroldestroyer_civ_std
 magellan_linefrigate_civ_std
-magellan_schooner_d_std
-magellan_skiff_d_std
-magellan_skiff_d_std
+magellan_schooner_std
+magellan_skiff_std
 # === Magellan Simulator Opponents ===
 magellan_battleship_ancient_wrathful
 magellan_battleship_ancient_relic

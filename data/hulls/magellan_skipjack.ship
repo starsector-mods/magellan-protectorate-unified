@@ -2,7 +2,7 @@
   "hullName": "Skipjack",
   "hullId": "magellan_skipjack",
   "hullSize": "CRUISER",
-  "spriteName": "graphics/Magellan/ships/magellan_skipjack.png",
+  "spriteName": "graphics/Magellan/ships/civ/magellan_skipjack.png",
   "style": "MAGELLAN",
   "height": 324,
   "width": 132,
