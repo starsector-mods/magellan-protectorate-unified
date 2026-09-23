@@ -238,8 +238,10 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 				ShipAPI target = null;
 				ShipAPI painted = magellan_TargetingBeamEffect.getPaintedTarget(source);
 				if (painted != null && painted.isAlive() && painted.getOwner() != drone.getOwner() && !painted.isPhased()) {
-					float d = Misc.getDistance(source.getLocation(), painted.getLocation());
-					if (d <= MAX_DETECTION_RANGE + painted.getCollisionRadius()) {
+					float dSource = Misc.getDistance(source.getLocation(), painted.getLocation());
+					float dDrone = Misc.getDistance(drone.getLocation(), painted.getLocation());
+					if (dSource <= MAX_DETECTION_RANGE + painted.getCollisionRadius()
+							|| dDrone <= MAX_DETECTION_RANGE + painted.getCollisionRadius()) {
 						target = painted;
 					}
 				}
@@ -255,9 +257,9 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					}
 				}
 
-				// Local autonomous target acquisition if enemy is within 800 units of the drone
+				// Local autonomous target acquisition if enemy is within tactical standoff range
 				if (target == null) {
-					float closestDist = 800f;
+					float closestDist = 1000f;
 					for (ShipAPI enemy : Global.getCombatEngine().getShips()) {
 						if (enemy.isHulk() || enemy.getOwner() == drone.getOwner() || enemy.isShuttlePod() || enemy.isPhased()) continue;
 						float d = Misc.getDistance(drone.getLocation(), enemy.getLocation());
@@ -289,12 +291,12 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 						else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
 					}
 
-					// Fire forward acceleration thrusters to close range
-					if (distToTarget > 450f) {
+					// Fire thrusters to maintain optimal sniper engagement distance (600-800 units)
+					if (distToTarget > 800f) {
 						if (angleDiff < 45f) {
 							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
 						}
-					} else if (distToTarget < 200f && angleDiff < 30f) {
+					} else if (distToTarget < 500f && angleDiff < 45f) {
 						drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.DECELERATE, null, 0);
 					}
 				} else {

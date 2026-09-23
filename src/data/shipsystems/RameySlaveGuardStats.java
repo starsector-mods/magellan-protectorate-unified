@@ -56,8 +56,8 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 			executeRecall(ship);
 		}
 
-		// Maintain guard stance and flank wingman positioning during active state
-		if (state == State.ACTIVE || state == State.IN) {
+		// Maintain guard stance and flank wingman positioning during active and chargedown state
+		if (state == State.ACTIVE || state == State.IN || state == State.OUT) {
 			maintainGuardFormation(ship, effectLevel);
 		}
 
@@ -138,10 +138,20 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 		for (ShipAPI drone : active) {
 			if (drone == null || !drone.isAlive() || drone.isHulk()) continue;
 
-			// Keep shields raised and oriented forward
+			// Keep shields raised and oriented towards threats or forward
 			if (drone.getShield() != null) {
 				if (!drone.getShield().isOn()) {
 					drone.getShield().toggleOn();
+				}
+				ShipAPI threat = data.scripts.weapons.magellan_TargetingBeamEffect.getPaintedTarget(source);
+				if (threat == null || !threat.isAlive() || threat.getOwner() == source.getOwner()) {
+					threat = source.getShipTarget();
+				}
+				if (threat != null && threat.isAlive()) {
+					float threatDir = Misc.getAngleInDegrees(drone.getLocation(), threat.getLocation());
+					drone.getShield().forceFacing(threatDir);
+				} else {
+					drone.getShield().forceFacing(source.getFacing());
 				}
 			}
 
@@ -151,7 +161,6 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 				drone.getAIFlags().setFlag(AIFlags.DO_NOT_BACK_OFF, 1f);
 				drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
 				drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
-				drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
 				drone.getAIFlags().setFlag(AIFlags.FACING_OVERRIDE_FOR_MOVE_AND_ESCORT_MANEUVERS, 1f, source.getFacing());
 			}
 
@@ -177,8 +186,11 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 	}
 
 	public static float determineGuardSide(ShipAPI source, ShipAPI drone) {
-		// 1. If source has an active enemy target, place guard on the side towards that threat
-		ShipAPI target = source.getShipTarget();
+		// 1. If source has an active enemy target (painted or selected), place guard on the side towards that threat
+		ShipAPI target = data.scripts.weapons.magellan_TargetingBeamEffect.getPaintedTarget(source);
+		if (target == null || !target.isAlive() || target.isHulk() || target.getOwner() == source.getOwner()) {
+			target = source.getShipTarget();
+		}
 		if (target != null && target.isAlive() && !target.isHulk() && target.getOwner() != source.getOwner()) {
 			float threatAngle = Misc.getAngleInDegrees(source.getLocation(), target.getLocation());
 			float relThreat = Misc.normalizeAngle(threatAngle - source.getFacing());

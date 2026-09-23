@@ -36,11 +36,14 @@ implements EveryFrameWeaponEffectPlugin {
                 boolean facingEnemy = false;
                 for (ShipAPI enemy : engine.getShips()) {
                     if (enemy.isHulk() || enemy.getOwner() == ship.getOwner() || enemy.isShuttlePod() || enemy.isPhased()) continue;
+                    float effectiveRadius = (enemy.getShield() != null && enemy.getShield().isOn())
+                            ? Math.max(enemy.getCollisionRadius(), enemy.getShieldRadiusEvenIfNoShield())
+                            : enemy.getCollisionRadius();
                     float dist = Misc.getDistance(weapon.getLocation(), enemy.getLocation());
-                    if (dist > weapon.getRange() + enemy.getCollisionRadius()) continue;
+                    if (dist > weapon.getRange() + effectiveRadius) continue;
                     float angleToEnemy = Misc.getAngleInDegrees(weapon.getLocation(), enemy.getLocation());
-                    float diff = Misc.getAngleDiff(ship.getFacing(), angleToEnemy);
-                    float angularRadius = (float) Math.toDegrees(Math.atan2(enemy.getCollisionRadius(), Math.max(10f, dist)));
+                    float diff = Misc.getAngleDiff(weapon.getCurrAngle(), angleToEnemy);
+                    float angularRadius = (float) Math.toDegrees(Math.atan2(effectiveRadius, Math.max(10f, dist)));
                     if (diff <= (weapon.getArc() * 0.5f + angularRadius)) {
                         facingEnemy = true;
                         break;

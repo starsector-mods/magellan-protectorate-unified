@@ -10,7 +10,7 @@
   "variantId": "magellan_lev_lancefrig_std",
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0001": "magellan_electrolance_med"
