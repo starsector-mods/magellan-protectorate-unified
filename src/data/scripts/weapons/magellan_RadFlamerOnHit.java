@@ -27,7 +27,7 @@ public class magellan_RadFlamerOnHit
 extends BaseCombatLayeredRenderingPlugin
 implements OnHitEffectPlugin {
     public static int NUM_TICKS = 11;
-    public static float TOTAL_DAMAGE = 100.0f;
+    public static float TOTAL_DAMAGE = 50.0f;
     protected float totalDamage = TOTAL_DAMAGE;
     protected List<ParticleData> particles = new ArrayList<ParticleData>();
     protected DamagingProjectileAPI proj;
@@ -65,11 +65,7 @@ implements OnHitEffectPlugin {
         this.proj = proj;
         this.target = target;
         this.offset = offset;
-        if (proj != null && proj.getProjectileSpecId() != null && proj.getProjectileSpecId().contains("flamer")) {
-            this.totalDamage = 50.0f;
-        } else {
-            this.totalDamage = TOTAL_DAMAGE;
-        }
+        this.totalDamage = TOTAL_DAMAGE;
         this.interval = new IntervalUtil(0.8f, 1.0f);
         this.interval.forceIntervalElapsed();
     }
