@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
+import com.fs.starfarer.api.combat.CollisionClass;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.EveryFrameCombatPlugin;
@@ -29,7 +30,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	public static final float RANGE = 1500f;
 	public static final Color JITTER_COLOR = new Color(100, 255, 100, 100);
 	public static final Color JITTER_UNDER_COLOR = new Color(100, 255, 100, 60);
-	public static final float MIN_SPAWN_DIST = 90f;
+	public static final float MIN_SPAWN_DIST = 110f;
 	
 	protected boolean fired = false;
 	
@@ -324,11 +325,16 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	}
 	
 	public static EveryFrameCombatPlugin createDroneJitterPlugin(final ShipAPI drone, final float fadeInTime) {
+		drone.setCollisionClass(CollisionClass.FIGHTER);
 		return new BaseEveryFrameCombatPlugin() {
 			float elapsed = 0f;
 			@Override
 			public void advance(float amount, List<InputEventAPI> events) {
 				if (Global.getCombatEngine().isPaused()) return;
+				if (!drone.isAlive() || drone.isHulk()) {
+					Global.getCombatEngine().removePlugin(this);
+					return;
+				}
 				elapsed += amount;
 				
 				float level = elapsed / fadeInTime;
@@ -352,6 +358,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 				drone.setJitter(this, c, jitterLevel, 5, 0f, jitterRangeBonus);
 				
 				if (level >= 1f) {
+					drone.setCollisionClass(CollisionClass.SHIP);
 					Global.getCombatEngine().removePlugin(this);
 				}
 			}
@@ -404,32 +411,53 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	}
 	
 	private boolean isLocationClear(ShipAPI ship, Vector2f loc) {
-		for (ShipAPI other : Global.getCombatEngine().getShips()) {
-			if (other == ship) continue;
+		CombatEngineAPI engine = Global.getCombatEngine();
+		if (engine == null) return true;
+
+		// 1. Explicit check against the source mothership (prevent spawning on top of or clipping mothership)
+		if (ship != null && ship.isAlive()) {
+			float distToSource = Misc.getDistance(loc, ship.getLocation());
+			float minSourceClearance = ship.getCollisionRadius() + 84f + 35f;
+			if (distToSource < minSourceClearance) {
+				return false;
+			}
+
+			// Do not spawn in mothership's forward firing cone and forward movement path
+			float angleFromSource = Misc.getAngleInDegrees(ship.getLocation(), loc);
+			float angleDiff = Misc.getAngleDiff(ship.getFacing(), angleFromSource);
+			if (angleDiff < 25f && distToSource < 280f) {
+				return false;
+			}
+		}
+
+		// 2. Check against other ships
+		List<ShipAPI> activeDrones = getActiveDrones(ship);
+		for (ShipAPI other : engine.getShips()) {
+			if (other == ship) continue; // checked above
+			if (activeDrones.contains(other)) continue; // ignore old location of drone being repositioned
 			if (other.isShuttlePod()) continue;
 			if (other.isFighter()) continue;
-			
+
 			Vector2f otherLoc = other.getShieldCenterEvenIfNoShield();
 			float otherR = other.getShieldRadiusEvenIfNoShield();
 			if (other.isPiece()) {
 				otherLoc = other.getLocation();
 				otherR = other.getCollisionRadius();
 			}
-			
+
 			float dist = Misc.getDistance(loc, otherLoc);
 			float r = otherR;
-			float checkDist = MIN_SPAWN_DIST;
-			if (dist < r + checkDist) {
+			if (dist < r + MIN_SPAWN_DIST) {
 				return false;
 			}
 		}
-		for (CombatEntityAPI other : Global.getCombatEngine().getAsteroids()) {
+		for (CombatEntityAPI other : engine.getAsteroids()) {
 			float dist = Misc.getDistance(loc, other.getLocation());
 			if (dist < other.getCollisionRadius() + MIN_SPAWN_DIST) {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 

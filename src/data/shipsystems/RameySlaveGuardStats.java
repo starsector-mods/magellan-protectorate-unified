@@ -17,7 +17,8 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class RameySlaveGuardStats extends BaseShipSystemScript {
 
-	public static final float GUARD_DISTANCE = 95f;
+	public static final float GUARD_DISTANCE = 195f;
+	public static final float GUARD_ANGLE_OFFSET = 42f;
 	public static final Color JITTER_COLOR = new Color(100, 255, 100, 100);
 	public static final Color JITTER_UNDER_COLOR = new Color(100, 255, 100, 60);
 
@@ -55,7 +56,7 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 			executeRecall(ship);
 		}
 
-		// Maintain guard stance and frontal positioning during active state
+		// Maintain guard stance and flank wingman positioning during active state
 		if (state == State.ACTIVE || state == State.IN) {
 			maintainGuardFormation(ship, effectLevel);
 		}
@@ -66,7 +67,13 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 			if (system == null) system = ship.getSystem();
 			String icon = system != null ? system.getSpecAPI().getIconSpriteName() : null;
 			String name = system != null ? system.getDisplayName() : "Slave Guard Recall";
-			engine.maintainStatusForPlayerShip(STATUSKEY1, icon, name, "Beta drone shielding frontal arc", false);
+			float side = -1f;
+			Object sideObj = ship.getCustomData().get("ramey_guard_side");
+			if (sideObj instanceof Float) {
+				side = (Float) sideObj;
+			}
+			String flankStr = side > 0 ? "Port Flank" : "Starboard Flank";
+			engine.maintainStatusForPlayerShip(STATUSKEY1, icon, name, "Beta drone shielding " + flankStr, false);
 		}
 	}
 
@@ -74,8 +81,12 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 		CombatEngineAPI engine = Global.getCombatEngine();
 		if (engine == null || source == null || !source.isAlive()) return;
 
-		Vector2f preferredLoc = getGuardPosition(source);
 		List<ShipAPI> active = RameyDroneTeleportStats.getActiveDrones(source);
+		ShipAPI existingDrone = active.isEmpty() ? null : active.get(0);
+		float side = determineGuardSide(source, existingDrone);
+		source.setCustomData("ramey_guard_side", side);
+
+		Vector2f preferredLoc = getGuardPosition(source);
 
 		// If drone was destroyed or missing, reconstruct/spawn a new one
 		if (active.isEmpty()) {
@@ -144,7 +155,7 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 				drone.getAIFlags().setFlag(AIFlags.FACING_OVERRIDE_FOR_MOVE_AND_ESCORT_MANEUVERS, 1f, source.getFacing());
 			}
 
-			// Proportional tracking to stay directly ahead of mothership during active defense
+			// Proportional tracking to stay on flank station of mothership during active defense
 			Vector2f toDesired = Vector2f.sub(preferredLoc, drone.getLocation(), null);
 			float dist = toDesired.length();
 			if (dist > 15f) {
@@ -165,17 +176,56 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 		}
 	}
 
-	public static Vector2f getGuardPosition(ShipAPI source) {
-		Vector2f forward = Misc.getUnitVectorAtDegreeAngle(source.getFacing());
-		forward.scale(GUARD_DISTANCE);
-		return Vector2f.add(source.getLocation(), forward, null);
+	public static float determineGuardSide(ShipAPI source, ShipAPI drone) {
+		// 1. If source has an active enemy target, place guard on the side towards that threat
+		ShipAPI target = source.getShipTarget();
+		if (target != null && target.isAlive() && !target.isHulk() && target.getOwner() != source.getOwner()) {
+			float threatAngle = Misc.getAngleInDegrees(source.getLocation(), target.getLocation());
+			float relThreat = Misc.normalizeAngle(threatAngle - source.getFacing());
+			return (relThreat > 0f && relThreat < 180f) ? 1f : -1f;
+		}
+
+		// 2. If drone is already deployed and alive, remain on its current flank
+		if (drone != null && drone.isAlive() && !drone.isHulk()) {
+			float droneAngle = Misc.getAngleInDegrees(source.getLocation(), drone.getLocation());
+			float relDrone = Misc.normalizeAngle(droneAngle - source.getFacing());
+			return (relDrone > 0f && relDrone < 180f) ? 1f : -1f;
+		}
+
+		// 3. Default to starboard
+		return -1f;
 	}
 
-	public static Vector2f findClearLocationForGuard(ShipAPI source, ShipAPI drone, Vector2f preferredLoc) {
-		CombatEngineAPI engine = Global.getCombatEngine();
-		if (engine == null) return preferredLoc;
+	public static Vector2f getGuardPosition(ShipAPI source) {
+		float side = -1f; // default starboard
+		Object sideObj = source.getCustomData().get("ramey_guard_side");
+		if (sideObj instanceof Float) {
+			side = (Float) sideObj;
+		}
+		float angle = source.getFacing() + side * GUARD_ANGLE_OFFSET;
+		Vector2f offset = Misc.getUnitVectorAtDegreeAngle(angle);
+		offset.scale(GUARD_DISTANCE);
+		return Vector2f.add(source.getLocation(), offset, null);
+	}
 
-		boolean clear = true;
+	public static boolean isGuardLocationClear(ShipAPI source, ShipAPI drone, Vector2f loc) {
+		CombatEngineAPI engine = Global.getCombatEngine();
+		if (engine == null) return true;
+
+		// 1. Maintain safe clearance from source mothership (72 + 84 + 30 = 186f)
+		float distToSource = Misc.getDistance(loc, source.getLocation());
+		if (distToSource < source.getCollisionRadius() + 84f + 30f) {
+			return false;
+		}
+
+		// 2. Prevent placing directly along forward centerline / firing cone
+		float angleFromSource = Misc.getAngleInDegrees(source.getLocation(), loc);
+		float angleDiff = Misc.getAngleDiff(source.getFacing(), angleFromSource);
+		if (angleDiff < 20f && distToSource < 260f) {
+			return false;
+		}
+
+		// 3. Clear of all other ships
 		for (ShipAPI other : engine.getShips()) {
 			if (other == source || other == drone) continue;
 			if (other.isShuttlePod() || other.isFighter()) continue;
@@ -187,39 +237,56 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 				otherR = other.getCollisionRadius();
 			}
 
-			float dist = Misc.getDistance(preferredLoc, otherLoc);
-			if (dist < otherR + 40f) {
-				clear = false;
-				break;
+			float dist = Misc.getDistance(loc, otherLoc);
+			if (dist < otherR + 84f + 25f) {
+				return false;
 			}
 		}
 
-		if (clear) {
-			for (CombatEntityAPI other : engine.getAsteroids()) {
-				float dist = Misc.getDistance(preferredLoc, other.getLocation());
-				if (dist < other.getCollisionRadius() + 40f) {
-					clear = false;
-					break;
-				}
+		// 4. Clear of asteroids
+		for (CombatEntityAPI other : engine.getAsteroids()) {
+			float dist = Misc.getDistance(loc, other.getLocation());
+			if (dist < other.getCollisionRadius() + 84f + 25f) {
+				return false;
 			}
 		}
 
-		if (clear) return preferredLoc;
+		return true;
+	}
 
-		// If obstructed, try slight offsets along facing
-		for (float offset : new float[]{80f, 110f, 125f}) {
-			Vector2f testLoc = Misc.getUnitVectorAtDegreeAngle(source.getFacing());
-			testLoc.scale(offset);
-			Vector2f.add(source.getLocation(), testLoc, testLoc);
-			boolean testClear = true;
-			for (ShipAPI other : engine.getShips()) {
-				if (other == source || other == drone || other.isShuttlePod() || other.isFighter()) continue;
-				if (Misc.getDistance(testLoc, other.getLocation()) < other.getCollisionRadius() + 30f) {
-					testClear = false;
-					break;
+	public static Vector2f findClearLocationForGuard(ShipAPI source, ShipAPI drone, Vector2f preferredLoc) {
+		if (isGuardLocationClear(source, drone, preferredLoc)) {
+			return preferredLoc;
+		}
+
+		// Try opposite flank
+		float currentSide = -1f;
+		Object sideObj = source.getCustomData().get("ramey_guard_side");
+		if (sideObj instanceof Float) {
+			currentSide = (Float) sideObj;
+		}
+		float oppSide = -currentSide;
+		float oppAngle = source.getFacing() + oppSide * GUARD_ANGLE_OFFSET;
+		Vector2f oppLoc = Misc.getUnitVectorAtDegreeAngle(oppAngle);
+		oppLoc.scale(GUARD_DISTANCE);
+		Vector2f.add(source.getLocation(), oppLoc, oppLoc);
+
+		if (isGuardLocationClear(source, drone, oppLoc)) {
+			source.setCustomData("ramey_guard_side", oppSide);
+			return oppLoc;
+		}
+
+		// Wider flank search at varying angles and distances (all off the centerline)
+		for (float distScale : new float[]{GUARD_DISTANCE, 230f, 260f}) {
+			for (float angleOff : new float[]{35f, 55f, -35f, -55f, 75f, -75f}) {
+				Vector2f testLoc = Misc.getUnitVectorAtDegreeAngle(source.getFacing() + angleOff);
+				testLoc.scale(distScale);
+				Vector2f.add(source.getLocation(), testLoc, testLoc);
+				if (isGuardLocationClear(source, drone, testLoc)) {
+					source.setCustomData("ramey_guard_side", angleOff > 0 ? 1f : -1f);
+					return testLoc;
 				}
 			}
-			if (testClear) return testLoc;
 		}
 
 		return preferredLoc;
