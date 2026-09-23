@@ -47,6 +47,9 @@ implements OnHitEffectPlugin {
         if (shieldHit || projectile.isFading() || !(target instanceof ShipAPI)) {
             return;
         }
+        if ((float)Math.random() > 0.15f) {
+            return;
+        }
         Vector2f offset = Vector2f.sub(point, target.getLocation(), new Vector2f());
         offset = Misc.rotateAroundOrigin(offset, -target.getFacing());
         magellan_RadFlamerOnHit effect = new magellan_RadFlamerOnHit(projectile, (ShipAPI)target, offset);
