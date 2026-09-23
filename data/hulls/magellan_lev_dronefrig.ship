@@ -19,7 +19,8 @@
   "viewOffset": 0,
   "builtInMods": [
     "magellan_levellermod",
-    "rugged"
+    "rugged",
+    "neural_interface"
   ],
   "builtInWeapons": {
     "WS0004": "magellan_targetingbeam"

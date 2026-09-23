@@ -65,7 +65,7 @@ Mazian,magellan_battleship,Dreadnought,Magellan,magellan_burndrive,2000,30000,75
 #Levellers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Lilburne,magellan_swarmfighter,,Leveller,magellan_burstjets_ftr,,300,40,150,,40,0,,350,600,500,120,360,16,OMNI,,160,0,1,,,0,0,,,,,,,,,,,,,,,,,,,HIDE_IN_CODEX,,,,,0,,,,106
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Ramey-Alpha [LV],magellan_lev_dronefrig,Drone Frigate,Leveller,magellan_droneteleport,7,1200,200,1600,1000,100,30,0,180,180,90,50,105,105,PHASE,magellan_dronerecall,0,0,0,,,0,5,30,10,0.5,20,10,16000,5,15,150,0.25,7,7,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_levellercore_bp, no_dealer, restricted, special_allows_system_use, system_allows_special_use",,,,0.75,2,2,,601
+Ramey-Alpha [LV],magellan_lev_dronefrig,Drone Frigate,Leveller,magellan_droneteleport,7,1200,200,1600,1000,100,30,0,180,180,90,50,105,105,PHASE,magellan_dronerecall,0,0,0,,,5,15,30,10,0.5,20,10,16000,5,15,150,0.25,7,7,,,,,,,,"magellan_levellercore_bp, restricted, special_allows_system_use, system_allows_special_use",,,,0.75,2,2,,601
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Derelict Graveyard,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Palisade,magellan_dronegunner,Gun Droneship,Antique,magellan_smokelayer_bad,3,2000,400,1800,1875,150,30,,100,100,75,90,105,150,NONE,,0,0,0,,,0,0,20,20,1,20,9,10000,10,20,480,0.25,3,3,,,,,,,"UNBOARDABLE, HIDE_IN_CODEX","magellan_derelict, no_sell, no_dealer, restricted, auto_rec",,,,0.6,2,2,,222
