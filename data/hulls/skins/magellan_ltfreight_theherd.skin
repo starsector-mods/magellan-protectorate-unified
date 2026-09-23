@@ -3,7 +3,7 @@
 	"skinHullId":"magellan_ltfreight_theherd",
 	"hullName":"Phillips [Herd]",
 	"descriptionId":"magellan_ltfreight",
-	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. Cargo space has been repurposed to hold missiles and fighter chassis, the shield generator has been removed, and crude weapons mounts have been installed to provide extra firepower.",
+	"descriptionPrefix":"This hull has been battered by years of low-level warfare and unsafe drive modifications. Cargo space has been repurposed to hold missiles, the shield generator has been removed, and crude weapons mounts have been installed to provide extra firepower.",
 	"tags":["magellan_theherd", "restricted"],
 	"tech":"The Herd",
     "removeHints":[],
@@ -14,10 +14,7 @@
 	"removeBuiltInMods":[],
 	"removeBuiltInWeapons":[],
 	"weaponSlotChanges":{},
-	"builtInMods":["magellan_herdmod", "converted_hangar"],
-	"builtInWings":[
-		"magellan_hvyfighter_theherd_wing"
-	],
+	"builtInMods":["magellan_herdmod"],
 	"engineSlotChanges":{
 		"0":{
 

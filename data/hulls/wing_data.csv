@@ -22,8 +22,8 @@ magellan_interceptor_startiger_wing,magellan_interceptor_startiger_Interceptor,"
 magellan_bomber_startiger_wing,magellan_bomber_startiger_Bomber,"fighter5, fighter, magellan_startiger",2,,6,15,V,4000,2000,750,2,BOMBER,Bomber,15,7600,10
 magellan_corvette_startiger_wing,magellan_corvette_startiger_Gunship,"fighter7, fighter, magellan_startiger",3,,8,18,CLAW,4000,1200,400,2,FIGHTER,Gunship,24,30000,3
 ,,,,,,,,,,,,,,,,
-magellan_herdintercept_wing,magellan_herdintercept_Fighter,"no_drop, no_sell",2,,8,12,CLAW,4000,750,100,3,FIGHTER,Assault Fighter,15,20000,3
-magellan_hvyfighter_theherd_wing,magellan_hvyfighter_theherd_Fighter,"no_drop, no_sell",1,,6,8,V,4000,500,300,3,FIGHTER,Scout Fighter,10,12500,3
+magellan_herdintercept_wing,magellan_herdintercept_Fighter,"interceptor3, interceptor, magellan_theherd, magellan, theherd, merc, pirate",2,,8,12,CLAW,4000,750,100,3,FIGHTER,Assault Fighter,15,20000,3
+magellan_hvyfighter_theherd_wing,magellan_hvyfighter_theherd_Fighter,"fighter3, fighter, magellan_theherd, magellan, theherd, merc, pirate",1,,6,8,V,4000,500,300,3,FIGHTER,Scout Fighter,10,12500,3
 ,,,,,,,,,,,,,,,,
 magellan_swarmfighter_wing,magellan_swarmfighter_Assault,"interceptor5, interceptor, leveller, magellan_levellercore_bp, auto_fighter",3,,5,12,CLAW,3200,300,400,6,FIGHTER,Lilburne Swarmer,10,20000,22
 magellan_rounder_leveller_wing,magellan_rounder_leveller_Bomber,"no_drop, no_sell",3,0.1,8,18,V,4000,2500,600,3,BOMBER,Rainsborough Bomber,15,30000,3

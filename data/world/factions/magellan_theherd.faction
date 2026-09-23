@@ -111,11 +111,15 @@
 	"knownFighters":{
 		"tags":["magellan_theherd"],
 		"fighters":[
+			"magellan_herdintercept_wing",
+			"magellan_hvyfighter_theherd_wing"
 		]
 	},
 	"priorityFighters":{
 		"tags":["magellan_theherd"],
 		"fighters":[
+			"magellan_herdintercept_wing",
+			"magellan_hvyfighter_theherd_wing"
 		]
 	},
 	"knownWeapons":{
