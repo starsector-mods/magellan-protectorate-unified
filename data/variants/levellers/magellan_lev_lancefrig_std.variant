@@ -4,7 +4,7 @@
   "fluxVents": 0,
   "hullId": "magellan_lev_lancefrig",
   "hullMods": [
-    "pointdefenseai"
+    "auxiliarythrusters"
   ],
   "quality": 0,
   "variantId": "magellan_lev_lancefrig_std",

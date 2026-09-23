@@ -20,7 +20,8 @@
   "builtInMods": [
     "no_weapon_flux",
     "terminator_core",
-    "magellan_levellermod"
+    "magellan_levellermod",
+    "automated"
   ],
   "builtInWeapons": {
     "WS0001": "magellan_electrolance_med",

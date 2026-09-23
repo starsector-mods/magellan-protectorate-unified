@@ -179,6 +179,9 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 
 		final ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
 		if (drone != null) {
+			drone.setDrone(true);
+			drone.setCurrentCR(1f);
+			drone.setCRAtDeployment(1f);
 			drone.setInvalidTransferCommandTarget(true);
 
 			ShipAIConfig config = new ShipAIConfig();
@@ -222,6 +225,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 						drone.getShipAI().setTargetOverride(null);
 					}
 					drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
+					drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
 					drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
 					drone.getAIFlags().setFlag(AIFlags.KEEP_SHIELDS_ON, 1f);
 					drone.getAIFlags().setFlag(AIFlags.DO_NOT_BACK_OFF, 1f);
@@ -241,8 +245,13 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					if (target != null) {
 						drone.setShipTarget(target);
 						drone.getShipAI().setTargetOverride(target);
+						drone.getAIFlags().unsetFlag(AIFlags.ESCORT_OTHER_SHIP);
+						drone.getAIFlags().unsetFlag(AIFlags.DRONE_MOTHERSHIP);
+						drone.getAIFlags().unsetFlag(AIFlags.MANEUVER_TARGET);
 					} else {
 						drone.getShipAI().setTargetOverride(null);
+						drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
+						drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
 						drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
 					}
 				}

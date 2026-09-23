@@ -139,6 +139,7 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 				drone.getAIFlags().setFlag(AIFlags.KEEP_SHIELDS_ON, 1f);
 				drone.getAIFlags().setFlag(AIFlags.DO_NOT_BACK_OFF, 1f);
 				drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
+				drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
 				drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
 				drone.getAIFlags().setFlag(AIFlags.FACING_OVERRIDE_FOR_MOVE_AND_ESCORT_MANEUVERS, 1f, source.getFacing());
 			}
@@ -151,6 +152,14 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 				toDesired.normalise();
 				toDesired.scale(Math.min(dist * 3f, 200f));
 				Vector2f.add(v, toDesired, drone.getVelocity());
+			}
+			drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
+
+			float angleDiff = Misc.getAngleDiff(drone.getFacing(), source.getFacing());
+			if (angleDiff > 2f) {
+				float dir = Misc.getClosestTurnDirection(drone.getFacing(), source.getFacing());
+				if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
+				else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
 			}
 			drone.setFacing(source.getFacing());
 		}
