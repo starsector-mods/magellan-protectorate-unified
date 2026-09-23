@@ -166,6 +166,8 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		}
 	}
 
+	public static final float MAX_DETECTION_RANGE = 1200f;
+
 	@SuppressWarnings("unchecked")
 	public static ShipAPI spawnDrone(ShipAPI source, Vector2f spawnLoc, float spawnFacing) {
 		CombatEngineAPI engine = Global.getCombatEngine();
@@ -179,13 +181,12 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 
 		final ShipAPI drone = engine.getFleetManager(source.getOwner()).spawnShipOrWing("magellan_lev_lancefrig_std", spawnLoc, spawnFacing);
 		if (drone != null) {
-			drone.setDrone(true);
 			drone.setCurrentCR(1f);
 			drone.setCRAtDeployment(1f);
 			drone.setInvalidTransferCommandTarget(true);
 
 			ShipAIConfig config = new ShipAIConfig();
-			config.personalityOverride = Personalities.AGGRESSIVE;
+			config.personalityOverride = Personalities.RECKLESS;
 			config.alwaysStrafeOffensively = true;
 			config.backingOffWhileNotVentingAllowed = true;
 			ShipAIPlugin nativeAI = Global.getSettings().createDefaultShipAI(drone, config);
@@ -226,33 +227,96 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					}
 					drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
 					drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
-					drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
 					drone.getAIFlags().setFlag(AIFlags.KEEP_SHIELDS_ON, 1f);
 					drone.getAIFlags().setFlag(AIFlags.DO_NOT_BACK_OFF, 1f);
 					drone.getAIFlags().setFlag(AIFlags.FACING_OVERRIDE_FOR_MOVE_AND_ESCORT_MANEUVERS, 1f, source.getFacing());
 					return;
 				}
 
-				ShipAPI painted = magellan_TargetingBeamEffect.getPaintedTarget(source);
+				// Target Selection bounded by tactical detection range
 				ShipAPI target = null;
+				ShipAPI painted = magellan_TargetingBeamEffect.getPaintedTarget(source);
 				if (painted != null && painted.isAlive() && painted.getOwner() != drone.getOwner() && !painted.isPhased()) {
-					target = painted;
-				} else if (source.getShipTarget() != null && source.getShipTarget().isAlive() && source.getShipTarget().getOwner() != drone.getOwner() && !source.getShipTarget().isPhased()) {
-					target = source.getShipTarget();
+					float d = Misc.getDistance(source.getLocation(), painted.getLocation());
+					if (d <= MAX_DETECTION_RANGE + painted.getCollisionRadius()) {
+						target = painted;
+					}
 				}
 
-				if (drone.getShipAI() != null) {
-					if (target != null) {
-						drone.setShipTarget(target);
+				if (target == null && source.getShipTarget() != null && source.getShipTarget().isAlive()
+						&& source.getShipTarget().getOwner() != drone.getOwner() && !source.getShipTarget().isPhased()) {
+					ShipAPI sTarget = source.getShipTarget();
+					float dSource = Misc.getDistance(source.getLocation(), sTarget.getLocation());
+					float dDrone = Misc.getDistance(drone.getLocation(), sTarget.getLocation());
+					if (dSource <= MAX_DETECTION_RANGE + sTarget.getCollisionRadius()
+							|| dDrone <= MAX_DETECTION_RANGE + sTarget.getCollisionRadius()) {
+						target = sTarget;
+					}
+				}
+
+				// Local autonomous target acquisition if enemy is within 800 units of the drone
+				if (target == null) {
+					float closestDist = 800f;
+					for (ShipAPI enemy : Global.getCombatEngine().getShips()) {
+						if (enemy.isHulk() || enemy.getOwner() == drone.getOwner() || enemy.isShuttlePod() || enemy.isPhased()) continue;
+						float d = Misc.getDistance(drone.getLocation(), enemy.getLocation());
+						if (d < closestDist) {
+							closestDist = d;
+							target = enemy;
+						}
+					}
+				}
+
+				if (target != null) {
+					drone.setShipTarget(target);
+					if (drone.getShipAI() != null) {
 						drone.getShipAI().setTargetOverride(target);
-						drone.getAIFlags().unsetFlag(AIFlags.ESCORT_OTHER_SHIP);
-						drone.getAIFlags().unsetFlag(AIFlags.DRONE_MOTHERSHIP);
-						drone.getAIFlags().unsetFlag(AIFlags.MANEUVER_TARGET);
-					} else {
+					}
+					drone.getAIFlags().unsetFlag(AIFlags.ESCORT_OTHER_SHIP);
+					drone.getAIFlags().unsetFlag(AIFlags.DRONE_MOTHERSHIP);
+					drone.getAIFlags().unsetFlag(AIFlags.MANEUVER_TARGET);
+
+					// Active engine maneuvering towards attack target
+					float angleToTarget = Misc.getAngleInDegrees(drone.getLocation(), target.getLocation());
+					float angleDiff = Misc.getAngleDiff(drone.getFacing(), angleToTarget);
+					float distToTarget = Misc.getDistance(drone.getLocation(), target.getLocation());
+
+					// Steer towards target to align forward spinal weapon
+					if (angleDiff > 4f) {
+						float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToTarget);
+						if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
+						else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
+					}
+
+					// Fire forward acceleration thrusters to close range
+					if (distToTarget > 450f) {
+						if (angleDiff < 45f) {
+							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
+						}
+					} else if (distToTarget < 200f && angleDiff < 30f) {
+						drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.DECELERATE, null, 0);
+					}
+				} else {
+					if (drone.getShipAI() != null) {
 						drone.getShipAI().setTargetOverride(null);
-						drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
-						drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
-						drone.getAIFlags().setFlag(AIFlags.DRONE_MOTHERSHIP, 1f, source);
+					}
+					drone.setShipTarget(null);
+					drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
+					drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
+
+					// Escort formation station-keeping thrusters
+					float distToSource = Misc.getDistance(drone.getLocation(), source.getLocation());
+					if (distToSource > 280f) {
+						float angleToSource = Misc.getAngleInDegrees(drone.getLocation(), source.getLocation());
+						float angleDiff = Misc.getAngleDiff(drone.getFacing(), angleToSource);
+						if (angleDiff > 10f) {
+							float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToSource);
+							if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
+							else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
+						}
+						if (angleDiff < 50f) {
+							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
+						}
 					}
 				}
 			}

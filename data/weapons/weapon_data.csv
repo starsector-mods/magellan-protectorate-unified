@@ -93,7 +93,7 @@ Chasefire AFM Bay (Double),magellan_crackerftrdouble,0,,500,750,,200,200,50,0,4,
 Balefire MRM Pod,magellan_balefiremrm_ftr,0,,2500,2000,,400,,25,10,6,6,,,ENERGY,0,,,6,1,,2,8,2,10,,400,100,6,225,,,"SYSTEM, DO_NOT_AIM, GROUP_ALTERNATING, DO_NOT_CONSERVE","utility9, missile5",,Magellan,,Fire Support,Medium,Good,,,Unstable fusion warheads do %s extra %s damage on hits to armor or hull.,100-200 | Energy,,,,2.1
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Leveller Weapons,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Light Electron Lance,magellan_electrolance_med,3,,3000,900,600,,200,0,12,12,,,,ENERGY,,857,0.15,1.8,0.9,1.65,,,,,30000,,,,,,,SYSTEM,"energy20, beam10, leveller, no_drop",,Leveller,,General,,,,,,,,,,20
+Light Electron Lance,magellan_electrolance_med,3,,3000,900,600,,200,0,12,12,,,,ENERGY,,857,0.15,1.8,0.9,1.65,,,,,30000,,,,,,,,"energy20, beam10, leveller, no_drop",,Leveller,,General,,,,,,,,,,20
 Heavy Electron Bolter,magellan_ebolter,3,0.3,1500,500,,75,200,0,30,7,,,,ENERGY,100,,0.1,0.5,1,,0,3,1,15,,1000,,,,,,,"energy10, LR, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,"Hits on hull or armor have a %s chance to %s, dealing extra damage equal to the original hit.",30% | arc to weapons and engines,,,,19.25
 Spreadfire Bolter,magellan_eflak,3,0.6,900,300,,50,100,0,120,6,12,2,3,FRAGMENTATION,30,,0.1,0.4,1,,1,6,1,12,,700,,,,,,"PD, PD_ALSO","energy8, pd10, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,Point Defense,,,,Spread Pattern,,,,,,19.25
 Diffusion Gun,magellan_diffusiongun,0,0.5,1200,600,,120,,5,40,5,,,,FRAGMENTATION,30,,0.1,0.5,1.5,0.15,0,0,0,0,,1200,,,,,,SYSTEM,"energy9, leveller, magellan_levellercore_bp, rare_bp",,Leveller,,General,,,,,,,,,,20
