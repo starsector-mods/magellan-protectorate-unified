@@ -16,9 +16,10 @@ public class magellan_TargetingBeamEffect implements BeamEffectPlugin, EveryFram
     public static final float DAMAGE_BUFF_PERCENT = 5.0f;
     public static final float FLUX_REDUCTION_PERCENT = -5.0f;
 
-    // Track actively painted targets per source ship
+    // Track actively painted targets and active target contact per source ship
     private static final Map<ShipAPI, ShipAPI> PAINTED_TARGETS = new WeakHashMap<>();
     private static final Map<ShipAPI, Float> PAINTED_DURATIONS = new WeakHashMap<>();
+    private static final Map<ShipAPI, Float> SOURCE_BUFF_DURATIONS = new WeakHashMap<>();
 
     public static ShipAPI getPaintedTarget(ShipAPI source) {
         if (source == null) return null;
@@ -32,7 +33,11 @@ public class magellan_TargetingBeamEffect implements BeamEffectPlugin, EveryFram
         return null;
     }
 
-    private boolean wasFiring = false;
+    public static boolean isSourceBuffActive(ShipAPI source) {
+        if (source == null) return false;
+        Float dur = SOURCE_BUFF_DURATIONS.get(source);
+        return dur != null && dur > 0f;
+    }
 
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
@@ -56,13 +61,18 @@ public class magellan_TargetingBeamEffect implements BeamEffectPlugin, EveryFram
             }
         }
 
-        boolean isFiring = weapon.isFiring();
-        if (isFiring) {
-            applySourceBuff(ship);
-            wasFiring = true;
-        } else if (wasFiring) {
+        // Update source buff duration timer - only active while laser is in contact with enemy shield or hull
+        Float buffDur = SOURCE_BUFF_DURATIONS.get(ship);
+        if (buffDur != null) {
+            buffDur -= amount;
+            if (buffDur <= 0f) {
+                SOURCE_BUFF_DURATIONS.remove(ship);
+                removeSourceBuff(ship);
+            } else {
+                SOURCE_BUFF_DURATIONS.put(ship, buffDur);
+            }
+        } else {
             removeSourceBuff(ship);
-            wasFiring = false;
         }
     }
 
@@ -73,11 +83,14 @@ public class magellan_TargetingBeamEffect implements BeamEffectPlugin, EveryFram
         ShipAPI source = beam.getSource();
         CombatEntityAPI targetEntity = beam.getDamageTarget();
 
+        // Contact with enemy shield or hull required to paint target and activate buff
         if (source != null && targetEntity instanceof ShipAPI && beam.getBrightness() > 0.1f) {
             ShipAPI targetShip = (ShipAPI) targetEntity;
             if (targetShip.isAlive() && targetShip.getOwner() != source.getOwner()) {
                 PAINTED_TARGETS.put(source, targetShip);
                 PAINTED_DURATIONS.put(source, 0.25f);
+                SOURCE_BUFF_DURATIONS.put(source, 0.25f);
+                applySourceBuff(source);
                 applyTargetDebuff(targetShip);
 
                 if (Math.random() < 0.25) {
