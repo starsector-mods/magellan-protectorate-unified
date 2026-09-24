@@ -21,7 +21,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_skipjack_leveller_Hull", FleetMemberType.SHIP, "LVS Vanguard", false);
         api.addToFleet(FleetSide.PLAYER, "magellan_skipjack_leveller_generic_Hull", FleetMemberType.SHIP, "LVS Defiance", false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supportdestroyer_leveller_Hull", FleetMemberType.SHIP, "LVS Solidarity", false);
-        api.addToFleet(FleetSide.PLAYER, "magellan_corvette_strikecraft_leveller_Hull", FleetMemberType.SHIP, "LVS Rebellion", false);
         api.addToFleet(FleetSide.PLAYER, "magellan_fastdestroyer_leveller_mod_Hull", FleetMemberType.SHIP, "LVS Sovereign", false);
         api.addToFleet(FleetSide.PLAYER, "magellan_patroldestroyer_levellercontra_Hull", FleetMemberType.SHIP, "LVS Mutiny", false);
         api.addToFleet(FleetSide.PLAYER, "magellan_skipjack_levellercontra_Hull", FleetMemberType.SHIP, "LVS Justice", false);

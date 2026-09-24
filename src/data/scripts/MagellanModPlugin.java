@@ -50,6 +50,10 @@ public class MagellanModPlugin extends BaseModPlugin {
             Global.getSettings().getHullSpec("magellan_carrier_marauder").addBuiltInMod("armaa_wingCommander");
             Global.getSettings().getVariant("magellan_carrier_marauder_custom").addPermaMod("armaa_wingCommander");
 
+            // Hager [LV]
+            Global.getSettings().getHullSpec("magellan_carrier_leveller").addBuiltInMod("armaa_wingCommander");
+            Global.getSettings().getVariant("magellan_carrier_leveller_mass").addPermaMod("armaa_wingCommander");
+
             // Bastardsword [LV]
             Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addBuiltInMod("strikeCraft");
             Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_attack").addPermaMod("strikeCraft");

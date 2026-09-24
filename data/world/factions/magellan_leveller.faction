@@ -43,7 +43,6 @@
 			"magellan_supportdestroyer_leveller":2,
 			"magellan_linefrigate_leveller":0.75,
 			"magellan_lev_dronefrig":0.75,
-			"magellan_corvette_strikecraft_leveller":0.5,
 			"gremlin":0,
 			"hound":0,
 			"cerberus":0}
@@ -73,15 +72,15 @@
 	"knownFighters":{
 		"tags":["leveller", "magellan_levellercore_bp", "magellan_levellerunique_bp"],
 		"fighters":[
-			"magellan_swarmfighter_wing"
-
+			"magellan_swarmfighter_wing",
+			"magellan_corvette_strikecraft_leveller_wing"
 		]
 	},
 	"priorityFighters":{
 		"tags":["magellan_levellercore_bp", "magellan_levellerunique_bp"],
 		"fighters":[
-			"magellan_swarmfighter_wing"
-
+			"magellan_swarmfighter_wing",
+			"magellan_corvette_strikecraft_leveller_wing"
 		]
 	},
 	"knownWeapons":{

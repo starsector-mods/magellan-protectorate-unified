@@ -329,7 +329,7 @@
 			"istl_icax_wing":1,
 			"istl_dard_wing":1,
 			"istl_mystere_wing":1,
-			"ship_bp magellan_corvette_strikecraft_leveller": 1},
+			"wing_bp magellan_corvette_strikecraft_leveller_wing": 1},
 		"job_show_captain": true,
 		"job_show_distance": "vanillaDistance",
 		"job_memKey":"$waywardscion",
@@ -365,13 +365,12 @@
 		"fleet_flagship_name":"LVS Rusalka",
 		"fleet_flagship_recoverable": true,
 		"fleet_preset_ships": {
+			"magellan_carrier_leveller_mass":1,
 			"magellan_skipjack_levellercontra_std":1,
 			"magellan_supportdestroyer_levellercontra_std":2,
 			"magellan_patroldestroyer_levellercontra_std":2,
 
 			"magellan_linefrigate_leveller_contra":2,
-			"magellan_corvette_strikecraft_leveller_attack":1,
-			"magellan_corvette_strikecraft_leveller_support":1,
 
 			"magellan_snowgoose_contra":2,
 			"magellan_leyte_contra":2,

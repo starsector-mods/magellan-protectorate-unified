@@ -1,7 +1,7 @@
 {
   "hullName": "Corvette",
   "hullId": "magellan_corvette_strikecraft_leveller",
-  "hullSize": "FRIGATE",
+  "hullSize": "FIGHTER",
   "spriteName": "graphics/Magellan/ships/levellers/magellan_corvette_leveller.png",
   "style": "MGLN_LEVELLER",
   "height": 52,
@@ -15,9 +15,7 @@
     "magellan_levellermod",
     "reduced_explosion"
   ],
-  "builtInWings": [
-    "magellan_swarmfighter_wing"
-  ],
+  "builtInWings": [],
   "builtInWeapons": {
     "WS0001": "magellan_diffusionlaser_ftr",
     "WS0002": "magellan_stunfire_rack_ftr",

@@ -18,13 +18,18 @@ public class magellan_waywardScionQuestComplete extends BaseCommandPlugin {
      */
     public boolean execute(String s, InteractionDialogAPI interactionDialogAPI, List<Misc.Token> list, Map<String, MemoryAPI> map) {
 
-        Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addTag("magellan_levellercore_bp");
+        if (Global.getSettings() != null && Global.getSettings().getFighterWingSpec("magellan_corvette_strikecraft_leveller_wing") != null) {
+            Global.getSettings().getFighterWingSpec("magellan_corvette_strikecraft_leveller_wing").addTag("magellan_levellercore_bp");
+        }
 
-        Global.getSector().getFaction("magellan_leveller").getKnownShips().add("magellan_corvette_strikecraft_leveller");
-        Global.getSector().getFaction("magellan_leveller").addUseWhenImportingShip("magellan_corvette_strikecraft_leveller");
-        Global.getSector().getFaction("magellan_leveller").addPriorityShip("magellan_corvette_strikecraft_leveller");
-
-        Global.getSector().getFaction("magellan_leveller").clearShipRoleCache();
+        if (Global.getSector() != null && Global.getSector().getFaction("magellan_leveller") != null) {
+            com.fs.starfarer.api.campaign.FactionAPI levFaction = Global.getSector().getFaction("magellan_leveller");
+            if (levFaction.getKnownFighters() != null) {
+                levFaction.getKnownFighters().add("magellan_corvette_strikecraft_leveller_wing");
+            }
+            levFaction.addPriorityFighter("magellan_corvette_strikecraft_leveller_wing");
+            levFaction.clearShipRoleCache();
+        }
 
         return true;
     }

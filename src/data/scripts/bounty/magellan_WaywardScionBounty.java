@@ -126,7 +126,7 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
         targetFleet = FleetFactoryV3.createFleet(params);
         if (targetFleet == null || targetFleet.getFleetData() == null) return;
         targetFleet.setName("Leveller Defectors");
-        targetFleet.getFleetData().addFleetMember("magellan_corvette_strikecraft_leveller");
+        targetFleet.getFleetData().addFleetMember("magellan_carrier_leveller_mass");
         if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
             targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("LVS Rusalka");
             targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
@@ -168,20 +168,19 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
                 Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_solitudemini_wing", 1);
                 Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_interceptor_wing", 1);
                 Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_interceptor_wing", 1);
-                Global.getSector().getPlayerFleet().getCargo().addSpecial(new com.fs.starfarer.api.campaign.SpecialItemData("ship_bp", "magellan_corvette_strikecraft_leveller"), 1);
+                Global.getSector().getPlayerFleet().getCargo().addSpecial(new com.fs.starfarer.api.campaign.SpecialItemData("wing_bp", "magellan_corvette_strikecraft_leveller_wing"), 1);
             }
 
-            if (Global.getSettings() != null && Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller") != null) {
-                Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addTag("magellan_levellercore_bp");
+            if (Global.getSettings() != null && Global.getSettings().getFighterWingSpec("magellan_corvette_strikecraft_leveller_wing") != null) {
+                Global.getSettings().getFighterWingSpec("magellan_corvette_strikecraft_leveller_wing").addTag("magellan_levellercore_bp");
             }
 
             if (Global.getSector() != null && Global.getSector().getFaction("magellan_leveller") != null) {
                 com.fs.starfarer.api.campaign.FactionAPI levFaction = Global.getSector().getFaction("magellan_leveller");
-                if (levFaction.getKnownShips() != null) {
-                    levFaction.getKnownShips().add("magellan_corvette_strikecraft_leveller");
+                if (levFaction.getKnownFighters() != null) {
+                    levFaction.getKnownFighters().add("magellan_corvette_strikecraft_leveller_wing");
                 }
-                levFaction.addUseWhenImportingShip("magellan_corvette_strikecraft_leveller");
-                levFaction.addPriorityShip("magellan_corvette_strikecraft_leveller");
+                levFaction.addPriorityFighter("magellan_corvette_strikecraft_leveller_wing");
                 levFaction.clearShipRoleCache();
             }
 

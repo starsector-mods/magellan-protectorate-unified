@@ -112,7 +112,7 @@ public class magellan_WaywardScionBountyTest {
         com.fs.starfarer.api.campaign.comm.IntelManagerAPI intelMock = mock(com.fs.starfarer.api.campaign.comm.IntelManagerAPI.class);
         com.fs.starfarer.api.campaign.CampaignFleetAPI targetFleetMock = mock(com.fs.starfarer.api.campaign.CampaignFleetAPI.class);
         com.fs.starfarer.api.SettingsAPI settingsMock = mock(com.fs.starfarer.api.SettingsAPI.class);
-        com.fs.starfarer.api.combat.ShipHullSpecAPI hullSpecMock = mock(com.fs.starfarer.api.combat.ShipHullSpecAPI.class);
+        com.fs.starfarer.api.loading.FighterWingSpecAPI wingSpecMock = mock(com.fs.starfarer.api.loading.FighterWingSpecAPI.class);
         com.fs.starfarer.api.campaign.FactionAPI factionMock = mock(com.fs.starfarer.api.campaign.FactionAPI.class);
 
         when(sectorMock.getPlayerFleet()).thenReturn(playerFleetMock);
@@ -120,7 +120,7 @@ public class magellan_WaywardScionBountyTest {
         when(cargoMock.getCredits()).thenReturn(creditsMock);
         when(sectorMock.getCampaignUI()).thenReturn(uiMock);
         when(sectorMock.getIntelManager()).thenReturn(intelMock);
-        when(settingsMock.getHullSpec(anyString())).thenReturn(hullSpecMock);
+        when(settingsMock.getFighterWingSpec(anyString())).thenReturn(wingSpecMock);
         when(settingsMock.getColor(anyString())).thenReturn(java.awt.Color.WHITE);
         when(settingsMock.getFloat(anyString())).thenReturn(1.0f);
         when(settingsMock.getString(anyString())).thenReturn("test");
@@ -133,8 +133,8 @@ public class magellan_WaywardScionBountyTest {
             bounty.reportFleetDespawnedToListener(targetFleetMock, com.fs.starfarer.api.campaign.CampaignEventListener.FleetDespawnReason.DESTROYED_BY_BATTLE, null);
 
             verify(creditsMock).add(200000f);
-            verify(hullSpecMock).addTag(anyString());
-            verify(factionMock, atLeastOnce()).addUseWhenImportingShip(anyString());
+            verify(wingSpecMock).addTag(anyString());
+            verify(factionMock, atLeastOnce()).addPriorityFighter(anyString());
         }
     }
 

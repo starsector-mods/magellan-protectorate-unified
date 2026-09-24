@@ -24,9 +24,7 @@
         "fallback": {
             "combatSmall": 1
         },
-        "magellan_supportfrigate_pirate_std": 10,
-        "magellan_corvette_strikecraft_leveller_support": 6,
-        "magellan_corvette_strikecraft_leveller_attack": 4
+        "magellan_supportfrigate_pirate_std": 10
     },
     "combatSmall": {
         "magellan_linefrigate_std": 10,
@@ -62,9 +60,7 @@
         "fallback": {
             "combatMedium": 0.5
         },
-        "magellan_supportfrigate_pirate_std": 10,
-        "magellan_corvette_strikecraft_leveller_support": 4,
-        "magellan_corvette_strikecraft_leveller_attack": 6
+        "magellan_supportfrigate_pirate_std": 10
     },
     "combatMedium": {
         "magellan_linedestroyer_std": 9,
