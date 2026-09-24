@@ -23,7 +23,12 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 	public static final Color JITTER_COLOR = new Color(100, 255, 100, 100);
 	public static final Color JITTER_UNDER_COLOR = new Color(100, 255, 100, 60);
 
+	public static final String LINK_BUFF_ID = "ramey_neural_guard_link";
+	public static final float FLUX_DISSIPATION_MULT = 1.20f;
+	public static final float SHIELD_UPKEEP_MULT = 0.75f;
+
 	protected Object STATUSKEY1 = new Object();
+	protected Object STATUSKEY2 = new Object();
 
 	@Override
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
@@ -33,6 +38,16 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 		} else {
 			return;
 		}
+
+		if (state == State.IDLE) {
+			ship.getCustomData().remove("ramey_guard_triggered");
+			unapply(stats, id);
+			return;
+		}
+
+		// Neural link feedback buffs to mothership
+		stats.getFluxDissipation().modifyMult(LINK_BUFF_ID, FLUX_DISSIPATION_MULT);
+		stats.getShieldUpkeepMult().modifyMult(LINK_BUFF_ID, SHIELD_UPKEEP_MULT);
 
 		CombatEngineAPI engine = Global.getCombatEngine();
 		if (engine == null) return;
@@ -45,11 +60,9 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 			String name = system != null ? system.getDisplayName() : "Slave Guard Recall";
 			int activeDrones = RameyDroneTeleportStats.getActiveDrones(ship).size();
 			engine.maintainStatusForPlayerShip(STATUSKEY1, icon, name, "Active drones: " + activeDrones + "/" + MAX_DRONES, activeDrones == 0);
-		}
-
-		if (state == State.IDLE) {
-			ship.getCustomData().remove("ramey_guard_triggered");
-			return;
+			if (state != State.IDLE) {
+				engine.maintainStatusForPlayerShip(STATUSKEY2, icon, "Neural Guard Link", "+20% flux dissipation, -25% shield upkeep", false);
+			}
 		}
 
 		// Visual jitter on the lead ship signifying control link transmission
@@ -309,6 +322,10 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 
 	@Override
 	public void unapply(MutableShipStatsAPI stats, String id) {
+		if (stats != null) {
+			stats.getFluxDissipation().unmodifyMult(LINK_BUFF_ID);
+			stats.getShieldUpkeepMult().unmodifyMult(LINK_BUFF_ID);
+		}
 	}
 
 	@Override

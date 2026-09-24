@@ -89,4 +89,31 @@ public class RameyDroneTeleportStatsTest {
         ShipAPI result = RameyDroneTeleportStats.spawnDrone(source, new org.lwjgl.util.vector.Vector2f(0f, 0f), 0f);
         assertSame(activeDrone, result);
     }
+
+    @Test
+    public void testCalculateLeadPoint_WithMovingTarget() {
+        ShipAPI target = mock(ShipAPI.class);
+        when(target.getLocation()).thenReturn(new org.lwjgl.util.vector.Vector2f(1000f, 0f));
+        when(target.getVelocity()).thenReturn(new org.lwjgl.util.vector.Vector2f(0f, 200f));
+
+        org.lwjgl.util.vector.Vector2f fromLoc = new org.lwjgl.util.vector.Vector2f(0f, 0f);
+        org.lwjgl.util.vector.Vector2f lead = RameyDroneTeleportStats.calculateLeadPoint(fromLoc, target, 2000f);
+
+        // Distance = 1000, speed = 2000 => t = 0.5s => y lead = 200 * 0.5 = 100
+        assertEquals(1000f, lead.x, 0.01f);
+        assertEquals(100f, lead.y, 0.01f);
+    }
+
+    @Test
+    public void testCalculateLeadPoint_WithStationaryTarget() {
+        ShipAPI target = mock(ShipAPI.class);
+        when(target.getLocation()).thenReturn(new org.lwjgl.util.vector.Vector2f(500f, 500f));
+        when(target.getVelocity()).thenReturn(new org.lwjgl.util.vector.Vector2f(0f, 0f));
+
+        org.lwjgl.util.vector.Vector2f fromLoc = new org.lwjgl.util.vector.Vector2f(0f, 0f);
+        org.lwjgl.util.vector.Vector2f lead = RameyDroneTeleportStats.calculateLeadPoint(fromLoc, target, 2000f);
+
+        assertEquals(500f, lead.x, 0.01f);
+        assertEquals(500f, lead.y, 0.01f);
+    }
 }

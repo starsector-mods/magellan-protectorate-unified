@@ -47,6 +47,7 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
     public static final String FLAG_SORTIE_TYPE = "$magellan_sortie_type";
     public static final String FLAG_TARGET_SYSTEM = "$magellan_target_system";
     public static final String FLAG_TARGET_MARKET = "$magellan_target_market";
+    public static final String FLAG_ROSEBRIAR_DEFENDER = "$magellan_rosebriar_defender";
     public static final String CONDITION_LEVELLER_CELL = "magellan_leveller_cell";
 
     public static final int MAX_CONCURRENT_FLEETS = 3;
@@ -95,6 +96,7 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
     }
 
     protected IntervalUtil tracker;
+    protected IntervalUtil defenseTracker = new IntervalUtil(15f, 25f);
     protected List<CampaignFleetAPI> activeFleets = new ArrayList<>();
     protected Random random = new Random();
 
@@ -114,12 +116,16 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
             Global.getSector().getMemoryWithoutUpdate().set(KEY, this);
         }
         this.tracker = new IntervalUtil(MIN_INTERVAL_DAYS, MAX_INTERVAL_DAYS);
+        this.defenseTracker = new IntervalUtil(15f, 25f);
         this.activeFleets = new ArrayList<>();
     }
 
     protected Object readResolve() {
         if (this.tracker == null) {
             this.tracker = new IntervalUtil(MIN_INTERVAL_DAYS, MAX_INTERVAL_DAYS);
+        }
+        if (this.defenseTracker == null) {
+            this.defenseTracker = new IntervalUtil(15f, 25f);
         }
         if (this.activeFleets == null) {
             this.activeFleets = new ArrayList<>();
@@ -166,7 +172,7 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
         }
     }
 
-    public SectorEntityToken getRosebriarStation() {
+    public static SectorEntityToken getRosebriarStation() {
         if (Global.getSector() == null) return null;
 
         SectorEntityToken station = Global.getSector().getEntityById(ROSEBRIAR_STATION_ID);
@@ -491,7 +497,51 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
             targetMarket.addCondition(CONDITION_LEVELLER_CELL);
         }
 
-        triggerSupplyDisruption(targetMarket);
+        if (profile == null) profile = SortieProfile.COMMERCE_RAIDER;
+        switch (profile) {
+            case COMMERCE_RAIDER:
+                triggerSupplyDisruption(targetMarket);
+                data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.addLogisticsScore(10);
+                break;
+            case PARTISAN_AGITATOR:
+                triggerPartisanDisruption(targetMarket);
+                data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.addLogisticsScore(15);
+                break;
+            case ARMS_SMUGGLER:
+                if (targetMarket.getMemoryWithoutUpdate() != null) {
+                    targetMarket.getMemoryWithoutUpdate().set("$magellan_arms_cache_active", true);
+                }
+                data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.addLogisticsScore(20);
+                break;
+            default:
+                triggerSupplyDisruption(targetMarket);
+                data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.addLogisticsScore(5);
+                break;
+        }
+    }
+
+    public static void triggerPartisanDisruption(MarketAPI market) {
+        if (market == null) return;
+        List<Industry> industries = market.getIndustries();
+        if (industries == null || industries.isEmpty()) return;
+
+        Industry military = null;
+        for (Industry ind : industries) {
+            if (ind == null) continue;
+            String indId = ind.getId();
+            if (Industries.MILITARYBASE.equals(indId)
+                    || Industries.HIGHCOMMAND.equals(indId)
+                    || Industries.PATROLHQ.equals(indId)
+                    || Industries.HEAVYINDUSTRY.equals(indId)) {
+                military = ind;
+                break;
+            }
+        }
+        if (military != null) {
+            military.setDisrupted(20f + (float) Math.random() * 15f);
+        } else {
+            triggerSupplyDisruption(market);
+        }
     }
 
     public static void triggerSupplyDisruption(MarketAPI market) {
@@ -523,6 +573,61 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
             float duration = 15f + (float) Math.random() * 15f;
             chosen.setDisrupted(duration);
         }
+    }
+
+    public static CampaignFleetAPI spawnRosebriarDefenseFleet(SectorEntityToken rosebriar, int logisticsScore) {
+        if (rosebriar == null || rosebriar.getContainingLocation() == null) return null;
+
+        float fp = (logisticsScore >= 200) ? 140f : ((logisticsScore >= 100) ? 100f : 70f);
+        float quality = 0.8f + (logisticsScore / 500f);
+
+        FleetParamsV3 params = new FleetParamsV3(
+                null,
+                rosebriar.getLocationInHyperspace(),
+                magellan_Factions.MG_LEVELLERS,
+                quality,
+                "taskForce",
+                fp,
+                5f, 10f, 0f, 0f, 0f, 0.3f
+        );
+        params.ignoreMarketFleetSizeMult = true;
+        params.forceAllowPhaseShipsEtc = true;
+        params.officerLevelBonus = logisticsScore >= 200 ? 2 : 1;
+        params.officerNumberBonus = logisticsScore >= 200 ? 3 : 2;
+
+        CampaignFleetAPI fleet = FleetFactoryV3.createFleet(params);
+        if (fleet == null || fleet.isEmpty()) return null;
+
+        fleet.setName(logisticsScore >= 200 ? "Rosebriar Revolutionary Armada" : "Rosebriar Defense Battlegroup");
+        fleet.getMemoryWithoutUpdate().set(FLAG_ROSEBRIAR_DEFENDER, true);
+        fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_PATROL_FLEET, true);
+        fleet.getMemoryWithoutUpdate().set("$canOnlyBeEngagedWhenVisibleToPlayer", true);
+
+        rosebriar.getContainingLocation().addEntity(fleet);
+        if (rosebriar.getLocation() != null) {
+            fleet.setLocation(rosebriar.getLocation().x, rosebriar.getLocation().y);
+        }
+
+        fleet.clearAssignments();
+        fleet.addAssignment(FleetAssignment.PATROL_SYSTEM, rosebriar, 1000f, "patrolling Rose Nebula perimeter");
+
+        return fleet;
+    }
+
+    public static boolean hasActiveRosebriarDefenders() {
+        SectorEntityToken rosebriar = getRosebriarStation();
+        if (rosebriar == null || rosebriar.getContainingLocation() == null) return false;
+        List<CampaignFleetAPI> fleets = rosebriar.getContainingLocation().getFleets();
+        if (fleets != null) {
+            for (CampaignFleetAPI fleet : fleets) {
+                if (fleet != null && fleet.isAlive() && !fleet.isDespawning() && fleet.getMemoryWithoutUpdate() != null) {
+                    if (fleet.getMemoryWithoutUpdate().is(FLAG_ROSEBRIAR_DEFENDER, true)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     protected void cleanActiveFleets() {
@@ -568,6 +673,17 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
         if (tracker.intervalElapsed()) {
             if (isRosebriarOperational() && activeFleets.size() < MAX_CONCURRENT_FLEETS) {
                 spawnSortie();
+            }
+        }
+
+        if (defenseTracker == null) {
+            defenseTracker = new IntervalUtil(15f, 25f);
+        }
+        defenseTracker.advance(days);
+        if (defenseTracker.intervalElapsed() && isRosebriarOperational()) {
+            if (!hasActiveRosebriarDefenders()) {
+                int score = data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.getLogisticsScore();
+                spawnRosebriarDefenseFleet(getRosebriarStation(), score);
             }
         }
 

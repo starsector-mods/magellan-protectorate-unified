@@ -54,7 +54,6 @@ magellan_hvyfighter_strikecraft_marauder_wing,magellan_hvyfighter_strikecraft_ma
 ,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,
 #Levellers,,,,,,,,,,,,,,,,
-magellan_dard_wing,magellan_interceptor_Interceptor,"no_drop, no_sell, restricted",0,,2,2,CLAW,3000,300,,4,INTERCEPTOR,Interceptor Drone,6,6000,
 magellan_mech_wing,magellan_mech1_torso_std,"fighter5, fighter, rare_bp, magellan, magellan_adv_bp, attack_at_an_angle",2,,8,25,V,4000,600,450,1,FIGHTER,Heavy Assault Mech,20,45000,3
 magellan_mech_breacher_wing,magellan_mech1_breacher_std,"fighter5, assault, rare_bp, magellan, magellan_adv_bp, magellan_blackcollar, attack_at_an_angle",2,,8,22,V,4000,500,400,1,ASSAULT,Heavy Breacher Mech,20,45000,3
 magellan_lev_lancefrig_x2_wing,magellan_lev_lancefrig_std,"stay_in_front_of_ship, match_leader_facing, no_drop, no_sell, restricted",3,,6,0,V,0,300,150,1,SUPPORT,Ramey-Beta,12,8000,22

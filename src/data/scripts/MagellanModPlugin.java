@@ -20,17 +20,11 @@ public class MagellanModPlugin extends BaseModPlugin {
 
     @Override
     public void onApplicationLoad() {
-        boolean haveDME = Global.getSettings().getModManager().isModEnabled("istl_dassaultmikoyan");
         boolean haveMechs = Global.getSettings().getModManager().isModEnabled("armaa");
 
         // these are here purely because Apache Open Office hates a single quotation mark at the start of a new line
         Global.getSettings().getHullModSpec("magellan_duncanMod").setDisplayName("'Duncan' Testbed");
         Global.getSettings().getHullModSpec("magellan_rusalkaMod").setDisplayName("'Rusalka' Rebuild");
-
-        if (haveDME) {
-            // tweaking a wing so it has the intended fighters to avoid a hard dependency
-            Global.getSettings().getFighterWingSpec("magellan_dard_wing").setVariantId("istl_dard_Interceptor");
-        }
 
         if (haveMechs) {
             /*
@@ -56,16 +50,14 @@ public class MagellanModPlugin extends BaseModPlugin {
             Global.getSettings().getHullSpec("magellan_carrier_marauder").addBuiltInMod("armaa_wingCommander");
             Global.getSettings().getVariant("magellan_carrier_marauder_custom").addPermaMod("armaa_wingCommander");
 
-            if (haveDME) {
-                // Bastardsword [LV]
-                Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addBuiltInMod("strikeCraft");
-                Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_attack").addPermaMod("strikeCraft");
-                Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_support").addPermaMod("strikeCraft");
+            // Bastardsword [LV]
+            Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addBuiltInMod("strikeCraft");
+            Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_attack").addPermaMod("strikeCraft");
+            Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_support").addPermaMod("strikeCraft");
 
-                Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addBuiltInMod("armaa_wingCommander");
-                Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_attack").addPermaMod("armaa_wingCommander");
-                Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_support").addPermaMod("armaa_wingCommander");
-            }
+            Global.getSettings().getHullSpec("magellan_corvette_strikecraft_leveller").addBuiltInMod("armaa_wingCommander");
+            Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_attack").addPermaMod("armaa_wingCommander");
+            Global.getSettings().getVariant("magellan_corvette_strikecraft_leveller_support").addPermaMod("armaa_wingCommander");
         }
     }
 }

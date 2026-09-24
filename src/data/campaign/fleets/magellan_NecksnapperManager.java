@@ -236,6 +236,15 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
             }
         }
         
+        if (stage == 3) {
+            hunter.setName("Grand Protectorate Retribution Armada");
+        } else if (stage == 2) {
+            hunter.setName("Blackcollar Decapitation Task Force");
+        } else {
+            hunter.setName("Magellan Pursuit Squadron");
+        }
+        hunter.getMemoryWithoutUpdate().set("$magellan_necksnapper_stage", stage);
+
         hunter.getFleetData().sort();
         
         LocationAPI loc = (spawnSource != null) ? spawnSource.getContainingLocation() : playerFleet.getContainingLocation();
@@ -258,11 +267,17 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
         
         float threatIncrease = 0f;
         boolean hunterDefeated = false;
+        int defeatedStage = 1;
         
         for (CampaignFleetAPI fleet : battle.getNonPlayerSideSnapshot()) {
             if (fleet == null) continue;
             if (fleet.getMemoryWithoutUpdate().is("$magellan_necksnapper_fleet", true)) {
                 hunterDefeated = true;
+                defeatedStage = fleet.getMemoryWithoutUpdate().getInt("$magellan_necksnapper_stage");
+                if (defeatedStage <= 0) {
+                    float currentT = Global.getSector().getMemoryWithoutUpdate().getFloat(KEY);
+                    defeatedStage = (currentT >= 300) ? 3 : ((currentT >= 200) ? 2 : 1);
+                }
             } else {
                 if (fleet.getFaction() == null) continue;
                 String faction = fleet.getFaction().getId();
@@ -275,6 +290,7 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
         float threat = Global.getSector().getMemoryWithoutUpdate().getFloat(KEY);
         
         if (hunterDefeated && playerWon) {
+            grantEscalationRewards(playerFleet, defeatedStage);
             if (threat >= 300) {
                 Global.getSector().getMemoryWithoutUpdate().set(COOLDOWN_KEY, 180f);
             } else {
@@ -286,6 +302,55 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
             threat += threatIncrease;
             Global.getSector().getMemoryWithoutUpdate().set("$magellan_necksnapper_discovered", true);
             Global.getSector().getMemoryWithoutUpdate().set(KEY, threat);
+        }
+    }
+
+    public static void grantEscalationRewards(CampaignFleetAPI playerFleet, int stage) {
+        if (playerFleet == null || playerFleet.getCargo() == null) return;
+        CargoAPI cargo = playerFleet.getCargo();
+
+        switch (stage) {
+            case 3:
+                cargo.getCredits().add(150000f);
+                cargo.addWeapons("magellan_electrolance_med", 2);
+                cargo.addWeapons("magellan_solenoidbattery", 1);
+                cargo.addFighters("magellan_mech_wing", 1);
+                cargo.addFighters("magellan_mech_breacher_wing", 1);
+                cargo.addCommodity(com.fs.starfarer.api.impl.campaign.ids.Commodities.SUPPLIES, 200f);
+                cargo.addCommodity(com.fs.starfarer.api.impl.campaign.ids.Commodities.HEAVY_MACHINERY, 100f);
+                if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                    Global.getSector().getCampaignUI().addMessage(
+                            "Grand Armada Repelled: High-command prototype weapons and Heavy Assault Mech LPCs recovered from flagship wreckage.",
+                            Misc.getPositiveHighlightColor()
+                    );
+                }
+                break;
+            case 2:
+                cargo.getCredits().add(75000f);
+                cargo.addWeapons("magellan_quenchgun", 2);
+                cargo.addWeapons("magellan_bonecracker", 1);
+                cargo.addFighters("magellan_corvette_blackcollar_corvette", 1);
+                cargo.addCommodity(com.fs.starfarer.api.impl.campaign.ids.Commodities.SUPPLIES, 120f);
+                if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                    Global.getSector().getCampaignUI().addMessage(
+                            "Blackcollar Task Force Repelled: Special forces ordinance and Blackcollar Corvette LPC recovered.",
+                            Misc.getHighlightColor()
+                    );
+                }
+                break;
+            case 1:
+            default:
+                cargo.getCredits().add(35000f);
+                cargo.addWeapons("magellan_medgatling", 2);
+                cargo.addFighters("magellan_corvette_startiger_Gunship", 1);
+                cargo.addCommodity(com.fs.starfarer.api.impl.campaign.ids.Commodities.SUPPLIES, 60f);
+                if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
+                    Global.getSector().getCampaignUI().addMessage(
+                            "Pursuit Squadron Repelled: Combat salvage and Skytiger Gunship LPC recovered.",
+                            Misc.getHighlightColor()
+                    );
+                }
+                break;
         }
     }
 
