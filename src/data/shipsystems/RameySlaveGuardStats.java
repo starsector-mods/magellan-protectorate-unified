@@ -17,12 +17,12 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class RameySlaveGuardStats extends BaseShipSystemScript {
 
+	public static final int MAX_DRONES = 1;
 	public static final float GUARD_DISTANCE = 195f;
 	public static final float GUARD_ANGLE_OFFSET = 42f;
 	public static final Color JITTER_COLOR = new Color(100, 255, 100, 100);
 	public static final Color JITTER_UNDER_COLOR = new Color(100, 255, 100, 60);
 
-	protected boolean triggered = false;
 	protected Object STATUSKEY1 = new Object();
 
 	@Override
@@ -34,13 +34,23 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 			return;
 		}
 
-		if (state == State.IDLE) {
-			triggered = false;
-			return;
-		}
-
 		CombatEngineAPI engine = Global.getCombatEngine();
 		if (engine == null) return;
+
+		// Status display for player showing active drone count
+		if (ship == engine.getPlayerShip()) {
+			ShipSystemAPI system = ship.getPhaseCloak();
+			if (system == null) system = ship.getSystem();
+			String icon = system != null ? system.getSpecAPI().getIconSpriteName() : null;
+			String name = system != null ? system.getDisplayName() : "Slave Guard Recall";
+			int activeDrones = RameyDroneTeleportStats.getActiveDrones(ship).size();
+			engine.maintainStatusForPlayerShip(STATUSKEY1, icon, name, "Active drones: " + activeDrones + "/" + MAX_DRONES, activeDrones == 0);
+		}
+
+		if (state == State.IDLE) {
+			ship.getCustomData().remove("ramey_guard_triggered");
+			return;
+		}
 
 		// Visual jitter on the lead ship signifying control link transmission
 		float jitterLevel = effectLevel;
@@ -51,29 +61,14 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 		ship.setJitter(this, JITTER_COLOR, jitterLevel, 2, 0f, 2f);
 
 		// Execute recall teleport upon entering activation
-		if ((state == State.IN || state == State.ACTIVE) && !triggered) {
-			triggered = true;
+		if ((state == State.IN || state == State.ACTIVE) && !ship.getCustomData().containsKey("ramey_guard_triggered")) {
+			ship.getCustomData().put("ramey_guard_triggered", Boolean.TRUE);
 			executeRecall(ship);
 		}
 
 		// Maintain guard stance and flank wingman positioning during active and chargedown state
 		if (state == State.ACTIVE || state == State.IN || state == State.OUT) {
 			maintainGuardFormation(ship, effectLevel);
-		}
-
-		// Status display for player
-		if (ship == engine.getPlayerShip()) {
-			ShipSystemAPI system = ship.getPhaseCloak();
-			if (system == null) system = ship.getSystem();
-			String icon = system != null ? system.getSpecAPI().getIconSpriteName() : null;
-			String name = system != null ? system.getDisplayName() : "Slave Guard Recall";
-			float side = -1f;
-			Object sideObj = ship.getCustomData().get("ramey_guard_side");
-			if (sideObj instanceof Float) {
-				side = (Float) sideObj;
-			}
-			String flankStr = side > 0 ? "Port Flank" : "Starboard Flank";
-			engine.maintainStatusForPlayerShip(STATUSKEY1, icon, name, "Beta drone shielding " + flankStr, false);
 		}
 	}
 
@@ -106,6 +101,14 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 			drone.setFacing(source.getFacing());
 			drone.getVelocity().set(source.getVelocity());
 			drone.setAngularVelocity(source.getAngularVelocity());
+
+			// Relieve hard/soft flux on emergency defensive recall so drone does not immediately overload
+			if (drone.getFluxTracker() != null) {
+				float currFlux = drone.getFluxTracker().getCurrFlux();
+				if (currFlux > 0) {
+					drone.getFluxTracker().decreaseFlux(currFlux * 0.35f);
+				}
+			}
 
 			// Raise and orient shield immediately
 			if (drone.getShield() != null) {
@@ -312,7 +315,10 @@ public class RameySlaveGuardStats extends BaseShipSystemScript {
 	public String getInfoText(ShipSystemAPI system, ShipAPI ship) {
 		if (system.isOutOfAmmo()) return null;
 		if (system.getState() != SystemState.IDLE) return null;
-		return "READY";
+		if (RameyDroneTeleportStats.getActiveDrones(ship).isEmpty()) {
+			return "RECONSTRUCT";
+		}
+		return "GUARD";
 	}
 
 	@Override

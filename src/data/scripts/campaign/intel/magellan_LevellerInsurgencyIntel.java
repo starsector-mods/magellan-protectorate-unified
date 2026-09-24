@@ -394,8 +394,10 @@ public class magellan_LevellerInsurgencyIntel extends BaseIntelPlugin {
 
         // Bullet 1: Status & Readiness
         LabelAPI b1 = info.addPara("Alert Level: %s (%s/%s Logistics)", pad, tc, tierColor, tier, "" + score, "" + MAX_LOGISTICS);
-        b1.setHighlight(tier, "" + score, "" + MAX_LOGISTICS);
-        b1.setHighlightColors(tierColor, Misc.getHighlightColor(), Misc.getHighlightColor());
+        if (b1 != null) {
+            b1.setHighlight(tier, "" + score, "" + MAX_LOGISTICS);
+            b1.setHighlightColors(tierColor, Misc.getHighlightColor(), Misc.getHighlightColor());
+        }
 
         // Bullet 2: Infiltrated target colonies and field sorties
         List<MarketAPI> colonies = getActiveTargetColonies();
@@ -404,8 +406,10 @@ public class magellan_LevellerInsurgencyIntel extends BaseIntelPlugin {
         String sortieDesc = sorties.size() + " active sorties";
 
         LabelAPI b2 = info.addPara("Network Presence: %s | %s", pad, tc, Misc.getHighlightColor(), targetDesc, sortieDesc);
-        b2.setHighlight(targetDesc, sortieDesc);
-        b2.setHighlightColors(colonies.isEmpty() ? Misc.getGrayColor() : Misc.getHighlightColor(), Misc.getHighlightColor());
+        if (b2 != null) {
+            b2.setHighlight(targetDesc, sortieDesc);
+            b2.setHighlightColors(colonies.isEmpty() ? Misc.getGrayColor() : Misc.getHighlightColor(), Misc.getHighlightColor());
+        }
     }
 
     @Override
@@ -457,17 +461,23 @@ public class magellan_LevellerInsurgencyIntel extends BaseIntelPlugin {
         info.addSectionHeading("Insurgency Logistics & Readiness", Alignment.MID, opad);
 
         LabelAPI tierLabel = info.addPara("Operational Readiness: %s", opad, tc, tierColor, tier);
-        tierLabel.setHighlight(tier);
-        tierLabel.setHighlightColors(tierColor);
+        if (tierLabel != null) {
+            tierLabel.setHighlight(tier);
+            tierLabel.setHighlightColors(tierColor);
+        }
 
         String progressStr = getProgressBar(score, MAX_LOGISTICS, 40);
         LabelAPI barLabel = info.addPara("Logistics Score: %s / %s Points\n%s", spad + 2f, tc, hl, "" + score, "" + MAX_LOGISTICS, progressStr);
-        barLabel.setHighlight("" + score, "" + MAX_LOGISTICS, progressStr);
-        barLabel.setHighlightColors(tierColor, hl, tierColor);
+        if (barLabel != null) {
+            barLabel.setHighlight("" + score, "" + MAX_LOGISTICS, progressStr);
+            barLabel.setHighlightColors(tierColor, hl, tierColor);
+        }
 
         LabelAPI ratLabel = info.addPara("Fleet Logistics Efficiency: %s Operational Readiness", spad, tc, hl, String.format("%.0f%%", rating * 100f));
-        ratLabel.setHighlight(String.format("%.0f%%", rating * 100f));
-        ratLabel.setHighlightColors(pos);
+        if (ratLabel != null) {
+            ratLabel.setHighlight(String.format("%.0f%%", rating * 100f));
+            ratLabel.setHighlightColors(pos);
+        }
 
         // Subverted Colonies & Cell Activity
         info.addSectionHeading("Infiltrated Colonies & Sleeper Cells", Alignment.MID, opad);

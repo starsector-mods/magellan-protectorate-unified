@@ -172,8 +172,10 @@ public class magellan_NecksnapperIntel extends BaseIntelPlugin {
 
         // Bullet 1: Alert Level & Threat points
         LabelAPI b1 = info.addPara("Alert Level: %s (%s/%s Threat)", pad, tc, stageColor, stageName, "" + (int) threat, "" + MAX_THREAT);
-        b1.setHighlight(stageName, "" + (int) threat, "" + MAX_THREAT);
-        b1.setHighlightColors(stageColor, Misc.getHighlightColor(), Misc.getHighlightColor());
+        if (b1 != null) {
+            b1.setHighlight(stageName, "" + (int) threat, "" + MAX_THREAT);
+            b1.setHighlightColors(stageColor, Misc.getHighlightColor(), Misc.getHighlightColor());
+        }
 
         // Bullet 2: Fleet / Truce Status
         CampaignFleetAPI hunter = null;
@@ -188,8 +190,10 @@ public class magellan_NecksnapperIntel extends BaseIntelPlugin {
         if (inCooldown) {
             float daysLeft = Global.getSector().getMemoryWithoutUpdate().getFloat(magellan_NecksnapperManager.COOLDOWN_KEY);
             LabelAPI b2 = info.addPara("Status: Ceasefire active (~%s days remaining)", pad, tc, Misc.getPositiveHighlightColor(), String.format("%.0f", daysLeft));
-            b2.setHighlight("Ceasefire active", String.format("%.0f", daysLeft));
-            b2.setHighlightColors(Misc.getPositiveHighlightColor(), Misc.getHighlightColor());
+            if (b2 != null) {
+                b2.setHighlight("Ceasefire active", String.format("%.0f", daysLeft));
+                b2.setHighlightColors(Misc.getPositiveHighlightColor(), Misc.getHighlightColor());
+            }
         } else if (hunter != null && hunter.isAlive()) {
             String hunterLoc = hunter.getContainingLocation() != null ? hunter.getContainingLocation().getName() : "Hyperspace";
             float distLY = (player != null && hunter.getLocationInHyperspace() != null && player.getLocationInHyperspace() != null)
@@ -198,12 +202,16 @@ public class magellan_NecksnapperIntel extends BaseIntelPlugin {
 
             String locDesc = inSame ? "In System" : String.format("%.1f LY away", distLY);
             LabelAPI b2 = info.addPara("Pacification Fleet: %s in %s (%s)", pad, tc, Misc.getNegativeHighlightColor(), hunter.getName(), hunterLoc, locDesc);
-            b2.setHighlight(hunter.getName(), locDesc);
-            b2.setHighlightColors(Misc.getNegativeHighlightColor(), inSame ? Misc.getNegativeHighlightColor() : Misc.getHighlightColor());
+            if (b2 != null) {
+                b2.setHighlight(hunter.getName(), locDesc);
+                b2.setHighlightColors(Misc.getNegativeHighlightColor(), inSame ? Misc.getNegativeHighlightColor() : Misc.getHighlightColor());
+            }
         } else {
             LabelAPI b2 = info.addPara("Active Patrols: Routine monitoring (No dedicated hunter fleet deployed)", pad, tc, Misc.getGrayColor());
-            b2.setHighlight("Routine monitoring");
-            b2.setHighlightColors(Misc.getPositiveHighlightColor());
+            if (b2 != null) {
+                b2.setHighlight("Routine monitoring");
+                b2.setHighlightColors(Misc.getPositiveHighlightColor());
+            }
         }
     }
 
@@ -255,13 +263,17 @@ public class magellan_NecksnapperIntel extends BaseIntelPlugin {
         info.addSectionHeading("Escalation Threat Level", Alignment.MID, opad);
 
         LabelAPI statusLabel = info.addPara("Current Posture: %s", opad, tc, stageColor, stageTitle);
-        statusLabel.setHighlight(stageTitle);
-        statusLabel.setHighlightColors(stageColor);
+        if (statusLabel != null) {
+            statusLabel.setHighlight(stageTitle);
+            statusLabel.setHighlightColors(stageColor);
+        }
 
         String progressStr = getProgressBar((int) threat, MAX_THREAT, 40);
         LabelAPI barLabel = info.addPara("Threat Metric: %s / %s Points\n%s", spad + 2f, tc, hl, "" + (int) threat, "" + MAX_THREAT, progressStr);
-        barLabel.setHighlight("" + (int) threat, "" + MAX_THREAT, progressStr);
-        barLabel.setHighlightColors(stageColor, hl, stageColor);
+        if (barLabel != null) {
+            barLabel.setHighlight("" + (int) threat, "" + MAX_THREAT, progressStr);
+            barLabel.setHighlightColors(stageColor, hl, stageColor);
+        }
 
         // Stage synopsis
         String synopsis;
@@ -336,8 +348,10 @@ public class magellan_NecksnapperIntel extends BaseIntelPlugin {
 
                 LabelAPI trackLabel = info.addPara("• Intercept Telemetry: Contact State: %s | Distance: %s LY | Estimated Transit: ~%s days",
                         spad, tc, stateColor, contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
-                trackLabel.setHighlight(contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
-                trackLabel.setHighlightColors(stateColor, hl, hl);
+                if (trackLabel != null) {
+                    trackLabel.setHighlight(contactState, String.format("%.1f", distLY), String.format("%.0f", etaDays));
+                    trackLabel.setHighlightColors(stateColor, hl, hl);
+                }
             } else if (threat >= 100) {
                 info.addPara("• Mobilization Notice: Threat level is elevated. A dedicated response fleet is currently staging in Magellan core space.", opad, tc, hl);
             } else {

@@ -37,4 +37,56 @@ public class RameyDroneTeleportStatsTest {
 
         assertEquals(RameyDroneTeleportStats.RANGE, stats.getMineRange(ship), 0.001f);
     }
+
+    @Test
+    public void testGetActiveDrones_FiltersDeadAndReturnsLiving() {
+        ShipAPI source = mock(ShipAPI.class);
+        when(source.isAlive()).thenReturn(true);
+
+        java.util.Map<String, Object> customData = new java.util.HashMap<>();
+        java.util.List<ShipAPI> trackedList = new java.util.ArrayList<>();
+
+        ShipAPI liveDrone = mock(ShipAPI.class);
+        when(liveDrone.isAlive()).thenReturn(true);
+        when(liveDrone.isHulk()).thenReturn(false);
+
+        ShipAPI deadDrone = mock(ShipAPI.class);
+        when(deadDrone.isAlive()).thenReturn(false);
+        when(deadDrone.isHulk()).thenReturn(false);
+
+        ShipAPI hulkDrone = mock(ShipAPI.class);
+        when(hulkDrone.isAlive()).thenReturn(true);
+        when(hulkDrone.isHulk()).thenReturn(true);
+
+        trackedList.add(liveDrone);
+        trackedList.add(deadDrone);
+        trackedList.add(hulkDrone);
+        customData.put("ramey_betas_list", trackedList);
+
+        when(source.getCustomData()).thenReturn(customData);
+
+        java.util.List<ShipAPI> active = RameyDroneTeleportStats.getActiveDrones(source);
+        assertEquals(1, active.size());
+        assertSame(liveDrone, active.get(0));
+    }
+
+    @Test
+    public void testSpawnDrone_ReturnsExistingDroneWhenAlreadyActive() {
+        ShipAPI source = mock(ShipAPI.class);
+        when(source.isAlive()).thenReturn(true);
+
+        java.util.Map<String, Object> customData = new java.util.HashMap<>();
+        java.util.List<ShipAPI> trackedList = new java.util.ArrayList<>();
+
+        ShipAPI activeDrone = mock(ShipAPI.class);
+        when(activeDrone.isAlive()).thenReturn(true);
+        when(activeDrone.isHulk()).thenReturn(false);
+
+        trackedList.add(activeDrone);
+        customData.put("ramey_betas_list", trackedList);
+        when(source.getCustomData()).thenReturn(customData);
+
+        ShipAPI result = RameyDroneTeleportStats.spawnDrone(source, new org.lwjgl.util.vector.Vector2f(0f, 0f), 0f);
+        assertSame(activeDrone, result);
+    }
 }

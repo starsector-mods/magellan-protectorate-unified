@@ -32,8 +32,6 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 	public static final Color JITTER_UNDER_COLOR = new Color(100, 255, 100, 60);
 	public static final float MIN_SPAWN_DIST = 110f;
 	
-	protected boolean fired = false;
-	
 	public static float getRange(ShipAPI ship) {
 		if (ship == null) return RANGE;
 		return ship.getMutableStats().getSystemRangeBonus().computeEffective(RANGE);
@@ -48,7 +46,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		}
 		
 		if (state == State.IDLE) {
-			fired = false;
+			ship.getCustomData().remove("ramey_teleport_fired");
 			return;
 		}
 		
@@ -63,8 +61,8 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		ship.setJitter(this, JITTER_COLOR, jitterLevel, 2, 0f, 0 + jitterRangeBonus);
 		
 		if (state == State.IN) {
-		} else if (effectLevel >= 1 && !fired) {
-			fired = true;
+		} else if (effectLevel >= 1 && !ship.getCustomData().containsKey("ramey_teleport_fired")) {
+			ship.getCustomData().put("ramey_teleport_fired", Boolean.TRUE);
 			Vector2f target = ship.getMouseTarget();
 			if (ship.getShipAI() != null && ship.getAIFlags().hasFlag(AIFlags.SYSTEM_TARGET_COORDS)){
 				target = (Vector2f) ship.getAIFlags().getCustom(AIFlags.SYSTEM_TARGET_COORDS);
@@ -98,17 +96,47 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		List<ShipAPI> tracked = (List<ShipAPI>) source.getCustomData().get("ramey_betas_list");
 		if (tracked != null) {
 			for (ShipAPI drone : tracked) {
-				if (drone != null && drone.isAlive() && !drone.isHulk()) {
+				if (drone != null && drone.isAlive() && !drone.isHulk() && !list.contains(drone)) {
 					list.add(drone);
 				}
 			}
 		}
+
+		CombatEngineAPI engine = Global.getCombatEngine();
+		if (engine != null) {
+			for (ShipAPI other : engine.getShips()) {
+				if (other == null || !other.isAlive() || other.isHulk() || other.getOwner() != source.getOwner()) continue;
+				if (other.getHullSpec() != null && other.getHullSpec().getBaseHullId().startsWith("magellan_lev_lancefrig")) {
+					Object mothership = other.getCustomData().get("ramey_mothership");
+					if (mothership == source) {
+						if (!list.contains(other)) {
+							list.add(other);
+						}
+					} else if (mothership == null && list.isEmpty()) {
+						if (!list.contains(other)) {
+							list.add(other);
+							other.setCustomData("ramey_mothership", source);
+						}
+					}
+				}
+			}
+		}
+
+		if (tracked == null) {
+			tracked = new java.util.ArrayList<>(list);
+			source.setCustomData("ramey_betas_list", tracked);
+		} else {
+			tracked.clear();
+			tracked.addAll(list);
+		}
+
 		return list;
 	}
 	
 	@SuppressWarnings("unchecked")
 	public void teleportDrones(ShipAPI source, Vector2f mineLoc) {
 		CombatEngineAPI engine = Global.getCombatEngine();
+		if (engine == null || source == null || !source.isAlive()) return;
 		
 		ShipAPI nearestEnemy = null;
 		float minDist = Float.MAX_VALUE;
@@ -151,8 +179,8 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			}
 		}
 		
-		// Respawn dead drones during teleport to maintain the original system mechanics
-		while (active.size() < 1) {
+		// If no active drone exists, summon a replacement drone to the destination
+		if (active.isEmpty()) {
 			Vector2f spawnLoc = findClearLocation(source, mineLoc);
 			if (spawnLoc == null) spawnLoc = mineLoc;
 			ShipAPI drone = spawnDrone(source, spawnLoc, spawnFacing);
@@ -161,8 +189,6 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 				engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
 				Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
 				active.add(drone);
-			} else {
-				break;
 			}
 		}
 	}
@@ -171,8 +197,15 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 
 	@SuppressWarnings("unchecked")
 	public static ShipAPI spawnDrone(ShipAPI source, Vector2f spawnLoc, float spawnFacing) {
+		if (source == null || !source.isAlive()) return null;
+
+		List<ShipAPI> existing = getActiveDrones(source);
+		if (!existing.isEmpty()) {
+			return existing.get(0);
+		}
+
 		CombatEngineAPI engine = Global.getCombatEngine();
-		if (engine == null || source == null || !source.isAlive()) return null;
+		if (engine == null) return null;
 
 		List<ShipAPI> tracked = (List<ShipAPI>) source.getCustomData().get("ramey_betas_list");
 		if (tracked == null) {
@@ -185,6 +218,7 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			drone.setCurrentCR(1f);
 			drone.setCRAtDeployment(1f);
 			drone.setInvalidTransferCommandTarget(true);
+			drone.setCustomData("ramey_mothership", source);
 
 			ShipAIConfig config = new ShipAIConfig();
 			config.personalityOverride = Personalities.RECKLESS;
@@ -194,7 +228,9 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			drone.setShipAI(nativeAI);
 
 			engine.addPlugin(createDroneCoordinatorPlugin(drone, source));
-			tracked.add(drone);
+			if (!tracked.contains(drone)) {
+				tracked.add(drone);
+			}
 		}
 		return drone;
 	}
@@ -379,7 +415,11 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 			if (dist > max) {
 				return "OUT OF RANGE";
 			} else {
-				return "READY";
+				if (getActiveDrones(ship).isEmpty()) {
+					return "SUMMON";
+				} else {
+					return "REPOSITION";
+				}
 			}
 		}
 		return null;

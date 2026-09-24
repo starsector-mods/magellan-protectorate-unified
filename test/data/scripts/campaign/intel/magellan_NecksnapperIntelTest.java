@@ -132,7 +132,7 @@ public class magellan_NecksnapperIntelTest {
         magellan_NecksnapperIntel intel = new magellan_NecksnapperIntel();
         intel.createIntelInfo(infoMock, ListInfoMode.INTEL);
 
-        verify(infoMock).addPara(contains("Distance:"), anyFloat(), any(Color.class), any(Color.class), eq("Magellan Strike Force"), eq("Hyperspace"), anyString(), anyString());
+        verify(infoMock).addPara(contains("Pacification Fleet:"), anyFloat(), any(Color.class), any(Color.class), eq("Magellan Strike Force"), eq("Hyperspace"), eq("5.0 LY away"));
     }
 
     @Test
@@ -160,14 +160,14 @@ public class magellan_NecksnapperIntelTest {
         magellan_NecksnapperIntel intel = new magellan_NecksnapperIntel();
         intel.createIntelInfo(infoMock, ListInfoMode.INTEL);
 
-        verify(infoMock).addPara(contains("In same system - Intercept imminent"), anyFloat(), any(Color.class), any(Color.class), eq("Magellan Interceptor"), eq("Khamn"));
+        verify(infoMock).addPara(contains("Pacification Fleet:"), anyFloat(), any(Color.class), any(Color.class), eq("Magellan Interceptor"), eq("Khamn"), eq("In System"));
     }
 
     @Test
     public void testDescriptionFlags() {
         magellan_NecksnapperIntel intel = new magellan_NecksnapperIntel();
         assertTrue(intel.hasSmallDescription());
-        assertFalse(intel.hasLargeDescription());
+        assertTrue(intel.hasLargeDescription());
     }
 
     @Test
