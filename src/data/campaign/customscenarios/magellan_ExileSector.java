@@ -35,6 +35,7 @@ extends Scenario {
         }
     }
 
+    @SuppressWarnings("deprecation")
     public void afterTimePass(SectorAPI sector) {
         InvasionFleetManager man = InvasionFleetManager.getManager();
         if (man == null) {

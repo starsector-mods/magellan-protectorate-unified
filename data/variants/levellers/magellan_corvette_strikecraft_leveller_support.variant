@@ -6,8 +6,7 @@
     "hullId": "magellan_corvette_strikecraft_leveller",
     "hullMods": [
         "missleracks",
-        "eccm",
-        "targetingunit"
+        "eccm"
     ],
     "permaMods": [],
     "sMods": [],
