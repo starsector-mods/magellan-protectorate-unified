@@ -20,7 +20,7 @@ import java.util.Set;
 public class ConvertedCarrierLeveller extends BaseHullMod {
 
     public static final float CR_INCREASE = 75.0f;
-    public static final float EXTRA_BAYS = 3.0f;
+    public static final float EXTRA_BAYS = 6.0f;
     public static final float CARGO_PENALTY = 500.0f;
 
     private static final Map<HullSize, Float> BAYS_BY_SIZE = new EnumMap<>(HullSize.class);
