@@ -201,7 +201,7 @@ public class magellan_ConvertedCarrierTests {
         verify(dpMod).modifyMult("magellan_converted_leveller", 1.75f);
         verify(recoveryMod).modifyMult("magellan_converted_leveller", 1.75f);
         verify(monthMod).modifyMult("magellan_converted_leveller", 1.75f);
-        verify(numBays).modifyFlat("magellan_converted_leveller", 3.0f);
+        verify(numBays).modifyFlat("magellan_converted_leveller", 6.0f);
         verify(cargoMod).modifyFlat("magellan_converted_leveller", -500.0f);
         assertFalse(hullMods.contains("vice_adaptive_drone_bay"));
     }
@@ -210,12 +210,12 @@ public class magellan_ConvertedCarrierTests {
     public void testConvertedCarrierLeveller_DescriptionAndTooltip() {
         ConvertedCarrierLeveller mod = new ConvertedCarrierLeveller();
 
-        assertEquals("3", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER));
+        assertEquals("6", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER));
         assertEquals("75%", mod.getDescriptionParam(1, ShipAPI.HullSize.CRUISER));
         assertEquals("500", mod.getDescriptionParam(2, ShipAPI.HullSize.CRUISER));
         assertNull(mod.getDescriptionParam(3, ShipAPI.HullSize.CRUISER));
 
-        assertEquals("3", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER, null));
+        assertEquals("6", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER, null));
 
         TooltipMakerAPI tooltip = mock(TooltipMakerAPI.class);
         mod.addPostDescriptionSection(tooltip, ShipAPI.HullSize.CRUISER, null, 400f, false);
