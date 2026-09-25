@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.4.1 — Hotfix
+- **Crash Fix:** Removed invalid `unstable_injector` hullmod from the Bastardsword [LV] corvette variant to fix a hard crash-to-desktop (`NullPointerException`) when the game attempted to apply ship-scale speed modifiers to a fighter hull size.
+- **Ship Tweaks:** Added a 4th Launch Bay to the Hager [LV] Drone Carrier and expanded its built-in wings to house a second Bastardsword [LV] wing.
+- **Java Compilation Polish:** Added correct type parameters to `magellan_WreckageThemeGenerator.java` to resolve `unchecked` compiler warnings, and suppressed legacy Nexerelin API deprecation warnings in `magellan_ExileSector.java`.
+
 ## v1.4.0 — Unified 0.98a Overhaul
 
 ### 🚀 Engine, Java 17 & Test Suite
