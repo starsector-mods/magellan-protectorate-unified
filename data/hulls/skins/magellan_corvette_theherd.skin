@@ -1,0 +1,26 @@
+{
+	"baseHullId":"magellan_corvette",
+	"skinHullId":"magellan_corvette_theherd",
+	"hullName":"Bastardsword [Herd]",
+	"descriptionId":"magellan_corvette",
+	"descriptionPrefix":"A battered but functional Bastardsword-class heavy fighter that has been repurposed by The Herd. Sporting salvaged armor plating and overtuned sub-systems, it is a remarkably affordable and aggressive gunship.",
+	"tech":"The Herd",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_corvette_theherd.png",
+	"removeWeaponSlots":[],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["ballistic_rangefinder"],
+	"removeBuiltInWeapons":[
+		"WS0001",
+		"WS0002"
+	],
+	"weaponSlotChanges":{},
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_bonesaw_ftr",
+		"WS0002": "magellan_ripfiresrmftr2"
+	}
+}

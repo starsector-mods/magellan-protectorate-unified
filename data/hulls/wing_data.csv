@@ -58,3 +58,4 @@ magellan_corvette_strikecraft_leveller_wing,magellan_corvette_strikecraft_levell
 magellan_mech_wing,magellan_mech1_torso_std,"fighter5, fighter, rare_bp, magellan, magellan_adv_bp, attack_at_an_angle",2,,8,25,V,4000,600,450,1,FIGHTER,Heavy Assault Mech,20,45000,3
 magellan_mech_breacher_wing,magellan_mech1_breacher_std,"fighter5, assault, rare_bp, magellan, magellan_adv_bp, magellan_blackcollar, attack_at_an_angle",2,,8,22,V,4000,500,400,1,ASSAULT,Heavy Breacher Mech,20,45000,3
 magellan_lev_lancefrig_x2_wing,magellan_lev_lancefrig_std,"stay_in_front_of_ship, match_leader_facing, no_drop, no_sell, restricted",3,,6,0,V,0,300,150,1,SUPPORT,Ramey-Beta,12,8000,22
+magellan_corvette_theherd_wing,magellan_corvette_theherd_Gunship,"fighter5, fighter, magellan_theherd, magellan_theherd_bp, pirate, merc",3,0.1,6,12,CLAW,0,800,,2,SUPPORT,Heavy Escort,18,18000,3

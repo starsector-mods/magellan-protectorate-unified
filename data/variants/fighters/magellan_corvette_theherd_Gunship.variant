@@ -1,0 +1,23 @@
+{
+  "variantId": "magellan_corvette_theherd_Gunship",
+  "hullId": "magellan_corvette_theherd",
+  "displayName": "Gunship",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "magellan_bonesaw_ftr",
+        "WS0002": "magellan_ripfiresrmftr2"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
