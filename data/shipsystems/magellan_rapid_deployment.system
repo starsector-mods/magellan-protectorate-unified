@@ -1,0 +1,11 @@
+{
+	"id":"magellan_rapid_deployment",
+	"type":"STAT_MOD",
+	"aiType":"CUSTOM",
+	"aiScript":"data.shipsystems.scripts.ai.magellan_RapidDeploymentAI",
+	
+	"statsScript":"data.shipsystems.scripts.magellan_RapidDeploymentStats",
+	
+	"useSound":"system_reserve_wing",
+	"outOfUsesSound":"gun_out_of_ammo",
+}

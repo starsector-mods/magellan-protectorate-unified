@@ -1,12 +1,11 @@
 {
     "displayName": "Mass Action",
     "fluxCapacitors": 0,
-    "fluxVents": 6,
+    "fluxVents": 11,
     "goalVariant": true,
     "hullId": "magellan_carrier_leveller",
     "hullMods": [
-        "pointdefenseai",
-        "targetingunit"
+        "pointdefenseai"
     ],
     "permaMods": [],
     "sMods": [],

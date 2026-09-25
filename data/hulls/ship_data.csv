@@ -30,7 +30,7 @@ Phillips,magellan_ltfreight,Freighter,Magellan,magellan_smokelayer_def,6,4000,35
 Phillips,magellan_ltfreight_cbt,Battle Barge,Magellan,magellan_smokelayer_def,8,4500,450,2800,2666,160,75,,55,40,30,16,10,450,NONE,,0,0,0,,,50,75,200,40,2,20,9,50000,10,15,420,0.2,6,4,120,120,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.3,2,3,,154
 Phillipson,magellan_fuel,Fuel Tanker,Magellan,magellan_smokelayer_def,6,4000,350,1600,1500,120,40,,60,30,15,20,12,400,OMNI,,140,0.4,1,,,50,75,75,750,3,250,9,35000,5,20,360,0.25,4,3,,,,,,,"CIVILIAN, TANKER","rare_bp, hist1t, magellan_core_bp",,,,0.5,2,3,,154
 Hager,magellan_supply,Supply Ship,Magellan,magellan_burndrive,7,6000,600,4800,4000,200,70,,40,20,10,10,10,1500,OMNI,,120,0.4,1,,,50,150,700,300,3,100,8,45000,3,20,480,0.25,8,8,,,,,,,"CIVILIAN, FREIGHTER","rare_bp, hist1t, magellan_core_bp",,,,0.6,2,3,,155
-Hager [LV],magellan_carrier_leveller,Drone Carrier,Leveller,reservewing,14,6000,600,4800,4000,200,60,,40,20,10,10,10,1500,OMNI,,120,0.4,1,,,50,150,700,300,3,100,8,90000,3,20,480,0.25,8,8,,,,,,,CARRIER,"magellan_levellercore_bp, restricted",,,,0.6,2,3,,155
+Hager [LV],magellan_carrier_leveller,Drone Carrier,Leveller,magellan_rapid_deployment,25,6000,600,4800,4000,200,50,,40,20,10,10,10,1500,OMNI,,120,0.4,1,,,50,150,700,300,3,100,8,90000,3,20,480,0.25,25,25,,,,,,,CARRIER,"magellan_levellercore_bp, restricted",,,,0.6,2,3,,155
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Frigates,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Janz,magellan_linefrigate,Frigate,Magellan,magellan_flakpods,4,2200,400,2100,1750,160,45,,120,120,105,60,90,200,FRONT,,270,0.2,0.8,,,25,50,40,30,1,30,10,9000,8,10,240,0.25,4,4,,,,,,,,"rare_bp, hist1t, magellan_core_bp",,,,0.4,2,2,,201

@@ -12,7 +12,8 @@
   "shieldRadius": 23,
   "viewOffset": 0,
   "builtInMods": [
-    "no_weapon_flux"
+    "no_weapon_flux",
+    "automated"
   ],
   "builtInWeapons": {
     "WS0001": "magellan_laservulcan"
