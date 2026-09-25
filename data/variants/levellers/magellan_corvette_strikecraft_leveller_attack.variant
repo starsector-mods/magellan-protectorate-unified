@@ -6,7 +6,6 @@
     "hullId": "magellan_corvette_strikecraft_leveller",
     "hullMods": [
         "magellan_movement_mod",
-        "unstable_injector",
         "magazines"
     ],
     "permaMods": [],
