@@ -31,7 +31,7 @@
     },
     "builtInMods":["magellan_herdmod"],
     "builtInWings":[
-		"magellan_hvyfighter_theherd_wing",
+		"magellan_corvette_theherd_wing",
 		"magellan_hvyfighter_theherd_wing",
 		"magellan_hvyfighter_theherd_wing"
 	],
