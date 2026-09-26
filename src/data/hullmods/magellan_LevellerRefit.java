@@ -40,7 +40,8 @@ extends BaseHullMod {
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
         stats.getWeaponHealthBonus().modifyPercent(id, 100.0f);
-        stats.getWeaponTurnRateBonus().modifyMult(id, 0.9f);
+                        stats.getArmorBonus().modifyPercent(id, -10.0f);
+        stats.getShieldDamageTakenMult().modifyMult(id, 0.9f);
         stats.getEnergyWeaponRangeBonus().modifyFlat(id, 200.0f);
         stats.getFluxDissipation().modifyFlat(id, ((Float)mag.get(hullSize)).floatValue());
         stats.getAcceleration().modifyPercent(id, 50.0f);
@@ -60,7 +61,8 @@ extends BaseHullMod {
         Color levbg = magellan_hullmodUtils.getLevellerBGColor();
         tooltip.addSectionHeading(this.getString("EngTitle"), lev, levbg, Alignment.MID, 10.0f);
         tooltip.addPara("- " + this.getString("EngDesc1"), 10.0f, h, new String[]{"100%"});
-        tooltip.addPara("- " + this.getString("EngDesc2"), 2.0f, h, new String[]{"10%"});
+        tooltip.addPara("- Base armor decreased by %s.", 2.0f, bad, new String[]{"10%"});
+        tooltip.addPara("- Shield damage taken reduced by %s.", 2.0f, h, new String[]{"10%"});
         LabelAPI label = tooltip.addPara("\u2014\u2014\u2014 " + this.getString("LevellerRefitTitle") + " \u2014\u2014\u2014", lev, 4.0f);
         label.setAlignment(Alignment.MID);
         tooltip.addPara("- " + this.getString("LevellerRefitDesc2"), 4.0f, h, new String[]{"200su"});
