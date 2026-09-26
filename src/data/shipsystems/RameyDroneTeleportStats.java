@@ -64,8 +64,12 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		} else if (effectLevel >= 1 && !ship.getCustomData().containsKey("ramey_teleport_fired")) {
 			ship.getCustomData().put("ramey_teleport_fired", Boolean.TRUE);
 			Vector2f target = ship.getMouseTarget();
-			if (ship.getShipAI() != null && ship.getAIFlags().hasFlag(AIFlags.SYSTEM_TARGET_COORDS)){
-				target = (Vector2f) ship.getAIFlags().getCustom(AIFlags.SYSTEM_TARGET_COORDS);
+			if (ship.getShipAI() != null) {
+				if (ship.getAIFlags() != null && ship.getAIFlags().hasFlag(AIFlags.SYSTEM_TARGET_COORDS)) {
+					target = (Vector2f) ship.getAIFlags().getCustom(AIFlags.SYSTEM_TARGET_COORDS);
+				} else if (ship.getCustomData().containsKey("ramey_ai_teleport_target")) {
+					target = (Vector2f) ship.getCustomData().get("ramey_ai_teleport_target");
+				}
 			}
 			if (target != null) {
 				float dist = Misc.getDistance(ship.getLocation(), target);
@@ -183,14 +187,28 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 		float fadeInTime = 0.5f;
 		List<ShipAPI> active = getActiveDrones(source);
 		
-		// Teleport existing living drones - offensive teleport cancels any active guard stance
-		source.getCustomData().remove("ramey_guard_until");
+		// Teleport existing living drones
 		for (ShipAPI drone : active) {
 			Vector2f dest = findClearLocation(source, mineLoc);
 			if (dest == null) dest = mineLoc;
 			drone.getLocation().set(dest.x, dest.y);
 			drone.setFacing(spawnFacing);
 			drone.getVelocity().scale(0.1f);
+
+			// Tactical flux relief: dissipate 35% current flux on reposition/recall
+			if (drone.getFluxTracker() != null) {
+				float currFlux = drone.getFluxTracker().getCurrFlux();
+				if (currFlux > 0f) {
+					drone.getFluxTracker().decreaseFlux(currFlux * 0.35f);
+				}
+			}
+
+			// Ensure Omni shield is raised and oriented forward
+			if (drone.getShield() != null && !drone.getShield().isOn()) {
+				drone.getShield().toggleOn();
+				drone.getShield().forceFacing(spawnFacing);
+			}
+
 			engine.addPlugin(createDroneJitterPlugin(drone, fadeInTime));
 			Global.getSoundPlayer().playSound("mine_teleport", 1f, 1f, drone.getLocation(), drone.getVelocity());
 			
@@ -272,23 +290,35 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					return;
 				}
 
-				// Check if defensive guard stance is active
-				boolean isGuarding = false;
-				Float guardUntil = (Float) source.getCustomData().get("ramey_guard_until");
-				if (guardUntil != null && guardUntil > Global.getCombatEngine().getTotalElapsedTime(false)) {
-					isGuarding = true;
+				float distToMothership = Misc.getDistance(drone.getLocation(), source.getLocation());
+				float fluxLevel = drone.getFluxTracker() != null ? drone.getFluxTracker().getFluxLevel() : 0f;
+				boolean overloadedOrVenting = drone.getFluxTracker() != null && drone.getFluxTracker().isOverloadedOrVenting();
+
+				// Tether leash: prevent the drone from chasing across the map away from mothership
+				if (distToMothership > 1400f) {
+					drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 0.5f, source);
+					drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 0.5f, source);
+					if (distToMothership > 1600f) {
+						if (drone.getShipAI() != null) {
+							drone.getShipAI().setTargetOverride(null);
+						}
+						drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
+						float angleToSource = Misc.getAngleInDegrees(drone.getLocation(), source.getLocation());
+						float angleDiff = Misc.getAngleDiff(drone.getFacing(), angleToSource);
+						if (angleDiff > 10f) {
+							float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToSource);
+							if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
+							else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
+						}
+						return;
+					}
 				}
 
-				if (isGuarding) {
-					if (drone.getShipAI() != null) {
-						drone.getShipAI().setTargetOverride(null);
-					}
-					drone.getAIFlags().setFlag(AIFlags.ESCORT_OTHER_SHIP, 1f, source);
-					drone.getAIFlags().setFlag(AIFlags.MANEUVER_TARGET, 1f, source);
-					drone.getAIFlags().setFlag(AIFlags.KEEP_SHIELDS_ON, 1f);
-					drone.getAIFlags().setFlag(AIFlags.DO_NOT_BACK_OFF, 1f);
-					drone.getAIFlags().setFlag(AIFlags.FACING_OVERRIDE_FOR_MOVE_AND_ESCORT_MANEUVERS, 1f, source.getFacing());
-					return;
+				// Flux retreat discipline: back off and prevent overloads under heavy pressure
+				if (overloadedOrVenting || fluxLevel > 0.82f) {
+					drone.getAIFlags().setFlag(AIFlags.BACK_OFF, 0.5f);
+					drone.getAIFlags().setFlag(AIFlags.BACKING_OFF, 0.5f);
+					drone.getAIFlags().unsetFlag(AIFlags.DO_NOT_BACK_OFF);
 				}
 
 				// Target Selection bounded by tactical detection range
@@ -336,26 +366,35 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					drone.getAIFlags().unsetFlag(AIFlags.DRONE_MOTHERSHIP);
 					drone.getAIFlags().unsetFlag(AIFlags.MANEUVER_TARGET);
 
-					// Active engine maneuvering towards attack target with spinal lance lead assist
 					Vector2f leadPoint = calculateLeadPoint(drone.getLocation(), target, 2800f);
 					float angleToTarget = Misc.getAngleInDegrees(drone.getLocation(), leadPoint);
 					float angleDiff = Misc.getAngleDiff(drone.getFacing(), angleToTarget);
 					float distToTarget = Misc.getDistance(drone.getLocation(), target.getLocation());
 
-					// Steer towards target to align forward spinal weapon
-					if (angleDiff > 4f) {
+					// Aim assist for fixed spinal lance (WS0001, arc: 5): fine-tune heading alignment
+					if (distToTarget <= 1150f && angleDiff > 1.0f && angleDiff < 35f) {
 						float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToTarget);
 						if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
 						else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
 					}
 
-					// Fire thrusters to maintain optimal sniper engagement distance (600-800 units)
-					if (distToTarget > 800f) {
-						if (angleDiff < 45f) {
-							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
+					// Standoff control: maintain 600-850 su distance for optimal beam delivery
+					if (!overloadedOrVenting && fluxLevel < 0.82f) {
+						if (distToTarget > 850f) {
+							if (angleDiff < 40f) {
+								drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
+							}
+						} else if (distToTarget < 500f) {
+							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.DECELERATE, null, 0);
+							drone.getAIFlags().setFlag(AIFlags.BACK_OFF, 0.5f);
 						}
-					} else if (distToTarget < 500f && angleDiff < 45f) {
-						drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.DECELERATE, null, 0);
+					}
+
+					// Omni shield orientation discipline: keep shields up during weapon exchange
+					if (drone.getShield() != null && !overloadedOrVenting) {
+						if (fluxLevel < 0.80f && distToTarget < 950f) {
+							drone.getAIFlags().setFlag(AIFlags.KEEP_SHIELDS_ON, 0.5f);
+						}
 					}
 				} else {
 					if (drone.getShipAI() != null) {
@@ -449,6 +488,8 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 
 	@Override
 	public boolean isUsable(ShipSystemAPI system, ShipAPI ship) {
+		if (ship == null) return false;
+		if (ship.getShipAI() != null) return true;
 		return ship.getMouseTarget() != null;
 	}
 	

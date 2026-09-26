@@ -1,15 +1,41 @@
 package data.shipsystems;
 
+import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.StatBonus;
 import com.fs.starfarer.api.impl.combat.MineStrikeStatsAIInfoProvider;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.MockedStatic;
+
+import java.awt.Color;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class RameyDroneTeleportStatsTest {
+
+    private MockedStatic<Global> globalMock;
+    private SettingsAPI settingsMock;
+
+    @BeforeEach
+    public void setUp() {
+        globalMock = mockStatic(Global.class);
+        settingsMock = mock(SettingsAPI.class);
+        globalMock.when(Global::getSettings).thenReturn(settingsMock);
+        when(settingsMock.getColor(anyString())).thenReturn(Color.WHITE);
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (globalMock != null) {
+            globalMock.close();
+        }
+    }
 
     @Test
     public void testImplementsMineStrikeStatsAIInfoProvider() {
@@ -115,5 +141,56 @@ public class RameyDroneTeleportStatsTest {
 
         assertEquals(500f, lead.x, 0.01f);
         assertEquals(500f, lead.y, 0.01f);
+    }
+
+    @Test
+    public void testIsUsable_AIandPlayer() {
+        RameyDroneTeleportStats stats = new RameyDroneTeleportStats();
+        ShipAPI shipAI = mock(ShipAPI.class);
+        when(shipAI.getShipAI()).thenReturn(mock(com.fs.starfarer.api.combat.ShipAIPlugin.class));
+        assertTrue(stats.isUsable(null, shipAI), "isUsable must return true for AI-controlled ships");
+
+        ShipAPI playerShip = mock(ShipAPI.class);
+        when(playerShip.getShipAI()).thenReturn(null);
+        when(playerShip.getMouseTarget()).thenReturn(null);
+        assertFalse(stats.isUsable(null, playerShip));
+
+        when(playerShip.getMouseTarget()).thenReturn(new org.lwjgl.util.vector.Vector2f(100f, 100f));
+        assertTrue(stats.isUsable(null, playerShip));
+    }
+
+    @Test
+    public void testGetInfoText_SummonAndReposition() {
+        RameyDroneTeleportStats stats = new RameyDroneTeleportStats();
+        com.fs.starfarer.api.combat.ShipSystemAPI system = mock(com.fs.starfarer.api.combat.ShipSystemAPI.class);
+        when(system.isOutOfAmmo()).thenReturn(false);
+        when(system.getState()).thenReturn(com.fs.starfarer.api.combat.ShipSystemAPI.SystemState.IDLE);
+
+        ShipAPI ship = mock(ShipAPI.class);
+        when(ship.isAlive()).thenReturn(true);
+        when(ship.getLocation()).thenReturn(new org.lwjgl.util.vector.Vector2f(0f, 0f));
+        when(ship.getCollisionRadius()).thenReturn(60f);
+        when(ship.getMouseTarget()).thenReturn(new org.lwjgl.util.vector.Vector2f(200f, 0f));
+
+        MutableShipStatsAPI shipStats = mock(MutableShipStatsAPI.class);
+        StatBonus rangeBonus = new StatBonus();
+        when(ship.getMutableStats()).thenReturn(shipStats);
+        when(shipStats.getSystemRangeBonus()).thenReturn(rangeBonus);
+
+        // No drone -> SUMMON
+        when(ship.getCustomData()).thenReturn(new java.util.HashMap<>());
+        assertEquals("SUMMON", stats.getInfoText(system, ship));
+
+        // Drone active -> REPOSITION
+        java.util.Map<String, Object> data = new java.util.HashMap<>();
+        java.util.List<ShipAPI> drones = new java.util.ArrayList<>();
+        ShipAPI drone = mock(ShipAPI.class);
+        when(drone.isAlive()).thenReturn(true);
+        when(drone.isHulk()).thenReturn(false);
+        drones.add(drone);
+        data.put("ramey_betas_list", drones);
+        when(ship.getCustomData()).thenReturn(data);
+
+        assertEquals("REPOSITION", stats.getInfoText(system, ship));
     }
 }

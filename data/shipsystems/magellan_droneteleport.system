@@ -1,7 +1,8 @@
 {
 	"id":"magellan_droneteleport",
 	"type":"STAT_MOD",
-	"aiType":"MINE_STRIKE",
+	"aiType":"CUSTOM",
+	"aiScript":"data.shipsystems.scripts.ai.magellan_DroneTeleportAI",
 	
 	"statsScript":"data.shipsystems.RameyDroneTeleportStats",
 	
@@ -10,12 +11,5 @@
 	
 	"fadeActivationSoundOnChargedown":false,
 	"useSound":"system_termination_sequence",
-	"outOfUsesSound":"gun_out_of_ammo",
-	
-	"aiHints":{
-		"threatRange":1000,
-		"threatAmount":7,
-		"threatAngle":0,
-		"threatArc":360,
-	}
+	"outOfUsesSound":"gun_out_of_ammo"
 }

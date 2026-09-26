@@ -15,6 +15,11 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
 import com.fs.starfarer.api.util.Misc;
 import org.lwjgl.util.vector.Vector2f;
 
+/**
+ * @deprecated Ramey-Alpha now features a native Omni shield generator. The right-click recall
+ * system has been retired in favor of integrated shield defense and automated AI drone coordination.
+ */
+@Deprecated
 public class RameySlaveGuardStats extends BaseShipSystemScript {
 
 	public static final int MAX_DRONES = 1;
