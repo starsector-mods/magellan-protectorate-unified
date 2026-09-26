@@ -1,7 +1,7 @@
 {
     "displayName": "Skytiger",
     "fluxCapacitors": 0,
-    "fluxVents": 20,
+    "fluxVents": 15,
     "goalVariant": true,
     "hullId": "magellan_patroldestroyer",
     "hullMods": [],
