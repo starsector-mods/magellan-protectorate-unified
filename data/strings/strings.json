@@ -71,6 +71,7 @@
         "magellan_BlackcollarModDesc5": "Weapon recoil reduced by %s.",
         "magellan_BlackcollarModDesc6": "Sensor profile reduced by %s.",
         "magellan_BlackcollarModDesc7": "Chance of critical weapon and engine malfunctions at low CR reduced by %s.",
+        "magellan_BlackcollarModDesc8": "Monthly maintenance cost in supplies is %s after all bonuses and maluses.",
         "magellan_StartigerModTitle": "Skytiger Refit",
         "magellan_StartigerModDesc5": "High Explosive damage taken reduced by %s.",
         "magellan_StartigerModDesc6": "EMP damage taken increased by %s.",

@@ -22,8 +22,9 @@ extends BaseHullMod {
     public static final float TURN_PENALTY = 10.0f;
     public static float DMOD_AVOID_CHANCE = 30.0f;
     public static float RECOIL_BONUS = 15.0f;
-    private static final float PROFILE_DECREASE = 25.0f;
+    public static final float PROFILE_DECREASE = 25.0f;
     private static final float MALFUNCTION_DECREASE = 50.0f;
+    public static final float MAINTENANCE_MULT = 2.0f;
 
     public int getDisplaySortOrder() {
         return 0;
@@ -43,6 +44,9 @@ extends BaseHullMod {
         stats.getDynamic().getMod("dmod_acquire_prob_mod").modifyMult(id, 1.0f - DMOD_AVOID_CHANCE * 0.01f);
         stats.getSensorProfile().modifyMult(id, 0.75f);
         stats.getCriticalMalfunctionChance().modifyMult(id, 0.5f);
+        if (stats.getSuppliesPerMonth() != null) {
+            stats.getSuppliesPerMonth().modifyMult(id, MAINTENANCE_MULT);
+        }
         if (stats.getVariant() != null) {
             BlackcollarFlightDeckUtils.handleVariantRefit(stats.getVariant());
         }
@@ -66,6 +70,7 @@ extends BaseHullMod {
         tooltip.addPara("- " + this.getString("BlackcollarModDesc5"), 4.0f, h, new String[]{"15%"});
         tooltip.addPara("- " + this.getString("BlackcollarModDesc6"), 2.0f, h, new String[]{"25%"});
         tooltip.addPara("- " + this.getString("BlackcollarModDesc7"), 2.0f, h, new String[]{"50%"});
+        tooltip.addPara("- " + this.getString("BlackcollarModDesc8"), 2.0f, bad, new String[]{"doubled"});
         tooltip.addSectionHeading(this.getString("IncompTitle"), bad, badbg, Alignment.MID, 10.0f);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40.0f);
         incompat.addPara(this.getString("AllIncomp"), 2.0f);
