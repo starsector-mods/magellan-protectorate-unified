@@ -1,10 +1,12 @@
 {
     "displayName": "Makeshift",
     "fluxCapacitors": 7,
-    "fluxVents": 18,
+    "fluxVents": 16,
     "goalVariant": true,
     "hullId": "magellan_ltfreight_theherd",
-    "hullMods": ["autorepair"],
+    "hullMods": [
+        "autorepair"
+    ],
     "permaMods": [],
     "sMods": [],
     "variantId": "magellan_ltfreight_theherd_std",
@@ -12,7 +14,9 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS0008": "magellan_fuelrod_gun"}
+            "weapons": {
+                "WS0008": "magellan_ripfiresrmpod"
+            }
         },
         {
             "autofire": false,
@@ -25,7 +29,9 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS0009": "magellan_fuelscatter_flak"}
+            "weapons": {
+                "WS0009": "magellan_fuelrod_gun"
+            }
         },
         {
             "autofire": true,
@@ -38,7 +44,9 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS0003": "magellan_linkflak"}
+            "weapons": {
+                "WS0003": "magellan_linkflak"
+            }
         }
     ],
     "wings": []

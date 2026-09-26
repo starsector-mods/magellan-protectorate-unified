@@ -17,9 +17,6 @@
 	"removeBuiltInMods":[],
 	"removeBuiltInWeapons":[],
 	"weaponSlotChanges":{
-		"WS0008":{
-			"type":"COMPOSITE"
-		},
 		"WS0009":{
 			"type":"COMPOSITE"
 		}
