@@ -2,13 +2,13 @@
     "displayName": "Contra",
     "fluxCapacitors": 16,
     "fluxVents": 6,
-    "hullId": "magellan_skipjack_levellercontra",
+    "hullId": "magellan_skipjack_leveller",
     "hullMods": [
         "targetingunit",
         "missleracks",
         "eccm"
     ],
-    "permaMods": ["magellan_contraMod"],
+    "permaMods": [],
     "sMods": [],
     "variantId": "magellan_skipjack_levellercontra_std",
     "weaponGroups": [

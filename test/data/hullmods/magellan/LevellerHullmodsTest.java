@@ -224,12 +224,9 @@ public class LevellerHullmodsTest {
         List<String> levellerFiles = List.of(
                 "data/hulls/skins/magellan_linefrigate_leveller.skin",
                 "data/hulls/skins/magellan_patroldestroyer_leveller.skin",
-                "data/hulls/skins/magellan_patroldestroyer_levellercontra.skin",
                 "data/hulls/skins/magellan_supportdestroyer_leveller.skin",
-                "data/hulls/skins/magellan_supportdestroyer_levellercontra.skin",
                 "data/hulls/skins/magellan_skipjack_leveller.skin",
                 "data/hulls/skins/magellan_skipjack_leveller_generic.skin",
-                "data/hulls/skins/magellan_skipjack_levellercontra.skin",
                 "data/hulls/magellan_carrier_leveller.ship",
                 "data/hulls/magellan_lev_dronefrig.ship",
                 "data/hulls/magellan_lev_lancefrig.ship",

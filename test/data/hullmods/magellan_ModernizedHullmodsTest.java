@@ -57,27 +57,10 @@ public class magellan_ModernizedHullmodsTest {
     }
 
     @Test
-    public void testContraMod_AppliesCorrectWings() {
+    public void testContraMod_DeprecatedAndInapplicable() {
         magellan_contraMod mod = new magellan_contraMod();
-        MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
-        ShipVariantAPI variant = mock(ShipVariantAPI.class);
-        ShipHullSpecAPI hullSpec = mock(ShipHullSpecAPI.class);
-        List<String> wings = new ArrayList<>();
-
-        when(stats.getVariant()).thenReturn(variant);
-        when(variant.getHullSpec()).thenReturn(hullSpec);
-        when(variant.getWings()).thenReturn(wings);
-
-        when(hullSpec.getHullId()).thenReturn("magellan_skipjack_leveller");
-        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, stats, "magellan_contraMod");
-        assertEquals(2, wings.size());
-        assertEquals("magellan_rounder_leveller_wing", wings.get(1));
-
-        wings.clear();
-        when(hullSpec.getHullId()).thenReturn("magellan_patroldestroyer_leveller");
-        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.DESTROYER, stats, "magellan_contraMod");
-        assertEquals(1, wings.size());
-        assertEquals("magellan_swarmfighter_wing", wings.get(0));
+        assertFalse(mod.isApplicableToShip(null));
+        assertNotNull(mod.getUnapplicableReason(null));
     }
 
     @Test

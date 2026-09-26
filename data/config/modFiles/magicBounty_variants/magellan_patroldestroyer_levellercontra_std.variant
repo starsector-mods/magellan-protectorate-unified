@@ -2,13 +2,13 @@
     "displayName": "Contra",
     "fluxCapacitors": 20,
     "fluxVents": 4,
-    "hullId": "magellan_patroldestroyer_levellercontra",
+    "hullId": "magellan_patroldestroyer_leveller",
     "hullMods": [
         "missleracks",
         "targetingunit",
         "magazines"
     ],
-    "permaMods": ["magellan_contraMod"],
+    "permaMods": [],
     "sMods": [],
     "variantId": "magellan_patroldestroyer_levellercontra_std",
     "weaponGroups": [
