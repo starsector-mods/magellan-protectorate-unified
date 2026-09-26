@@ -49,12 +49,12 @@
         "magellan_skiff_theherd_std": 10,
         "magellan_supportfrigate_theherd_std": 10,
         "magellan_missilefrigate_theherd_std": 8,
-        "magellan_linefrigate_startiger_std": 10,
-        "magellan_fastfrigate_blackcollar_elite": 4,
-        "magellan_fastfrigate_blackcollar_vanguard": 4,
-        "magellan_supportfrigate_blackcollar_elite": 6,
+        "magellan_linefrigate_startiger_std": 3,
+        "magellan_fastfrigate_blackcollar_elite": 2,
+        "magellan_fastfrigate_blackcollar_vanguard": 2,
+        "magellan_supportfrigate_blackcollar_elite": 2,
         "magellan_schooner_yellowtail_std": 5,
-        "magellan_modularfrigate_brawl_yellowtail_std": 10,
+        "magellan_modularfrigate_brawl_yellowtail_std": 3,
         "magellan_modularfrigate_sniper_yellowtail_std": 5,
         "magellan_modularfrigate_defense_yellowtail_std": 5,
         "fallback": {
@@ -78,10 +78,10 @@
         "magellan_linedestroyer_theherd_fighter": 4,
         "magellan_supportdestroyer_leveller_turncoat": 8,
         "magellan_patroldestroyer_civ_std": 5,
-        "magellan_linedestroyer_blackcollar_elite": 8,
-        "magellan_fastdestroyer_blackcollar_elite": 3,
-        "magellan_supportdestroyer_blackcollar_elite": 4,
-        "magellan_supportdestroyer_yellowtail_std": 5,
+        "magellan_linedestroyer_blackcollar_elite": 3,
+        "magellan_fastdestroyer_blackcollar_elite": 1,
+        "magellan_supportdestroyer_blackcollar_elite": 2,
+        "magellan_supportdestroyer_yellowtail_std": 2,
         "fallback": {
             "combatSmall": 1
         }
@@ -97,11 +97,11 @@
         "magellan_supportcruiser_elite": 1,
         "magellan_lightcruiser_elite_proto": 5,
         "magellan_lightcruiser_startiger_royal": 5,
-        "magellan_lightcruiser_blackcollar_elite": 5,
-        "magellan_lightcruiser_yellowtail_std": 5,
-        "magellan_cruiser_startiger_elite": 5,
-        "magellan_cruiser_startiger_royal": 5,
-        "magellan_supportcruiser_blackcollar_elite": 3,
+        "magellan_lightcruiser_blackcollar_elite": 2,
+        "magellan_lightcruiser_yellowtail_std": 2,
+        "magellan_cruiser_startiger_elite": 2,
+        "magellan_cruiser_startiger_royal": 2,
+        "magellan_supportcruiser_blackcollar_elite": 1,
         "fallback": {
             "combatMedium": 1
         }
@@ -170,6 +170,8 @@
         "magellan_carrier_blackcollar_elite3": 1
     },
     "carrierLarge": {
+        "magellan_carrier_std": 10,
+        "magellan_carrier_attack": 6,
         "magellan_battlecarrier_blackcollar_elite": 10,
         "magellan_battlecruiser_yellowtail_std": 10,
         "magellan_mothership_yellowtail_std": 1,

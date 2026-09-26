@@ -38,7 +38,7 @@ extends BaseShipSystemScript {
                 for (ShipAPI fighter : this.getFighters(ship)) {
                     if (fighter.isHulk()) continue;
                     MutableShipStatsAPI fStats = fighter.getMutableStats();
-                    fStats.getMaxArmorDamageReduction().modifyPercent(id, 0.05f * effectLevel);
+                    fStats.getMaxArmorDamageReduction().modifyFlat(id, MAX_DAMAGE_REDUCTION_BONUS * effectLevel);
                     fStats.getArmorDamageTakenMult().modifyMult(id, 1.0f - 0.2f * effectLevel);
                     fStats.getBallisticWeaponDamageMult().modifyMult(id, 1.0f + 0.19999999f * effectLevel);
                     fStats.getEnergyWeaponDamageMult().modifyMult(id, 1.0f + 0.19999999f * effectLevel);
@@ -75,9 +75,17 @@ extends BaseShipSystemScript {
             for (ShipAPI fighter : this.getFighters(ship)) {
                 if (fighter.isHulk()) continue;
                 MutableShipStatsAPI fStats = fighter.getMutableStats();
+                fStats.getMaxArmorDamageReduction().unmodify(id);
+                fStats.getArmorDamageTakenMult().unmodify(id);
                 fStats.getBallisticWeaponDamageMult().unmodify(id);
                 fStats.getEnergyWeaponDamageMult().unmodify(id);
                 fStats.getMissileWeaponDamageMult().unmodify(id);
+                fStats.getAutofireAimAccuracy().unmodify(id);
+                fStats.getMaxRecoilMult().unmodify(id);
+                fStats.getRecoilPerShotMult().unmodify(id);
+                fStats.getDeceleration().unmodify(id);
+                fStats.getMaxTurnRate().unmodify(id);
+                fStats.getTurnAcceleration().unmodify(id);
             }
         }
     }

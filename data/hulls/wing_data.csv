@@ -13,8 +13,8 @@ magellan_rounder_wing,magellan_rounder_Bomber,"bomber3, bomber, magellan, magell
 magellan_dronefighter_wing,magellan_dronefighter_std,"fighter5, fighter, magellan_derelict, no_sell, auto_fighter, no_drop",3,,5,10,V,4000,500,,4,FIGHTER,Support,6,15000,3
 magellan_dronebomber_wing,magellan_dronebomber_std,"bomber5, bomber, magellan_derelict, no_sell, auto_fighter, no_drop",3,,7,15,V,4000,2500,300,4,BOMBER,Bomber,12,30000,10
 ,,,,,,,,,,,,,,,,
-magellan_interceptor_blackcollar_wing,magellan_interceptor_blackcollar_Interceptor,"interceptor3, interceptor, magellan_blackcollar",2,,4,5,CLAW,4000,200,700,5,INTERCEPTOR,Interceptor,5,6400,7
-magellan_hvyfighter_blackcollar_wing,magellan_hvyfighter_blackcollar_Fighter,"fighter5, fighter, magellan_blackcollar",2,,6,10,V,4000,700,450,3,BOMBER,Fighter-Bomber,10,13500,3
+magellan_interceptor_blackcollar_wing,magellan_interceptor_blackcollar_Interceptor,"interceptor3, interceptor, magellan_blackcollar",2,,4,5,CLAW,4000,200,700,4,INTERCEPTOR,Interceptor,5,6400,7
+magellan_hvyfighter_blackcollar_wing,magellan_hvyfighter_blackcollar_Fighter,"fighter5, fighter, magellan_blackcollar",2,,6,10,V,4000,700,450,2,BOMBER,Fighter-Bomber,10,13500,3
 magellan_rounder_blackcollar_wing,magellan_rounder_blackcollar_Fighter,"fighter7, fighter, magellan_blackcollar",3,0.2,7,12,CLAW,0,1800,,2,SUPPORT,Escort Fighter,15,25000,3
 magellan_missiledrone_wing,magellan_missiledrone_std,"no_drop, no_sell",3,,8,0,CLAW,0,200,,5,SUPPORT,FIre Support,6,10000,19
 ,,,,,,,,,,,,,,,,
@@ -25,7 +25,7 @@ magellan_corvette_startiger_wing,magellan_corvette_startiger_Gunship,"fighter7, 
 magellan_herdintercept_wing,magellan_herdintercept_Fighter,"interceptor3, interceptor, magellan_theherd, magellan, theherd, merc, pirate",2,,8,12,CLAW,4000,750,100,3,FIGHTER,Assault Fighter,15,20000,3
 magellan_hvyfighter_theherd_wing,magellan_hvyfighter_theherd_Fighter,"fighter3, fighter, magellan_theherd, magellan, theherd, merc, pirate",1,,6,8,V,4000,500,300,3,FIGHTER,Scout Fighter,10,12500,3
 ,,,,,,,,,,,,,,,,
-magellan_swarmfighter_wing,magellan_swarmfighter_Assault,"interceptor5, interceptor, leveller, magellan_levellercore_bp, auto_fighter",3,,5,12,CLAW,3200,300,400,6,FIGHTER,Lilburne Swarmer,10,20000,22
+magellan_swarmfighter_wing,magellan_swarmfighter_Assault,"interceptor5, interceptor, leveller, magellan_levellercore_bp, auto_fighter",3,,5,14,CLAW,3200,300,400,6,FIGHTER,Lilburne Swarmer,12,20000,22
 magellan_rounder_leveller_wing,magellan_rounder_leveller_Bomber,"no_drop, no_sell",3,0.1,8,18,V,4000,2500,600,3,BOMBER,Rainsborough Bomber,15,30000,3
 ,,,,,,,,,,,,,,,,
 magellan_intyellowtail_wing,magellan_intyellowtail_Interceptor,"interceptor3, interceptor, magellan_yellowtail, magellan_yellowtail_bp",3,,4,4,V,4000,200,700,4,INTERCEPTOR,Scout,4,5000,7

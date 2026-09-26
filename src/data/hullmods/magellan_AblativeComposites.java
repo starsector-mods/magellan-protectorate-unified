@@ -3,6 +3,7 @@ package data.hullmods;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseHullMod;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
+import com.fs.starfarer.api.combat.ShieldAPI;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.ui.Alignment;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
@@ -15,6 +16,7 @@ import java.util.Map;
 public class magellan_AblativeComposites extends BaseHullMod {
     private static Map<ShipAPI.HullSize, Float> damage = new HashMap<>();
     private static final float DAMAGE_TAKEN_MULT = 0.75f;
+    public static final float MAX_ARMOR_REDUCTION_PENALTY = -0.15f; // Caps max armor damage reduction at 70% (down from default 85%)
     private static final float SMOD_ARMOR_MULT = 1.1f;
     private static final float SMOD_EMP_TAKEN = 0.5f;
 
@@ -31,11 +33,24 @@ public class magellan_AblativeComposites extends BaseHullMod {
         return Global.getSettings().getString("Hullmod", "magellan_" + key);
     }
 
+    @Override
+    public boolean isSMod(MutableShipStatsAPI stats) {
+        try {
+            if (super.isSMod(stats)) return true;
+        } catch (Exception ignored) {}
+        if (stats != null && stats.getVariant() != null) {
+            com.fs.starfarer.api.combat.ShipVariantAPI v = stats.getVariant();
+            return (v.getSMods() != null && v.getSMods().contains("magellan_noshield"))
+                || (v.getSModdedBuiltIns() != null && v.getSModdedBuiltIns().contains("magellan_noshield"));
+        }
+        return false;
+    }
+
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getMaxArmorDamageReduction().modifyFlat(id, -0.6f);
+        stats.getMaxArmorDamageReduction().modifyFlat(id, MAX_ARMOR_REDUCTION_PENALTY);
         Float dmgMult = damage.get(hullSize);
         if (dmgMult != null) {
-            if (stats.getVariant() != null && !stats.getVariant().hasHullMod("magellan_herdmod")) {
+            if (stats.getVariant() == null || !stats.getVariant().hasHullMod("magellan_herdmod")) {
                 stats.getEngineDamageTakenMult().modifyMult(id, dmgMult);
             }
             stats.getWeaponDamageTakenMult().modifyMult(id, dmgMult);
@@ -56,7 +71,7 @@ public class magellan_AblativeComposites extends BaseHullMod {
         Color mag = magellan_hullmodUtils.getMagellanHLColor();
         Color magbg = magellan_hullmodUtils.getMagellanBGColor();
         tooltip.addSectionHeading(this.getString("Effects"), mag, magbg, Alignment.MID, 10.0f);
-        tooltip.addPara("- " + this.getString("ArmorDesc1"), 10.0f, h, new String[]{"60%", "25%"});
+        tooltip.addPara("- " + this.getString("ArmorDesc1"), 10.0f, h, new String[]{"15%", "70%"});
         if (ship == null || ship.getVariant() == null || !ship.getVariant().hasHullMod("magellan_herdmod")) {
             tooltip.addPara("- " + this.getString("ArmorDesc2"), 2.0f, h, new String[]{"30%", "40%", "50%"});
         }
@@ -70,16 +85,22 @@ public class magellan_AblativeComposites extends BaseHullMod {
     }
 
     public boolean showInRefitScreenModPickerFor(ShipAPI ship) {
-        return true;
+        return false;
     }
 
     public boolean isApplicableToShip(ShipAPI ship) {
         if (ship == null || ship.getVariant() == null) return false;
+        if (ship.getShield() != null && ship.getShield().getType() != ShieldAPI.ShieldType.NONE && ship.getShield().getType() != ShieldAPI.ShieldType.PHASE) {
+            return false;
+        }
         return !ship.isFrigate() && (ship.getVariant().hasHullMod("magellan_engineering") || ship.getVariant().hasHullMod("magellan_engineering_civ") || ship.getVariant().hasHullMod("magellan_blackcollarmod") || ship.getVariant().hasHullMod("magellan_startigermod") || ship.getVariant().hasHullMod("magellan_herdmod")) && super.isApplicableToShip(ship);
     }
 
     public String getUnapplicableReason(ShipAPI ship) {
         if (ship == null || ship.getVariant() == null) return "Cannot be installed";
+        if (ship.getShield() != null && ship.getShield().getType() != ShieldAPI.ShieldType.NONE && ship.getShield().getType() != ShieldAPI.ShieldType.PHASE) {
+            return "Cannot be installed on ships with an active shield generator";
+        }
         if (ship.isFrigate()) {
             return this.getString("MagSpecialCompatFrigate");
         }
