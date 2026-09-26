@@ -11,7 +11,7 @@ import com.fs.starfarer.api.combat.StatBonus;
 import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.DynamicStatsAPI;
-import data.hullmods.magellan_BlackcollarUpgrade;
+import data.hullmods.magellan_StartigerUpgrade;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +24,7 @@ import java.util.Set;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-public class BlackcollarUpgradeTest {
+public class StartigerUpgradeTest {
 
     private MockedStatic<Global> globalMock;
     private SettingsAPI settingsMock;
@@ -51,40 +51,37 @@ public class BlackcollarUpgradeTest {
 
     @Test
     public void testApplyEffectsBeforeShipCreation() {
-        magellan_BlackcollarUpgrade upgrade = new magellan_BlackcollarUpgrade();
+        magellan_StartigerUpgrade upgrade = new magellan_StartigerUpgrade();
         MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
         StatBonus weaponHealth = mock(StatBonus.class);
         StatBonus engineHealth = mock(StatBonus.class);
-        MutableStat maxRecoil = mock(MutableStat.class);
-        MutableStat sensorProfile = mock(MutableStat.class);
-        MutableStat malfunctionChance = mock(MutableStat.class);
         StatBonus dynamicMod = mock(StatBonus.class);
-        MutableStat suppliesPerMonth = mock(MutableStat.class);
+        MutableStat heDamageTaken = mock(MutableStat.class);
+        MutableStat empDamageTaken = mock(MutableStat.class);
+        MutableStat maxSpeed = mock(MutableStat.class);
         DynamicStatsAPI dynamic = mock(DynamicStatsAPI.class);
 
         when(stats.getWeaponHealthBonus()).thenReturn(weaponHealth);
         when(stats.getEngineHealthBonus()).thenReturn(engineHealth);
-        when(stats.getMaxRecoilMult()).thenReturn(maxRecoil);
-        when(stats.getSensorProfile()).thenReturn(sensorProfile);
-        when(stats.getCriticalMalfunctionChance()).thenReturn(malfunctionChance);
-        when(stats.getSuppliesPerMonth()).thenReturn(suppliesPerMonth);
+        when(stats.getHighExplosiveDamageTakenMult()).thenReturn(heDamageTaken);
+        when(stats.getEmpDamageTakenMult()).thenReturn(empDamageTaken);
+        when(stats.getMaxSpeed()).thenReturn(maxSpeed);
         when(stats.getDynamic()).thenReturn(dynamic);
         when(dynamic.getMod("dmod_acquire_prob_mod")).thenReturn(dynamicMod);
 
-        upgrade.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "magellan_blackcollarmod");
+        upgrade.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "magellan_startigermod");
 
-        verify(weaponHealth).modifyPercent("magellan_blackcollarmod", 100.0f);
-        verify(engineHealth).modifyPercent("magellan_blackcollarmod", 50.0f);
-        verify(maxRecoil).modifyMult(eq("magellan_blackcollarmod"), floatThat(v -> Math.abs(v - 0.85f) < 0.001f));
-        verify(sensorProfile).modifyMult("magellan_blackcollarmod", 0.75f);
-        verify(malfunctionChance).modifyMult("magellan_blackcollarmod", 0.5f);
-        verify(dynamicMod).modifyMult(eq("magellan_blackcollarmod"), floatThat(v -> Math.abs(v - 0.7f) < 0.001f));
-        verify(suppliesPerMonth).modifyMult("magellan_blackcollarmod", 1.30f);
+        verify(weaponHealth).modifyPercent("magellan_startigermod", 100.0f);
+        verify(engineHealth).modifyPercent("magellan_startigermod", 50.0f);
+        verify(dynamicMod).modifyMult(eq("magellan_startigermod"), floatThat(v -> Math.abs(v - 0.9f) < 0.001f));
+        verify(heDamageTaken).modifyMult("magellan_startigermod", 0.75f);
+        verify(empDamageTaken).modifyMult("magellan_startigermod", 0.85f);
+        verify(maxSpeed).modifyPercent("magellan_startigermod", -10.0f);
     }
 
     @Test
     public void testApplyEffectsAfterShipCreation_RemovesBlockedMods() {
-        magellan_BlackcollarUpgrade upgrade = new magellan_BlackcollarUpgrade();
+        magellan_StartigerUpgrade upgrade = new magellan_StartigerUpgrade();
         ShipAPI ship = mock(ShipAPI.class);
         ShipVariantAPI variant = mock(ShipVariantAPI.class);
         Set<String> hullMods = new HashSet<>();
@@ -96,7 +93,7 @@ public class BlackcollarUpgradeTest {
         when(ship.getVariant()).thenReturn(variant);
         when(variant.getHullMods()).thenReturn(hullMods);
 
-        upgrade.applyEffectsAfterShipCreation(ship, "magellan_blackcollarmod");
+        upgrade.applyEffectsAfterShipCreation(ship, "magellan_startigermod");
 
         verify(variant).removeMod("hardenedshieldemitter");
         verify(variant).removeMod("armoredweapons");
@@ -106,18 +103,20 @@ public class BlackcollarUpgradeTest {
 
     @Test
     public void testAddPostDescriptionSection() {
-        magellan_BlackcollarUpgrade upgrade = new magellan_BlackcollarUpgrade();
+        magellan_StartigerUpgrade upgrade = new magellan_StartigerUpgrade();
         TooltipMakerAPI tooltip = mock(TooltipMakerAPI.class);
         TooltipMakerAPI subText = mock(TooltipMakerAPI.class);
         LabelAPI label = mock(LabelAPI.class);
 
         when(tooltip.addPara(anyString(), any(), anyFloat())).thenReturn(label);
+        when(tooltip.addPara(anyString(), anyFloat(), any(Color.class), any(String[].class))).thenReturn(label);
         when(tooltip.beginImageWithText(anyString(), anyFloat())).thenReturn(subText);
 
         upgrade.addPostDescriptionSection(tooltip, ShipAPI.HullSize.CRUISER, null, 400.0f, false);
 
         verify(tooltip, atLeastOnce()).addSectionHeading(anyString(), any(Color.class), any(Color.class), any(), anyFloat());
-        verify(tooltip, atLeastOnce()).addPara(eq("- Test String"), anyFloat(), any(Color.class), eq("increased by 30%"));
+        verify(tooltip, atLeastOnce()).addPara(eq("- Test String"), anyFloat(), any(Color.class), eq(new String[]{"15%"}));
+        verify(tooltip, atLeastOnce()).addPara(eq("- Top speed reduced by %s."), anyFloat(), any(Color.class), eq(new String[]{"10%"}));
         verify(tooltip, atLeastOnce()).addImageWithText(anyFloat());
     }
 }

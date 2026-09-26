@@ -22,6 +22,7 @@ public class YellowtailRefit extends BaseHullMod {
     private static final float WEAPON_HEALTH_BONUS = 100.0f;
     private static final float ENGINE_HEALTH_BONUS = 50.0f;
     private static final float DMOD_AVOID_CHANCE = 30.0f;
+    private static final float ARMOR_PENALTY = 12.5f;
     private static final Map<ShipAPI.HullSize, Float> speed = new EnumMap<>(ShipAPI.HullSize.class);
     private static final Map<ShipAPI.HullSize, Float> dpBonus = new EnumMap<>(ShipAPI.HullSize.class);
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
@@ -37,9 +38,9 @@ public class YellowtailRefit extends BaseHullMod {
         dpBonus.put(ShipAPI.HullSize.DEFAULT, 0.0f);
         dpBonus.put(ShipAPI.HullSize.FIGHTER, 0.0f);
         dpBonus.put(ShipAPI.HullSize.FRIGATE, 1.0f);
-        dpBonus.put(ShipAPI.HullSize.DESTROYER, 2.0f);
-        dpBonus.put(ShipAPI.HullSize.CRUISER, 3.0f);
-        dpBonus.put(ShipAPI.HullSize.CAPITAL_SHIP, 4.0f);
+        dpBonus.put(ShipAPI.HullSize.DESTROYER, 1.0f);
+        dpBonus.put(ShipAPI.HullSize.CRUISER, 2.0f);
+        dpBonus.put(ShipAPI.HullSize.CAPITAL_SHIP, 2.0f);
 
         BLOCKED_HULLMODS.add("hardenedshieldemitter");
         BLOCKED_HULLMODS.add("armoredweapons");
@@ -66,6 +67,7 @@ public class YellowtailRefit extends BaseHullMod {
         stats.getWeaponHealthBonus().modifyPercent(id, WEAPON_HEALTH_BONUS);
         stats.getEngineHealthBonus().modifyPercent(id, ENGINE_HEALTH_BONUS);
         stats.getDynamic().getMod("dmod_acquire_prob_mod").modifyMult(id, 1.0f - DMOD_AVOID_CHANCE * 0.01f);
+        stats.getArmorBonus().modifyPercent(id, -ARMOR_PENALTY);
 
         if (hullSize != null) {
             Float spd = speed.get(hullSize);
@@ -100,7 +102,9 @@ public class YellowtailRefit extends BaseHullMod {
         label.setAlignment(Alignment.MID);
         tooltip.addPara("- " + getString("YellowtailModDesc5"), pad2S, h, "30", "20", "12", "4");
         String dpString = "Deployment cost and recovery supply cost reduced by %s/%s/%s/%s, by hull size.";
-        tooltip.addPara("- " + dpString, pad2S, h, "1", "2", "3", "4");
+        tooltip.addPara("- " + dpString, pad2S, h, "1", "1", "2", "2");
+        String armorString = "Base armor reduced by %s (lightweight corporate hulls with stripped military armor).";
+        tooltip.addPara("- " + armorString, pad2S, bad, "12.5%");
 
         tooltip.addSectionHeading(getString("IncompTitle"), bad, badbg, Alignment.MID, pad);
         TooltipMakerAPI text = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40.0f);
