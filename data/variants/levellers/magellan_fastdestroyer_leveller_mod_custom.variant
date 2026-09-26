@@ -3,7 +3,7 @@
   "hullId": "magellan_fastdestroyer_leveller_mod",
   "displayName": "Custom",
   "goalVariant": true,
-  "fluxCapacitors": 6,
+  "fluxCapacitors": 20,
   "fluxVents": 20,
   "permaMods": [],
   "hullMods": [
@@ -55,12 +55,8 @@
         "WS0001": "magellan_laservulcan",
         "WS0007": "magellan_laservulcan",
         "WS0008": "magellan_laservulcan",
-        "WS0012": "magellan_laservulcan",
-        "WS0013": "magellan_laservulcan",
         "WS0014": "magellan_laservulcan",
-        "WS0015": "magellan_laservulcan",
-        "WS0016": "magellan_laservulcan",
-        "WS0017": "magellan_laservulcan"
+        "WS0015": "magellan_laservulcan"
       }
     }
   ],
