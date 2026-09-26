@@ -12,6 +12,7 @@
   "shieldRadius": 148,
   "viewOffset": 0,
   "builtInMods": [
+    "magellan_levellermod",
     "magellan_spartacusreactor",
     "magellan_converted_leveller"
   ],

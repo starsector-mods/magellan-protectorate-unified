@@ -1,12 +1,11 @@
 {
     "displayName": "Standard",
     "fluxCapacitors": 0,
-    "fluxVents": 4,
+    "fluxVents": 8,
     "goalVariant": true,
     "hullId": "magellan_lev_dronefrig",
     "hullMods": [
-        "missleracks",
-        "armoredweapons"
+        "missleracks"
     ],
     "permaMods": [],
     "sMods": [],

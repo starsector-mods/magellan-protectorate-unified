@@ -24,7 +24,7 @@
       		"type": "SYNERGY"
     	}
     },
-    "builtInMods":["magellan_levellermod"],
+    "builtInMods":["magellan_levellermod", "magellan_spartacusreactor"],
 		"engineSlotChanges":{
 		"0":{
 

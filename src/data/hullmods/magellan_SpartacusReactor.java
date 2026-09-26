@@ -43,7 +43,7 @@ extends BaseHullMod {
         stats.getDynamic().getMod("medium_energy_mod").modifyFlat(id, -4.0f);
         stats.getDynamic().getMod("small_energy_mod").modifyFlat(id, -2.0f);
         stats.getDynamic().getStat("replacement_rate_decrease_mult").modifyMult(id, 0.0f);
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id, 200.0f);
+        stats.getEnergyWeaponRangeBonus().modifyFlat("magellan_leveller_energy_range", 200.0f);
         if (stats.getVariant() != null && (stats.getVariant().hasHullMod("safetyoverrides") || stats.getVariant().hasHullMod("eis_aquila"))) {
             stats.getShieldDamageTakenMult().modifyMult(id, 1.2f);
             stats.getOverloadTimeMod().modifyMult(id, 1.5f);
@@ -92,7 +92,9 @@ extends BaseHullMod {
         tooltip.addSectionHeading(this.getString("SpartacusReactorTitle"), lev, levbg, Alignment.MID, 10.0f);
         tooltip.addPara("- " + this.getString("SpartacusReactorDesc1"), 10.0f, h, new String[]{"2", "4", "8 OP"});
         tooltip.addPara("- " + this.getString("ClassicDesc2"), 2.0f, h, new String[]{this.getString("Classic2HL")});
-        tooltip.addPara("- " + this.getString("LevellerRefitDesc2"), 2.0f, h, new String[]{"200su"});
+        if (ship == null || ship.getVariant() == null || !ship.getVariant().hasHullMod("magellan_levellermod")) {
+            tooltip.addPara("- " + this.getString("LevellerRefitDesc2"), 2.0f, h, new String[]{"200su"});
+        }
         LabelAPI intlabel = tooltip.addPara("- " + this.getString("SpartacusReactorDesc3"), 2.0f, h, new String[]{"25%", "125%"});
         intlabel.setHighlight(new String[]{this.getString("SpartacusReactor3HL"), "25%", "125%"});
         intlabel.setHighlightColors(new Color[]{emp_color, h, h});

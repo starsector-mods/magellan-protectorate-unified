@@ -30,7 +30,7 @@
       		"type": "ENERGY"
     	}
     },
-    "builtInMods":["magellan_levellermod"],
+    "builtInMods":["magellan_levellermod", "magellan_spartacusreactor"],
     "builtInWings":[
 		"magellan_swarmfighter_wing"
 	],

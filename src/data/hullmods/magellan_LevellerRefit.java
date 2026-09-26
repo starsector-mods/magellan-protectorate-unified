@@ -42,7 +42,7 @@ extends BaseHullMod {
         stats.getWeaponHealthBonus().modifyPercent(id, 100.0f);
                         stats.getArmorBonus().modifyPercent(id, -10.0f);
         stats.getShieldDamageTakenMult().modifyMult(id, 0.9f);
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id, 200.0f);
+        stats.getEnergyWeaponRangeBonus().modifyFlat("magellan_leveller_energy_range", 200.0f);
         stats.getFluxDissipation().modifyFlat(id, ((Float)mag.get(hullSize)).floatValue());
         stats.getAcceleration().modifyPercent(id, 50.0f);
         stats.getDeceleration().modifyPercent(id, 25.0f);

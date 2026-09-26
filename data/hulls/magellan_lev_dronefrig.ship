@@ -19,6 +19,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "magellan_levellermod",
+    "magellan_spartacusreactor",
     "rugged",
     "neural_interface"
   ],

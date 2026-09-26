@@ -42,7 +42,7 @@
     	}
 
     },
-    "builtInMods":["magellan_spartacusreactor", "operations_center", "magellan_contraMod"],
+    "builtInMods":["magellan_levellermod", "magellan_spartacusreactor", "operations_center", "magellan_contraMod"],
     "builtInWings":[
 		"magellan_rounder_leveller_wing",
 		"magellan_swarmfighter_wing"

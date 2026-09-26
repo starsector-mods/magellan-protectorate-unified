@@ -1,10 +1,10 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 0,
+    "fluxCapacitors": 4,
     "fluxVents": 10,
     "goalVariant": true,
     "hullId": "magellan_lev_dronefrig",
-    "hullMods": ["armoredweapons"],
+    "hullMods": [],
     "permaMods": [],
     "sMods": [],
     "variantId": "magellan_lev_dronefrig_strike",
