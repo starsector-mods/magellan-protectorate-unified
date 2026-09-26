@@ -78,6 +78,8 @@ public class magellan_rusalkaMod extends BaseHullMod {
 
         // base effects
         stats.getWeaponHealthBonus().modifyPercent(id, HEALTH_BONUS);
+        stats.getArmorBonus().modifyPercent(id, -10f);
+        stats.getShieldDamageTakenMult().modifyMult(id, 0.9f);
         stats.getWeaponTurnRateBonus().modifyMult(id, 1f - (0.01f * TURN_PENALTY));
 
         stats.getEmpDamageTakenMult().modifyMult(id, 1f - FLUX_RESISTANCE * 0.01f);
@@ -147,14 +149,15 @@ public class magellan_rusalkaMod extends BaseHullMod {
         Color badbg = magellan_hullmodUtils.getNegativeBGColor();
         Color rus = magellan_hullmodUtils.getRusalkaHLColor();
         Color rusbg = magellan_hullmodUtils.getRusalkaBGColor();
-        Color snri = magellan_hullmodUtils.getSNRIHLColor();
         Color lvl = magellan_hullmodUtils.getLevellerHLColor();
 
         tooltip.addSectionHeading(getString("EngTitle"), rus, rusbg, Alignment.MID, pad);
         tooltip.addPara("- " + getString("EngDesc1"), pad, h, Math.round(HEALTH_BONUS) + "%");
         tooltip.addPara("- " + getString("EngDesc2"), padS, h, Math.round(TURN_PENALTY) + "%");
+        tooltip.addPara("- Base armor decreased by %s.", padS, bad, "10%");
+        tooltip.addPara("- Shield damage taken reduced by %s.", padS, h, "10%");
 
-        LabelAPI label1 = tooltip.addPara("——— " + getMagellanString("RusalkaSubtitle1") + " ———", snri, pad2S);
+        LabelAPI label1 = tooltip.addPara("——— " + getMagellanString("RusalkaSubtitle1") + " ———", lvl, pad2S);
         label1.setAlignment(Alignment.MID);
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc1"), pad2S, h, Math.round(FLUX_RESISTANCE) + "%");
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc2"), padS, h, Math.round(VENT_RATE_BONUS) + "%");

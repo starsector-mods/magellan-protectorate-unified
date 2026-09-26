@@ -287,6 +287,8 @@ public class magellan_ModernizedHullmodsTest {
         when(stats.getEmpDamageTakenMult()).thenReturn(empTaken);
         when(stats.getZeroFluxSpeedBoost()).thenReturn(zeroFlux);
         when(stats.getZeroFluxMinimumFluxLevel()).thenReturn(zeroFluxMin);
+        when(stats.getArmorBonus()).thenReturn(mock(StatBonus.class));
+        when(stats.getShieldDamageTakenMult()).thenReturn(mock(MutableStat.class));
         when(stats.getEnergyWeaponRangeBonus()).thenReturn(energyRange);
         when(stats.getAcceleration()).thenReturn(accel);
         when(stats.getDeceleration()).thenReturn(accel);
