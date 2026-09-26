@@ -27,8 +27,8 @@ extends BaseHullMod {
     public static final float HEALTH_BONUS = 100.0f;
     public static final float TURN_PENALTY = 20.0f;
     public static float DMOD_AVOID_CHANCE;
-    public static final float SPEED_PENALTY_PERCENT = -5.0f;
-    public static final float AUTOFIRE_MALUS = -15.0f;
+    public static final float SPEED_PENALTY_PERCENT = 0.0f;
+    
     public static final float FLAMEOUT_CHANCE_SO = 0.01f;
     private Color color = new Color(175, 225, 175, 200);
 
@@ -46,18 +46,17 @@ extends BaseHullMod {
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
         stats.getWeaponHealthBonus().modifyPercent(id, 100.0f);
+        stats.getArmorBonus().modifyPercent(id, 10.0f);
         stats.getWeaponTurnRateBonus().modifyMult(id, 0.8f);
         stats.getDynamic().getMod("dmod_acquire_prob_mod").modifyMult(id, 1.0f - DMOD_AVOID_CHANCE * 0.01f);
         stats.getMaxSpeed().modifyFlat(id, ((Float)speed.get(hullSize)).floatValue());
-        stats.getMaxSpeed().modifyPercent(id, SPEED_PENALTY_PERCENT);
-        stats.getAcceleration().modifyMult(id, 1.0f + ((Float)accmult.get(hullSize)).floatValue() / 2.0f);
+                stats.getAcceleration().modifyMult(id, 1.0f + ((Float)accmult.get(hullSize)).floatValue() / 2.0f);
         stats.getDeceleration().modifyMult(id, ((Float)accmult.get(hullSize)).floatValue());
         stats.getEngineDamageTakenMult().modifyMult(id, 2.0f);
         if (stats.getVariant() != null && (stats.getVariant().hasHullMod("safetyoverrides") || stats.getVariant().hasHullMod("eis_aquila"))) {
             stats.getEngineMalfunctionChance().modifyFlat(id, 0.01f);
         }
-        stats.getAutofireAimAccuracy().modifyFlat(id, -0.14999999f);
-    }
+            }
 
     public void advanceInCombat(ShipAPI ship, float amount) {
         if (ship == null || ship.getEngineController() == null) return;
@@ -84,17 +83,15 @@ extends BaseHullMod {
         tooltip.addPara("- " + this.getString("EngDesc4"), 2.0f, h, new String[]{"40%"});
         LabelAPI label = tooltip.addPara("\u2014\u2014\u2014 " + this.getString("HerdRefitTitle") + " \u2014\u2014\u2014", herd, 4.0f);
         label.setAlignment(Alignment.MID);
+        tooltip.addPara("- Base armor increased by %s.", 2.0f, h, new String[]{"10%"});
         tooltip.addPara("- " + this.getString("HerdRefitDesc3"), 4.0f, h, new String[]{"45", "30", "15", "5"});
-        tooltip.addPara("- " + this.getString("HerdRefitDescSpeedPenalty"), 2.0f, bad, new String[]{"5%"});
-        tooltip.addPara("- " + this.getString("HerdRefitDesc4"), 2.0f, h, new String[]{"15%"});
-        tooltip.addPara("- " + this.getString("HerdRefitDesc5"), 2.0f, h, new String[]{"100%"});
+                        tooltip.addPara("- " + this.getString("HerdRefitDesc5"), 2.0f, h, new String[]{"100%"});
         tooltip.addSectionHeading(this.getString("IncompTitle"), bad, badbg, Alignment.MID, 10.0f);
         TooltipMakerAPI text = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40.0f);
         text.addPara(this.getString("AllIncomp"), 2.0f);
         text.addPara("- Hardened Shields", bad, 2.0f);
         text.addPara("- Armored Weapon Mounts", bad, 0.0f);
-        text.addPara("- Integrated Targeting Unit", bad, 0.0f);
-        tooltip.addImageWithText(10.0f);
+                tooltip.addImageWithText(10.0f);
     }
 
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
@@ -125,7 +122,6 @@ extends BaseHullMod {
         DMOD_AVOID_CHANCE = 40.0f;
         BLOCKED_HULLMODS.add("hardenedshieldemitter");
         BLOCKED_HULLMODS.add("armoredweapons");
-        BLOCKED_HULLMODS.add("targetingunit");
-    }
+            }
 }
 
