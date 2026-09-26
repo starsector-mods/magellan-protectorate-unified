@@ -29,8 +29,9 @@
       		"type": "BUILT_IN"
     	}
     },
-    "builtInMods":["magellan_herdmod", "magellan_herd_edger_deck"],
-    	"builtInWings":[
+    "builtInMods":["magellan_herdmod"],
+    	"fighterBays":4,
+    "builtInWings":[
 		"magellan_corvette_theherd_wing",
 		"magellan_hvyfighter_theherd_wing",
 		"magellan_hvyfighter_theherd_wing",
