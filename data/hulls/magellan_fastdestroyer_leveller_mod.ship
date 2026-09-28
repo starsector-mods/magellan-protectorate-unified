@@ -114,8 +114,8 @@
             "size": "SMALL",
             "type": "BUILT_IN",
             "mount": "TURRET",
-            "arc": 120,
-            "angle": 135,
+            "arc": 60,
+            "angle": 170,
             "locations": [
                 -34,
                 21
@@ -126,8 +126,8 @@
             "size": "SMALL",
             "type": "BUILT_IN",
             "mount": "TURRET",
-            "arc": 120,
-            "angle": -135,
+            "arc": 60,
+            "angle": -170,
             "locations": [
                 -34,
                 -21
@@ -175,8 +175,8 @@
             "type": "BUILT_IN",
             "mount": "TURRET",
             "renderOrderMod": -100,
-            "arc": 75,
-            "angle": 158,
+            "arc": 45,
+            "angle": 175,
             "locations": [
                 -46,
                 12
@@ -188,8 +188,8 @@
             "type": "BUILT_IN",
             "mount": "TURRET",
             "renderOrderMod": -100,
-            "arc": 75,
-            "angle": -158,
+            "arc": 45,
+            "angle": -175,
             "locations": [
                 -46,
                 -12

@@ -39,31 +39,26 @@ public class magellan_rusalkaMod extends BaseHullMod {
 
     public static final float HEALTH_BONUS = 100f;
     public static final float TURN_PENALTY = 10f;
+    public static final float ARMOR_PENALTY = 10f;
+    public static final float HULL_PENALTY = 15f;
+    public static final float SHIELD_DAMAGE_MULT = 0.9f;
 
-    public static final float FLUX_RESISTANCE = 100f;
+    public static final float EMP_DAMAGE_PENALTY = 25f;
     public static final float VENT_RATE_BONUS = 25f;
-    public static final float ZERO_FLUX_BONUS = 50f;
-    public static final float ZERO_FLUX_LEVEL = 5f;
     public static final float CORONA_EFFECT_REDUCTION = 0.5f;
 
-    public static final float ENERGY_PROJECTILE_RANGE_BONUS = 200f;
+    public static final float RANGE_PENALTY = 100f;
+    public static final float DAMAGE_BONUS = 5f;
     public static final float MANEUVER_BONUS = 25f;
-
-    private static final Map<HullSize, Float> SPEED = new EnumMap<>(HullSize.class);
-    static {
-        SPEED.put(HullSize.DEFAULT, 0f);
-        SPEED.put(HullSize.FIGHTER, 0f);
-        SPEED.put(HullSize.FRIGATE, 25f);
-        SPEED.put(HullSize.DESTROYER, 20f);
-        SPEED.put(HullSize.CRUISER, 15f);
-        SPEED.put(HullSize.CAPITAL_SHIP, 15f);
-    }
+    public static final float SPEED_BONUS = 20f;
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
     static {
         BLOCKED_HULLMODS.add("fluxdistributor");
         BLOCKED_HULLMODS.add("fluxcoil");
         BLOCKED_HULLMODS.add("fluxbreakers");
+        BLOCKED_HULLMODS.add("targetingunit");
+        BLOCKED_HULLMODS.add("dedicated_targeting_core");
         BLOCKED_HULLMODS.add("safetyoverrides");
         BLOCKED_HULLMODS.add("armoredweapons");
         BLOCKED_HULLMODS.add("converted_hangar");
@@ -75,28 +70,34 @@ public class magellan_rusalkaMod extends BaseHullMod {
 
     @Override
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        // base effects
+        // Base Leveller Prototype effects
         stats.getWeaponHealthBonus().modifyPercent(id, HEALTH_BONUS);
-        stats.getArmorBonus().modifyPercent(id, -10f);
-        stats.getShieldDamageTakenMult().modifyMult(id, 0.9f);
         stats.getWeaponTurnRateBonus().modifyMult(id, 1f - (0.01f * TURN_PENALTY));
+        stats.getArmorBonus().modifyPercent(id, -ARMOR_PENALTY);
+        stats.getHullBonus().modifyPercent(id, -HULL_PENALTY);
+        stats.getShieldDamageTakenMult().modifyMult(id, SHIELD_DAMAGE_MULT);
 
-        stats.getEmpDamageTakenMult().modifyMult(id, 1f - FLUX_RESISTANCE * 0.01f);
+        // Reactor properties
+        stats.getEmpDamageTakenMult().modifyPercent(id, EMP_DAMAGE_PENALTY);
         stats.getVentRateMult().modifyPercent(id, VENT_RATE_BONUS);
-        stats.getZeroFluxSpeedBoost().modifyFlat(id, ZERO_FLUX_BONUS);
-        stats.getZeroFluxMinimumFluxLevel().modifyFlat(id, ZERO_FLUX_LEVEL * 0.01f);
+        stats.getZeroFluxSpeedBoost().modifyMult(id, 0f);
         stats.getDynamic().getStat(Stats.CORONA_EFFECT_MULT).modifyMult(id, CORONA_EFFECT_REDUCTION);
 
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id, ENERGY_PROJECTILE_RANGE_BONUS);
+        // Weapon Range & Damage (Close-range brawler profile: -100su range, +5% damage all types)
+        stats.getBallisticWeaponRangeBonus().modifyFlat(id, -RANGE_PENALTY);
+        stats.getEnergyWeaponRangeBonus().modifyFlat(id, -RANGE_PENALTY);
+        stats.getMissileWeaponRangeBonus().modifyFlat(id, -RANGE_PENALTY);
+
+        stats.getBallisticWeaponDamageMult().modifyPercent(id, DAMAGE_BONUS);
+        stats.getEnergyWeaponDamageMult().modifyPercent(id, DAMAGE_BONUS);
+        stats.getMissileWeaponDamageMult().modifyPercent(id, DAMAGE_BONUS);
+
+        // Movement & Firepower (Rusalka Destroyer fixed specs)
         stats.getAcceleration().modifyPercent(id, MANEUVER_BONUS * 2f);
         stats.getDeceleration().modifyPercent(id, MANEUVER_BONUS);
         stats.getTurnAcceleration().modifyPercent(id, MANEUVER_BONUS * 2f);
         stats.getMaxTurnRate().modifyPercent(id, MANEUVER_BONUS);
-
-        Float spd = hullSize != null ? SPEED.get(hullSize) : 0f;
-        if (spd != null && spd > 0f) {
-            stats.getMaxSpeed().modifyFlat(id, spd);
-        }
+        stats.getMaxSpeed().modifyFlat(id, SPEED_BONUS);
     }
 
     @Override
@@ -115,29 +116,28 @@ public class magellan_rusalkaMod extends BaseHullMod {
         tooltip.addSectionHeading(getString("EngTitle"), rus, rusbg, Alignment.MID, pad);
         tooltip.addPara("- " + getString("EngDesc1"), pad, h, Math.round(HEALTH_BONUS) + "%");
         tooltip.addPara("- " + getString("EngDesc2"), padS, h, Math.round(TURN_PENALTY) + "%");
-        tooltip.addPara("- Base armor decreased by %s.", padS, bad, "10%");
+        tooltip.addPara("- Base armor rating decreased by %s.", padS, bad, Math.round(ARMOR_PENALTY) + "%");
+        tooltip.addPara("- Base hull integrity decreased by %s.", padS, bad, Math.round(HULL_PENALTY) + "%");
         tooltip.addPara("- Shield damage taken reduced by %s.", padS, h, "10%");
 
         LabelAPI label1 = tooltip.addPara("——— " + getMagellanString("RusalkaSubtitle1") + " ———", lvl, pad2S);
         label1.setAlignment(Alignment.MID);
-        tooltip.addPara("- " + getMagellanString("RusalkaModDesc1"), pad2S, h, Math.round(FLUX_RESISTANCE) + "%");
+        tooltip.addPara("- " + getMagellanString("RusalkaModDesc1"), pad2S, bad, Math.round(EMP_DAMAGE_PENALTY) + "%");
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc2"), padS, h, Math.round(VENT_RATE_BONUS) + "%");
-        tooltip.addPara("- " + getMagellanString("RusalkaModDesc3"), padS, h, Math.round(ZERO_FLUX_BONUS) + "su", Math.round(ZERO_FLUX_LEVEL) + "%");
+        tooltip.addPara("- " + getMagellanString("RusalkaModDesc3"), padS, bad);
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc4"), padS, h, Math.round(CORONA_EFFECT_REDUCTION * 100f) + "%");
 
         LabelAPI label2 = tooltip.addPara("——— " + getMagellanString("RusalkaSubtitle2") + " ———", lvl, pad2S);
         label2.setAlignment(Alignment.MID);
-        tooltip.addPara("- " + getMagellanString("RusalkaModDesc5"), pad2S, h, Math.round(ENERGY_PROJECTILE_RANGE_BONUS) + "su");
+        tooltip.addPara("- " + getMagellanString("RusalkaModDesc5"), pad2S, bad, Math.round(RANGE_PENALTY) + "su");
+        tooltip.addPara("- " + getMagellanString("RusalkaModDesc8"), padS, h, Math.round(DAMAGE_BONUS) + "%");
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc6"), padS, h, Math.round(MANEUVER_BONUS) + "%");
-        tooltip.addPara("- " + getMagellanString("RusalkaModDesc7"), padS, h,
-                String.valueOf(Math.round(SPEED.get(HullSize.FRIGATE))),
-                String.valueOf(Math.round(SPEED.get(HullSize.DESTROYER))),
-                String.valueOf(Math.round(SPEED.get(HullSize.CRUISER))),
-                String.valueOf(Math.round(SPEED.get(HullSize.CAPITAL_SHIP))));
+        tooltip.addPara("- " + getMagellanString("RusalkaModDesc7"), padS, h, Math.round(SPEED_BONUS) + "su");
 
         tooltip.addSectionHeading("Incompatibilities", bad, badbg, Alignment.MID, pad);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40f);
         incompat.addPara(getString("AllIncomp"), padS);
+        incompat.addPara("- Integrated Targeting Unit / DTC", bad, padS);
         incompat.addPara("- Flux Distributor", bad, padS);
         incompat.addPara("- Flux Coil Adjunct", bad, padS);
         incompat.addPara("- Resistant Flux Conduits", bad, padS);
@@ -163,5 +163,15 @@ public class magellan_rusalkaMod extends BaseHullMod {
                 MagellanBlockedHullmodDisplayScript.showBlocked(ship);
             }
         }
+    }
+
+    @Override
+    public boolean isApplicableToShip(ShipAPI ship) {
+        return ship != null && ship.getHullSpec() != null && "magellan_fastdestroyer_leveller_mod".equals(ship.getHullSpec().getHullId());
+    }
+
+    @Override
+    public String getUnapplicableReason(ShipAPI ship) {
+        return "Can only be installed on the Leveller Rusalka prototype destroyer";
     }
 }

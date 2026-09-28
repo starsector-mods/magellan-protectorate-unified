@@ -280,29 +280,43 @@ public class magellan_ModernizedHullmodsTest {
         magellan_rusalkaMod rusalka = new magellan_rusalkaMod();
         MutableStat empTaken = mock(MutableStat.class);
         MutableStat zeroFlux = mock(MutableStat.class);
-        MutableStat zeroFluxMin = mock(MutableStat.class);
+        StatBonus hullBonus = mock(StatBonus.class);
+        StatBonus armorBonus = mock(StatBonus.class);
         StatBonus energyRange = mock(StatBonus.class);
+        StatBonus ballisticRange = mock(StatBonus.class);
+        StatBonus missileRange = mock(StatBonus.class);
+        MutableStat energyDmg = mock(MutableStat.class);
+        MutableStat ballisticDmg = mock(MutableStat.class);
+        MutableStat missileDmg = mock(MutableStat.class);
         MutableStat accel = mock(MutableStat.class);
 
         when(stats.getEmpDamageTakenMult()).thenReturn(empTaken);
         when(stats.getZeroFluxSpeedBoost()).thenReturn(zeroFlux);
-        when(stats.getZeroFluxMinimumFluxLevel()).thenReturn(zeroFluxMin);
-        when(stats.getArmorBonus()).thenReturn(mock(StatBonus.class));
+        when(stats.getHullBonus()).thenReturn(hullBonus);
+        when(stats.getArmorBonus()).thenReturn(armorBonus);
         when(stats.getShieldDamageTakenMult()).thenReturn(mock(MutableStat.class));
+        when(stats.getBallisticWeaponRangeBonus()).thenReturn(ballisticRange);
         when(stats.getEnergyWeaponRangeBonus()).thenReturn(energyRange);
+        when(stats.getMissileWeaponRangeBonus()).thenReturn(missileRange);
+        when(stats.getBallisticWeaponDamageMult()).thenReturn(ballisticDmg);
+        when(stats.getEnergyWeaponDamageMult()).thenReturn(energyDmg);
+        when(stats.getMissileWeaponDamageMult()).thenReturn(missileDmg);
         when(stats.getAcceleration()).thenReturn(accel);
         when(stats.getDeceleration()).thenReturn(accel);
         when(stats.getTurnAcceleration()).thenReturn(accel);
         when(stats.getMaxTurnRate()).thenReturn(accel);
-        when(stats.getWeaponMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getEngineMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getCriticalMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getShieldMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getShieldMalfunctionFluxLevel()).thenReturn(mock(MutableStat.class));
 
         rusalka.applyEffectsBeforeShipCreation(ShipAPI.HullSize.DESTROYER, stats, "magellan_rusalkaMod");
-        verify(empTaken).modifyMult("magellan_rusalkaMod", 0f);
-        verify(energyRange).modifyFlat("magellan_rusalkaMod", 200f);
+        verify(empTaken).modifyPercent("magellan_rusalkaMod", 25f);
+        verify(zeroFlux).modifyMult("magellan_rusalkaMod", 0f);
+        verify(hullBonus).modifyPercent("magellan_rusalkaMod", -15f);
+        verify(armorBonus).modifyPercent("magellan_rusalkaMod", -10f);
+        verify(ballisticRange).modifyFlat("magellan_rusalkaMod", -100f);
+        verify(energyRange).modifyFlat("magellan_rusalkaMod", -100f);
+        verify(missileRange).modifyFlat("magellan_rusalkaMod", -100f);
+        verify(ballisticDmg).modifyPercent("magellan_rusalkaMod", 5f);
+        verify(energyDmg).modifyPercent("magellan_rusalkaMod", 5f);
+        verify(missileDmg).modifyPercent("magellan_rusalkaMod", 5f);
         verify(maxSpeed).modifyFlat("magellan_rusalkaMod", 20f);
     }
 
@@ -314,7 +328,7 @@ public class magellan_ModernizedHullmodsTest {
         when(ship.getVariant()).thenReturn(variant);
 
         java.util.Collection<String> mods = new java.util.ArrayList<>(java.util.Arrays.asList(
-                "fluxdistributor", "fluxcoil", "fluxbreakers", "safetyoverrides"
+                "fluxdistributor", "fluxcoil", "fluxbreakers", "safetyoverrides", "targetingunit"
         ));
         when(variant.getHullMods()).thenReturn(mods);
 
@@ -324,5 +338,20 @@ public class magellan_ModernizedHullmodsTest {
         verify(variant).removeMod("fluxcoil");
         verify(variant).removeMod("fluxbreakers");
         verify(variant).removeMod("safetyoverrides");
+        verify(variant).removeMod("targetingunit");
+    }
+
+    @Test
+    public void testRusalkaMod_ApplicableOnlyToRusalka() {
+        magellan_rusalkaMod rusalka = new magellan_rusalkaMod();
+        ShipAPI ship = mock(ShipAPI.class);
+        ShipHullSpecAPI spec = mock(ShipHullSpecAPI.class);
+        when(ship.getHullSpec()).thenReturn(spec);
+
+        when(spec.getHullId()).thenReturn("magellan_fastdestroyer_leveller_mod");
+        assertTrue(rusalka.isApplicableToShip(ship));
+
+        when(spec.getHullId()).thenReturn("magellan_fastdestroyer");
+        assertFalse(rusalka.isApplicableToShip(ship));
     }
 }
