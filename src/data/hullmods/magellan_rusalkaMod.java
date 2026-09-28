@@ -61,21 +61,20 @@ public class magellan_rusalkaMod extends BaseHullMod {
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
     static {
+        BLOCKED_HULLMODS.add("fluxdistributor");
+        BLOCKED_HULLMODS.add("fluxcoil");
+        BLOCKED_HULLMODS.add("fluxbreakers");
         BLOCKED_HULLMODS.add("safetyoverrides");
         BLOCKED_HULLMODS.add("armoredweapons");
         BLOCKED_HULLMODS.add("converted_hangar");
         BLOCKED_HULLMODS.add("roider_fighterClamps");
+        BLOCKED_HULLMODS.add("eis_aquila");
+        BLOCKED_HULLMODS.add("eis_aquila_1time");
+        BLOCKED_HULLMODS.add("eis_avaritia");
     }
 
     @Override
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        float WEAPON_MALF_CHANCE = 0f;
-        float ENGINE_MALF_CHANCE = 0f;
-        float SHIELD_MALF_CHANCE = 0f;
-        float SHIELD_MALF_LEVEL = 0f;
-        float CRITICAL_MALF_CHANCE = 0f;
-        ShipVariantAPI var = stats.getVariant();
-
         // base effects
         stats.getWeaponHealthBonus().modifyPercent(id, HEALTH_BONUS);
         stats.getArmorBonus().modifyPercent(id, -10f);
@@ -98,44 +97,6 @@ public class magellan_rusalkaMod extends BaseHullMod {
         if (spd != null && spd > 0f) {
             stats.getMaxSpeed().modifyFlat(id, spd);
         }
-
-        boolean hasFluxDistributor = var != null && var.hasHullMod("fluxdistributor");
-        boolean hasFluxCoilAdjunct = var != null && var.hasHullMod("fluxcoil");
-        boolean hasResistantFluxConduits = var != null && var.hasHullMod("fluxbreakers");
-        boolean hasAquila = var != null && (var.hasHullMod("eis_aquila") || var.hasHullMod("eis_aquila_1time"));
-        boolean hasAvarita = var != null && var.hasHullMod("eis_avaritia");
-
-        if (hasFluxDistributor && hasAquila) {
-            WEAPON_MALF_CHANCE = 0.05f;
-        } else if (hasFluxDistributor || hasAquila) {
-            WEAPON_MALF_CHANCE = 0.025f;
-        }
-
-        if (hasFluxCoilAdjunct && hasAquila) {
-            ENGINE_MALF_CHANCE = 0.005f;
-        } else if (hasFluxCoilAdjunct || hasAquila) {
-            ENGINE_MALF_CHANCE = 0.0025f;
-        }
-
-        if (hasResistantFluxConduits && hasAvarita) {
-            SHIELD_MALF_CHANCE = 0.1f;
-            SHIELD_MALF_LEVEL = 0.7f;
-        } else if (hasResistantFluxConduits || hasAvarita) {
-            SHIELD_MALF_CHANCE = 0.05f;
-            SHIELD_MALF_LEVEL = 0.15f;
-        }
-
-        if (hasAquila && hasAvarita) {
-            CRITICAL_MALF_CHANCE = 0.1f;
-        } else if (hasAquila || hasAvarita) {
-            CRITICAL_MALF_CHANCE = 0.05f;
-        }
-
-        stats.getWeaponMalfunctionChance().modifyFlat(id, WEAPON_MALF_CHANCE);
-        stats.getEngineMalfunctionChance().modifyFlat(id, ENGINE_MALF_CHANCE);
-        stats.getCriticalMalfunctionChance().modifyFlat(id, CRITICAL_MALF_CHANCE);
-        stats.getShieldMalfunctionChance().modifyFlat(id, SHIELD_MALF_CHANCE);
-        stats.getShieldMalfunctionFluxLevel().modifyFlat(id, 1f - SHIELD_MALF_LEVEL);
     }
 
     @Override
@@ -177,23 +138,19 @@ public class magellan_rusalkaMod extends BaseHullMod {
         tooltip.addSectionHeading("Incompatibilities", bad, badbg, Alignment.MID, pad);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40f);
         incompat.addPara(getString("AllIncomp"), padS);
+        incompat.addPara("- Flux Distributor", bad, padS);
+        incompat.addPara("- Flux Coil Adjunct", bad, padS);
+        incompat.addPara("- Resistant Flux Conduits", bad, padS);
         incompat.addPara("- Safety Overrides", bad, padS);
         incompat.addPara("- Armored Weapon Mounts", bad, padS);
         incompat.addPara("- Converted Hangar", bad, padS);
+        if (Global.getSettings().getModManager().isModEnabled("timid_xiv")) {
+            incompat.addPara("- Aquila Reactor Protocol", bad, padS);
+            incompat.addPara("- Avaritia Capacity Overhaul", bad, padS);
+        }
         if (Global.getSettings().getModManager().isModEnabled("roider")) {
             incompat.addPara("- Fighter Clamps", bad, padS);
         }
-        tooltip.addImageWithText(pad);
-
-        TooltipMakerAPI malfunction = tooltip.beginImageWithText("graphics/Magellan/icons/tooltips/magellan_malfunctiontooltip.png", 40f);
-        malfunction.addPara(getMagellanString("malfunctionWarning"), padS);
-        if (Global.getSettings().getModManager().isModEnabled("timid_xiv")) {
-            malfunction.addPara("- Aquila Reactor Protocol", bad, padS);
-            malfunction.addPara("- Avaritia Capacity Overhaul", bad, padS);
-        }
-        malfunction.addPara("- Flux Distributor", bad, padS);
-        malfunction.addPara("- Flux Coil Adjunct", bad, padS);
-        malfunction.addPara("- Resistant Flux Conduits", bad, 0f);
         tooltip.addImageWithText(pad);
     }
 

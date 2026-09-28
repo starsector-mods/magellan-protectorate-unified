@@ -24,7 +24,7 @@ public class MagellanModPlugin extends BaseModPlugin {
 
         // these are here purely because Apache Open Office hates a single quotation mark at the start of a new line
         Global.getSettings().getHullModSpec("magellan_duncanMod").setDisplayName("'Duncan' Testbed");
-        Global.getSettings().getHullModSpec("magellan_rusalkaMod").setDisplayName("'Rusalka' Rebuild");
+        Global.getSettings().getHullModSpec("magellan_rusalkaMod").setDisplayName("Ascendant Spartacus Reactor");
 
         if (haveMechs) {
             /*

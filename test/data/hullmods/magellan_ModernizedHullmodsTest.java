@@ -305,4 +305,24 @@ public class magellan_ModernizedHullmodsTest {
         verify(energyRange).modifyFlat("magellan_rusalkaMod", 200f);
         verify(maxSpeed).modifyFlat("magellan_rusalkaMod", 20f);
     }
+
+    @Test
+    public void testRusalkaMod_BlocksIncompatibleHullmods() {
+        magellan_rusalkaMod rusalka = new magellan_rusalkaMod();
+        ShipAPI ship = mock(ShipAPI.class);
+        ShipVariantAPI variant = mock(ShipVariantAPI.class);
+        when(ship.getVariant()).thenReturn(variant);
+
+        java.util.Collection<String> mods = new java.util.ArrayList<>(java.util.Arrays.asList(
+                "fluxdistributor", "fluxcoil", "fluxbreakers", "safetyoverrides"
+        ));
+        when(variant.getHullMods()).thenReturn(mods);
+
+        rusalka.applyEffectsAfterShipCreation(ship, "magellan_rusalkaMod");
+
+        verify(variant).removeMod("fluxdistributor");
+        verify(variant).removeMod("fluxcoil");
+        verify(variant).removeMod("fluxbreakers");
+        verify(variant).removeMod("safetyoverrides");
+    }
 }
