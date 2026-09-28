@@ -289,12 +289,14 @@ public class magellan_ModernizedHullmodsTest {
         MutableStat ballisticDmg = mock(MutableStat.class);
         MutableStat missileDmg = mock(MutableStat.class);
         MutableStat accel = mock(MutableStat.class);
+        MutableStat sensorProfile = mock(MutableStat.class);
 
         when(stats.getEmpDamageTakenMult()).thenReturn(empTaken);
         when(stats.getZeroFluxSpeedBoost()).thenReturn(zeroFlux);
         when(stats.getHullBonus()).thenReturn(hullBonus);
         when(stats.getArmorBonus()).thenReturn(armorBonus);
         when(stats.getShieldDamageTakenMult()).thenReturn(mock(MutableStat.class));
+        when(stats.getSensorProfile()).thenReturn(sensorProfile);
         when(stats.getBallisticWeaponRangeBonus()).thenReturn(ballisticRange);
         when(stats.getEnergyWeaponRangeBonus()).thenReturn(energyRange);
         when(stats.getMissileWeaponRangeBonus()).thenReturn(missileRange);
@@ -311,6 +313,7 @@ public class magellan_ModernizedHullmodsTest {
         verify(zeroFlux).modifyMult("magellan_rusalkaMod", 0f);
         verify(hullBonus).modifyPercent("magellan_rusalkaMod", -15f);
         verify(armorBonus).modifyPercent("magellan_rusalkaMod", -10f);
+        verify(sensorProfile).modifyPercent("magellan_rusalkaMod", 50f);
         verify(ballisticRange).modifyFlat("magellan_rusalkaMod", -100f);
         verify(energyRange).modifyFlat("magellan_rusalkaMod", -100f);
         verify(missileRange).modifyFlat("magellan_rusalkaMod", -100f);

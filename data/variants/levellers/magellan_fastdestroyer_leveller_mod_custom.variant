@@ -3,13 +3,12 @@
   "hullId": "magellan_fastdestroyer_leveller_mod",
   "displayName": "Custom",
   "goalVariant": true,
-  "fluxCapacitors": 12,
+  "fluxCapacitors": 17,
   "fluxVents": 20,
   "permaMods": [],
   "hullMods": [
     "hardenedshieldemitter",
     "hardened_subsystems",
-    "frontemitter",
     "magazines"
   ],
   "sMods": [],

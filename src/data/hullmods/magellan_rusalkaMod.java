@@ -46,6 +46,7 @@ public class magellan_rusalkaMod extends BaseHullMod {
     public static final float EMP_DAMAGE_PENALTY = 25f;
     public static final float VENT_RATE_BONUS = 25f;
     public static final float CORONA_EFFECT_REDUCTION = 0.5f;
+    public static final float SENSOR_PROFILE_PENALTY = 50f;
 
     public static final float RANGE_PENALTY = 100f;
     public static final float DAMAGE_BONUS = 5f;
@@ -82,6 +83,7 @@ public class magellan_rusalkaMod extends BaseHullMod {
         stats.getVentRateMult().modifyPercent(id, VENT_RATE_BONUS);
         stats.getZeroFluxSpeedBoost().modifyMult(id, 0f);
         stats.getDynamic().getStat(Stats.CORONA_EFFECT_MULT).modifyMult(id, CORONA_EFFECT_REDUCTION);
+        stats.getSensorProfile().modifyPercent(id, SENSOR_PROFILE_PENALTY);
 
         // Weapon Range & Damage (Close-range brawler profile: -100su range, +5% damage all types)
         stats.getBallisticWeaponRangeBonus().modifyFlat(id, -RANGE_PENALTY);
@@ -126,6 +128,7 @@ public class magellan_rusalkaMod extends BaseHullMod {
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc2"), padS, h, Math.round(VENT_RATE_BONUS) + "%");
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc3"), padS, bad);
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc4"), padS, h, Math.round(CORONA_EFFECT_REDUCTION * 100f) + "%");
+        tooltip.addPara("- " + getMagellanString("RusalkaModDesc9"), padS, bad, Math.round(SENSOR_PROFILE_PENALTY) + "%");
 
         LabelAPI label2 = tooltip.addPara("——— " + getMagellanString("RusalkaSubtitle2") + " ———", lvl, pad2S);
         label2.setAlignment(Alignment.MID);
