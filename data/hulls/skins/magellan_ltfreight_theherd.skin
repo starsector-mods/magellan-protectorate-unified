@@ -7,6 +7,11 @@
 	"tags":["magellan_theherd", "restricted"],
 	"tech":"The Herd",
     "removeHints":[],
+    "addHints":["CARRIER"],
+    "fighterBays":1,
+    "builtInWings":[
+        "magellan_herdintercept_wing"
+    ],
 	"shieldType":"OMNI",
 	"shieldArc":140,
 	"shieldEfficiency":1.0,

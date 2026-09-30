@@ -27,7 +27,7 @@ Nan,magellan_skiff,Skiff,Antique,magellan_microburn,5,2000,250,1800,1750,140,35,
 Musa,magellan_schooner,Schooner,Antique,magellan_smokelayer,7,2500,300,2200,2250,180,50,,200,180,150,75,105,240,FRONT,,260,0.2,0.6,,,10,30,120,40,2,20,12,72000,10,10,300,0.2,6,6,,,,,,,FREIGHTER,"rare_bp, hist3t, no_sell, no_dealer",,,,0.3,2,2,,152
 Talley,magellan_cbtfreight,Merchanter,Magellan,magellan_microburn,7,2500,300,1800,1500,120,40,,105,70,50,35,50,350,FRONT,,160,0.3,0.7,,,20,60,180,40,1.25,32,10,32000,10,10,270,0.25,6,4,,,,,,,FREIGHTER,"rare_bp, hist1t, magellan_core_bp",,,,0.4,2,2,,153
 Phillips,magellan_ltfreight,Freighter,Magellan,magellan_smokelayer_def,6,4000,350,1600,1500,120,40,,60,30,15,20,12,400,OMNI,,140,0.4,1,,,30,75,400,60,3,20,9,30000,5,20,360,0.25,4,3,120,120,,,,,"CIVILIAN, FREIGHTER","rare_bp, hist1t, magellan_civ, magellan_civ_bp",,,,0.5,2,3,,154
-Phillips,magellan_ltfreight_cbt,Battle Barge,Magellan,magellan_smokelayer_def,8,4500,450,2800,2666,160,75,,55,40,30,16,10,450,NONE,,0,0,0,,,50,75,200,40,2,20,9,50000,10,15,420,0.2,6,4,120,120,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.3,2,3,,154
+Phillips,magellan_ltfreight_cbt,Battle Barge,Magellan,magellan_smokelayer_def,8,4500,450,2800,2666,160,75,,55,40,30,16,10,450,OMNI,,140,0.4,1,,,50,75,200,40,2,20,9,50000,10,15,420,0.2,6,4,120,120,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.3,2,3,,154
 Phillipson,magellan_fuel,Fuel Tanker,Magellan,magellan_smokelayer_def,6,4000,350,1600,1500,120,40,,60,30,15,20,12,400,OMNI,,140,0.4,1,,,50,75,75,750,3,250,9,35000,5,20,360,0.25,4,3,,,,,,,"CIVILIAN, TANKER","rare_bp, hist1t, magellan_core_bp",,,,0.5,2,3,,154
 Hager,magellan_supply,Supply Ship,Magellan,magellan_burndrive,7,6000,600,4800,4000,200,70,,40,20,10,10,10,1500,OMNI,,120,0.4,1,,,50,150,700,300,3,100,8,45000,3,20,480,0.25,8,8,,,,,,,"CIVILIAN, FREIGHTER","rare_bp, hist1t, magellan_core_bp",,,,0.6,2,3,,155
 Hager [LV],magellan_carrier_leveller,Drone Carrier,Leveller,magellan_rapid_deployment,25,6000,600,4800,4000,200,50,,40,20,10,10,10,1500,OMNI,,120,0.4,1,,,50,150,700,300,3,100,8,90000,3,20,480,0.25,25,25,,,,,,,CARRIER,"magellan_levellercore_bp, restricted",,,,0.6,2,3,,155
@@ -89,14 +89,14 @@ Abban,magellan_bomber_civ,,Magellan,,,450,75,500,,100,0,,180,225,200,100,180,40,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Marauders,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Kaplan,magellan_carrier_marauder,Mod-Carrier,Unique Magellan,magellan_ammofeed,28,9500,1300,8000,4000,550,140,3,55,25,20,12.5,15,2100,FRONT,,150,0.2,0.9,,,250,250,50,50,4,12,8,350000,3,15,420,0.25,28,28,,,,,,,"HIDE_IN_CODEX, CARRIER, COMBAT","no_sell, no_dealer",,,,0.2,2,2,,5
-Stavros,magellan_bomber_marauder,,Unique Magellan,,,600,125,500,,100,0,,180,225,200,90,180,40,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,,,,,0,,,,10
+Kaplan,magellan_carrier_marauder,Mod-Carrier,Magellan,magellan_ammofeed,28,9500,1300,8000,4000,550,140,3,55,25,20,12.5,15,2100,FRONT,,150,0.2,0.9,,,250,250,50,50,4,12,8,350000,3,15,420,0.25,28,28,,,,,,,"HIDE_IN_CODEX, CARRIER, COMBAT","no_sell, no_dealer",,,,0.2,2,2,,5
+Stavros,magellan_bomber_marauder,,Magellan,,,600,125,500,,100,0,,180,225,200,90,180,40,NONE,,,,,,,2,2,,,,,,,,,,,,,,,,,,,,,,,,0,,,,10
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Niun,magellan_hvyfighter_strikecraft_marauder,Mod-Fighter,Unique Magellan,magellan_burstjets_ftr,10,750,110,500,,125,30,,350,550,330,144,288,45,OMNI,,160,0.75,1,,,1,1,0,0,0.5,,11,150000,10,20,180,0.25,10,10,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, fake_fighter, play_fighter_overload_sounds",,,,0,,,,4.3
-Melein,magellan_hvyfighter_marauder,,Unique Magellan,flarelauncher_single,,500,100,375,,100,0,,350,500,300,132,264,40,OMNI,,160,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,4.4
+Niun,magellan_hvyfighter_strikecraft_marauder,Mod-Fighter,Magellan,magellan_burstjets_ftr,10,750,110,500,,125,30,,350,550,330,144,288,45,OMNI,,160,0.75,1,,,1,1,0,0,0.5,,11,150000,10,20,180,0.25,10,10,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, fake_fighter, play_fighter_overload_sounds",,,,0,,,,4.3
+Melein,magellan_hvyfighter_marauder,,Magellan,flarelauncher_single,,500,100,375,,100,0,,350,500,300,132,264,40,OMNI,,160,0,1,,,1,1,,,,,,,,,,,,,,,,,,,,,,,,0,,,,4.4
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Hada,magellan_corvette_strikecraft_marauder,Mod-Corvette,Unique Magellan,magellan_smokelayer,12,1400,250,1500,,200,30,,180,315,385,115,170,75,OMNI,,210,0.8,1,,,4,4,0,0,0.5,,11,150000,10,20,180,0.25,12,12,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, fake_fighter, play_fighter_overload_sounds",,,,0,,,,4.2
-Hulagh,magellan_corvette_marauder,,Unique Magellan,flarelauncher_single,,1200,225,600,,180,0,,180,330,400,125,190,67,OMNI,,210,0,1,,,4,4,,,,,,,,,,,,,,,,,,,,,,,,0,,,,104
+Hada,magellan_corvette_strikecraft_marauder,Mod-Corvette,Magellan,magellan_smokelayer,12,1400,250,1500,,200,30,,180,315,385,115,170,75,OMNI,,210,0.8,1,,,4,4,0,0,0.5,,11,150000,10,20,180,0.25,12,12,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer, fake_fighter, play_fighter_overload_sounds",,,,0,,,,4.2
+Hulagh,magellan_corvette_marauder,,Magellan,flarelauncher_single,,1200,225,600,,180,0,,180,330,400,125,190,67,OMNI,,210,0,1,,,4,4,,,,,,,,,,,,,,,,,,,,,,,,0,,,,104
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Leveller,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -104,9 +104,9 @@ Bastardsword [LV],magellan_corvette_strikecraft_leveller,Corvette,Leveller Magel
 Rusalka,magellan_fastdestroyer_leveller_mod,Mod-Destroyer-Leader,Unique Leveller Magellan,magellan_burstjets,27,3500,300,7500,7333,550,105,,120,140,70,50,65,330,OMNI,,180,0.4,0.9,,,25,30,0,25,2,12,10,425000,5,30,270,0.3,22,30,,,,,,,"HIDE_IN_CODEX, SHIP_WITH_MODULES","no_sell, no_dealer",,,,0.65,2,4,,7
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Smugglers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Corain,magellan_cbtfreight_smuggler,Mod-Merchanter,Unique Magellan,magellan_ammofeed,9,3350,400,2000,1500,250,60,1,105,84,60,49,60,380,FRONT,,240,0.25,0.6,,,20,60,180,40,1.25,32,10,100000,10,10,270,0.25,8,5,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.2,2,2,,9.1
-Gorodin,magellan_patroldestroyer_smuggler,Mod-Scoutship,Unique Magellan,magellan_ammofeed,18,5625,450,4000,3333,350,100,2,75,50,35,35,50,400,OMNI,,150,0.15,0.9,,,40,80,120,180,2,90,9,160000,5,15,480,0.25,15,10,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.25,2,3,,9.2
-Advanced Maser,magellan_flakdrone_smuggler,,Unique Magellan,,,500,50,400,,100,,,240,360,360,192,360,7,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,"no_sell, no_dealer",,,,0,,,,4
+Corain,magellan_cbtfreight_smuggler,Mod-Merchanter,Magellan,magellan_ammofeed,9,3350,400,2000,1500,250,60,1,105,84,60,49,60,380,FRONT,,240,0.25,0.6,,,20,60,180,40,1.25,32,10,100000,10,10,270,0.25,8,5,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.2,2,2,,9.1
+Gorodin,magellan_patroldestroyer_smuggler,Mod-Scoutship,Magellan,magellan_ammofeed,18,5625,450,4000,3333,350,100,2,75,50,35,35,50,400,OMNI,,150,0.15,0.9,,,40,80,120,180,2,90,9,160000,5,15,480,0.25,15,10,,,,,,,HIDE_IN_CODEX,"no_sell, no_dealer",,,,0.25,2,3,,9.2
+Advanced Maser,magellan_flakdrone_smuggler,,Magellan,,,500,50,400,,100,,,240,360,360,192,360,7,NONE,,,,,,,0,0,,,,,,,,,,,,,,,,,,,,"no_sell, no_dealer",,,,0,,,,4
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Ancient,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

@@ -48,9 +48,9 @@ HULLMOD CONFLICT,MagellanBlockedBlankHullmod,,,,,,,FALSE,TRUE,,0,0,0,0,data.hull
 Mazian Shuttle Bay,magellan_maizan_shuttlebay,,,,,,,,TRUE,TRUE,0,0,0,0,data.hullmods.magellan.MaizanBay,"(Hidden) blocks converted shuttlebay and penalizes BCR variant hull, also I misspelled Mazian when I first added this and now I can't fix it without breaking backwards compatability lol",,,graphics/icons/intel/investigation.png
 ,,,,,,,,,,,,,,,,,,,
 # === Magellan Content ===,,,,,,,,,,,,,,,,,,,
-Magellan Smuggler Upgrades,magellan_smugglerMod,4,,Unique Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_smugglerMod,This ship has been significantly upgraded from the standard spec using a variety of difficult-to-acquire parts from across the sector.,,,graphics/Magellan/hullmods/magellan_smugglermod.png
+Magellan Smuggler Upgrades,magellan_smugglerMod,4,,Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_smugglerMod,This ship has been significantly upgraded from the standard spec using a variety of difficult-to-acquire parts from across the sector.,,,graphics/Magellan/hullmods/magellan_smugglermod.png
 ,,,,,,,,,,,,,,,,,,,
-Magellan Marauder Modifications,magellan_marauderMod,4,,Unique Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_marauderMod,This ship has been heavily modified by the Marauders to better control the battlespace with rapid hammer-and-anvil tactics.,,,graphics/Magellan/hullmods/magellan_maraudermod.png
+Magellan Marauder Modifications,magellan_marauderMod,4,,Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_marauderMod,This ship has been heavily modified by the Marauders to better control the battlespace with rapid hammer-and-anvil tactics.,,,graphics/Magellan/hullmods/magellan_maraudermod.png
 ,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,
 Antique Duncan Testbed,magellan_duncanMod,4,,Unique Ancient Magellan,magellan_core_hullmod,,,,TRUE,,0,0,0,0,data.hullmods.magellan_duncanMod,"This vessel was most likely modified to be an experimental testbed for military and technological theory of the day. Despite the different design priorities of the overhaul, her underlying construction remains strong and unhindered.",,,graphics/Magellan/hullmods/magellan_duncanmod.png
