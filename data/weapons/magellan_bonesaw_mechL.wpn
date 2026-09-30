@@ -63,6 +63,6 @@
     "particleCount": 16,
     "particleColor": [255, 235, 200, 255]
   },
-  "projectileSpecId": "magellan_bonesaw_shot",
+  "projectileSpecId": "magellan_bonesaw_mech_shot",
   "fireSoundTwo": "magellan_bonesaw_fire"
 }
