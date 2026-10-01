@@ -371,17 +371,50 @@ public class RameyDroneTeleportStats extends BaseShipSystemScript implements Min
 					float angleDiff = Misc.getAngleDiff(drone.getFacing(), angleToTarget);
 					float distToTarget = Misc.getDistance(drone.getLocation(), target.getLocation());
 
-					// Aim assist for fixed spinal lance (WS0001, arc: 5): fine-tune heading alignment
-					if (distToTarget <= 1150f && angleDiff > 1.0f && angleDiff < 35f) {
-						float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToTarget);
-						if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
-						else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
+					// Check if a friendly combat ship is obstructing the line of fire between drone and target
+					ShipAPI blockingFriendly = null;
+					for (ShipAPI friendly : Global.getCombatEngine().getShips()) {
+						if (friendly == null || friendly == drone || !friendly.isAlive() || friendly.isHulk()) continue;
+						if (friendly.getOwner() != drone.getOwner()) continue;
+						if (friendly.isFighter() || friendly.isDrone()) continue;
+
+						float dFriendly = Misc.getDistance(drone.getLocation(), friendly.getLocation());
+						if (dFriendly >= distToTarget) continue;
+
+						float angleToFriendly = Misc.getAngleInDegrees(drone.getLocation(), friendly.getLocation());
+						float diffFriendly = Misc.getAngleDiff(angleToTarget, angleToFriendly);
+						float angularRadius = (float) Math.toDegrees(Math.atan2(friendly.getCollisionRadius() + 35f, Math.max(10f, dFriendly)));
+
+						if (diffFriendly <= angularRadius) {
+							blockingFriendly = friendly;
+							break;
+						}
+					}
+
+					// If an allied ship is obstructing the shot, strafe laterally to unmask firing line
+					if (blockingFriendly != null) {
+						float angleToFriendly = Misc.getAngleInDegrees(drone.getLocation(), blockingFriendly.getLocation());
+						float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToFriendly);
+						if (dir > 0) {
+							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.STRAFE_RIGHT, null, 0);
+						} else {
+							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.STRAFE_LEFT, null, 0);
+						}
+					} else {
+						// Aim assist for fixed spinal lance (WS0001, arc: 5): fine-tune heading alignment only when clear
+						if (distToTarget <= 1150f && angleDiff > 1.0f && angleDiff < 35f) {
+							float dir = Misc.getClosestTurnDirection(drone.getFacing(), angleToTarget);
+							if (dir > 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_LEFT, null, 0);
+							else if (dir < 0) drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.TURN_RIGHT, null, 0);
+						}
 					}
 
 					// Standoff control: maintain 600-850 su distance for optimal beam delivery
 					if (!overloadedOrVenting && fluxLevel < 0.82f) {
-						if (distToTarget > 850f) {
-							if (angleDiff < 40f) {
+						if (blockingFriendly != null && Misc.getDistance(drone.getLocation(), blockingFriendly.getLocation()) < 350f) {
+							drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.DECELERATE, null, 0);
+						} else if (distToTarget > 850f) {
+							if (angleDiff < 40f && blockingFriendly == null) {
 								drone.giveCommand(com.fs.starfarer.api.combat.ShipCommand.ACCELERATE, null, 0);
 							}
 						} else if (distToTarget < 500f) {
