@@ -60,6 +60,9 @@ public class magellan_rusalkaMod extends BaseHullMod {
     public static final float MANEUVER_BONUS = 25f;
     public static final float SPEED_BONUS = 20f;
 
+    public static final float SCAN_RADIUS = 1500f;
+    public static final float KITER_SCAN_THRESHOLD = 1100f;
+
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
     static {
         BLOCKED_HULLMODS.add("fluxdistributor");
@@ -307,7 +310,7 @@ public class magellan_rusalkaMod extends BaseHullMod {
         if (target.getOwner() == ship.getOwner()) return true;
 
         float dist = Misc.getDistance(ship.getLocation(), target.getLocation());
-        if (dist > 1500f) return true;
+        if (dist > SCAN_RADIUS) return true;
 
         float hpRatio = target.getHitpoints() / Math.max(1f, target.getMaxHitpoints());
         boolean isHelpless = (target.getFluxTracker() != null &&
@@ -323,7 +326,7 @@ public class magellan_rusalkaMod extends BaseHullMod {
         }
 
         // Low-threat kiting craft far away
-        if ((target.isFrigate() || target.isFighter() || target.isDrone()) && dist > 1100f) {
+        if ((target.isFrigate() || target.isFighter() || target.isDrone()) && dist > KITER_SCAN_THRESHOLD) {
             return true;
         }
 
@@ -343,9 +346,9 @@ public class magellan_rusalkaMod extends BaseHullMod {
             if (other.isDrone() || other.isFighter()) continue;
 
             float dist = Misc.getDistance(ship.getLocation(), other.getLocation());
-            if (dist > 1500f) continue;
+            if (dist > SCAN_RADIUS) continue;
 
-            float score = 1500f - dist;
+            float score = SCAN_RADIUS - dist;
 
             float hpRatio = other.getHitpoints() / Math.max(1f, other.getMaxHitpoints());
             boolean isHelpless = (other.getFluxTracker() != null &&
