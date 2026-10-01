@@ -237,4 +237,103 @@ public class RusalkaTacticalAITest {
         assertFalse(flags.hasFlag(AIFlags.PURSUING));
         assertFalse(flags.hasFlag(AIFlags.DO_NOT_BACK_OFF));
     }
+
+    @Test
+    public void testSurrounded_Crossfire_TriggersBackOff() {
+        ShipAPI ship = createMockShip(true, 0, new Vector2f(0, 0));
+        ShipAIPlugin ai = mock(ShipAIPlugin.class);
+        ShipwideAIFlags flags = new ShipwideAIFlags();
+        flags.setFlag(AIFlags.HARASS_MOVE_IN);
+        flags.setFlag(AIFlags.PURSUING);
+        flags.setFlag(AIFlags.DO_NOT_BACK_OFF);
+        when(ship.getShipAI()).thenReturn(ai);
+        when(ship.getAIFlags()).thenReturn(flags);
+
+        // Two enemies pinching from opposing sides (180 degrees)
+        ShipAPI enemy1 = createMockShip(true, 1, new Vector2f(500, 0));
+        when(enemy1.isDestroyer()).thenReturn(true);
+        ShipAPI enemy2 = createMockShip(true, 1, new Vector2f(-500, 0));
+        when(enemy2.isDestroyer()).thenReturn(true);
+
+        List<ShipAPI> ships = new ArrayList<>();
+        ships.add(ship);
+        ships.add(enemy1);
+        ships.add(enemy2);
+        when(engineMock.getShips()).thenReturn(ships);
+
+        rusalkaMod.advanceInCombat(ship, 1.0f);
+
+        // Aggressive flags must be stripped
+        assertFalse(flags.hasFlag(AIFlags.HARASS_MOVE_IN));
+        assertFalse(flags.hasFlag(AIFlags.PURSUING));
+        assertFalse(flags.hasFlag(AIFlags.DO_NOT_BACK_OFF));
+
+        // Retreat & fast disengage flags must be set
+        assertTrue(flags.hasFlag(AIFlags.BACK_OFF));
+        assertTrue(flags.hasFlag(AIFlags.BACKING_OFF));
+        assertTrue(flags.hasFlag(AIFlags.RUN_QUICKLY));
+        assertTrue(flags.hasFlag(AIFlags.DO_NOT_PURSUE));
+        verify(ai).cancelCurrentManeuver();
+    }
+
+    @Test
+    public void testSurrounded_ThreeEnemies_TriggersBackOff() {
+        ShipAPI ship = createMockShip(true, 0, new Vector2f(0, 0));
+        ShipAIPlugin ai = mock(ShipAIPlugin.class);
+        ShipwideAIFlags flags = new ShipwideAIFlags();
+        flags.setFlag(AIFlags.HARASS_MOVE_IN);
+        when(ship.getShipAI()).thenReturn(ai);
+        when(ship.getAIFlags()).thenReturn(flags);
+
+        ShipAPI enemy1 = createMockShip(true, 1, new Vector2f(400, 100));
+        when(enemy1.isFrigate()).thenReturn(true);
+        ShipAPI enemy2 = createMockShip(true, 1, new Vector2f(300, -200));
+        when(enemy2.isFrigate()).thenReturn(true);
+        ShipAPI enemy3 = createMockShip(true, 1, new Vector2f(500, 0));
+        when(enemy3.isFrigate()).thenReturn(true);
+
+        List<ShipAPI> ships = new ArrayList<>();
+        ships.add(ship);
+        ships.add(enemy1);
+        ships.add(enemy2);
+        ships.add(enemy3);
+        when(engineMock.getShips()).thenReturn(ships);
+
+        rusalkaMod.advanceInCombat(ship, 1.0f);
+
+        assertTrue(flags.hasFlag(AIFlags.BACK_OFF));
+        assertTrue(flags.hasFlag(AIFlags.RUN_QUICKLY));
+        assertFalse(flags.hasFlag(AIFlags.HARASS_MOVE_IN));
+    }
+
+    @Test
+    public void testSurrounded_FriendlySupportPresent_DoesNotTriggerBackOff() {
+        ShipAPI ship = createMockShip(true, 0, new Vector2f(0, 0));
+        ShipAIPlugin ai = mock(ShipAIPlugin.class);
+        ShipwideAIFlags flags = new ShipwideAIFlags();
+        when(ship.getShipAI()).thenReturn(ai);
+        when(ship.getAIFlags()).thenReturn(flags);
+
+        ShipAPI enemy1 = createMockShip(true, 1, new Vector2f(500, 0));
+        when(enemy1.isDestroyer()).thenReturn(true);
+        ShipAPI enemy2 = createMockShip(true, 1, new Vector2f(0, 500));
+        when(enemy2.isDestroyer()).thenReturn(true);
+
+        // Friendly capital ship right next to us providing overwhelming fire support
+        ShipAPI friendlyCapital = createMockShip(true, 0, new Vector2f(100, 100));
+        when(friendlyCapital.isCapital()).thenReturn(true);
+
+        List<ShipAPI> ships = new ArrayList<>();
+        ships.add(ship);
+        ships.add(friendlyCapital);
+        ships.add(enemy1);
+        ships.add(enemy2);
+        when(engineMock.getShips()).thenReturn(ships);
+
+        rusalkaMod.advanceInCombat(ship, 1.0f);
+
+        // Because friendly fire support (5.0 weight) exceeds enemy threat (4.0 weight), do not force retreat
+        assertFalse(flags.hasFlag(AIFlags.BACK_OFF));
+        assertFalse(flags.hasFlag(AIFlags.RUN_QUICKLY));
+    }
 }

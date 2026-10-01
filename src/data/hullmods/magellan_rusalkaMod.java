@@ -19,9 +19,13 @@ import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.combat.WeaponAPI.AIHints;
 import com.fs.starfarer.api.combat.WeaponAPI.WeaponType;
 
+import org.lwjgl.util.vector.Vector2f;
+
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -62,6 +66,8 @@ public class magellan_rusalkaMod extends BaseHullMod {
 
     public static final float SCAN_RADIUS = 1500f;
     public static final float KITER_SCAN_THRESHOLD = 1100f;
+    public static final float SURROUND_RADIUS = 800f;
+    public static final float CROSSFIRE_ANGLE_THRESHOLD = 90f;
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
     static {
@@ -149,7 +155,7 @@ public class magellan_rusalkaMod extends BaseHullMod {
 
         LabelAPI label3 = tooltip.addPara("——— Tactical AI Coordination ———", lvl, pad2S);
         label3.setAlignment(Alignment.MID);
-        tooltip.addPara("- Built-in tactical fire control continuously optimizes combat maneuvers: maintains strike standoff while heavy ordnance reloads, suppresses fire against doomed targets, disengages from low-threat kiters, and aggressively surges into kill range against vulnerable or overloaded targets.", pad2S, h, "strike standoff", "kill range");
+        tooltip.addPara("- Built-in tactical fire control continuously optimizes combat maneuvers: maintains strike standoff while heavy ordnance reloads, suppresses fire against doomed targets, disengages from low-threat kiters, proactively backs out at maximum speed if surrounded or crossfired, and aggressively surges into kill range against vulnerable or overloaded targets.", pad2S, h, "strike standoff", "backs out at maximum speed", "kill range");
 
         tooltip.addSectionHeading("Incompatibilities", bad, badbg, Alignment.MID, pad);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40f);
@@ -206,17 +212,32 @@ public class magellan_rusalkaMod extends BaseHullMod {
         ShipwideAIFlags flags = ship.getAIFlags();
         if (flags == null) return;
 
-        // Defensive override: if ship is in severe flux distress or backing off, let defensive AI take precedence
-        boolean shipInDanger = (ship.getFluxTracker() != null &&
-            (ship.getFluxTracker().isOverloaded() || ship.getFluxTracker().isVenting() || ship.getFluxLevel() > 0.85f))
+        // Defensive & surround override: if surrounded or in flux distress, disengage proactively
+        boolean surrounded = isSurrounded(engine, ship);
+        boolean shipInDanger = surrounded
+            || (ship.getFluxTracker() != null &&
+                (ship.getFluxTracker().isOverloaded() || ship.getFluxTracker().isVenting() || ship.getFluxLevel() > 0.85f))
             || flags.hasFlag(AIFlags.NEEDS_HELP)
             || flags.hasFlag(AIFlags.BACKING_OFF)
             || flags.hasFlag(AIFlags.BACK_OFF);
 
         if (shipInDanger) {
+            // Strip offensive maneuver overrides
             flags.unsetFlag(AIFlags.HARASS_MOVE_IN);
             flags.unsetFlag(AIFlags.PURSUING);
             flags.unsetFlag(AIFlags.DO_NOT_BACK_OFF);
+
+            // Proactively command high-speed tactical retreat if surrounded or caught in crossfire
+            if (surrounded) {
+                flags.setFlag(AIFlags.BACK_OFF, 1.25f);
+                flags.setFlag(AIFlags.BACKING_OFF, 1.25f);
+                flags.setFlag(AIFlags.RUN_QUICKLY, 1.25f);
+                flags.setFlag(AIFlags.DO_NOT_PURSUE, 1.5f);
+                flags.setFlag(AIFlags.DELAY_STRIKE_FIRE, 1.0f);
+                if (ship.getShipAI() != null) {
+                    ship.getShipAI().cancelCurrentManeuver();
+                }
+            }
             return;
         }
 
@@ -391,6 +412,82 @@ public class magellan_rusalkaMod extends BaseHullMod {
             }
         }
         return bestTarget;
+    }
+
+    protected boolean isSurrounded(CombatEngineAPI engine, ShipAPI ship) {
+        if (engine == null || engine.getShips() == null) return false;
+
+        float enemyThreat = 0f;
+        float friendlySupport = 0f;
+        List<ShipAPI> activeCloseEnemies = new ArrayList<>();
+
+        for (ShipAPI other : engine.getShips()) {
+            if (other == null || !other.isAlive() || other.isHulk() || other.isRetreating()) continue;
+            if (other.isDrone() || other.isFighter()) continue;
+
+            float dist = Misc.getDistance(ship.getLocation(), other.getLocation());
+            if (dist > SURROUND_RADIUS) continue;
+
+            float weight = 1.0f; // Frigate
+            if (other.isCapital()) weight = 5.0f;
+            else if (other.isCruiser()) weight = 3.5f;
+            else if (other.isDestroyer()) weight = 2.0f;
+
+            if (other.getOwner() == ship.getOwner()) {
+                if (other != ship) {
+                    friendlySupport += weight;
+                }
+            } else {
+                // Helpless or dying enemies don't exert active surrounding pressure
+                boolean isHelpless = (other.getFluxTracker() != null &&
+                    (other.getFluxTracker().isOverloaded() || other.getFluxTracker().isVenting()))
+                    || (other.getEngineController() != null && other.getEngineController().isFlamedOut());
+                if (!isHelpless) {
+                    enemyThreat += weight;
+                    activeCloseEnemies.add(other);
+                }
+            }
+        }
+
+        // Must be engaged by at least 2 active enemies to be considered surrounded
+        if (activeCloseEnemies.size() < 2) {
+            return false;
+        }
+
+        // Case 1: Outnumbered locally by 3 or more active combat ships with threat exceeding friendly support
+        if (activeCloseEnemies.size() >= 3 && enemyThreat > friendlySupport) {
+            return true;
+        }
+
+        // Case 2: Crossfire / pinched from flanking angles (>= 90 degrees apart)
+        if (enemyThreat > friendlySupport) {
+            for (int i = 0; i < activeCloseEnemies.size(); i++) {
+                float a1 = calcAngleInDegrees(ship.getLocation(), activeCloseEnemies.get(i).getLocation());
+                for (int j = i + 1; j < activeCloseEnemies.size(); j++) {
+                    float a2 = calcAngleInDegrees(ship.getLocation(), activeCloseEnemies.get(j).getLocation());
+                    if (calcAngleDiff(a1, a2) >= CROSSFIRE_ANGLE_THRESHOLD) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private static float calcAngleInDegrees(Vector2f from, Vector2f to) {
+        if (from == null || to == null) return 0f;
+        float dx = to.x - from.x;
+        float dy = to.y - from.y;
+        return (float) Math.toDegrees(Math.atan2(dy, dx));
+    }
+
+    private static float calcAngleDiff(float a1, float a2) {
+        float diff = Math.abs(a1 - a2) % 360f;
+        if (diff > 180f) {
+            diff = 360f - diff;
+        }
+        return diff;
     }
 
     @Override
