@@ -79,7 +79,7 @@ extends BaseHullMod {
         Color herdbg = magellan_hullmodUtils.getHerdBGColor();
         tooltip.addSectionHeading(this.getString("EngTitle"), herd, herdbg, Alignment.MID, 10.0f);
         tooltip.addPara("- " + this.getString("EngDesc1"), 10.0f, h, new String[]{"100%"});
-        tooltip.addPara("- " + this.getString("EngDesc2"), 2.0f, h, new String[]{"10%"});
+        tooltip.addPara("- " + this.getString("EngDesc2"), 2.0f, h, new String[]{"20%"});
         tooltip.addPara("- " + this.getString("EngDesc4"), 2.0f, h, new String[]{"40%"});
         LabelAPI label = tooltip.addPara("\u2014\u2014\u2014 " + this.getString("HerdRefitTitle") + " \u2014\u2014\u2014", herd, 4.0f);
         label.setAlignment(Alignment.MID);

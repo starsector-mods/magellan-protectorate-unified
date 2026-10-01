@@ -133,7 +133,7 @@ public class magellan_LogisticsNetwork extends BaseHullMod {
         if (isSMod) {
             tooltip.addPara("• Maximum combat readiness and sensor profile penalties are %s by S-Mod integration.", padS, story, "completely negated");
         } else {
-            tooltip.addPara("• Reduces maximum combat readiness by %s due to non-combat cargo space allocation.", padS, bad, "" + Math.round(MAX_CR_PENALTY * 100f) + "%");
+            tooltip.addPara("• Reduces maximum combat readiness by %s due to non-combat cargo space allocation.", padS, bad, "" + Math.round(Math.abs(MAX_CR_PENALTY) * 100f) + "%");
             tooltip.addPara("• Increases sensor profile by %s due to external cargo pods and beacon emissions.", padS, bad, "+" + Math.round(SENSOR_PROFILE_PENALTY) + "%");
         }
 

@@ -200,7 +200,7 @@ public class magellan_Movement extends BaseHullMod {
         if (index == 2) return "" + Math.round(TURN_ACCEL_BONUS) + "%";
         if (index == 3) return "" + Math.round(DECEL_BONUS) + "%";
         if (index == 4) return "+" + Math.round(ZERO_FLUX_BONUS) + " su";
-        if (index == 5) return "" + (hullSize != null && baseSpeed.containsKey(hullSize) && baseSpeed.get(hullSize) > 0 ? baseSpeed.get(hullSize).intValue() : "20/15/10/10");
+        if (index == 5) return "" + (hullSize != null && baseSpeed.containsKey(hullSize) && baseSpeed.get(hullSize) > 0 ? "+" + baseSpeed.get(hullSize).intValue() + " su" : "+20/+15/+10/+10 su");
         if (index == 6) return "" + Math.round((1f - RECOIL_MULT) * 100f) + "%";
         if (index == 7) return "" + Math.round((1f - PEAK_CR_MULT) * 100f) + "%";
         if (index == 8) return "" + Math.round(CR_LOSS_PERCENT) + "%";
