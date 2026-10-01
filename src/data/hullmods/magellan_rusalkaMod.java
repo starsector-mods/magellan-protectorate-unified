@@ -12,6 +12,13 @@ import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
+import com.fs.starfarer.api.combat.CombatEngineAPI;
+import com.fs.starfarer.api.combat.ShipwideAIFlags;
+import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
+import com.fs.starfarer.api.combat.WeaponAPI;
+import com.fs.starfarer.api.combat.WeaponAPI.AIHints;
+import com.fs.starfarer.api.combat.WeaponAPI.WeaponType;
+
 import java.awt.Color;
 import java.util.EnumMap;
 import java.util.HashSet;
@@ -137,6 +144,10 @@ public class magellan_rusalkaMod extends BaseHullMod {
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc6"), padS, h, Math.round(MANEUVER_BONUS) + "%");
         tooltip.addPara("- " + getMagellanString("RusalkaModDesc7"), padS, h, Math.round(SPEED_BONUS) + "su");
 
+        LabelAPI label3 = tooltip.addPara("——— Tactical AI Coordination ———", lvl, pad2S);
+        label3.setAlignment(Alignment.MID);
+        tooltip.addPara("- Built-in tactical fire control continuously optimizes combat maneuvers: maintains strike standoff while heavy ordnance reloads, suppresses fire against doomed targets, disengages from low-threat kiters, and aggressively surges into kill range against vulnerable or overloaded targets.", pad2S, h, "strike standoff", "kill range");
+
         tooltip.addSectionHeading("Incompatibilities", bad, badbg, Alignment.MID, pad);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40f);
         incompat.addPara(getString("AllIncomp"), padS);
@@ -155,6 +166,228 @@ public class magellan_rusalkaMod extends BaseHullMod {
             incompat.addPara("- Fighter Clamps", bad, padS);
         }
         tooltip.addImageWithText(pad);
+    }
+
+    @Override
+    public void advanceInCombat(ShipAPI ship, float amount) {
+        if (ship == null || !ship.isAlive()) return;
+        CombatEngineAPI engine = Global.getCombatEngine();
+        if (engine == null || engine.isPaused()) return;
+
+        // Player safety: do not interfere with manual player piloting (autopilot OFF)
+        if (ship == engine.getPlayerShip() && ship.getShipAI() == null) {
+            return;
+        }
+        if (ship.getShipAI() == null || ship.getAIFlags() == null) {
+            return;
+        }
+
+        // Throttle evaluation to 3-4 times per second to prevent performance overhead
+        String trackerKey = "magellan_rusalka_tactical_ai_tracker";
+        float[] tracker = (float[]) ship.getCustomData().get(trackerKey);
+        if (tracker == null) {
+            tracker = new float[]{0f, 0.25f};
+            ship.setCustomData(trackerKey, tracker);
+        }
+        tracker[0] += amount;
+        if (tracker[0] < tracker[1]) {
+            return;
+        }
+        tracker[0] = 0f;
+        tracker[1] = 0.25f + (float) Math.random() * 0.1f;
+
+        evaluateTacticalAI(engine, ship);
+    }
+
+    protected void evaluateTacticalAI(CombatEngineAPI engine, ShipAPI ship) {
+        ShipwideAIFlags flags = ship.getAIFlags();
+        if (flags == null) return;
+
+        // Defensive override: if ship is in severe flux distress or backing off, let defensive AI take precedence
+        boolean shipInDanger = (ship.getFluxTracker() != null &&
+            (ship.getFluxTracker().isOverloaded() || ship.getFluxTracker().isVenting() || ship.getFluxLevel() > 0.85f))
+            || flags.hasFlag(AIFlags.NEEDS_HELP)
+            || flags.hasFlag(AIFlags.BACKING_OFF)
+            || flags.hasFlag(AIFlags.BACK_OFF);
+
+        if (shipInDanger) {
+            flags.unsetFlag(AIFlags.HARASS_MOVE_IN);
+            flags.unsetFlag(AIFlags.PURSUING);
+            flags.unsetFlag(AIFlags.DO_NOT_BACK_OFF);
+            return;
+        }
+
+        // Evaluate current target viability; move on if not worth it
+        ShipAPI currentTarget = ship.getShipTarget();
+        if (currentTarget == null && flags.getCustom(AIFlags.MANEUVER_TARGET) instanceof ShipAPI) {
+            currentTarget = (ShipAPI) flags.getCustom(AIFlags.MANEUVER_TARGET);
+        }
+
+        boolean targetNotWorthIt = isTargetNotWorthIt(ship, currentTarget);
+        if (currentTarget == null || targetNotWorthIt) {
+            ShipAPI bestTarget = findBestTarget(engine, ship, currentTarget);
+            if (bestTarget != null && bestTarget != currentTarget) {
+                if (ship.getShipAI() != null) {
+                    ship.getShipAI().cancelCurrentManeuver();
+                    ship.getShipAI().setTargetOverride(bestTarget);
+                }
+                ship.setShipTarget(bestTarget);
+                flags.unsetFlag(AIFlags.DO_NOT_PURSUE);
+                flags.setFlag(AIFlags.MANEUVER_TARGET, 1.25f, bestTarget);
+                flags.setFlag(AIFlags.BIGGEST_THREAT, 1.25f, bestTarget);
+                currentTarget = bestTarget;
+            }
+        }
+
+        // Scan strike and missile weaponry for cooldown state
+        boolean hasStrikeWeapons = false;
+        boolean strikeWeaponsReady = false;
+        float maxStrikeCooldown = 0f;
+        int readyStrikeCount = 0;
+        int totalStrikeCount = 0;
+
+        if (ship.getAllWeapons() != null) {
+            for (WeaponAPI w : ship.getAllWeapons()) {
+                if (w == null || w.isDecorative() || w.isDisabled()) continue;
+                boolean isStrike = w.getType() == WeaponType.MISSILE || w.hasAIHint(AIHints.STRIKE);
+                if (!isStrike) continue;
+
+                if (w.usesAmmo() && w.getAmmo() == 0) continue;
+
+                totalStrikeCount++;
+                hasStrikeWeapons = true;
+                float cd = w.getCooldownRemaining();
+                if (cd > maxStrikeCooldown) {
+                    maxStrikeCooldown = cd;
+                }
+                if (cd <= 0.5f) {
+                    readyStrikeCount++;
+                }
+            }
+        }
+        if (totalStrikeCount > 0 && readyStrikeCount > 0) {
+            strikeWeaponsReady = true;
+        }
+
+        // Engagement profile coordination vs target
+        if (currentTarget != null && currentTarget.isAlive() && !currentTarget.isHulk()) {
+            float targetHpRatio = currentTarget.getHitpoints() / Math.max(1f, currentTarget.getMaxHitpoints());
+            boolean targetIsLowHp = targetHpRatio < 0.20f && (currentTarget.isFrigate() || currentTarget.isDestroyer());
+            boolean targetVulnerable = (currentTarget.getFluxTracker() != null &&
+                (currentTarget.getFluxTracker().isOverloaded() || currentTarget.getFluxTracker().isVenting() || currentTarget.getFluxLevel() > 0.70f))
+                || (currentTarget.getShield() == null || !currentTarget.getShield().isOn());
+
+            // 1. Avoid wasting strike missiles on doomed / low-HP target
+            if (targetIsLowHp) {
+                flags.setFlag(AIFlags.DELAY_STRIKE_FIRE, 0.75f);
+                flags.unsetFlag(AIFlags.PURSUING);
+                flags.unsetFlag(AIFlags.HARASS_MOVE_IN);
+            }
+            // 2. Heavy strike ordnance on cooldown: hold strike standoff distance and suppress fire
+            else if (hasStrikeWeapons && !strikeWeaponsReady && maxStrikeCooldown > 2.0f) {
+                flags.setFlag(AIFlags.MAINTAINING_STRIKE_RANGE, 0.75f);
+                flags.setFlag(AIFlags.DELAY_STRIKE_FIRE, 0.75f);
+                flags.unsetFlag(AIFlags.HARASS_MOVE_IN);
+                flags.unsetFlag(AIFlags.PURSUING);
+            }
+            // 3. Strike ordnance ready and target is vulnerable: surge into kill range!
+            else if (hasStrikeWeapons && strikeWeaponsReady && targetVulnerable) {
+                flags.unsetFlag(AIFlags.MAINTAINING_STRIKE_RANGE);
+                flags.unsetFlag(AIFlags.DELAY_STRIKE_FIRE);
+                flags.setFlag(AIFlags.HARASS_MOVE_IN, 0.75f);
+                flags.setFlag(AIFlags.PURSUING, 0.75f);
+                flags.setFlag(AIFlags.DO_NOT_BACK_OFF, 0.5f);
+            }
+        }
+    }
+
+    protected boolean isTargetNotWorthIt(ShipAPI ship, ShipAPI target) {
+        if (target == null) return true;
+        if (!target.isAlive() || target.isHulk() || target.isRetreating()) return true;
+        if (target.getOwner() == ship.getOwner()) return true;
+
+        float dist = Misc.getDistance(ship.getLocation(), target.getLocation());
+        if (dist > 1500f) return true;
+
+        float hpRatio = target.getHitpoints() / Math.max(1f, target.getMaxHitpoints());
+        boolean isHelpless = (target.getFluxTracker() != null &&
+            (target.getFluxTracker().isOverloaded() || target.getFluxTracker().isVenting()))
+            || (target.getEngineController() != null && target.getEngineController().isFlamedOut());
+
+        // Low-HP target that is already crippled / helpless
+        if (target.isFrigate() && hpRatio < 0.18f && isHelpless) {
+            return true;
+        }
+        if (!target.isFrigate() && hpRatio < 0.10f && isHelpless) {
+            return true;
+        }
+
+        // Low-threat kiting craft far away
+        if ((target.isFrigate() || target.isFighter() || target.isDrone()) && dist > 1100f) {
+            return true;
+        }
+
+        return false;
+    }
+
+    protected ShipAPI findBestTarget(CombatEngineAPI engine, ShipAPI ship, ShipAPI currentTarget) {
+        ShipAPI bestTarget = null;
+        float bestScore = 0f;
+
+        if (engine.getShips() == null) return null;
+
+        for (ShipAPI other : engine.getShips()) {
+            if (other == null || other == ship || other == currentTarget) continue;
+            if (other.getOwner() == ship.getOwner()) continue;
+            if (!other.isAlive() || other.isHulk() || other.isRetreating()) continue;
+            if (other.isDrone() || other.isFighter()) continue;
+
+            float dist = Misc.getDistance(ship.getLocation(), other.getLocation());
+            if (dist > 1500f) continue;
+
+            float score = 1500f - dist;
+
+            float hpRatio = other.getHitpoints() / Math.max(1f, other.getMaxHitpoints());
+            boolean isHelpless = (other.getFluxTracker() != null &&
+                (other.getFluxTracker().isOverloaded() || other.getFluxTracker().isVenting()))
+                || (other.getEngineController() != null && other.getEngineController().isFlamedOut());
+
+            if (hpRatio < 0.12f && isHelpless) {
+                continue;
+            }
+
+            if (other.getFluxTracker() != null) {
+                if (other.getFluxTracker().isOverloaded()) {
+                    score += 700f;
+                } else if (other.getFluxTracker().isVenting()) {
+                    score += 500f;
+                } else {
+                    score += other.getFluxTracker().getFluxLevel() * 300f;
+                }
+            }
+
+            if (other.getShield() == null || !other.getShield().isOn()) {
+                score += 200f;
+            }
+
+            if (other.isCruiser()) {
+                score += 400f;
+            } else if (other.isDestroyer()) {
+                score += 300f;
+            } else if (other.isCapital()) {
+                if (dist <= 1000f) {
+                    score += 350f;
+                }
+            } else if (other.isFrigate()) {
+                score += 100f;
+            }
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestTarget = other;
+            }
+        }
+        return bestTarget;
     }
 
     @Override
