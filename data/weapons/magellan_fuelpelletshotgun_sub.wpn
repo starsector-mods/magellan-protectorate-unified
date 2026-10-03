@@ -30,4 +30,6 @@
 	"fireSoundTwo":"magellan_bonecracker_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

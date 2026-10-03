@@ -25,4 +25,6 @@
 					   "particleColor":[120,180,210,175]},
 	"projectileSpecId":"magellan_electroncatapult_shot",  
 	"fireSoundTwo":"magellan_ebolter_fire"
+,
+	"hints":["SYSTEM"]
 }

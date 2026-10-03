@@ -37,4 +37,6 @@
   },
   "projectileSpecId": "lightneedler_shot",
   "fireSoundTwo": "light_needler_fire"
+,
+	"hints":["SYSTEM"]
 }

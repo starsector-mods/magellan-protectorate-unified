@@ -25,4 +25,6 @@
 
 	"beamEffectPlugin":"data.scripts.weapons.magellan_TargetingBeamEffect",
 	"everyFrameEffect":"data.scripts.weapons.magellan_TargetingBeamEffect"
+,
+	"hints":["SYSTEM"]
 }

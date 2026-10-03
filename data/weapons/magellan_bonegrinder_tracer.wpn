@@ -28,4 +28,6 @@
 	"fireSoundTwo":"magellan_bonesaw_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

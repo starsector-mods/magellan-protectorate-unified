@@ -26,4 +26,6 @@
 					   "particleColor":[255,235,200,255]},
 	"projectileSpecId":"magellan_bonecrusher_shot",  
 	"fireSoundTwo":"magellan_bonecrusher_fire"
+,
+	"hints":["SYSTEM"]
 }

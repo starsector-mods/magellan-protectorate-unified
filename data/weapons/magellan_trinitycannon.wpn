@@ -24,5 +24,6 @@
 					   "particleColor":[240,30,90,255]},
 	"autocharge":true,  
 	"projectileSpecId":"magellan_trinitycannon_shot",  
-	"fireSoundTwo":"magellan_electrogun_fire"
+	"fireSoundTwo":"magellan_electrogun_fire",
+	"hints":["SYSTEM"]
 }

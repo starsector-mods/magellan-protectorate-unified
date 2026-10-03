@@ -28,4 +28,6 @@
 	"fireSoundTwo":"magellan_stunfire_launch",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

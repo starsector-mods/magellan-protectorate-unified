@@ -64,4 +64,6 @@
     PROJECTILE_FIGHTER,
     MISSILE_FF,
     MISSILE_NO_FF
-  ]}
+  ],
+	"hints":["SYSTEM"]
+}

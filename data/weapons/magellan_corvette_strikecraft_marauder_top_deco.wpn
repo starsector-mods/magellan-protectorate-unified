@@ -21,4 +21,6 @@
 	"pixelsPerTexel":1.0,
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

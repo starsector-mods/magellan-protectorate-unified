@@ -26,4 +26,6 @@
 	"fireSoundTwo":"launch_flare_1",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

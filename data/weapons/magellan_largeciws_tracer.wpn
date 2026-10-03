@@ -31,4 +31,6 @@
   "fireSoundTwo":"magellan_lmg_fire",	
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

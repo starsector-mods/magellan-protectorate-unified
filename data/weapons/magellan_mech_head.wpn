@@ -20,4 +20,6 @@
   "textureType": "ROUGH",
   "textureScrollSpeed": 1.0,
   "pixelsPerTexel": 1.0
+,
+	"hints":["SYSTEM"]
 }

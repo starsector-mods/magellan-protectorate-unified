@@ -27,4 +27,6 @@
 	"fireSoundTwo":"magellan_balefire_launch",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

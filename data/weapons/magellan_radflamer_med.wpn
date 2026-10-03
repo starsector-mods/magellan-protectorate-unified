@@ -28,4 +28,6 @@
 	"noImpactSounds":true,
 	
 	"fireSoundThree":"cryoflamer_loop"
+,
+	"hints":["SYSTEM"]
 }
