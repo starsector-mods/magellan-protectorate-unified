@@ -5,7 +5,7 @@
 	"descriptionId":"magellan_skipjack",
 	"descriptionPrefix":"This Mallory class clipper has undergone unique modifications into a Leveller command ship. It is equipped with an integrated railgun in place of the large weapon mount, and its hangar bay fields two squadrons of the temperamental yet effective Leveller light bomber.",
 	"tags":["magellan_unique_ship", "no_sell", "restricted"],
-	"tech":"Leveller",
+	"tech":"Leveller Movement",
     "fleetPoints":22,
     "baseValueMult":1.2,
     "removeHints":[],

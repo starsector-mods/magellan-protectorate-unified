@@ -3,7 +3,7 @@
     "hullId": "magellan_fastdestroyer_leveller_mod",
     "hullSize": "DESTROYER",
     "style": "MGLN_LEVELLER",
-    "spriteName": "mods/Magellan Protectorate Unified/graphics/Magellan/ships/levellers/magellan_fastdestroyer_leveller_mod.png",
+    "spriteName": "graphics/Magellan/ships/levellers/magellan_fastdestroyer_leveller_mod.png",
     "height": 188,
     "width": 120,
     "center": [

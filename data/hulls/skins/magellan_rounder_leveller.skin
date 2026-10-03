@@ -3,7 +3,7 @@
   "skinHullId": "magellan_rounder_leveller",
   "hullName": "Rainsborough",
   "descriptionId": "magellan_rounder_leveller",
-  "tech": "Leveller",
+  "tech":"Leveller Movement",
   "fleetPoints": 0,
   "ordnancePoints": 0,
   "removeHints": [],
