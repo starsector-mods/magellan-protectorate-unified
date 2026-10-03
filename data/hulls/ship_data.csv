@@ -60,7 +60,7 @@ Goforth [Herd],magellan_herdcarrier,Carrier,The Herd,microburn,16,10000,1500,600
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Capitals,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Porey,magellan_battlecruiser,Battlecruiser,Magellan,magellan_ammofeed,26,14000,1500,18000,18000,720,250,1,60,45,25,8,12,3000,OMNI,,140,0.2,1.2,,,400,480,150,240,8,30,8,300000,3,15,620,0.25,40,40,,,,,,,,"rare_bp, hist3t, magellan_adv_bp",,,,0.5,2,4,,501
-Mazian,magellan_battleship,Dreadnought,Magellan,magellan_flakpods,2000,30000,7500,14400,15000,600,325,,30,30,16,8,16,4000,FRONT,,160,0.3,1.0,,,1000,1500,250,300,14,12,7,400000,3,15,680,0.2,50,50,,,,,,,,"rare_bp, hist3t, magellan_adv_bp",,,0.2,0.4,2,4,,502
+Mazian,magellan_battleship,Dreadnought,Magellan,magellan_burndrive,2000,30000,7500,14400,15000,600,325,,30,30,16,8,16,4000,FRONT,,160,0.3,1.0,,,1000,1500,250,300,14,12,7,400000,3,15,680,0.2,50,50,,,,,,,,"rare_bp, hist3t, magellan_adv_bp",,,0.2,0.4,2,4,,502
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Levellers,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Lilburne,magellan_swarmfighter,,Leveller Movement,magellan_burstjets_ftr,,300,40,150,,40,0,,350,600,500,120,360,16,OMNI,,160,0,1,,,0,0,,,,,,,,,,,,,,,,,,,HIDE_IN_CODEX,,,,,0,,,,106

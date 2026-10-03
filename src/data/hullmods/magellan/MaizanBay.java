@@ -38,6 +38,10 @@ public class MaizanBay extends BaseHullMod {
                 MagellanBlockedHullmodDisplayScript.showBlocked(ship);
             }
         }
+
+        if (ship.getHullSpec() != null) {
+            org.magiclib.subsystems.MagicSubsystemsManager.addSubsystemToShip(ship, new data.shipsystems.subsystems.MagellanAreaDefenseSubsystem(ship));
+        }
     }
 
     @Override
