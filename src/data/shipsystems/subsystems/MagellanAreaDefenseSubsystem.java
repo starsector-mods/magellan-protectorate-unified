@@ -76,7 +76,10 @@ public class MagellanAreaDefenseSubsystem extends MagicSubsystem {
         }
 
         if (fired) {
-            Global.getSoundPlayer().playSound("canister_flak_fire", 1.0f, 1.0f, ship.getLocation(), ship.getVelocity());
+            try {
+                Global.getSoundPlayer().playSound("system_canister_flak_fire", 1.0f, 1.0f, ship.getLocation(), ship.getVelocity());
+            } catch (Exception ignored) {
+            }
         }
     }
 
