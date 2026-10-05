@@ -522,4 +522,43 @@ public class magellan_LevellerInsurgencyManagerTest {
         verify(stabilityMock).unmodify("test_id");
         assertTrue(condition.isTooltipExpandable());
     }
+
+    @Test
+    public void testRosebriarDefenseFleetSpawning() {
+        SectorEntityToken rosebriarMock = mock(SectorEntityToken.class);
+        LocationAPI locMock = mock(LocationAPI.class);
+        CampaignFleetAPI fleetMock = mock(CampaignFleetAPI.class);
+        MemoryAPI fleetMemMock = mock(MemoryAPI.class);
+
+        when(rosebriarMock.getContainingLocation()).thenReturn(locMock);
+        when(rosebriarMock.getLocationInHyperspace()).thenReturn(new Vector2f(500, 500));
+        when(rosebriarMock.getLocation()).thenReturn(new Vector2f(100, 100));
+        when(fleetMock.getMemoryWithoutUpdate()).thenReturn(fleetMemMock);
+        when(fleetMock.isEmpty()).thenReturn(false);
+
+        try (MockedStatic<FleetFactoryV3> fleetFactoryMock = mockStatic(FleetFactoryV3.class)) {
+            fleetFactoryMock.when(() -> FleetFactoryV3.createFleet(any(FleetParamsV3.class))).thenReturn(fleetMock);
+
+            CampaignFleetAPI defenseFleet = magellan_LevellerInsurgencyManager.spawnRosebriarDefenseFleet(rosebriarMock, 250);
+            assertNotNull(defenseFleet);
+            verify(fleetMemMock).set(magellan_LevellerInsurgencyManager.FLAG_ROSEBRIAR_DEFENDER, true);
+            verify(locMock).addEntity(fleetMock);
+            verify(fleetMock).addAssignment(eq(FleetAssignment.PATROL_SYSTEM), eq(rosebriarMock), anyFloat(), anyString());
+        }
+    }
+
+    @Test
+    public void testPartisanDisruption() {
+        MarketAPI marketMock = mock(MarketAPI.class);
+        Industry milMock = mock(Industry.class);
+        Industry indMock = mock(Industry.class);
+
+        when(milMock.getId()).thenReturn(Industries.MILITARYBASE);
+        when(indMock.getId()).thenReturn(Industries.FARMING);
+        when(marketMock.getIndustries()).thenReturn(Arrays.asList(indMock, milMock));
+
+        magellan_LevellerInsurgencyManager.triggerPartisanDisruption(marketMock);
+        verify(milMock).setDisrupted(anyFloat());
+        verify(indMock, never()).setDisrupted(anyFloat());
+    }
 }

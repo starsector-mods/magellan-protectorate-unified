@@ -49,6 +49,9 @@
 			"magellan_battleship_startiger",
 			"magellan_carrier_startiger",
 			"magellan_cruiser_startiger",
+			"magellan_fastdestroyer",
+			"magellan_linedestroyer",
+			"magellan_patroldestroyer",
 			"magellan_linefrigate_startiger",
 			"magellan_lightcruiser_elite"
 		]
@@ -60,6 +63,9 @@
 			"magellan_carrier_startiger",
 			"magellan_battleship_startiger",
 			"magellan_cruiser_startiger",
+			"magellan_fastdestroyer",
+			"magellan_linedestroyer",
+			"magellan_patroldestroyer",
 			"magellan_linefrigate_startiger",
 			"magellan_lightcruiser_elite"
 		]

@@ -399,7 +399,7 @@ extends BaseThemeGenerator {
         for (int i = 0; i < num; ++i) {
             PlanetAPI planet;
             String type = (String)stationTypes.pick();
-            ArrayList logisticsCandidates = new ArrayList();
+            ArrayList<PlanetAPI> logisticsCandidates = new ArrayList<PlanetAPI>();
             logisticsCandidates.addAll(data.gasGiants);
             logisticsCandidates.addAll(data.resourceRich);
             LinkedHashMap<BaseThemeGenerator.LocationType, Float> weights = new LinkedHashMap<BaseThemeGenerator.LocationType, Float>();
@@ -410,7 +410,7 @@ extends BaseThemeGenerator {
             weights.put(BaseThemeGenerator.LocationType.IN_ASTEROID_BELT, Float.valueOf(5.0f));
             weights.put(BaseThemeGenerator.LocationType.JUMP_ORBIT, Float.valueOf(5.0f));
             weights.put(BaseThemeGenerator.LocationType.IN_RING, Float.valueOf(3.0f));
-            WeightedRandomPicker locs = magellan_WreckageThemeGenerator.getLocations((Random)this.random, (StarSystemAPI)data.system, (Set)data.alreadyUsed, (float)100.0f, weights);
+            WeightedRandomPicker<BaseThemeGenerator.EntityLocation> locs = magellan_WreckageThemeGenerator.getLocations((Random)this.random, (StarSystemAPI)data.system, (Set)data.alreadyUsed, (float)100.0f, weights);
             BaseThemeGenerator.EntityLocation loc = (BaseThemeGenerator.EntityLocation)locs.pick();
             if (loc == null) continue;
             BaseThemeGenerator.AddedEntity added = magellan_WreckageThemeGenerator.addEntity((Random)this.random, (LocationAPI)data.system, (BaseThemeGenerator.EntityLocation)loc, (String)type, (String)"magellan_derelict");
@@ -423,7 +423,7 @@ extends BaseThemeGenerator {
         if (this.random.nextFloat() >= chanceToAddAny) {
             return;
         }
-        WeightedRandomPicker habPlanets = new WeightedRandomPicker(this.random);
+        WeightedRandomPicker<PlanetAPI> habPlanets = new WeightedRandomPicker<PlanetAPI>(this.random);
         for (PlanetAPI planet : data.habitable) {
             float h = planet.getMarket().getHazardValue();
             if ((h -= 0.5f) < 0.1f) {
@@ -432,7 +432,7 @@ extends BaseThemeGenerator {
             float w = 1.0f / h;
             habPlanets.add(planet, w);
         }
-        WeightedRandomPicker otherPlanets = new WeightedRandomPicker(this.random);
+        WeightedRandomPicker<PlanetAPI> otherPlanets = new WeightedRandomPicker<PlanetAPI>(this.random);
         for (PlanetAPI planet2 : data.planets) {
             if (data.habitable.contains(planet2)) continue;
             otherPlanets.add(planet2);
