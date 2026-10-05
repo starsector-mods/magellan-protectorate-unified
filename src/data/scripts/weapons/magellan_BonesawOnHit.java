@@ -6,11 +6,13 @@ import com.fs.starfarer.api.combat.CombatEntityAPI;
 import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.combat.OnHitEffectPlugin;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
+import com.fs.starfarer.api.combat.ShipAPI;
 import java.awt.Color;
 import org.lwjgl.util.vector.Vector2f;
 
 public class magellan_BonesawOnHit
 implements OnHitEffectPlugin {
+    public static final float MECH_SPALLING_ARMOR_DAMAGE = 20.0f;
     private static final Color EXPLOSION_BRIGHT = new Color(255, 235, 200, 100);
     private static final Color EXPLOSION_DIM = new Color(255, 235, 200, 50);
 
@@ -28,12 +30,14 @@ implements OnHitEffectPlugin {
         float explosion_size;
         float explosion_dur;
         String hit_sfx;
+        boolean isMechShot = projectileSpecId.equals("magellan_bonesaw_mech_shot") ||
+                (projectile.getWeapon() != null && "magellan_bonesaw_mechL".equals(projectile.getWeapon().getId()));
 
         if (projectileSpecId.equals("magellan_bonesaw_ftr_shot")) {
             explosion_size = 15.0f;
             explosion_dur = 0.12f;
             hit_sfx = "magellan_bonesaw_ftr_crit";
-        } else if (projectileSpecId.equals("magellan_bonesaw_shot")) {
+        } else if (projectileSpecId.equals("magellan_bonesaw_shot") || projectileSpecId.equals("magellan_bonesaw_mech_shot")) {
             explosion_size = 20.0f;
             explosion_dur = 0.16f;
             hit_sfx = "magellan_bonesaw_ftr_crit";
@@ -53,6 +57,9 @@ implements OnHitEffectPlugin {
             engine.addSmoothParticle(point, v_target, explosion_size * 1.5f, 1.0f, 0.3f, explosion_dur / 3.0f, EXPLOSION_BRIGHT);
             engine.spawnExplosion(point, v_target, EXPLOSION_DIM, explosion_size, explosion_dur);
             Global.getSoundPlayer().playSound(hit_sfx, 1.0f, 1.0f, loc_target, v_target);
+            if (isMechShot && target instanceof ShipAPI) {
+                magellan_RipfireOnHit.dealArmorDamage(projectile, (ShipAPI) target, point, MECH_SPALLING_ARMOR_DAMAGE);
+            }
         }
     }
 }

@@ -26,4 +26,6 @@
 	"fireSoundTwo":"system_canister_flak_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

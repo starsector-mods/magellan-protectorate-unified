@@ -29,4 +29,6 @@
 				 "particleColor":[173,255,47,100]},					 
 	"projectileSpecId":"magellan_fuelpelletshotgun_shot",  
 	"fireSoundTwo":"magellan_bonecracker_fire"
+,
+	"hints":["SYSTEM"]
 }

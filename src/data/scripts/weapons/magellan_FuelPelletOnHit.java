@@ -13,7 +13,7 @@ import com.fs.starfarer.api.util.Misc;
 import org.lwjgl.util.vector.Vector2f;
 
 public class magellan_FuelPelletOnHit implements OnHitEffectPlugin {
-    public static float DAMAGE = 15.0f;
+    public static float DAMAGE = 8.0f;
 
     public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target,
                       Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {

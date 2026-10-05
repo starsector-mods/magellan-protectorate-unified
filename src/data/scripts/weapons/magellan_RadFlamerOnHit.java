@@ -27,7 +27,8 @@ public class magellan_RadFlamerOnHit
 extends BaseCombatLayeredRenderingPlugin
 implements OnHitEffectPlugin {
     public static int NUM_TICKS = 11;
-    public static float TOTAL_DAMAGE = 100.0f;
+    public static float TOTAL_DAMAGE = 50.0f;
+    protected float totalDamage = TOTAL_DAMAGE;
     protected List<ParticleData> particles = new ArrayList<ParticleData>();
     protected DamagingProjectileAPI proj;
     protected ShipAPI target;
@@ -47,6 +48,10 @@ implements OnHitEffectPlugin {
         if (shieldHit || projectile.isFading() || !(target instanceof ShipAPI)) {
             return;
         }
+        boolean isFlamer = projectile.getProjectileSpecId() != null && projectile.getProjectileSpecId().contains("flamer");
+        if (isFlamer && (float)Math.random() > 0.15f) {
+            return;
+        }
         Vector2f offset = Vector2f.sub(point, target.getLocation(), new Vector2f());
         offset = Misc.rotateAroundOrigin(offset, -target.getFacing());
         magellan_RadFlamerOnHit effect = new magellan_RadFlamerOnHit(projectile, (ShipAPI)target, offset);
@@ -60,6 +65,7 @@ implements OnHitEffectPlugin {
         this.proj = proj;
         this.target = target;
         this.offset = offset;
+        this.totalDamage = TOTAL_DAMAGE;
         this.interval = new IntervalUtil(0.8f, 1.0f);
         this.interval.forceIntervalElapsed();
     }
@@ -129,7 +135,7 @@ implements OnHitEffectPlugin {
         int gridHeight = grid.getGrid()[0].length;
         ShipAPI sourceShip = (this.proj != null && this.proj.getSource() instanceof ShipAPI) ? (ShipAPI)this.proj.getSource() : null;
         float damageTypeMult = magellan_RadFlamerOnHit.getDamageTypeMult(sourceShip, this.target);
-        float damagePerTick = TOTAL_DAMAGE / (float)NUM_TICKS;
+        float damagePerTick = this.totalDamage / (float)NUM_TICKS;
         float damageDealt = 0.0f;
         float maxArmor = grid.getMaxArmorInCell();
         for (int j = -2; j <= 2; ++j) {

@@ -16,4 +16,6 @@
  "projectileSpecId":"vulcan_shot",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

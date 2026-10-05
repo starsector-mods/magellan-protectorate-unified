@@ -29,4 +29,6 @@
 	"fireSoundTwo":"magellan_electroshock_fire",
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

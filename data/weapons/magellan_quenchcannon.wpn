@@ -29,4 +29,6 @@
 				 "particleColor":[200,200,225,75]},
 	"projectileSpecId":"magellan_quenchcannon_shot",  
 	"fireSoundTwo":"magellan_quenchcannon_fire"
+,
+	"hints":["SYSTEM"]
 }

@@ -23,4 +23,6 @@
 	"fireSoundTwo":"laser_loop",	
 
 	"everyFrameEffect":"data.scripts.plugins.MagellanTrailPlugin"
+,
+	"hints":["SYSTEM"]
 }

@@ -37,4 +37,6 @@
 				 "particleColor":[155,155,155,75]},	
 	"projectileSpecId":"magellan_flakpod_ftr_proj",
 	"fireSoundTwo":"bomb_bay_fire"
+,
+	"hints":["SYSTEM"]
 }

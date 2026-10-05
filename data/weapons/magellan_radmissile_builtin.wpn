@@ -38,4 +38,6 @@
 				 "particleColor":[200,255,200,35]},
 	"projectileSpecId":"magellan_radmissile",
 	"fireSoundTwo":"magellan_electroshock_fire"
+,
+	"hints":["SYSTEM"]
 }

@@ -28,4 +28,6 @@
 					   "particleColor":[200,200,225,125]},	
 	"projectileSpecId":"magellan_supersolenoid_sm_shot",  
 	"fireSoundTwo":"magellan_supersolenoid_sm_fire"
+,
+	"hints":["SYSTEM"]
 }

@@ -29,13 +29,13 @@ implements OnHitEffectPlugin {
             float explosion_size;
             float selector = 1.0f * (float)Math.random();
             if (selector < 0.2f) {
-                explosion_damage = 50.0f;
+                explosion_damage = 25.0f;
                 explosion_size = 5.0f * (0.75f + (float)Math.random() * 0.5f);
             } else if (selector < 0.8f) {
-                explosion_damage = 100.0f;
+                explosion_damage = 50.0f;
                 explosion_size = 9.0f * (0.75f + (float)Math.random() * 0.5f);
             } else {
-                explosion_damage = 150.0f;
+                explosion_damage = 75.0f;
                 explosion_size = 13.0f * (0.75f + (float)Math.random() * 0.5f);
             }
             dealArmorDamage(projectile, (ShipAPI)target, point, explosion_damage);

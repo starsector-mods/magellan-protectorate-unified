@@ -16,7 +16,7 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class magellan_FuelrodOnHit
 implements OnHitEffectPlugin {
-    public static float DAMAGE = 50.0f;
+    public static float DAMAGE = 25.0f;
     public static float PUSHMULT = 0.007f;
     public static float PUSHMULT_SHIELD = 0.003f;
     private static final Color EXPLOSION_COLOR = new Color(143, 255, 17, 255);
