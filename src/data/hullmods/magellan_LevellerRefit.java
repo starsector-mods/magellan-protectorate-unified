@@ -40,13 +40,14 @@ extends BaseHullMod {
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
         stats.getWeaponHealthBonus().modifyPercent(id, 100.0f);
-        stats.getWeaponTurnRateBonus().modifyMult(id, 0.9f);
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id, 200.0f);
+                        stats.getArmorBonus().modifyPercent(id, -10.0f);
+        stats.getShieldDamageTakenMult().modifyMult(id, 0.9f);
+        stats.getEnergyWeaponRangeBonus().modifyFlat("magellan_leveller_energy_range", 200.0f);
         stats.getFluxDissipation().modifyFlat(id, ((Float)mag.get(hullSize)).floatValue());
-        stats.getAcceleration().modifyPercent(id, 50.0f);
-        stats.getDeceleration().modifyPercent(id, 25.0f);
-        stats.getTurnAcceleration().modifyPercent(id, 50.0f);
-        stats.getMaxTurnRate().modifyPercent(id, 25.0f);
+        stats.getAcceleration().modifyPercent(id, 30.0f);
+        stats.getDeceleration().modifyPercent(id, 20.0f);
+        stats.getTurnAcceleration().modifyPercent(id, 30.0f);
+        stats.getMaxTurnRate().modifyPercent(id, 20.0f);
     }
 
     public void addPostDescriptionSection(TooltipMakerAPI tooltip, ShipAPI.HullSize hullSize, ShipAPI ship, float width, boolean isForModSpec) {
@@ -60,16 +61,18 @@ extends BaseHullMod {
         Color levbg = magellan_hullmodUtils.getLevellerBGColor();
         tooltip.addSectionHeading(this.getString("EngTitle"), lev, levbg, Alignment.MID, 10.0f);
         tooltip.addPara("- " + this.getString("EngDesc1"), 10.0f, h, new String[]{"100%"});
-        tooltip.addPara("- " + this.getString("EngDesc2"), 2.0f, h, new String[]{"10%"});
+        tooltip.addPara("- Base armor decreased by %s.", 2.0f, bad, new String[]{"10%"});
+        tooltip.addPara("- Shield damage taken reduced by %s.", 2.0f, h, new String[]{"10%"});
         LabelAPI label = tooltip.addPara("\u2014\u2014\u2014 " + this.getString("LevellerRefitTitle") + " \u2014\u2014\u2014", lev, 4.0f);
         label.setAlignment(Alignment.MID);
         tooltip.addPara("- " + this.getString("LevellerRefitDesc2"), 4.0f, h, new String[]{"200su"});
         tooltip.addPara("- " + this.getString("LevellerRefitDesc3"), 2.0f, h, new String[]{"30", "60", "90", "150"});
-        tooltip.addPara("- " + this.getString("LevellerRefitDesc4"), 2.0f, h, new String[]{"25%"});
+        tooltip.addPara("- " + this.getString("LevellerRefitDesc4"), 2.0f, h, new String[]{"20%"});
         tooltip.addSectionHeading(this.getString("IncompTitle"), bad, badbg, Alignment.MID, 10.0f);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40.0f);
         incompat.addPara(this.getString("AllIncomp"), 2.0f);
-        incompat.addPara("- " + this.getString("IncompAWM"), bad, 2.0f);
+        incompat.addPara("- " + this.getString("IncompHS"), bad, 2.0f);
+        incompat.addPara("- " + this.getString("IncompAWM"), bad, 0.0f);
         incompat.addPara("- " + this.getString("IncompCH"), bad, 0.0f);
         if (Global.getSettings().getModManager().isModEnabled("roider")) {
             incompat.addPara("- " + this.getString("IncompCHROID"), bad, 0.0f);
@@ -96,6 +99,7 @@ extends BaseHullMod {
         mag.put(ShipAPI.HullSize.DESTROYER, Float.valueOf(60.0f));
         mag.put(ShipAPI.HullSize.CRUISER, Float.valueOf(90.0f));
         mag.put(ShipAPI.HullSize.CAPITAL_SHIP, Float.valueOf(150.0f));
+        BLOCKED_HULLMODS.add("hardenedshieldemitter");
         BLOCKED_HULLMODS.add("armoredweapons");
         BLOCKED_HULLMODS.add("converted_hangar");
         BLOCKED_HULLMODS.add("roider_fighterClamps");

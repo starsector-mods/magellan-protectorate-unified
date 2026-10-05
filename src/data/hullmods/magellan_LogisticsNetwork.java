@@ -18,24 +18,43 @@ public class magellan_LogisticsNetwork extends BaseHullMod {
     public static final String HULLMOD_ID = "magellan_logistics_network";
     public static final String MODIFIER_ID = "magellan_logistics_network_mod";
 
-    public static final float MAX_FLEET_DISCOUNT = 0.35f; // Max 35% fleet-wide maintenance/fuel reduction
-    public static final float LOCAL_CARGO_BONUS = 15.0f;  // +15% cargo for the equipped ship
-    public static final float LOCAL_FUEL_BONUS = 15.0f;   // +15% fuel capacity for the equipped ship
-    public static final float SMOD_LOCAL_CARGO_BONUS = 30.0f;
-    public static final float SMOD_LOCAL_FUEL_BONUS = 30.0f;
+    public static final float MAX_FLEET_DISCOUNT = 0.15f; // Max 15% fleet-wide maintenance/fuel reduction
+    public static final float LOCAL_CARGO_BONUS = 10.0f;  // +10% cargo for the equipped ship
+    public static final float LOCAL_FUEL_BONUS = 10.0f;   // +10% fuel capacity for the equipped ship
+    public static final float SMOD_LOCAL_CARGO_BONUS = 20.0f;
+    public static final float SMOD_LOCAL_FUEL_BONUS = 20.0f;
 
     public static final float MAX_CR_PENALTY = -0.05f;    // -5% Max CR
     public static final float SENSOR_PROFILE_PENALTY = 25.0f; // +25% sensor profile
 
     private static final Map<ShipAPI.HullSize, Float> contribution = new EnumMap<>(ShipAPI.HullSize.class);
+    private static final java.util.Set<String> COMPATIBLE_HULLMODS;
 
     static {
         contribution.put(ShipAPI.HullSize.DEFAULT, 0.0f);
         contribution.put(ShipAPI.HullSize.FIGHTER, 0.0f);
-        contribution.put(ShipAPI.HullSize.FRIGATE, 0.010f);     // 1.0%
-        contribution.put(ShipAPI.HullSize.DESTROYER, 0.020f);   // 2.0%
-        contribution.put(ShipAPI.HullSize.CRUISER, 0.035f);     // 3.5%
-        contribution.put(ShipAPI.HullSize.CAPITAL_SHIP, 0.050f);// 5.0%
+        contribution.put(ShipAPI.HullSize.FRIGATE, 0.005f);     // 0.5%
+        contribution.put(ShipAPI.HullSize.DESTROYER, 0.010f);   // 1.0%
+        contribution.put(ShipAPI.HullSize.CRUISER, 0.020f);     // 2.0%
+        contribution.put(ShipAPI.HullSize.CAPITAL_SHIP, 0.030f);// 3.0%
+
+        java.util.Set<String> set = new java.util.HashSet<>();
+        set.add("magellan_engineering");
+        set.add("magellan_noshield");
+        set.add("magellan_engineering_civ");
+        set.add("magellan_classicdesign_b");
+        set.add("magellan_classicdesign");
+        set.add("magellan_blackcollarmod");
+        set.add("magellan_startigermod");
+        set.add("magellan_levellermod");
+        set.add("magellan_herdmod");
+        set.add("magellan_autodef");
+        set.add("magellan_yellowtailmod");
+        set.add("magellan_smugglerMod");
+        set.add("magellan_marauderMod");
+        set.add("magellan_mothershipcore");
+        set.add("magellan_duncanMod");
+        COMPATIBLE_HULLMODS = java.util.Collections.unmodifiableSet(set);
     }
 
     public static float getContributionFor(ShipAPI.HullSize size) {
@@ -79,17 +98,29 @@ public class magellan_LogisticsNetwork extends BaseHullMod {
         }
     }
 
+    private boolean hasCompatibleMagellanHull(ShipAPI ship) {
+        if (ship == null || ship.getVariant() == null) return false;
+        for (String hullmod : COMPATIBLE_HULLMODS) {
+            if (ship.getVariant().hasHullMod(hullmod)) return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean isApplicableToShip(ShipAPI ship) {
         if (ship == null || ship.getVariant() == null) return false;
         if (ship.isFighter()) return false;
-        return super.isApplicableToShip(ship);
+        return hasCompatibleMagellanHull(ship) && super.isApplicableToShip(ship);
     }
 
     @Override
     public String getUnapplicableReason(ShipAPI ship) {
-        if (ship != null && ship.isFighter()) {
+        if (ship == null || ship.getVariant() == null) return "Cannot be installed";
+        if (ship.isFighter()) {
             return "Cannot be installed on fighters.";
+        }
+        if (!hasCompatibleMagellanHull(ship)) {
+            return "Must be installed on a Magellan Protectorate vessel";
         }
         return super.getUnapplicableReason(ship);
     }
@@ -125,15 +156,15 @@ public class magellan_LogisticsNetwork extends BaseHullMod {
             padS, Misc.getTextColor(), h,
             "monthly supply maintenance", "hyperspace fuel consumption", String.format("%.0f%%", MAX_FLEET_DISCOUNT * 100f));
 
-        tooltip.addPara("    - Frigate: %s fleet reduction", padS, h, "+1.0%");
-        tooltip.addPara("    - Destroyer: %s fleet reduction", padS, h, "+2.0%");
-        tooltip.addPara("    - Cruiser: %s fleet reduction", padS, h, "+3.5%");
-        tooltip.addPara("    - Capital Ship: %s fleet reduction", padS, h, "+5.0%");
+        tooltip.addPara("    - Frigate: %s fleet reduction", padS, h, "+0.5%");
+        tooltip.addPara("    - Destroyer: %s fleet reduction", padS, h, "+1.0%");
+        tooltip.addPara("    - Cruiser: %s fleet reduction", padS, h, "+2.0%");
+        tooltip.addPara("    - Capital Ship: %s fleet reduction", padS, h, "+3.0%");
 
         if (isSMod) {
             tooltip.addPara("• Maximum combat readiness and sensor profile penalties are %s by S-Mod integration.", padS, story, "completely negated");
         } else {
-            tooltip.addPara("• Reduces maximum combat readiness by %s due to non-combat cargo space allocation.", padS, bad, "" + Math.round(MAX_CR_PENALTY * 100f) + "%");
+            tooltip.addPara("• Reduces maximum combat readiness by %s due to non-combat cargo space allocation.", padS, bad, "" + Math.round(Math.abs(MAX_CR_PENALTY) * 100f) + "%");
             tooltip.addPara("• Increases sensor profile by %s due to external cargo pods and beacon emissions.", padS, bad, "+" + Math.round(SENSOR_PROFILE_PENALTY) + "%");
         }
 
@@ -146,6 +177,8 @@ public class magellan_LogisticsNetwork extends BaseHullMod {
             tooltip.addPara("• Doubles local cargo and fuel capacity bonuses to %s.", padS, story, "+" + Math.round(SMOD_LOCAL_CARGO_BONUS) + "%");
             tooltip.addPara("• Completely %s maximum combat readiness and sensor profile penalties.", padS, story, "negates");
         }
+
+        tooltip.addPara("Proprietary Magellan Hullmod: Can only be installed on Magellan Protectorate hulls.", Misc.getGrayColor(), pad);
 
         if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null) {
             float activeDiscount = calculateFleetDiscount(ship);

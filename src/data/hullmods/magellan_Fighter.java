@@ -221,7 +221,7 @@ public class magellan_Fighter extends BaseHullMod {
     @Override
     public String getSModDescriptionParam(int index, ShipAPI.HullSize hullSize) {
         if (index == 0) return "+" + (int) SMOD_RECOVERY_RATE_BONUS + "%";
-        if (index == 1) return "-" + (int) ((1f - SMOD_REFIT_TIME_MULT) * 100f) + "%";
+        if (index == 1) return "" + (int) ((1f - SMOD_REFIT_TIME_MULT) * 100f) + "%";
         return null;
     }
 

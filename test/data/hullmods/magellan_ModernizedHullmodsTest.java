@@ -57,27 +57,10 @@ public class magellan_ModernizedHullmodsTest {
     }
 
     @Test
-    public void testContraMod_AppliesCorrectWings() {
+    public void testContraMod_DeprecatedAndInapplicable() {
         magellan_contraMod mod = new magellan_contraMod();
-        MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
-        ShipVariantAPI variant = mock(ShipVariantAPI.class);
-        ShipHullSpecAPI hullSpec = mock(ShipHullSpecAPI.class);
-        List<String> wings = new ArrayList<>();
-
-        when(stats.getVariant()).thenReturn(variant);
-        when(variant.getHullSpec()).thenReturn(hullSpec);
-        when(variant.getWings()).thenReturn(wings);
-
-        when(hullSpec.getHullId()).thenReturn("magellan_skipjack_leveller");
-        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, stats, "magellan_contraMod");
-        assertEquals(2, wings.size());
-        assertEquals("magellan_rounder_leveller_wing", wings.get(1));
-
-        wings.clear();
-        when(hullSpec.getHullId()).thenReturn("magellan_patroldestroyer_leveller");
-        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.DESTROYER, stats, "magellan_contraMod");
-        assertEquals(1, wings.size());
-        assertEquals("magellan_swarmfighter_wing", wings.get(0));
+        assertFalse(mod.isApplicableToShip(null));
+        assertNotNull(mod.getUnapplicableReason(null));
     }
 
     @Test
@@ -152,11 +135,11 @@ public class magellan_ModernizedHullmodsTest {
         when(stats.getShieldDamageTakenMult()).thenReturn(shieldTaken);
 
         mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "magellan_defense_mod");
-        verify(armorBonus).modifyPercent("magellan_defense_mod", 15.0f);
-        verify(hullBonus).modifyPercent("magellan_defense_mod", 15.0f);
-        verify(empTaken).modifyMult("magellan_defense_mod", 0.70f);
-        verify(heTaken).modifyMult("magellan_defense_mod", 0.85f);
-        verify(fragTaken).modifyMult("magellan_defense_mod", 0.70f);
+        verify(armorBonus).modifyPercent("magellan_defense_mod", 10.0f);
+        verify(hullBonus).modifyPercent("magellan_defense_mod", 10.0f);
+        verify(empTaken).modifyMult("magellan_defense_mod", 0.80f);
+        verify(heTaken).modifyMult("magellan_defense_mod", 0.90f);
+        verify(fragTaken).modifyMult("magellan_defense_mod", 0.80f);
         verify(maxSpeed).modifyPercent("magellan_defense_mod", -10.0f);
         verify(shieldTaken).modifyMult("magellan_defense_mod", 1.15f);
 
@@ -169,9 +152,9 @@ public class magellan_ModernizedHullmodsTest {
         verify(shieldTaken).unmodify("magellan_defense_mod");
 
         // Test hover / in-game description params
-        assertEquals("15%", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER));
-        assertEquals("15%", mod.getDescriptionParam(1, ShipAPI.HullSize.CRUISER));
-        assertEquals("30%", mod.getDescriptionParam(2, ShipAPI.HullSize.CRUISER));
+        assertEquals("10%", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER));
+        assertEquals("10%", mod.getDescriptionParam(1, ShipAPI.HullSize.CRUISER));
+        assertEquals("20%", mod.getDescriptionParam(2, ShipAPI.HullSize.CRUISER));
         assertEquals("10%", mod.getDescriptionParam(5, ShipAPI.HullSize.CRUISER));
         assertEquals("15%", mod.getDescriptionParam(6, ShipAPI.HullSize.CRUISER));
     }
@@ -207,12 +190,12 @@ public class magellan_ModernizedHullmodsTest {
         when(stats.getCRLossPerSecondPercent()).thenReturn(crLoss);
 
         mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, stats, "magellan_movement_mod");
-        verify(maxSpeed).modifyFlat("magellan_movement_mod", 20.0f);
+        verify(maxSpeed).modifyFlat("magellan_movement_mod", 15.0f);
         verify(zeroFlux).modifyFlat("magellan_movement_mod", 10.0f);
-        verify(weaponTurn).modifyPercent("magellan_movement_mod", 40.0f);
-        verify(shipTurn).modifyPercent("magellan_movement_mod", 25.0f);
-        verify(recoilPerShot).modifyMult("magellan_movement_mod", 0.75f);
-        verify(maxRecoil).modifyMult("magellan_movement_mod", 0.75f);
+        verify(weaponTurn).modifyPercent("magellan_movement_mod", 25.0f);
+        verify(shipTurn).modifyPercent("magellan_movement_mod", 20.0f);
+        verify(recoilPerShot).modifyMult("magellan_movement_mod", 0.85f);
+        verify(maxRecoil).modifyMult("magellan_movement_mod", 0.85f);
         verify(peakCR).modifyMult("magellan_movement_mod", 0.85f);
         verify(crLoss).modifyPercent("magellan_movement_mod", 20.0f);
 
@@ -223,9 +206,9 @@ public class magellan_ModernizedHullmodsTest {
         verify(crLoss).unmodify("magellan_movement_mod");
 
         // Test hover / in-game description params
-        assertEquals("40%", mod.getDescriptionParam(0, ShipAPI.HullSize.FRIGATE));
-        assertEquals("25%", mod.getDescriptionParam(1, ShipAPI.HullSize.FRIGATE));
-        assertEquals("35%", mod.getDescriptionParam(2, ShipAPI.HullSize.FRIGATE));
+        assertEquals("25%", mod.getDescriptionParam(0, ShipAPI.HullSize.FRIGATE));
+        assertEquals("20%", mod.getDescriptionParam(1, ShipAPI.HullSize.FRIGATE));
+        assertEquals("25%", mod.getDescriptionParam(2, ShipAPI.HullSize.FRIGATE));
         assertEquals("+10 su", mod.getDescriptionParam(4, ShipAPI.HullSize.FRIGATE));
         assertEquals("15%", mod.getDescriptionParam(7, ShipAPI.HullSize.FRIGATE));
         assertEquals("20%", mod.getDescriptionParam(8, ShipAPI.HullSize.FRIGATE));
@@ -248,9 +231,9 @@ public class magellan_ModernizedHullmodsTest {
         when(stats.getEnergyWeaponFluxCostMod()).thenReturn(eFlux);
 
         mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, stats, "magellan_yellowtail_assault");
-        verify(rof).modifyMult("magellan_yellowtail_assault", 1.25f);
-        verify(projSpeed).modifyMult("magellan_yellowtail_assault", 1.5f);
-        verify(bFlux).modifyMult("magellan_yellowtail_assault", 0.75f);
+        verify(rof).modifyMult("magellan_yellowtail_assault", 1.15f);
+        verify(projSpeed).modifyMult("magellan_yellowtail_assault", 1.25f);
+        verify(bFlux).modifyMult("magellan_yellowtail_assault", 0.90f);
     }
 
     @Test
@@ -261,26 +244,27 @@ public class magellan_ModernizedHullmodsTest {
         StatBonus engineHealth = mock(StatBonus.class);
         DynamicStatsAPI dynamic = mock(DynamicStatsAPI.class);
         StatBonus dmodProb = mock(StatBonus.class);
-        MutableStat maxArmor = mock(MutableStat.class);
         MutableStat recoil = mock(MutableStat.class);
         MutableStat ventRate = mock(MutableStat.class);
         MutableStat maxSpeed = mock(MutableStat.class);
+        MutableStat supplies = mock(MutableStat.class);
 
         when(stats.getWeaponHealthBonus()).thenReturn(weaponHealth);
         when(stats.getEngineHealthBonus()).thenReturn(engineHealth);
         when(stats.getDynamic()).thenReturn(dynamic);
         when(dynamic.getMod(anyString())).thenReturn(dmodProb);
-        when(stats.getMaxArmorDamageReduction()).thenReturn(maxArmor);
         when(stats.getMaxRecoilMult()).thenReturn(recoil);
         when(stats.getRecoilPerShotMult()).thenReturn(recoil);
         when(stats.getRecoilDecayMult()).thenReturn(recoil);
         when(stats.getVentRateMult()).thenReturn(ventRate);
         when(stats.getMaxSpeed()).thenReturn(maxSpeed);
+        when(stats.getSuppliesPerMonth()).thenReturn(supplies);
 
         smuggler.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "magellan_smugglerMod");
         verify(weaponHealth).modifyPercent("magellan_smugglerMod", 100f);
         verify(maxSpeed).modifyFlat("magellan_smugglerMod", 10f);
-        verify(maxArmor).modifyFlat("magellan_smugglerMod", 0.05f);
+        verify(ventRate).modifyPercent("magellan_smugglerMod", 15f);
+        verify(supplies).modifyMult("magellan_smugglerMod", 1.20f);
 
         magellan_marauderMod marauder = new magellan_marauderMod();
         StatBonus turnRate = mock(StatBonus.class);
@@ -297,27 +281,157 @@ public class magellan_ModernizedHullmodsTest {
         magellan_rusalkaMod rusalka = new magellan_rusalkaMod();
         MutableStat empTaken = mock(MutableStat.class);
         MutableStat zeroFlux = mock(MutableStat.class);
-        MutableStat zeroFluxMin = mock(MutableStat.class);
+        StatBonus hullBonus = mock(StatBonus.class);
+        StatBonus armorBonus = mock(StatBonus.class);
         StatBonus energyRange = mock(StatBonus.class);
+        StatBonus ballisticRange = mock(StatBonus.class);
+        StatBonus missileRange = mock(StatBonus.class);
+        MutableStat energyDmg = mock(MutableStat.class);
+        MutableStat ballisticDmg = mock(MutableStat.class);
+        MutableStat missileDmg = mock(MutableStat.class);
         MutableStat accel = mock(MutableStat.class);
+        MutableStat sensorProfile = mock(MutableStat.class);
 
         when(stats.getEmpDamageTakenMult()).thenReturn(empTaken);
         when(stats.getZeroFluxSpeedBoost()).thenReturn(zeroFlux);
-        when(stats.getZeroFluxMinimumFluxLevel()).thenReturn(zeroFluxMin);
+        when(stats.getHullBonus()).thenReturn(hullBonus);
+        when(stats.getArmorBonus()).thenReturn(armorBonus);
+        when(stats.getShieldDamageTakenMult()).thenReturn(mock(MutableStat.class));
+        when(stats.getSensorProfile()).thenReturn(sensorProfile);
+        when(stats.getBallisticWeaponRangeBonus()).thenReturn(ballisticRange);
         when(stats.getEnergyWeaponRangeBonus()).thenReturn(energyRange);
+        when(stats.getMissileWeaponRangeBonus()).thenReturn(missileRange);
+        when(stats.getBallisticWeaponDamageMult()).thenReturn(ballisticDmg);
+        when(stats.getEnergyWeaponDamageMult()).thenReturn(energyDmg);
+        when(stats.getMissileWeaponDamageMult()).thenReturn(missileDmg);
         when(stats.getAcceleration()).thenReturn(accel);
         when(stats.getDeceleration()).thenReturn(accel);
         when(stats.getTurnAcceleration()).thenReturn(accel);
         when(stats.getMaxTurnRate()).thenReturn(accel);
-        when(stats.getWeaponMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getEngineMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getCriticalMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getShieldMalfunctionChance()).thenReturn(mock(MutableStat.class));
-        when(stats.getShieldMalfunctionFluxLevel()).thenReturn(mock(MutableStat.class));
 
         rusalka.applyEffectsBeforeShipCreation(ShipAPI.HullSize.DESTROYER, stats, "magellan_rusalkaMod");
-        verify(empTaken).modifyMult("magellan_rusalkaMod", 0f);
-        verify(energyRange).modifyFlat("magellan_rusalkaMod", 200f);
+        verify(empTaken).modifyPercent("magellan_rusalkaMod", 25f);
+        verify(zeroFlux).modifyMult("magellan_rusalkaMod", 0f);
+        verify(hullBonus).modifyPercent("magellan_rusalkaMod", -15f);
+        verify(armorBonus).modifyPercent("magellan_rusalkaMod", -10f);
+        verify(sensorProfile).modifyPercent("magellan_rusalkaMod", 50f);
+        verify(ballisticRange).modifyFlat("magellan_rusalkaMod", -100f);
+        verify(energyRange).modifyFlat("magellan_rusalkaMod", -100f);
+        verify(missileRange).modifyFlat("magellan_rusalkaMod", -100f);
+        verify(ballisticDmg).modifyPercent("magellan_rusalkaMod", 5f);
+        verify(energyDmg).modifyPercent("magellan_rusalkaMod", 5f);
+        verify(missileDmg).modifyPercent("magellan_rusalkaMod", 5f);
         verify(maxSpeed).modifyFlat("magellan_rusalkaMod", 20f);
+    }
+
+    @Test
+    public void testRusalkaMod_BlocksIncompatibleHullmods() {
+        magellan_rusalkaMod rusalka = new magellan_rusalkaMod();
+        ShipAPI ship = mock(ShipAPI.class);
+        ShipVariantAPI variant = mock(ShipVariantAPI.class);
+        when(ship.getVariant()).thenReturn(variant);
+
+        java.util.Collection<String> mods = new java.util.ArrayList<>(java.util.Arrays.asList(
+                "fluxdistributor", "fluxcoil", "fluxbreakers", "safetyoverrides", "targetingunit"
+        ));
+        when(variant.getHullMods()).thenReturn(mods);
+
+        rusalka.applyEffectsAfterShipCreation(ship, "magellan_rusalkaMod");
+
+        verify(variant).removeMod("fluxdistributor");
+        verify(variant).removeMod("fluxcoil");
+        verify(variant).removeMod("fluxbreakers");
+        verify(variant).removeMod("safetyoverrides");
+        verify(variant).removeMod("targetingunit");
+    }
+
+    @Test
+    public void testRusalkaMod_ApplicableOnlyToRusalka() {
+        magellan_rusalkaMod rusalka = new magellan_rusalkaMod();
+        ShipAPI ship = mock(ShipAPI.class);
+        ShipHullSpecAPI spec = mock(ShipHullSpecAPI.class);
+        when(ship.getHullSpec()).thenReturn(spec);
+
+        when(spec.getHullId()).thenReturn("magellan_fastdestroyer_leveller_mod");
+        assertTrue(rusalka.isApplicableToShip(ship));
+
+        when(spec.getHullId()).thenReturn("magellan_fastdestroyer");
+        assertFalse(rusalka.isApplicableToShip(ship));
+    }
+
+    @Test
+    public void testClassicDesign_ApplyEffects() {
+        magellan_ClassicDesign mod = new magellan_ClassicDesign();
+        MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
+        StatBonus bRange = mock(StatBonus.class);
+        StatBonus eRange = mock(StatBonus.class);
+        StatBonus engineHealth = mock(StatBonus.class);
+        MutableStat critMalfunction = mock(MutableStat.class);
+        DynamicStatsAPI dynamic = mock(DynamicStatsAPI.class);
+        MutableStat decayMult = mock(MutableStat.class);
+        StatBonus extraSMods = mock(StatBonus.class);
+        StatBonus recoveryMod = mock(StatBonus.class);
+
+        when(stats.getBallisticWeaponRangeBonus()).thenReturn(bRange);
+        when(stats.getEnergyWeaponRangeBonus()).thenReturn(eRange);
+        when(stats.getEngineHealthBonus()).thenReturn(engineHealth);
+        when(stats.getCriticalMalfunctionChance()).thenReturn(critMalfunction);
+        when(stats.getDynamic()).thenReturn(dynamic);
+        when(dynamic.getStat("replacement_rate_decrease_mult")).thenReturn(decayMult);
+        when(dynamic.getMod("max_permanent_hullmods_mod")).thenReturn(extraSMods);
+        when(dynamic.getMod("individual_ship_recovery_mod")).thenReturn(recoveryMod);
+
+        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "magellan_classicdesign");
+        verify(bRange).modifyPercent("magellan_classicdesign", 40.0f);
+        verify(eRange).modifyPercent("magellan_classicdesign", 40.0f);
+        verify(decayMult).modifyMult("magellan_classicdesign", 0.50f);
+        verify(engineHealth).modifyPercent("magellan_classicdesign", 100.0f);
+        verify(critMalfunction).modifyMult("magellan_classicdesign", 0.75f);
+        verify(extraSMods).modifyFlat("magellan_classicdesign", 1.0f);
+        verify(recoveryMod).modifyFlat("magellan_classicdesign", 1000.0f);
+    }
+
+    @Test
+    public void testTMCDefenseSpec_ApplyEffects() {
+        magellan_TMCDefenseSpec mod = new magellan_TMCDefenseSpec();
+        MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
+        MutableStat missileDmg = mock(MutableStat.class);
+        MutableStat fighterDmg = mock(MutableStat.class);
+        MutableStat aimAcc = mock(MutableStat.class);
+        DynamicStatsAPI dynamic = mock(DynamicStatsAPI.class);
+        StatBonus flareIgnore = mock(StatBonus.class);
+
+        when(stats.getDamageToMissiles()).thenReturn(missileDmg);
+        when(stats.getDamageToFighters()).thenReturn(fighterDmg);
+        when(stats.getAutofireAimAccuracy()).thenReturn(aimAcc);
+        when(stats.getDynamic()).thenReturn(dynamic);
+        when(dynamic.getMod("pd_ignores_flares")).thenReturn(flareIgnore);
+
+        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, stats, "magellan_yellowtail_defense");
+        verify(missileDmg).modifyPercent("magellan_yellowtail_defense", 50.0f);
+        verify(fighterDmg).modifyPercent("magellan_yellowtail_defense", 50.0f);
+        verify(aimAcc).modifyFlat("magellan_yellowtail_defense", 0.5f);
+        verify(flareIgnore).modifyFlat("magellan_yellowtail_defense", 1.0f);
+    }
+
+    @Test
+    public void testTMCBeamSpec_ApplyEffects() {
+        magellan_TMCBeamSpec mod = new magellan_TMCBeamSpec();
+        MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
+        MutableStat capDmg = mock(MutableStat.class);
+        MutableStat cruiserDmg = mock(MutableStat.class);
+        MutableStat speed = mock(MutableStat.class);
+        MutableStat zeroFlux = mock(MutableStat.class);
+
+        when(stats.getDamageToCapital()).thenReturn(capDmg);
+        when(stats.getDamageToCruisers()).thenReturn(cruiserDmg);
+        when(stats.getMaxSpeed()).thenReturn(speed);
+        when(stats.getZeroFluxSpeedBoost()).thenReturn(zeroFlux);
+
+        mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, stats, "magellan_yellowtail_beam");
+        verify(capDmg).modifyPercent("magellan_yellowtail_beam", 20.0f);
+        verify(cruiserDmg).modifyPercent("magellan_yellowtail_beam", 10.0f);
+        verify(speed).modifyFlat("magellan_yellowtail_beam", -50.0f);
+        verify(zeroFlux).modifyFlat("magellan_yellowtail_beam", 50.0f);
     }
 }

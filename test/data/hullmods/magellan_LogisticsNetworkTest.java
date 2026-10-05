@@ -59,10 +59,10 @@ public class magellan_LogisticsNetworkTest {
 
     @Test
     public void testContributionValues() {
-        assertEquals(0.010f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.FRIGATE), 0.0001f);
-        assertEquals(0.020f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.DESTROYER), 0.0001f);
-        assertEquals(0.035f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.CRUISER), 0.0001f);
-        assertEquals(0.050f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.CAPITAL_SHIP), 0.0001f);
+        assertEquals(0.005f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.FRIGATE), 0.0001f);
+        assertEquals(0.010f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.DESTROYER), 0.0001f);
+        assertEquals(0.020f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.CRUISER), 0.0001f);
+        assertEquals(0.030f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.CAPITAL_SHIP), 0.0001f);
         assertEquals(0.0f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.FIGHTER), 0.0001f);
         assertEquals(0.0f, magellan_LogisticsNetwork.getContributionFor(ShipAPI.HullSize.DEFAULT), 0.0001f);
         assertEquals(0.0f, magellan_LogisticsNetwork.getContributionFor(null), 0.0001f);
@@ -92,8 +92,8 @@ public class magellan_LogisticsNetworkTest {
 
         mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "test_id");
 
-        verify(cargoMod).modifyPercent("test_id", 15.0f);
-        verify(fuelMod).modifyPercent("test_id", 15.0f);
+        verify(cargoMod).modifyPercent("test_id", 10.0f);
+        verify(fuelMod).modifyPercent("test_id", 10.0f);
         verify(weaponRepair).modifyMult("test_id", 0.85f);
         verify(engineRepair).modifyMult("test_id", 0.85f);
         verify(maxCR).modifyFlat("test_id", -0.05f);
@@ -102,18 +102,18 @@ public class magellan_LogisticsNetworkTest {
         // Test S-Mod
         smods.add(magellan_LogisticsNetwork.HULLMOD_ID);
         mod.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "test_id");
-        verify(cargoMod).modifyPercent("test_id", 30.0f);
-        verify(fuelMod).modifyPercent("test_id", 30.0f);
+        verify(cargoMod).modifyPercent("test_id", 20.0f);
+        verify(fuelMod).modifyPercent("test_id", 20.0f);
         verify(maxCR).unmodify("test_id");
         verify(sensorProfile).unmodify("test_id");
 
         assertTrue(mod.hasSModEffect());
-        assertEquals("+30%", mod.getSModDescriptionParam(0, ShipAPI.HullSize.CRUISER));
+        assertEquals("+20%", mod.getSModDescriptionParam(0, ShipAPI.HullSize.CRUISER));
 
         // Test hover / in-game description params
-        assertEquals("15%", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER));
+        assertEquals("10%", mod.getDescriptionParam(0, ShipAPI.HullSize.CRUISER));
         assertEquals("15%", mod.getDescriptionParam(1, ShipAPI.HullSize.CRUISER));
-        assertEquals("35%", mod.getDescriptionParam(2, ShipAPI.HullSize.CRUISER));
+        assertEquals("15%", mod.getDescriptionParam(2, ShipAPI.HullSize.CRUISER));
         assertEquals("5%", mod.getDescriptionParam(3, ShipAPI.HullSize.CRUISER));
         assertEquals("25%", mod.getDescriptionParam(4, ShipAPI.HullSize.CRUISER));
     }
@@ -136,6 +136,11 @@ public class magellan_LogisticsNetworkTest {
         assertEquals("Cannot be installed on fighters.", mod.getUnapplicableReason(shipMock));
 
         when(shipMock.isFighter()).thenReturn(false);
+        when(variant.hasHullMod("magellan_engineering")).thenReturn(false);
+        assertFalse(mod.isApplicableToShip(shipMock));
+        assertEquals("Must be installed on a Magellan Protectorate vessel", mod.getUnapplicableReason(shipMock));
+
+        when(variant.hasHullMod("magellan_engineering")).thenReturn(true);
         assertTrue(mod.isApplicableToShip(shipMock));
     }
 

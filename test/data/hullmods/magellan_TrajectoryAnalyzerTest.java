@@ -60,7 +60,7 @@ public class magellan_TrajectoryAnalyzerTest {
 
         analyzer.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CRUISER, stats, "magellan_trajectory_analyzer");
 
-        verify(missileRange).modifyPercent("magellan_trajectory_analyzer", 25.0f);
+        verify(missileRange).modifyPercent("magellan_trajectory_analyzer", 15.0f);
         verify(turnRate).modifyPercent("magellan_trajectory_analyzer", -20.0f);
 
         // Test S-Mod
@@ -69,7 +69,7 @@ public class magellan_TrajectoryAnalyzerTest {
         verify(turnRate).unmodify("magellan_trajectory_analyzer");
 
         assertTrue(analyzer.hasSModEffect());
-        assertEquals("+60%", analyzer.getSModDescriptionParam(0, ShipAPI.HullSize.CRUISER));
+        assertEquals("+35%", analyzer.getSModDescriptionParam(0, ShipAPI.HullSize.CRUISER));
         assertEquals("20%", analyzer.getDescriptionParam(3, ShipAPI.HullSize.CRUISER));
     }
 
@@ -90,11 +90,11 @@ public class magellan_TrajectoryAnalyzerTest {
         when(variant.getSMods()).thenReturn(smods);
 
         float bonus = modifier.getWeaponRangePercentMod(ship, weapon);
-        assertEquals(0.50f, bonus, 0.001f);
+        assertEquals(0.25f, bonus, 0.001f);
 
         smods.add("magellan_trajectory_analyzer");
         float smodBonus = modifier.getWeaponRangePercentMod(ship, weapon);
-        assertEquals(0.60f, smodBonus, 0.001f);
+        assertEquals(0.35f, smodBonus, 0.001f);
 
         when(spec.hasTag("archaic_c")).thenReturn(false);
         assertEquals(0f, modifier.getWeaponRangePercentMod(ship, weapon), 0.001f);
@@ -130,8 +130,8 @@ public class magellan_TrajectoryAnalyzerTest {
 
         verify(tooltip, atLeastOnce()).addSectionHeading(contains("Magellan Trajectory Analyzer"), any(), any(), any(), anyFloat());
         verify(tooltip, atLeastOnce()).beginImageWithText(anyString(), anyFloat());
-        verify(text, atLeastOnce()).addPara(anyString(), anyFloat(), any(Color.class), eq("Archaic Composite (archaic_c)"), eq("+50%"));
-        verify(text, atLeastOnce()).addPara(anyString(), anyFloat(), any(Color.class), eq("missile"), eq("+25%"));
+        verify(text, atLeastOnce()).addPara(anyString(), anyFloat(), any(Color.class), eq("Archaic Composite (archaic_c)"), eq("+25%"));
+        verify(text, atLeastOnce()).addPara(anyString(), anyFloat(), any(Color.class), eq("missile"), eq("+15%"));
         verify(text, atLeastOnce()).addPara(anyString(), anyFloat(), any(Color.class), eq("-20%"));
 
         assertDoesNotThrow(() -> analyzer.addPostDescriptionSection(null, null, null, 0, false));

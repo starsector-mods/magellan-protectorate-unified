@@ -19,9 +19,10 @@ public class magellan_SpartacusReactor
 extends BaseHullMod {
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<String>(1);
     private final String DEMIL = "magellan_engineering_civ";
-    public static final float COST_REDUCTION_LG = 8.0f;
-    public static final float COST_REDUCTION_MED = 4.0f;
-    public static final float COST_REDUCTION_SM = 2.0f;
+    public static final float COST_REDUCTION_LG = 5.0f;
+    public static final float COST_REDUCTION_MED = 3.0f;
+    public static final float COST_REDUCTION_SM = 1.0f;
+    public static final float REPLACEMENT_RATE_DECREASE_MULT = 0.50f;
     public static final int ENERGY_RANGE_BONUS = 200;
     public static final Color JITTER_COLOR = new Color(50, 60, 255, 100);
     public static final Color JITTER_UNDER_COLOR = new Color(50, 60, 255, 155);
@@ -39,11 +40,11 @@ extends BaseHullMod {
     }
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getDynamic().getMod("large_energy_mod").modifyFlat(id, -8.0f);
-        stats.getDynamic().getMod("medium_energy_mod").modifyFlat(id, -4.0f);
-        stats.getDynamic().getMod("small_energy_mod").modifyFlat(id, -2.0f);
-        stats.getDynamic().getStat("replacement_rate_decrease_mult").modifyMult(id, 0.0f);
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id, 200.0f);
+        stats.getDynamic().getMod("large_energy_mod").modifyFlat(id, -COST_REDUCTION_LG);
+        stats.getDynamic().getMod("medium_energy_mod").modifyFlat(id, -COST_REDUCTION_MED);
+        stats.getDynamic().getMod("small_energy_mod").modifyFlat(id, -COST_REDUCTION_SM);
+        stats.getDynamic().getStat("replacement_rate_decrease_mult").modifyMult(id, REPLACEMENT_RATE_DECREASE_MULT);
+        stats.getEnergyWeaponRangeBonus().modifyFlat("magellan_leveller_energy_range", 200.0f);
         if (stats.getVariant() != null && (stats.getVariant().hasHullMod("safetyoverrides") || stats.getVariant().hasHullMod("eis_aquila"))) {
             stats.getShieldDamageTakenMult().modifyMult(id, 1.2f);
             stats.getOverloadTimeMod().modifyMult(id, 1.5f);
@@ -90,9 +91,11 @@ extends BaseHullMod {
         Color lev = magellan_hullmodUtils.getLevellerHLColor();
         Color levbg = magellan_hullmodUtils.getLevellerBGColor();
         tooltip.addSectionHeading(this.getString("SpartacusReactorTitle"), lev, levbg, Alignment.MID, 10.0f);
-        tooltip.addPara("- " + this.getString("SpartacusReactorDesc1"), 10.0f, h, new String[]{"2", "4", "8 OP"});
-        tooltip.addPara("- " + this.getString("ClassicDesc2"), 2.0f, h, new String[]{this.getString("Classic2HL")});
-        tooltip.addPara("- " + this.getString("LevellerRefitDesc2"), 2.0f, h, new String[]{"200su"});
+        tooltip.addPara("- " + this.getString("SpartacusReactorDesc1"), 10.0f, h, new String[]{"1", "3", "5 OP"});
+        tooltip.addPara("- " + this.getString("ClassicDesc2"), 2.0f, h, new String[]{"reduced by 50%"});
+        if (ship == null || ship.getVariant() == null || !ship.getVariant().hasHullMod("magellan_levellermod")) {
+            tooltip.addPara("- " + this.getString("LevellerRefitDesc2"), 2.0f, h, new String[]{"200su"});
+        }
         LabelAPI intlabel = tooltip.addPara("- " + this.getString("SpartacusReactorDesc3"), 2.0f, h, new String[]{"25%", "125%"});
         intlabel.setHighlight(new String[]{this.getString("SpartacusReactor3HL"), "25%", "125%"});
         intlabel.setHighlightColors(new Color[]{emp_color, h, h});

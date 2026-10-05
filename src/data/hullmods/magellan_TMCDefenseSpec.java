@@ -12,7 +12,7 @@ import java.awt.Color;
 
 public class magellan_TMCDefenseSpec
 extends magellan_TMCSpecialistBase {
-    public static float DAMAGE_PERCENT = 100.0f;
+    public static float DAMAGE_PERCENT = 50.0f;
 
     private String getString(String key) {
         return Global.getSettings().getString("Hullmod", "magellan_" + key);

@@ -17,7 +17,8 @@ import java.util.Set;
 public class magellan_TMCBeamSpec
 extends magellan_TMCSpecialistBase {
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<String>(1);
-    public static final int DAMAGE_BONUS = 40;
+    public static final int DAMAGE_BONUS = 20;
+    public static final int CRUISER_DAMAGE_BONUS = 10;
     public static final int SPEED_MOD = 50;
 
     private String getString(String key) {
@@ -25,8 +26,8 @@ extends magellan_TMCSpecialistBase {
     }
 
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getDamageToCapital().modifyPercent(id, 40.0f);
-        stats.getDamageToCruisers().modifyPercent(id, 20.0f);
+        stats.getDamageToCapital().modifyPercent(id, (float)DAMAGE_BONUS);
+        stats.getDamageToCruisers().modifyPercent(id, (float)CRUISER_DAMAGE_BONUS);
         stats.getMaxSpeed().modifyFlat(id, -50.0f);
         stats.getZeroFluxSpeedBoost().modifyFlat(id, 50.0f);
     }
@@ -52,8 +53,8 @@ extends magellan_TMCSpecialistBase {
         Color tmcbg = magellan_hullmodUtils.getTichelBGColor();
         tooltip.addSectionHeading(this.getString("Effects"), tmc, tmcbg, Alignment.MID, 10.0f);
         tooltip.addPara("- " + this.getString("YellowtailBeamDesc1"), 10.0f, h, new String[]{this.getString("YellowtailBeam1HL")});
-        tooltip.addPara("- " + this.getString("YellowtailBeamDesc2"), 2.0f, h, new String[]{"40%"});
-        tooltip.addPara("- " + this.getString("YellowtailBeamDesc3"), 2.0f, h, new String[]{"20%"});
+        tooltip.addPara("- " + this.getString("YellowtailBeamDesc2"), 2.0f, h, new String[]{"20%"});
+        tooltip.addPara("- " + this.getString("YellowtailBeamDesc3"), 2.0f, h, new String[]{"10%"});
         tooltip.addPara("- " + this.getString("YellowtailBeamDesc4"), 2.0f, h, new String[]{"50su"});
         tooltip.addSectionHeading(this.getString("IncompTitle"), bad, badbg, Alignment.MID, 10.0f);
         TooltipMakerAPI text = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40.0f);

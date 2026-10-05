@@ -15,9 +15,9 @@ import java.awt.Color;
 
 public class TrajectoryAnalyzer extends BaseHullMod {
 
-    private static final float RANGE_BONUS_COMPOSITE = 50f;
-    private static final float RANGE_BONUS_SMOD = 60f;
-    private static final float RANGE_BONUS_MISSILE = 25f;
+    private static final float RANGE_BONUS_COMPOSITE = 25f;
+    private static final float RANGE_BONUS_SMOD = 35f;
+    private static final float RANGE_BONUS_MISSILE = 15f;
     private static final float WEAPON_TURN_RATE_PENALTY = -20f; // -20% weapon turn rate
 
     private static final String THIS_MOD = "magellan_trajectory_analyzer";

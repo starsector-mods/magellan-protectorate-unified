@@ -39,9 +39,9 @@ public class magellan_smugglerMod extends BaseHullMod {
     public static final float HEALTH_BONUS = 100f;
     public static final float DMOD_AVOID_CHANCE = 25f;
 
-    public static final float ARMOR_DMG_REDUCTION = 0.05f;
     public static final float RECOIL_BONUS = 25f;
-    public static final float VENT_RATE_BONUS = 25f;
+    public static final float VENT_RATE_BONUS = 15f;
+    public static final float MAINTENANCE_MULT = 1.20f;
 
     private static final Map<HullSize, Float> SPEED = new EnumMap<>(HullSize.class);
     static {
@@ -64,11 +64,13 @@ public class magellan_smugglerMod extends BaseHullMod {
         stats.getEngineHealthBonus().modifyPercent(id, HEALTH_BONUS * 0.5f);
         stats.getDynamic().getMod(Stats.DMOD_ACQUIRE_PROB_MOD).modifyMult(id, 1f - (0.01f * DMOD_AVOID_CHANCE));
 
-        stats.getMaxArmorDamageReduction().modifyFlat(id, ARMOR_DMG_REDUCTION);
         stats.getMaxRecoilMult().modifyMult(id, 1f - (0.01f * RECOIL_BONUS));
         stats.getRecoilPerShotMult().modifyMult(id, 1f - (0.01f * RECOIL_BONUS));
         stats.getRecoilDecayMult().modifyMult(id, 1f - (0.01f * RECOIL_BONUS));
         stats.getVentRateMult().modifyPercent(id, VENT_RATE_BONUS);
+        if (stats.getSuppliesPerMonth() != null) {
+            stats.getSuppliesPerMonth().modifyMult(id, MAINTENANCE_MULT);
+        }
 
         Float spd = hullSize != null ? SPEED.get(hullSize) : 0f;
         if (spd != null && spd > 0f) {
@@ -95,14 +97,14 @@ public class magellan_smugglerMod extends BaseHullMod {
 
         LabelAPI label = tooltip.addPara("——— " + getMagellanString("SmugglerSubtitle") + " ———", smug, pad2S);
         label.setAlignment(Alignment.MID);
-        tooltip.addPara("- " + getMagellanString("SmugglerModDesc1"), pad2S, h, Math.round(ARMOR_DMG_REDUCTION * 100f) + "%");
-        tooltip.addPara("- " + getMagellanString("SmugglerModDesc2"), padS, h, Math.round(RECOIL_BONUS) + "%");
+        tooltip.addPara("- " + getMagellanString("SmugglerModDesc2"), pad2S, h, Math.round(RECOIL_BONUS) + "%");
         tooltip.addPara("- " + getMagellanString("SmugglerModDesc3"), padS, h, Math.round(VENT_RATE_BONUS) + "%");
         tooltip.addPara("- " + getMagellanString("SmugglerModDesc4"), padS, h,
                 String.valueOf(Math.round(SPEED.get(HullSize.FRIGATE))),
                 String.valueOf(Math.round(SPEED.get(HullSize.DESTROYER))),
                 String.valueOf(Math.round(SPEED.get(HullSize.CRUISER))),
                 String.valueOf(Math.round(SPEED.get(HullSize.CAPITAL_SHIP))));
+        tooltip.addPara("- " + getMagellanString("SmugglerModDesc5"), padS, bad, Math.round((MAINTENANCE_MULT - 1f) * 100f) + "%");
 
         tooltip.addSectionHeading("Incompatibilities", bad, badbg, Alignment.MID, pad);
         TooltipMakerAPI incompat = tooltip.beginImageWithText("graphics/Magellan/icons/tooltip/hullmod_incompatible.png", 40f);

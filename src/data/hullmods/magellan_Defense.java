@@ -18,17 +18,17 @@ public class magellan_Defense extends BaseHullMod {
     public static final String HULLMOD_ID = "magellan_defense_mod";
     public static final String EXCLUSIVE_CATEGORY = "magellan_exclusive_hullmod";
 
-    public static final float ARMOR_PERCENT_BONUS = 15.0f;
-    public static final float HULL_PERCENT_BONUS = 15.0f;
-    public static final float EMP_DAMAGE_MULT = 0.70f;       // -30% EMP damage taken
-    public static final float HE_DAMAGE_MULT = 0.85f;        // -15% HE damage taken
-    public static final float FRAG_DAMAGE_MULT = 0.70f;      // -30% Frag damage taken
+    public static final float ARMOR_PERCENT_BONUS = 10.0f;
+    public static final float HULL_PERCENT_BONUS = 10.0f;
+    public static final float EMP_DAMAGE_MULT = 0.80f;       // -20% EMP damage taken
+    public static final float HE_DAMAGE_MULT = 0.90f;        // -10% HE damage taken
+    public static final float FRAG_DAMAGE_MULT = 0.80f;      // -20% Frag damage taken
 
     public static final float TOP_SPEED_PENALTY = -10.0f;     // -10% top speed
     public static final float SHIELD_DAMAGE_TAKEN_MULT = 1.15f; // +15% shield damage taken
 
-    public static final float SMOD_ARMOR_BONUS = 10.0f;      // Additional +10% armor
-    public static final float SMOD_MAX_ARMOR_REDUCTION = 0.05f; // +5% max armor damage reduction cap (e.g. 85% -> 90%)
+    public static final float SMOD_ARMOR_BONUS = 5.0f;       // Additional +5% armor
+    public static final float SMOD_MAX_ARMOR_REDUCTION = 0.03f; // +3% max armor damage reduction cap (e.g. 85% -> 88%)
 
     private static final Set<String> COMPATIBLE_HULLMODS;
 
@@ -141,7 +141,7 @@ public class magellan_Defense extends BaseHullMod {
         if (isSMod) {
             tooltip.addSectionHeading("S-Mod Upgrade Active", story, magbg, Alignment.MID, pad);
             tooltip.addPara("• Armor rating bonus increased to %s (additional %s).", padS, story, "+" + Math.round(ARMOR_PERCENT_BONUS + SMOD_ARMOR_BONUS) + "%", "+" + Math.round(SMOD_ARMOR_BONUS) + "%");
-            tooltip.addPara("• Maximum armor damage reduction cap increased by %s (from 85%% to %s).", padS, story, "+" + Math.round(SMOD_MAX_ARMOR_REDUCTION * 100f) + "%", "90%");
+            tooltip.addPara("• Maximum armor damage reduction cap increased by %s (from 85%% to %s).", padS, story, "+" + Math.round(SMOD_MAX_ARMOR_REDUCTION * 100f) + "%", Math.round((0.85f + SMOD_MAX_ARMOR_REDUCTION) * 100f) + "%");
             tooltip.addPara("• Negates top speed (%s) and shield damage taken (%s) penalties.", padS, story, "" + Math.round(Math.abs(TOP_SPEED_PENALTY)) + "%", "+" + Math.round((SHIELD_DAMAGE_TAKEN_MULT - 1f) * 100f) + "%");
         } else {
             tooltip.addSectionHeading("S-Mod Bonus", story, magbg, Alignment.MID, pad);

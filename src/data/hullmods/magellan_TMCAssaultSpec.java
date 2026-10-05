@@ -16,13 +16,13 @@ import java.util.Set;
 public class magellan_TMCAssaultSpec extends magellan_TMCSpecialistBase {
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>();
     private static final Map<ShipAPI.HullSize, Float> mag = new EnumMap<>(ShipAPI.HullSize.class);
-    public static final float FLUX_MULT = 0.25f;
+    public static final float FLUX_MULT = 0.10f;
 
     static {
         mag.put(ShipAPI.HullSize.DEFAULT, 1.0f);
         mag.put(ShipAPI.HullSize.FIGHTER, 1.0f);
-        mag.put(ShipAPI.HullSize.FRIGATE, 1.25f);
-        mag.put(ShipAPI.HullSize.DESTROYER, 1.15f);
+        mag.put(ShipAPI.HullSize.FRIGATE, 1.15f);
+        mag.put(ShipAPI.HullSize.DESTROYER, 1.10f);
         mag.put(ShipAPI.HullSize.CRUISER, 1.0f);
         mag.put(ShipAPI.HullSize.CAPITAL_SHIP, 1.0f);
 
@@ -42,9 +42,9 @@ public class magellan_TMCAssaultSpec extends magellan_TMCSpecialistBase {
 
         stats.getBallisticRoFMult().modifyMult(id, rofMult);
         stats.getBallisticAmmoRegenMult().modifyMult(id, rofMult);
-        stats.getBallisticProjectileSpeedMult().modifyMult(id, 1.5f);
-        stats.getBallisticWeaponFluxCostMod().modifyMult(id, 0.75f);
-        stats.getEnergyWeaponFluxCostMod().modifyMult(id, 0.75f);
+        stats.getBallisticProjectileSpeedMult().modifyMult(id, 1.25f);
+        stats.getBallisticWeaponFluxCostMod().modifyMult(id, 0.90f);
+        stats.getEnergyWeaponFluxCostMod().modifyMult(id, 0.90f);
     }
 
     @Override
@@ -58,9 +58,9 @@ public class magellan_TMCAssaultSpec extends magellan_TMCSpecialistBase {
         Color tmcbg = magellan_hullmodUtils.getTichelBGColor();
 
         tooltip.addSectionHeading(getString("Effects"), tmc, tmcbg, Alignment.MID, pad);
-        tooltip.addPara("- " + getString("YellowtailAssaultDesc0"), pad, h, "50%");
-        tooltip.addPara("- " + getString("YellowtailAssaultDesc1"), padS, h, "25%");
-        tooltip.addPara("- " + getString("YellowtailAssaultDesc2"), padS, h, "25%");
+        tooltip.addPara("- " + getString("YellowtailAssaultDesc0"), pad, h, "25%");
+        tooltip.addPara("- " + getString("YellowtailAssaultDesc1"), padS, h, "15%");
+        tooltip.addPara("- " + getString("YellowtailAssaultDesc2"), padS, h, "10%");
 
         boolean hasMoreHullmods = Global.getSettings().getModManager().isModEnabled("more_hullmods");
         boolean hasVic = Global.getSettings().getModManager().isModEnabled("vic");

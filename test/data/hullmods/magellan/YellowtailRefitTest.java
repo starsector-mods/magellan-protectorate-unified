@@ -55,6 +55,7 @@ public class YellowtailRefitTest {
         MutableShipStatsAPI stats = mock(MutableShipStatsAPI.class);
         StatBonus weaponHealth = mock(StatBonus.class);
         StatBonus engineHealth = mock(StatBonus.class);
+        StatBonus armorBonus = mock(StatBonus.class);
         StatBonus dynamicMod = mock(StatBonus.class);
         StatBonus dpMod = mock(StatBonus.class);
         MutableStat maxSpeed = mock(MutableStat.class);
@@ -63,6 +64,7 @@ public class YellowtailRefitTest {
 
         when(stats.getWeaponHealthBonus()).thenReturn(weaponHealth);
         when(stats.getEngineHealthBonus()).thenReturn(engineHealth);
+        when(stats.getArmorBonus()).thenReturn(armorBonus);
         when(stats.getDynamic()).thenReturn(dynamicStats);
         when(dynamicStats.getMod(anyString())).thenReturn(dynamicMod);
         when(dynamicStats.getMod(Stats.DEPLOYMENT_POINTS_MOD)).thenReturn(dpMod);
@@ -73,10 +75,67 @@ public class YellowtailRefitTest {
 
         verify(weaponHealth).modifyPercent("magellan_yellowtailmod", 100.0f);
         verify(engineHealth).modifyPercent("magellan_yellowtailmod", 50.0f);
+        verify(armorBonus).modifyPercent("magellan_yellowtailmod", -12.5f);
         verify(dynamicMod).modifyMult(eq("magellan_yellowtailmod"), floatThat(v -> Math.abs(v - 0.70f) < 0.001f));
         verify(maxSpeed).modifyFlat("magellan_yellowtailmod", 12.0f);
-        verify(dpMod).modifyFlat("magellan_yellowtailmod", -3.0f);
-        verify(suppliesToRecover).modifyFlat("magellan_yellowtailmod", -3.0f);
+        verify(dpMod).modifyFlat("magellan_yellowtailmod", -2.0f);
+        verify(suppliesToRecover).modifyFlat("magellan_yellowtailmod", -2.0f);
+    }
+
+    @Test
+    public void testDpDiscountsByHullSize() {
+        YellowtailRefit refit = new YellowtailRefit();
+
+        // Frigate: -1 DP
+        MutableShipStatsAPI frigateStats = mock(MutableShipStatsAPI.class);
+        DynamicStatsAPI frigateDynamic = mock(DynamicStatsAPI.class);
+        StatBonus frigateDpMod = mock(StatBonus.class);
+        MutableStat frigateSupplies = mock(MutableStat.class);
+        when(frigateStats.getWeaponHealthBonus()).thenReturn(mock(StatBonus.class));
+        when(frigateStats.getEngineHealthBonus()).thenReturn(mock(StatBonus.class));
+        when(frigateStats.getArmorBonus()).thenReturn(mock(StatBonus.class));
+        when(frigateStats.getDynamic()).thenReturn(frigateDynamic);
+        when(frigateDynamic.getMod(anyString())).thenReturn(mock(StatBonus.class));
+        when(frigateDynamic.getMod(Stats.DEPLOYMENT_POINTS_MOD)).thenReturn(frigateDpMod);
+        when(frigateStats.getMaxSpeed()).thenReturn(mock(MutableStat.class));
+        when(frigateStats.getSuppliesToRecover()).thenReturn(frigateSupplies);
+        refit.applyEffectsBeforeShipCreation(ShipAPI.HullSize.FRIGATE, frigateStats, "magellan_yellowtailmod");
+        verify(frigateDpMod).modifyFlat("magellan_yellowtailmod", -1.0f);
+        verify(frigateSupplies).modifyFlat("magellan_yellowtailmod", -1.0f);
+
+        // Destroyer: -1 DP
+        MutableShipStatsAPI destroyerStats = mock(MutableShipStatsAPI.class);
+        DynamicStatsAPI destroyerDynamic = mock(DynamicStatsAPI.class);
+        StatBonus destroyerDpMod = mock(StatBonus.class);
+        MutableStat destroyerSupplies = mock(MutableStat.class);
+        when(destroyerStats.getWeaponHealthBonus()).thenReturn(mock(StatBonus.class));
+        when(destroyerStats.getEngineHealthBonus()).thenReturn(mock(StatBonus.class));
+        when(destroyerStats.getArmorBonus()).thenReturn(mock(StatBonus.class));
+        when(destroyerStats.getDynamic()).thenReturn(destroyerDynamic);
+        when(destroyerDynamic.getMod(anyString())).thenReturn(mock(StatBonus.class));
+        when(destroyerDynamic.getMod(Stats.DEPLOYMENT_POINTS_MOD)).thenReturn(destroyerDpMod);
+        when(destroyerStats.getMaxSpeed()).thenReturn(mock(MutableStat.class));
+        when(destroyerStats.getSuppliesToRecover()).thenReturn(destroyerSupplies);
+        refit.applyEffectsBeforeShipCreation(ShipAPI.HullSize.DESTROYER, destroyerStats, "magellan_yellowtailmod");
+        verify(destroyerDpMod).modifyFlat("magellan_yellowtailmod", -1.0f);
+        verify(destroyerSupplies).modifyFlat("magellan_yellowtailmod", -1.0f);
+
+        // Capital: -2 DP
+        MutableShipStatsAPI capitalStats = mock(MutableShipStatsAPI.class);
+        DynamicStatsAPI capitalDynamic = mock(DynamicStatsAPI.class);
+        StatBonus capitalDpMod = mock(StatBonus.class);
+        MutableStat capitalSupplies = mock(MutableStat.class);
+        when(capitalStats.getWeaponHealthBonus()).thenReturn(mock(StatBonus.class));
+        when(capitalStats.getEngineHealthBonus()).thenReturn(mock(StatBonus.class));
+        when(capitalStats.getArmorBonus()).thenReturn(mock(StatBonus.class));
+        when(capitalStats.getDynamic()).thenReturn(capitalDynamic);
+        when(capitalDynamic.getMod(anyString())).thenReturn(mock(StatBonus.class));
+        when(capitalDynamic.getMod(Stats.DEPLOYMENT_POINTS_MOD)).thenReturn(capitalDpMod);
+        when(capitalStats.getMaxSpeed()).thenReturn(mock(MutableStat.class));
+        when(capitalStats.getSuppliesToRecover()).thenReturn(capitalSupplies);
+        refit.applyEffectsBeforeShipCreation(ShipAPI.HullSize.CAPITAL_SHIP, capitalStats, "magellan_yellowtailmod");
+        verify(capitalDpMod).modifyFlat("magellan_yellowtailmod", -2.0f);
+        verify(capitalSupplies).modifyFlat("magellan_yellowtailmod", -2.0f);
     }
 
     @Test

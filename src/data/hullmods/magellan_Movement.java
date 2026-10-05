@@ -20,18 +20,18 @@ public class magellan_Movement extends BaseHullMod {
     public static final String HULLMOD_ID = "magellan_movement_mod";
     public static final String EXCLUSIVE_CATEGORY = "magellan_exclusive_hullmod";
 
-    public static final float WEAPON_TURN_RATE_BONUS = 40.0f; // +40% weapon turn rate
-    public static final float SHIP_TURN_RATE_BONUS = 25.0f;   // +25% max ship turn rate
-    public static final float TURN_ACCEL_BONUS = 35.0f;       // +35% turn acceleration
-    public static final float DECEL_BONUS = 30.0f;            // +30% deceleration
-    public static final float RECOIL_MULT = 0.75f;            // -25% recoil
+    public static final float WEAPON_TURN_RATE_BONUS = 25.0f; // +25% weapon turn rate
+    public static final float SHIP_TURN_RATE_BONUS = 20.0f;   // +20% max ship turn rate
+    public static final float TURN_ACCEL_BONUS = 25.0f;       // +25% turn acceleration
+    public static final float DECEL_BONUS = 25.0f;            // +25% deceleration
+    public static final float RECOIL_MULT = 0.85f;            // -15% recoil
     public static final float ZERO_FLUX_BONUS = 10.0f;        // +10 su zero-flux speed boost
 
     public static final float PEAK_CR_MULT = 0.85f;           // -15% peak performance time
     public static final float CR_LOSS_PERCENT = 20.0f;        // +20% CR degradation rate
 
-    public static final float SMOD_SPEED_BONUS = 10.0f;       // Additional +10 su top speed on S-mod
-    public static final float SMOD_TURN_ACCEL_BONUS = 15.0f;  // Additional +15% turn acceleration on S-mod
+    public static final float SMOD_SPEED_BONUS = 5.0f;        // Additional +5 su top speed on S-mod
+    public static final float SMOD_TURN_ACCEL_BONUS = 10.0f;  // Additional +10% turn acceleration on S-mod
 
     private static final Map<ShipAPI.HullSize, Float> baseSpeed = new EnumMap<>(ShipAPI.HullSize.class);
     private static final Set<String> COMPATIBLE_HULLMODS;
@@ -39,10 +39,10 @@ public class magellan_Movement extends BaseHullMod {
     static {
         baseSpeed.put(ShipAPI.HullSize.DEFAULT, 0.0f);
         baseSpeed.put(ShipAPI.HullSize.FIGHTER, 0.0f);
-        baseSpeed.put(ShipAPI.HullSize.FRIGATE, 20.0f);
-        baseSpeed.put(ShipAPI.HullSize.DESTROYER, 15.0f);
+        baseSpeed.put(ShipAPI.HullSize.FRIGATE, 15.0f);
+        baseSpeed.put(ShipAPI.HullSize.DESTROYER, 10.0f);
         baseSpeed.put(ShipAPI.HullSize.CRUISER, 10.0f);
-        baseSpeed.put(ShipAPI.HullSize.CAPITAL_SHIP, 10.0f);
+        baseSpeed.put(ShipAPI.HullSize.CAPITAL_SHIP, 5.0f);
 
         Set<String> set = new HashSet<>();
         set.add("magellan_engineering");
@@ -160,7 +160,7 @@ public class magellan_Movement extends BaseHullMod {
             float spd = baseSpeed.get(ship.getHullSize()) + (isSMod ? SMOD_SPEED_BONUS : 0f);
             text.addPara("• Increases combat top speed by %s for this %s.", padS, pos, "+" + Math.round(spd) + " su", ship.getHullSize().name().toLowerCase());
         } else {
-            text.addPara("• Increases combat top speed by %s / %s / %s / %s (Frigate / Destroyer / Cruiser / Capital).", padS, pos, "+20 su", "+15 su", "+10 su", "+10 su");
+            text.addPara("• Increases combat top speed by %s / %s / %s / %s (Frigate / Destroyer / Cruiser / Capital).", padS, pos, "+15 su", "+10 su", "+10 su", "+5 su");
         }
 
         if (isSMod) {
@@ -200,7 +200,7 @@ public class magellan_Movement extends BaseHullMod {
         if (index == 2) return "" + Math.round(TURN_ACCEL_BONUS) + "%";
         if (index == 3) return "" + Math.round(DECEL_BONUS) + "%";
         if (index == 4) return "+" + Math.round(ZERO_FLUX_BONUS) + " su";
-        if (index == 5) return "" + (hullSize != null && baseSpeed.containsKey(hullSize) && baseSpeed.get(hullSize) > 0 ? baseSpeed.get(hullSize).intValue() : "20/15/10/10");
+        if (index == 5) return "" + (hullSize != null && baseSpeed.containsKey(hullSize) && baseSpeed.get(hullSize) > 0 ? "+" + baseSpeed.get(hullSize).intValue() + " su" : "+20/+15/+10/+10 su");
         if (index == 6) return "" + Math.round((1f - RECOIL_MULT) * 100f) + "%";
         if (index == 7) return "" + Math.round((1f - PEAK_CR_MULT) * 100f) + "%";
         if (index == 8) return "" + Math.round(CR_LOSS_PERCENT) + "%";

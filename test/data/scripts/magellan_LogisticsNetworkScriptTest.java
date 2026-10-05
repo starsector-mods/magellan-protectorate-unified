@@ -90,9 +90,9 @@ public class magellan_LogisticsNetworkScriptTest {
         // Advance past interval (interval is 0.5s - 1.0s)
         script.advance(1.5f);
 
-        // 3.5% discount for Cruiser -> mult = 1 - 0.035 = 0.965
-        verify(suppStat).modifyMult(eq(magellan_LogisticsNetwork.MODIFIER_ID), eq(0.965f), anyString());
-        verify(fuelStat).modifyMult(eq(magellan_LogisticsNetwork.MODIFIER_ID), eq(0.965f), anyString());
+        // 2.0% discount for Cruiser -> mult = 1 - 0.020 = 0.980
+        verify(suppStat).modifyMult(eq(magellan_LogisticsNetwork.MODIFIER_ID), eq(0.98f), anyString());
+        verify(fuelStat).modifyMult(eq(magellan_LogisticsNetwork.MODIFIER_ID), eq(0.98f), anyString());
     }
 
     @Test
