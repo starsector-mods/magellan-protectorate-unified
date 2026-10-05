@@ -27,7 +27,7 @@
       		"type": "HYBRID"
     	}
     },
-    "builtInMods":["magellan_blackcollarmod", "magellan_convertedbay"],
+    "builtInMods":["magellan_blackcollarmod"],
     "builtInWings":[],
 	"builtInWeapons":{
     	"WS0002": "magellan_cruiserlrm_builtin"

@@ -29,7 +29,7 @@
       		"type": "BALLISTIC"
     	}
     },
-    "builtInMods":["magellan_herdmod", "degraded_engines"],
+    "builtInMods":["magellan_herdmod"],
 	"builtInWeapons":{
 		"WS0002": "magellan_radflamer",
 		"WS0003": "magellan_radflamer"

@@ -3,7 +3,7 @@
     "hullId":"magellan_carrier_marauder",
     "hullSize":"CRUISER",
     "style":"MAGELLAN",
-    "spriteName":"mods/Magellan Protectorate Unified/graphics/Magellan/ships/marauders/magellan_carrier_marauder.png",
+    "spriteName":"graphics/Magellan/ships/marauders/magellan_carrier_marauder.png",
     "height":267,
     "width":136,
     "center":[

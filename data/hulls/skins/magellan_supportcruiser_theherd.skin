@@ -21,7 +21,7 @@
 			"type": "COMPOSITE"
 		}
 	},
-	"builtInMods":["magellan_herdmod", "degraded_engines"],
+	"builtInMods":["magellan_herdmod"],
 	"builtInWeapons":{
 		"WS0002": "magellan_cruiserradmissile_builtin"
 	}

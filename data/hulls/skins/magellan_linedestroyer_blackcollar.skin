@@ -4,7 +4,7 @@
 	"hullName":"Graff [BCR]",
 	"descriptionId":"magellan_linedestroyer",
 	"descriptionPrefix":"This hull has come fresh from the nanoforge with the latest improvements in Magellan technology, and sports a menacing and stylish paintjob that incorporates a stealth coating. Its upgraded engines make it frighteningly effective at flanking maneuvers.",
-	"tags":["magellan_blackcollar", "no_dealer"],
+	"tags":["magellan_blackcollar", "no_dealer", "special_allows_system_use", "system_allows_special_use"],
 	"tech":"Blackcollar Regiment",
     "fleetPoints":12,
     "ordnancePoints":115,

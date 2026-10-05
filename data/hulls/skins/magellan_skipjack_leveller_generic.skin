@@ -5,7 +5,7 @@
 	"descriptionId":"magellan_skipjack",
 	"descriptionPrefix":"This hull has been reconditioned to serve as a Leveller warship, with an experimental reactor. Targeting systems have been refurbished, and most of the weapon mounts refitted, while the Rounder fighters have been converted to light bombers.",
 	"tags":["magellan_levellercore_bp", "restricted"],
-	"tech":"Leveller",
+	"tech":"Leveller Movement",
     "ordnancePoints":140,
     "baseValueMult":1.2,
     "removeHints":[],
@@ -43,7 +43,7 @@
     	}
 
     },
-    "builtInMods":["magellan_spartacusreactor"],
+    "builtInMods":["magellan_levellermod", "magellan_spartacusreactor"],
     "builtInWings":[
 		"magellan_swarmfighter_wing",
 		"magellan_rounder_leveller_wing"

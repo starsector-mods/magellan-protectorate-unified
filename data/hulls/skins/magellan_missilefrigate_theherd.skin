@@ -46,7 +46,7 @@
       		"type": "BUILT_IN"
     	}
     },
-    "builtInMods":["magellan_herdmod", "missleracks", "degraded_engines"],
+    "builtInMods":["magellan_herdmod", "missleracks"],
 	"builtInWeapons":{
 		"WS0001": "magellan_radmissile_launcher",
 		"WS0002": "magellan_radmissile_launcher",

@@ -5,7 +5,7 @@
 	"descriptionId":"magellan_patroldestroyer",
 	"descriptionPrefix":"This hull has been reconditioned to serve the Leveller cause. A flux distributor has been integrated into the frame, while the drones have been altered and several of the weapon mounts refitted.",
 	"tags":["magellan_levellercore_bp", "restricted"],
-	"tech":"Leveller",
+	"tech":"Leveller Movement",
     "fleetPoints":9,
     "ordnancePoints":84,
     "baseValueMult":1,
@@ -43,7 +43,7 @@
     	}
 
     },
-    "builtInMods":["magellan_levellermod"],
+    "builtInMods":["magellan_levellermod", "magellan_spartacusreactor"],
     "builtInWings":[
 		"magellan_swarmfighter_wing"
 	],

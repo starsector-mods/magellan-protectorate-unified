@@ -1,0 +1,36 @@
+{
+  "displayName": "Heavy Assault Mech",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "goalVariant": true,
+  "hullId": "magellan_mech1_torso",
+  "hullMods": [],
+  "permaMods": [],
+  "sMods": [],
+  "variantId": "magellan_mech1_torso_std",
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_R_ARM": "magellan_smgatling_mechR"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_L_ARM": "magellan_smciws_mechL"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS_SHOULDER": "magellan_mech_shoulderlauncher",
+        "WS_L_SHOULDER": "magellan_mech_shoulderlauncher"
+      }
+    }
+  ],
+  "wings": []
+}

@@ -4,7 +4,7 @@
 	"hullName":"Kreshov [SKT]",
 	"descriptionId":"magellan_cruiser",
 	"descriptionPrefix":"Befitting the bloodthirsty temperament of its aristocratic officers, no expense has been spared to upgrade the performance, and appearance, of this this Skytiger Guards warship.",
-	"tags":["magellan_startiger", "no_dealer"],
+	"tags":["magellan_startiger", "no_dealer", "special_allows_system_use", "system_allows_special_use"],
 	"tech":"Skytiger Guards Division",
     "fleetPoints":15,
     "ordnancePoints":180,
@@ -26,7 +26,7 @@
       		"type": "UNIVERSAL"
     	}
     },
-    "builtInMods":["magellan_startigermod", "magellan_convertedbay"],
+    "builtInMods":["magellan_startigermod"],
     "builtInWings":[
 
 	],

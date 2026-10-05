@@ -1,0 +1,15 @@
+{
+	"id":"magellan_droneteleport",
+	"type":"STAT_MOD",
+	"aiType":"CUSTOM",
+	"aiScript":"data.shipsystems.scripts.ai.magellan_DroneTeleportAI",
+	
+	"statsScript":"data.shipsystems.RameyDroneTeleportStats",
+	
+	"canNotCauseOverload":true,
+	"runScriptWhileIdle":true,
+	
+	"fadeActivationSoundOnChargedown":false,
+	"useSound":"system_termination_sequence",
+	"outOfUsesSound":"gun_out_of_ammo"
+}

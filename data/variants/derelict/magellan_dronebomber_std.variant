@@ -1,7 +1,7 @@
 {
   "variantId": "magellan_dronebomber_std",
     "hullId": "magellan_dronebomber",
-  "displayName": "Drones",
+  "displayName": "Bomber Drones",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,

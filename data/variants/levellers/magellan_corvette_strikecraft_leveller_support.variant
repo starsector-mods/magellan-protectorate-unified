@@ -7,7 +7,7 @@
     "hullMods": [
         "missleracks",
         "eccm",
-        "targetingunit"
+        "hardened_subsystems"
     ],
     "permaMods": [],
     "sMods": [],

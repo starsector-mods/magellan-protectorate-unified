@@ -30,11 +30,14 @@
     	}
     },
     "builtInMods":["magellan_herdmod"],
+    	"fighterBays":4,
     "builtInWings":[
+		"magellan_corvette_theherd_wing",
 		"magellan_hvyfighter_theherd_wing",
 		"magellan_hvyfighter_theherd_wing",
 		"magellan_hvyfighter_theherd_wing"
 	],
+
 	"builtInWeapons":{
 		"WS0008": "magellan_radflamer"
 	}

@@ -12,11 +12,15 @@
   "shieldRadius": 148,
   "viewOffset": 0,
   "builtInMods": [
+    "magellan_levellermod",
     "magellan_spartacusreactor",
     "magellan_converted_leveller"
   ],
   "builtInWings": [
-    "magellan_swarmfighter_wing",
+    "magellan_corvette_strikecraft_leveller_wing",
+    "magellan_corvette_strikecraft_leveller_wing",
+    "magellan_rounder_leveller_wing",
+    "magellan_rounder_leveller_wing",
     "magellan_swarmfighter_wing",
     "magellan_swarmfighter_wing"
   ],
@@ -103,6 +107,45 @@
     },
     {
       "id": "LB 3",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        -3, -49,
+        7, -49,
+        17, -49
+      ]
+    },
+    {
+      "id": "LB 4",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        119, -20,
+        119, 0,
+        119, 20
+      ]
+    },
+    {
+      "id": "LB 5",
+      "size": "LARGE",
+      "type": "LAUNCH_BAY",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [
+        -3, 49,
+        7, 49,
+        17, 49
+      ]
+    },
+    {
+      "id": "LB 6",
       "size": "LARGE",
       "type": "LAUNCH_BAY",
       "mount": "HIDDEN",

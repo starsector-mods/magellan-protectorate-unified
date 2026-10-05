@@ -3,7 +3,7 @@
 	"skinHullId":"magellan_fastdestroyerarmor_leveller_mod",
 	"hullName":"Armor",
 	"tags":["module_unselectable", "module_refit_bright", "module_hull_bar_only"],
-	"tech":"Unique Leveller Magellan",
+	"tech":"Leveller Movement",
     "removeHints":[],
 	"spriteName":"graphics/Magellan/ships/levellers/magellan_fastdestroyerarmor_leveller_mod.png",
 	"removeWeaponSlots":[],

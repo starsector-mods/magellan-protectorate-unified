@@ -6,7 +6,7 @@
 	"descriptionId":"magellan_battleship",
 	"descriptionPrefix":"A rare conversion of the Mazian-class dreadnought into a dedicated fleet carrier. In addition to the standard Blackcollar improvements and stealth coating, the ship is equipped with a spinal mounted Triple Fusion Cannon. However, the upgrades are not without cost, as the additional hangars notably weaken hull integrity in comparison to the original design.",
 	"incompatibleWithBaseHull":true,
-	"tags":["magellan_blackcollar", "no_dealer"],
+	"tags":["magellan_blackcollar", "no_dealer", "special_allows_system_use", "system_allows_special_use"],
 	"tech":"Blackcollar Regiment",
     "fleetPoints":35,
     "ordnancePoints":360,
@@ -17,7 +17,7 @@
 	"spriteName":"graphics/Magellan/ships/blackcollars/magellan_battlecarrier_blackcollar.png",
 	"removeWeaponSlots":[],
 	"removeEngineSlots":[],
-	"removeBuiltInMods":["magellan_engineering", "magellan_convertedbay", "hbi"],
+	"removeBuiltInMods":["magellan_engineering", "hbi"],
 	"removeBuiltInWeapons":["WS0019", "WS0020", "WS0023", "WS0024"],
 	"weaponSlotChanges":{
 		"WS0001":{ "type": "HYBRID" },

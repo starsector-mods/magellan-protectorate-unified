@@ -1,7 +1,7 @@
 {
 	"id":"magellan_burstjets_ftr",
 	"type":"ENGINE_MOD",
-	"aiType":"BURN_DRIVE",
+	"aiType":"MANEUVERING_JETS",
 	
 	"statsScript":"data.shipsystems.scripts.magellan_BurstJetStats",
 	
@@ -14,16 +14,16 @@
 	"flameoutOnImpactChance":0,
 
 	"clampTurnRateAfter":true,
-	"clampMaxSpeedAfter":true,
-	"alwaysAccelerate":true,
+	"clampMaxSpeedAfter":false,
+	"alwaysAccelerate":false,
 
-	"useSound":"system_plasma_burn",
+	"useSound":"magellan_burstjet",
 	"loopSound":"system_plasma_burn_loop",
 	"outOfUsesSound":"engine_disabled",
 	
 	"aiHints":{
-		#"activeSpeedIncrease":0,
-		"burstMovementPotential":300,
-		"averageSpeedIncrease":35,
+		"activeSpeedIncrease":100,
+		"burstMovementPotential":0,
+		"averageSpeedIncrease":50,
 	}
 }

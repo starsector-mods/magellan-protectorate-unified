@@ -2,7 +2,7 @@
   "hullName": "Skat",
   "hullId": "magellan_skate",
   "hullSize": "FIGHTER",
-  "spriteName": "graphics/Magellan/ships/magellan_skate.png",
+  "spriteName": "graphics/Magellan/ships/civ/magellan_skate.png",
   "style": "MAGELLAN",
   "height": 32,
   "width": 28,

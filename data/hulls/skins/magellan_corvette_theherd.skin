@@ -1,0 +1,28 @@
+{
+	"baseHullId":"magellan_corvette",
+	"skinHullId":"magellan_corvette_theherd",
+	"hullName":"Bastardsword [Herd]",
+	"descriptionId":"magellan_corvette_theherd",
+	"tech":"The Herd",
+    "fleetPoints":0,
+    "ordnancePoints":0,
+    "baseValueMult":0.9,
+    "removeHints":[],
+	"spriteName":"graphics/Magellan/ships/theherd/magellan_corvette_theherd.png",
+	"removeWeaponSlots":["WS0002", "WS0003"],
+	"removeEngineSlots":[],
+	"removeBuiltInMods":["ballistic_rangefinder"],
+	"removeBuiltInWeapons":[
+		"WS0001",
+		"WS0002"
+	],
+	"weaponSlotChanges":{
+        "WS0001":{
+            "type": "BUILT_IN"
+        }
+    },
+    "builtInMods":[],
+	"builtInWeapons":{
+		"WS0001": "magellan_radmissile_bastardsword"
+	}
+}
