@@ -9,10 +9,11 @@ import com.fs.starfarer.api.mission.MissionDefinitionPlugin;
 public class MissionDefinition implements MissionDefinitionPlugin {
     @Override
     public void defineMission(MissionDefinitionAPI api) {
-        api.initFleet(FleetSide.PLAYER, "FSS", FleetGoal.ATTACK, false, 5);
+        api.initFleet(FleetSide.PLAYER, "TMC", FleetGoal.ATTACK, false, 5);
         api.initFleet(FleetSide.ENEMY, "ISS", FleetGoal.ATTACK, true, 5);
         api.setFleetTagline(FleetSide.PLAYER, "Test: Yellowtail");
         api.setFleetTagline(FleetSide.ENEMY, "Target Fleet");
+
 
         api.addToFleet(FleetSide.PLAYER, "magellan_battlecruiser_yellowtail_Hull", FleetMemberType.SHIP, true);
         api.addToFleet(FleetSide.PLAYER, "magellan_carrier_yellowtail_Hull", FleetMemberType.SHIP, false);
@@ -25,7 +26,6 @@ public class MissionDefinition implements MissionDefinitionPlugin {
         api.addToFleet(FleetSide.PLAYER, "magellan_schooner_yellowtail_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supply_yellowtail_Hull", FleetMemberType.SHIP, false);
         api.addToFleet(FleetSide.PLAYER, "magellan_supportdestroyer_yellowtail_Hull", FleetMemberType.SHIP, false);
-
         api.addToFleet(FleetSide.ENEMY, "magellan_battleship_line", FleetMemberType.SHIP, "ISS Target", false);
         api.addToFleet(FleetSide.ENEMY, "magellan_linedestroyer_std", FleetMemberType.SHIP, "ISS Escort", false);
 

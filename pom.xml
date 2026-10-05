@@ -60,7 +60,7 @@
                         <additionalClasspathElement>${starsector.dir}/mods/LazyLib/jars/LazyLib-Kotlin.jar</additionalClasspathElement>
                         <additionalClasspathElement>${starsector.dir}/mods/GraphicsLib/jars/Graphics.jar</additionalClasspathElement>
                         <additionalClasspathElement>${starsector.dir}/mods/Nexerelin/jars/ExerelinCore.jar</additionalClasspathElement>
-                        <additionalClasspathElement>${starsector.dir}/mods/LunaLib/jars/LunaLib.jar</additionalClasspathElement>
+                        <additionalClasspathElement>${starsector.dir}/mods/MagicLib/jars/MagicLib.jar</additionalClasspathElement>
                         <additionalClasspathElement>${starsector.dir}/mods/Console Commands-4.0.9/jars/lw_Console.jar</additionalClasspathElement>
                     </additionalClasspathElements>
                 </configuration>
@@ -261,6 +261,13 @@
             <scope>system</scope>
             <systemPath>${starsector.dir}/mods/Nexerelin/jars/ExerelinCore.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>local.starsector</groupId>
+            <artifactId>MagicLib</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${starsector.dir}/mods/MagicLib/jars/MagicLib.jar</systemPath>
+        </dependency>
 
         <!-- Jqwik for property-based testing -->
         <dependency>
@@ -288,13 +295,6 @@
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${starsector.dir}/mods/Console Commands-4.0.9/jars/lw_Console.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>local.starsector</groupId>
-            <artifactId>LunaLib</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${starsector.dir}/mods/LunaLib/jars/LunaLib.jar</systemPath>
         </dependency>
 
         <!-- Mockito for API Mocking -->

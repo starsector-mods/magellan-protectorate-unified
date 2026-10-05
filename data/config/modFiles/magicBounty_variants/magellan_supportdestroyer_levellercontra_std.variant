@@ -2,7 +2,7 @@
     "displayName": "Contra",
     "fluxCapacitors": 6,
     "fluxVents": 20,
-    "hullId": "magellan_supportdestroyer_levellercontra",
+    "hullId": "magellan_supportdestroyer_leveller",
     "hullMods": [
         "targetingunit",
         "magazines",

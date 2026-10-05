@@ -16,9 +16,3 @@ magellan_supportdestroyer
 magellan_supportfrigate
 # Specials - these are optional. They could go away if people complain about them being available. If you think they should not be available remove them.
 magellan_skipjack
-# === Magellan Content ===
-# NOTES
-# Ship IDs entered here will be allowed for duplication.
-# This feature is very hard to get working in campaign as a player.
-magellan_bounder
-# Specials - these are optional. They could go away if people complain about them being available. If you think they should not be available remove them.
