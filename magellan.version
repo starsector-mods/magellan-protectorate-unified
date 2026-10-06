@@ -1,0 +1,10 @@
+{
+    "masterVersionFile": "https://raw.githubusercontent.com/starsector-mods/magellan-protectorate-unified/master/magellan.version",
+    "modName": "Magellan Protectorate Unified",
+    "modVersion":
+    {
+        "major": 1,
+        "minor": 4,
+        "patch": 1
+    }
+}
