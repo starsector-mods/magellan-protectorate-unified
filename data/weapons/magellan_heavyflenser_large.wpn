@@ -5,22 +5,31 @@
   "size": "LARGE",
   "turretSprite": "graphics/Magellan/weapons/heavyflenser_large/magellan_heavyflenser_large_turret_00.png",
   "hardpointSprite": "graphics/Magellan/weapons/heavyflenser_large/magellan_heavyflenser_large_turret_00.png",
+  "numFrames": 6,
+  "frameRate": 108,
   "turretOffsets": [
-    0,
-    0
+    26,
+    -14,
+    26,
+    14
   ],
   "turretAngleOffsets": [
+    0,
     0
   ],
   "hardpointOffsets": [
-    0,
-    0
+    26,
+    -14,
+    26,
+    14
   ],
   "hardpointAngleOffsets": [
+    0,
     0
   ],
   "barrelMode": "ALTERNATING",
   "animationType": "MUZZLE_FLASH",
+  "autocharge": true,
   "muzzleFlashSpec": {
     "length": 20,
     "spread": 10,
@@ -36,5 +45,5 @@
     ]
   },
   "projectileSpecId": "lightneedler_shot",
-  "fireSoundTwo": "light_needler_fire"
+  "fireSoundTwo": "magellan_hmg_fire"
 }

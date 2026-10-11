@@ -152,7 +152,7 @@ Flak Pods,magellan_flakpod_wpn,,,,300,,150,,,,,,0,,HIGH_EXPLOSIVE,0,0,0,0.1,8,0.
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Beam Mount Armor,magellan_modfrigate_deco_yellowtail,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,Tichel,,,,,,,,,,,,71
 # === Magellan Content ===,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Bonerattler Cannon,magellan_bonerattler,3,,5500,800,,400,,1,20,18,16,0.3704,4,FRAGMENTATION,100,,,2.55,4,0.05,1,9,1.2,10,,800,,,100,,,,"he18, magellan, magellan_adv_bp",,Magellan,,General,,,,,,,,,,1.5
+Bonerattler Cannon,magellan_bonerattler,3,,5500,800,,400,,20,20,18,16,0.3704,4,FRAGMENTATION,100,,,2.55,4,0.05,1,9,1.2,10,,800,,,100,,,,"he18, magellan, magellan_adv_bp",,Magellan,,General,,,,,,,,,,1.5
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Barrage Flenser CIWS,magellan_largeciws,2,,5000,600,,20,,1,90,16,,,,HIGH_EXPLOSIVE,6,,,0.045,1,,2,8,0.2,10,,1350,,,10,,,"PD, IGNORES_FLARES, ANTI_FTR","he14, pd16, SR, magellan, magellan_core_bp",,Magellan,,Point Defense,,,,,One in five rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range. Advanced built-in targeting sensors enable the weapon to identify decoy flares and not fire on them.,100% | 50% | 50%,,,,1.8
 Barrage Tracers,magellan_largeciws_tracer,0,,0,625,,20,,1,90,1,,,,HIGH_EXPLOSIVE,10,,,1,1,,0,0,0,0,,1350,,,10,,,SYSTEM,,,Magellan,,,,,,,,,,,,1.9
@@ -224,10 +224,11 @@ Hada Top,magellan_corvette_strikecraft_marauder_top_deco,0,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Unused,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Ripfire SRM Storm,magellan_ripfiresrmstorm,1,,6000,1200,,300,,10,8,20,240,,,FRAGMENTATION,,,,8.86,20,0.06,5,15,3,15,,560,140,6,100,,,"DO_NOT_AIM, MISSILE_SPREAD, DIRECT_AIM, GROUP_LINKED","strike20, missile13, magellan, magellan_adv_bp",,Magellan,,Strike,Fast,Good,,,Volatile micro-warheads do %s additional damage to armor. This damage is not reduced by armor.,120,,,TRUE,2.5
+#Ripfire Storm,magellan_ripfire_storm,2,,5000,600,,20,,1,90,16,20,1.0,1,HIGH_EXPLOSIVE,8,,,0.05,1,,2,8,0.25,10,,1350,,,10,,,PD,,,,,,,,,,,,,,,1.8
 #Dirty Fusion Bomb,magellan_hvyfusionbomb_ftr,0,,3000,1000,,800,,50,12,10,1,,,ENERGY,500,,0.05,0.95,1,0,0,0,0,0,,400,400,4.5,1000,,,STRIKE,"strike13, rocket10",,The Herd Magellan,,Strike,Slow,None,,,Dirty fusion bombs do %s extra %s damage on hits to armor or hull.,800-1200 | High Explosive,,,TRUE,2.5
 #Riptide SRM Launcher,magellan_ripfiresrm_builtin,0,,6000,1200,,300,,10,6,30,270,0.45,27,FRAGMENTATION,,,,0.2,3,0.1,5,15,3,15,,560,140,6,100,,,"SYSTEM, DO_NOT_CONSERVE, DO_NOT_AIM, MISSILE_SPREAD, DIRECT_AIM, GROUP_LINKED",,,The Herd Magellan,,Strike,Fast,Good,,,Volatile micro-warheads do %s additional damage to armor. This damage is not reduced by armor.,120,,,TRUE,9
-Shredder Flenser CIWS,magellan_heavyflenser_large,0,,5500,700,,45,,1,35,20,,,,HIGH_EXPLOSIVE,18,,,0.045,1,,2,8,0.25,10,,1100,,,10,,,"PD,PD_ALSO","pd16, SR",,Magellan,,Assault,,,,,One in five rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range. Will target missiles if no other targets are in range.,100% | 70% | 50%,,,,5
-Shredder Tracers,magellan_heavyflenser_large_tracer,0,,0,725,,50,,1,35,1,,,,HIGH_EXPLOSIVE,25,,,1,1,,0,0,0,0,,1100,,,10,,,SYSTEM,,,,,,,,,,,,,,,5.1
+Shredder Flenser CIWS,magellan_heavyflenser_large,0,,5500,700,,50,,1,35,20,200,15,10,FRAGMENTATION,8,,,0.045,1,,2,8,0.25,10,,1100,,,10,,,"PD, PD_ONLY, ANTI_FTR","pd16, SR",,Magellan,,Point Defense,,,,,One in five rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range. Will target missiles if no other targets are in range.,100% | 70% | 50%,,,,5
+Shredder Tracers,magellan_heavyflenser_large_tracer,0,,0,725,,50,,1,35,1,,,,FRAGMENTATION,10,,,1,1,,0,0,0,0,,1100,,,10,,,SYSTEM,,,,,,,,,,,,,,,5.1
 CFC Flenser CIWS,magellan_flenser_builtin,0,,300,400,,20,,1,100,4,,,,HIGH_EXPLOSIVE,8,,,0.06,1,,2,8,0.3,10,,1200,,,10,,,"SYSTEM, PD","pd7, SR",,Unique Antique Magellan,,Point Defense,,,,,One in four rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range.,100% | 70% | 50%,,,,12.1
 CFC Tracers,magellan_flenser_builtin_tracer,0,,0,425,,20,,1,100,1,,,,HIGH_EXPLOSIVE,10,,,1,1,,0,0,0,0,,1200,,,10,,,SYSTEM,,,,,,,,,,,,,,,12.2
 CFC Rift,magellan_flenser_builtin_rift,0,,0,425,,30,,1,100,1,,,,HIGH_EXPLOSIVE,10,,,1,1,,0,0,0,0,,1200,,,10,,,SYSTEM,,,,,,,,,,,,,,,12.3
@@ -248,7 +249,6 @@ CFC Rift,magellan_flenser_builtin_rift,0,,0,425,,30,,1,100,1,,,,HIGH_EXPLOSIVE,1
 Electron Bomb Bay,magellan_electrontorp_marauder,0,,1000,900,,75,600,0,30,8,1,,,ENERGY,0,,,0.65,1,0.35,1,4,4,5,,350,,,100,,,"STRIKE,USE_VS_FRIGATES,GROUP_LINKED",strike10,SR_strike_only,Magellan,,Strike,,,,,,,,,,19.75
 Fusion Bomb Bay,magellan_fusbomb_marauder,0,,1350,900,,75,,0,30,8,3,,,HIGH_EXPLOSIVE,0,,,0.6,3,0.2,3,5,1,10,,200,400,8,300,,,"STRIKE,USE_VS_FRIGATES,GROUP_LINKED",strike10,SR_strike_only,Magellan,,Strike,,,,,Unstable fusion bolts do %s extra %s damage on hits to armor or hull.,50-150 | Energy,,,,19.75
 High Intensity Cutting Laser,magellan_herdlaser_marauder,0,,400,900,250,,,0,16,5,,,,HIGH_EXPLOSIVE,,50,0.1,1.0,1.0,,,,,,,2400,,,,,,SYSTEM,"beam10, LR, no_sell, no_drop, restricted",,The Herd,,Strike,,,,,,,,,,18
-Ripfire Storm,magellan_ripfire_storm,2,,5000,600,,20,,1,90,16,20,1.0,1,HIGH_EXPLOSIVE,8,,,0.05,1,,2,8,0.25,10,,1350,,,10,,,PD,,,,,,,,,,,,,,,1.8
 Silverdart FTR,magellan_silverdart_ftr_turret,0,,300,300,,25,,1,120,4,,,,HIGH_EXPLOSIVE,8,,,1.05,5,0.05,1,6,1,10,,1200,,,10,,,PD,,,,,,,,,,,,,,,1.6
 Sensor Head,magellan_mech_head,0,,,,,,,,,,,,,,0,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 Flenser L-Arm CIWS,magellan_smciws_mechL,0,,300,350,,8,,1,45,4,,,,HIGH_EXPLOSIVE,3,,0,0.065,1,0,1,6,0.2,15,,1200,,,10,,,PD,"pd7, SR",,Magellan,,Point Defense,Fast,,,Good,One in four rounds is a tracer. %s of the shots reach %s of the maximum range and %s of the shots reach full range.,100% | 75% | 50%,,,,1.6

@@ -8,7 +8,7 @@
   "turretGunSprite": "graphics/Magellan/weapons/magellan_bonerattler_turret_recoil.png",
   "hardpointSprite": "graphics/Magellan/weapons/magellan_bonerattler_hardpoint_base.png",
   "hardpointGunSprite": "graphics/Magellan/weapons/magellan_bonerattler_hardpoint_recoil.png",
-  "visualRecoil": 3,
+  "visualRecoil": 8.0,
   "renderHints": [
     RENDER_BARREL_BELOW
   ],
@@ -48,12 +48,12 @@
   "animationType": "MUZZLE_FLASH",
   "autocharge": true,
   "muzzleFlashSpec": {
-    "length": 21,
-    "spread": 10,
-    "particleSizeMin": 6,
-    "particleSizeRange": 9,
-    "particleDuration": 0.2,
-    "particleCount": 18,
+    "length": 15,
+    "spread": 8,
+    "particleSizeMin": 5,
+    "particleSizeRange": 6,
+    "particleDuration": 0.1,
+    "particleCount": 14,
     "particleColor": [
       255,
       235,
