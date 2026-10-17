@@ -32,7 +32,7 @@ public class TichelSystem {
             "Tichel Prime", 
             6, 
             new ArrayList<String>(Arrays.asList("habitable", "mild_climate", "organics_abundant", "ore_rich", "rare_ore_abundant", "volatiles_trace", "free_market", "trade_center", "population_6")), 
-            new ArrayList<String>(Arrays.asList("megaport", "waystation", "commerce", "mining", "refining", "lightindustry", "highcommand", "starfortress_mid")), 
+            new ArrayList<String>(Arrays.asList("population", "megaport", "waystation", "commerce", "mining", "refining", "lightindustry", "highcommand", "starfortress_mid")), 
             new ArrayList<String>(Arrays.asList("open_market", "black_market", "generic_military", "magellan_yellowtail_market", "storage")), 
             0.2f
         );
@@ -46,7 +46,7 @@ public class TichelSystem {
             "Tichel Secundus", 
             4, 
             new ArrayList<String>(Arrays.asList("volatiles_plentiful", "high_gravity", "population_4")), 
-            new ArrayList<String>(Arrays.asList("spaceport", "mining", "patrolhq", "battlestation")), 
+            new ArrayList<String>(Arrays.asList("population", "spaceport", "mining", "patrolhq", "battlestation")), 
             new ArrayList<String>(Arrays.asList("open_market", "black_market", "storage")), 
             0.2f
         );

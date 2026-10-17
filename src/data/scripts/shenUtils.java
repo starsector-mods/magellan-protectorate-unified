@@ -52,7 +52,7 @@ public class shenUtils {
             maxThrust += engine.getContribution();
         }
 
-        return onlineThrust / maxThrust;
+        return maxThrust <= 0f ? 0f : onlineThrust / maxThrust;
     }
     public static void showHealText(ShipAPI anchor, Vector2f at, float repairAmount) {
     }
@@ -89,7 +89,7 @@ public class shenUtils {
 
         }
 
-        return acc / opAcc;
+        return opAcc <= 0f ? 1000f : acc / opAcc;
     }
     public static Vector2f getDirectionalVector(float degrees) {
         double radians = Math.toRadians(degrees);
@@ -173,7 +173,7 @@ public class shenUtils {
         return getFirstShipOnSegment(from, to, null);
     }
     public static ShipAPI getShipInLineOfFire(WeaponAPI weapon) {
-        Vector2f endPoint = weapon.getLocation();
+        Vector2f endPoint = new Vector2f(weapon.getLocation());
         endPoint.x += Math.cos(Math.toRadians(weapon.getCurrAngle())) * weapon.getRange();
         endPoint.y += Math.sin(Math.toRadians(weapon.getCurrAngle())) * weapon.getRange();
 

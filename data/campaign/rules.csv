@@ -356,10 +356,10 @@ FireAll PopulateOptions",,,
 magellan_levellerBossEncounter,OpenInteractionDialog,"$magellan_leveller_boss
 $magellan_boss_flagship","FireBest PopulateOptions","""This is the Leveller Liberation Front! Your oppression ends today. Surrender your vessels or be destroyed!"" The flagship's comm channel is heavily encrypted and unyielding.",,
 magellan_levellerBossEncounter_Attack,DialogOptionSelected,"$option == magellan_levellerBossEncounter_Attack
-$magellan_leveller_boss",,"""All batteries, open fire! For the revolution!""",0:magellan_levellerBossEncounter_Battle:Engage the Leveller strike force.,
+$magellan_leveller_boss","InitBattle","""All batteries, open fire! For the revolution!""",,
 magellan_levellerBossEncounter_Surrender,DialogOptionSelected,"$option == magellan_levellerBossEncounter_Surrender
 $magellan_leveller_boss","AddText ""The Levellers board your ships, seizing your materiel for the revolution. You are left adrift but alive.""
-FireBest CARGO_LOSSES_RESULT","""Wise choice, captain. The people's justice spares those who yield.""",,
+DismissDialog","""Wise choice, captain. The people's justice spares those who yield.""",,
 magellan_levellerBossEncounter_Options,PopulateOptions,"$magellan_leveller_boss
 $magellan_boss_flagship",,"","0:magellan_levellerBossEncounter_Attack:Engage the Leveller strike force.
 1:magellan_levellerBossEncounter_Surrender:Surrender your fleet to the insurgents.",

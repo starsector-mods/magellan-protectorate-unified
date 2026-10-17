@@ -6,7 +6,6 @@
     "hullId": "magellan_supportdestroyer_leveller",
     "hullMods": [
         "missleracks",
-        "hardenedshieldemitter",
         "targetingunit",
         "stabilizedshieldemitter"
     ],

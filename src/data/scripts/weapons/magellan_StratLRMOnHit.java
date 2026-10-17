@@ -20,8 +20,8 @@ implements OnHitEffectPlugin {
     private static final Color BRIGHT_COLOR = new Color(255, 225, 125, 155);
     private static final Color SMOKE_COLOR = new Color(75, 75, 75, 155);
     private static final float NEBULA_RAMPUP = 0.15f;
-    private static final String SFX_LRG = "magellan_mine_explosion_lrg";
-    private static final String SFX_MED = "magellan_mine_explosion_med";
+    private static final String SFX_LRG = "magellan_classic_mortar_hit";
+    private static final String SFX_MED = "magellan_mine_explosion_sm";
     private static final String SFX_SM = "magellan_mine_explosion_sm";
 
     public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
@@ -42,7 +42,7 @@ implements OnHitEffectPlugin {
         float extra_armor_damage;
         String projectile_sfx;
 
-        if (projectileSpecId.equals("magellan_stratlrm_lrg")) {
+        if (projectileSpecId.equals("magellan_stratlrm_lrg") || projectileSpecId.equals("magellan_stratLRM_cruise") || projectileSpecId.equals("magellan_stratLRM_cruiseboost")) {
             nebula_size = 20.0f * (0.75f + (float)Math.random() * 0.5f);
             nebula_size_mult = 20.0f;
             smoke_count = 6;
@@ -50,7 +50,7 @@ implements OnHitEffectPlugin {
             fx_dur = 2.5f;
             extra_armor_damage = 0.5f * projdamage;
             projectile_sfx = SFX_LRG;
-        } else if (projectileSpecId.equals("magellan_stratlrm_med") || projectileSpecId.equals("magellan_stratlrm_med_marauder")) {
+        } else if (projectileSpecId.equals("magellan_stratlrm_med") || projectileSpecId.equals("magellan_stratlrm_med_marauder") || projectileSpecId.equals("magellan_stratLRM") || projectileSpecId.equals("magellan_stratLRMboost")) {
             nebula_size = 15.0f * (0.75f + (float)Math.random() * 0.5f);
             nebula_size_mult = 15.0f;
             smoke_count = 4;

@@ -33,7 +33,7 @@ implements OnHitEffectPlugin {
         boolean isMechShot = projectileSpecId.equals("magellan_bonesaw_mech_shot") ||
                 (projectile.getWeapon() != null && "magellan_bonesaw_mechL".equals(projectile.getWeapon().getId()));
 
-        if (projectileSpecId.equals("magellan_bonesaw_ftr_shot")) {
+        if (projectileSpecId.equals("magellan_bonesaw_ftr_shot") || projectileSpecId.equals("magellan_edefensor_shot")) {
             explosion_size = 15.0f;
             explosion_dur = 0.12f;
             hit_sfx = "magellan_bonesaw_ftr_crit";

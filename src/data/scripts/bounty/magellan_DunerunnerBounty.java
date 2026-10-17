@@ -49,8 +49,11 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
         dialog.getOptionPanel().addOption("Approach the contractor in the shadows", this);
     }
 
+    protected boolean dialogFinished = false;
+
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
+        dialogFinished = false;
         if (dialog != null && dialog.getInteractionTarget() != null) {
             this.eventMarket = dialog.getInteractionTarget().getMarket();
         }
@@ -93,16 +96,14 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            if (dialog.getPlugin() != null) {
-                dialog.getPlugin().optionSelected(null, "leave");
-            }
+            dialogFinished = true;
         }
     }
 
     @Override
     public void advance(float amount) {}
     @Override
-    public boolean isDialogFinished() { return isAccepted; }
+    public boolean isDialogFinished() { return dialogFinished; }
     @Override
     public boolean isAlwaysShow() { return false; }
 
@@ -123,7 +124,7 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
         targetFleet = FleetFactoryV3.createFleet(params);
         if (targetFleet == null || targetFleet.getFleetData() == null) return;
         targetFleet.setName("Dishonored Dunerunners");
-        targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_custom");
+        targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_attack");
         if (!targetFleet.getFleetData().getMembersListCopy().isEmpty()) {
             targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1).setShipName("Corvo");
             targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
@@ -142,7 +143,6 @@ public class magellan_DunerunnerBounty extends BaseIntelPlugin implements Portsi
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
             if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-                Global.getSector().getMemoryWithoutUpdate().set("magellan_dunerunner_done", true);
                 Global.getSector().getMemoryWithoutUpdate().set("$magellan_dunerunner_done", true);
             }
             if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {

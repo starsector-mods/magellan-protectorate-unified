@@ -18,7 +18,7 @@ magellan_skipjack_militarized
 magellan_supply
 magellan_supportcruiser
 magellan_battlecruiser_blackcollar
-magellan_fastdestroyer_blackcollar
+magellan_fastdestroyer_bc
 magellan_hvyfighter_blackcollar_wing
 magellan_interceptor_blackcollar_wing
 magellan_lightcruiser_blackcollar
@@ -47,7 +47,6 @@ magellan_bomber_startiger_wing
 magellan_carrier_startiger
 magellan_cruiser_startiger
 magellan_interceptor_startiger_wing
-magellan_lightcruiser_elite
 magellan_linefrigate_startiger
 magellan_carrier_yellowtail
 magellan_corvette_yellowtail_wing
@@ -65,10 +64,10 @@ magellan_droneturret
 # === Magellan Content ===
 magellan_carrier_blackcollar
 magellan_carrier_marauder
-magellan_hvyfighter_marauder
-magellan_corvette_marauder
+magellan_hvyfighter_marauder_wing
+magellan_corvette_marauder_wing
 magellan_cbtfreight_smuggler
 magellan_patroldestroyer_smuggler
 magellan_corvette_strikecraft_leveller
 magellan_fastdestroyer_leveller_mod
-magellan_battleship_ancient
+magellan_ancientcapital

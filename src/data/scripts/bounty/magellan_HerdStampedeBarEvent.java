@@ -52,10 +52,9 @@ public class magellan_HerdStampedeBarEvent extends BaseBarEvent {
             dialog.getTextPanel().addPara("The spacer quickly transfers the navigational data to your TriPad. \"Good luck, Captain. You're going to need it against a stampede like that.\"");
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
-        } else if ("DECLINE".equals(optionData)) {
-            dialog.getPlugin().optionSelected(null, "leave");
-        } else if ("LEAVE".equals(optionData)) {
-            dialog.getPlugin().optionSelected(null, "leave");
+        } else if ("DECLINE".equals(optionData) || "LEAVE".equals(optionData)) {
+            this.done = true;
+            this.noContinue = true;
         }
     }
 

@@ -17,7 +17,7 @@
             "mode": "LINKED",
             "weapons": {
                 "WS0001": "magellan_largemortar",
-                "WS0002": "magellan_hvyfusionbomb_barrage"
+                "WS0002": "magellan_siege_mortar"
             }
         },
         {
@@ -59,8 +59,5 @@
             }
         }
     ],
-    "wings": [
-        "magellan_hvyfighter_wing",
-        "magellan_hvyfighter_wing"
-    ]
+    "wings": []
 }

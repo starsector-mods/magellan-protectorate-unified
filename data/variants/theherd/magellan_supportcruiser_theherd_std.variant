@@ -23,6 +23,7 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
+                "WS0002": "magellan_cruiserradmissile_builtin",
                 "WS0004": "magellan_ripfiresrm",
                 "WS0006": "magellan_ripfiresrm",
                 "WS0009": "magellan_ripfiresrm"

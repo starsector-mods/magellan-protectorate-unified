@@ -65,8 +65,5 @@
             }
         }
     ],
-    "wings": [
-        "magellan_bomber_startiger_wing",
-        "magellan_bomber_startiger_wing"
-    ]
+    "wings": []
 }

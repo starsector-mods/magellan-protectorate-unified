@@ -38,7 +38,7 @@ implements OnHitEffectPlugin {
             explosion_size = 8.0f;
             explosion_dur = 0.2f;
             hit_sfx = "magellan_ebolter_crit";
-        } else if (projectileSpecId.equals("magellan_ebolter_shot")) {
+        } else if (projectileSpecId.equals("magellan_ebolter_shot") || projectileSpecId.equals("magellan_eflak_shot")) {
             explosion_size = 10.0f;
             explosion_dur = 0.3f;
             hit_sfx = "magellan_ebolter_crit";

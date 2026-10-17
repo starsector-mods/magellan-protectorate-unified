@@ -53,8 +53,5 @@
             }
         }
     ],
-    "wings": [
-        "magellan_interceptor_wing",
-        "magellan_interceptor_wing"
-    ]
+    "wings": []
 }

@@ -27,6 +27,10 @@ EveryFrameWeaponEffectPlugin {
                 flash_size = 30.0f;
                 break;
             }
+            case "magellan_diffusionheavy": {
+                flash_size = 40.0f;
+                break;
+            }
             default: {
                 return;
             }

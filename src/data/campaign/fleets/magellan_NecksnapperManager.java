@@ -329,7 +329,7 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
                 cargo.getCredits().add(75000f);
                 cargo.addWeapons("magellan_quenchgun", 2);
                 cargo.addWeapons("magellan_bonecracker", 1);
-                cargo.addFighters("magellan_corvette_blackcollar_corvette", 1);
+                cargo.addFighters("magellan_corvette_blackcollar_wing", 1);
                 cargo.addCommodity(com.fs.starfarer.api.impl.campaign.ids.Commodities.SUPPLIES, 120f);
                 if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
                     Global.getSector().getCampaignUI().addMessage(
@@ -342,7 +342,7 @@ public class magellan_NecksnapperManager extends BaseCampaignEventListener imple
             default:
                 cargo.getCredits().add(35000f);
                 cargo.addWeapons("magellan_medgatling", 2);
-                cargo.addFighters("magellan_corvette_startiger_Gunship", 1);
+                cargo.addFighters("magellan_corvette_startiger_wing", 1);
                 cargo.addCommodity(com.fs.starfarer.api.impl.campaign.ids.Commodities.SUPPLIES, 60f);
                 if (Global.getSector() != null && Global.getSector().getCampaignUI() != null) {
                     Global.getSector().getCampaignUI().addMessage(

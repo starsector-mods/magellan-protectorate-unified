@@ -1,6 +1,6 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 3,
+    "fluxCapacitors": 2,
     "fluxVents": 10,
     "goalVariant": true,
     "hullId": "magellan_corvette_strikecraft_leveller",

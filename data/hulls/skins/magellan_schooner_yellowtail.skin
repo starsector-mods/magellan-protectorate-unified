@@ -15,8 +15,8 @@
     "systemId":"magellan_ionchargelayer",
 	"removeWeaponSlots":[],
 	"removeEngineSlots":[],
-	"removeBuiltInMods":["magellan_classicdesign_b", "missleracks"],
-	"removeBuiltInWeapons":["WS0001", "WS0005"],
+	"removeBuiltInMods":["magellan_classicdesign_b"],
+	"removeBuiltInWeapons":["WS0001"],
 	"weaponSlotChanges":{
 		"WS0002":{
       		"arc": 120,

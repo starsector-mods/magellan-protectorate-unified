@@ -119,7 +119,9 @@ public class magellan_LevellerCellCondition extends BaseMarketConditionPlugin {
     public void advance(float amount) {
         if (market == null) return;
 
-        float days = amount;
+        float days = (Global.getSector() != null && Global.getSector().getClock() != null)
+                ? Global.getSector().getClock().convertToDays(amount)
+                : amount;
         elapsedDays += days;
 
         if (isSuppressedByMarket()) {

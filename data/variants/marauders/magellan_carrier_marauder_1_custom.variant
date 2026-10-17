@@ -6,8 +6,7 @@
     "hullId": "magellan_carrier_marauder_1",
     "hullMods": [
         "ballistic_rangefinder",
-        "dedicated_targeting_core",
-        "hardenedshieldemitter"
+        "dedicated_targeting_core"
     ],
     "permaMods": [],
     "sMods": [],

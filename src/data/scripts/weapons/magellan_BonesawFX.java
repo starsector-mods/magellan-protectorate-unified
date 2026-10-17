@@ -17,49 +17,24 @@ EveryFrameWeaponEffectPlugin {
 
     public void onFire(DamagingProjectileAPI proj, WeaponAPI weapon, CombatEngineAPI engine) {
         if (proj == null || proj.getWeapon() == null || proj.getWeapon().getShip() == null) return;
-        String projectileSpecId;
-        String projid = projectileSpecId = proj.getProjectileSpecId();
-        int n = -1;
-        switch (projectileSpecId.hashCode()) {
-            case -1488217268: {
-                if (!projectileSpecId.equals("magellan_edefensor_shot")) break;
-                n = 0;
-                break;
-            }
-            case -1183910284: {
-                if (!projectileSpecId.equals("magellan_bonesaw_shot")) break;
-                n = 1;
-                break;
-            }
-            case 304188873: {
-                if (!projectileSpecId.equals("magellan_boneshaker_shot")) break;
-                n = 2;
-                break;
-            }
-            case 1347001852: {
-                if (!projectileSpecId.equals("magellan_boneshakerbattery_shot")) break;
-                n = 3;
-            }
-        }
-        float flash_size = 0.0f;
-        float flash_dur = 0.0f;
-        switch (n) {
-            case 0: {
+        String projectileSpecId = proj.getProjectileSpecId();
+        if (projectileSpecId == null) return;
+        float flash_size;
+        float flash_dur;
+        switch (projectileSpecId) {
+            case "magellan_edefensor_shot": {
                 flash_size = 7.0f + 2.0f * (float)Math.random();
                 flash_dur = 0.2f;
                 break;
             }
-            case 1: {
+            case "magellan_bonesaw_shot":
+            case "magellan_bonesaw_mech_shot": {
                 flash_size = 8.0f + 2.0f * (float)Math.random();
                 flash_dur = 0.25f;
                 break;
             }
-            case 2: {
-                flash_size = 9.0f + 3.0f * (float)Math.random();
-                flash_dur = 0.3f;
-                break;
-            }
-            case 3: {
+            case "magellan_boneshaker_shot":
+            case "magellan_boneshakerbattery_shot": {
                 flash_size = 9.0f + 3.0f * (float)Math.random();
                 flash_dur = 0.3f;
                 break;

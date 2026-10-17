@@ -68,7 +68,7 @@ public class MagellanReplinkerListener extends BaseCampaignEventListener {
 		SectorAPI sector = Global.getSector();
 		if (sector == null) return;
 
-		if (sector.getPlayerMemoryWithoutUpdate().is("canReceiveTMCPackage", true)) {
+		if (sector.getPlayerMemoryWithoutUpdate().is("$canReceiveTMCPackage", true) || sector.getPlayerMemoryWithoutUpdate().is("canReceiveTMCPackage", true)) {
 			if (sector.getFaction(YT_FAC_ID) != null) {
 				sector.getFaction(YT_FAC_ID).getKnownShips().add("magellan_mothership_yellowtail");
 			}
@@ -84,10 +84,10 @@ public class MagellanReplinkerListener extends BaseCampaignEventListener {
 			if (mothership != null && sector.getPlayerFleet() != null && sector.getPlayerFleet().getFleetData() != null) {
 				sector.getPlayerFleet().getFleetData().removeFleetMember(mothership);
 			}
-			sector.getPlayerMemoryWithoutUpdate().set("canReceiveTMCPackage", false);
+			sector.getPlayerMemoryWithoutUpdate().set("$canReceiveTMCPackage", false);
 		}
 		
-		if (sector.getPlayerMemoryWithoutUpdate().is("canReceiveTMCSwap", true)) {
+		if (sector.getPlayerMemoryWithoutUpdate().is("$canReceiveTMCSwap", true) || sector.getPlayerMemoryWithoutUpdate().is("canReceiveTMCSwap", true)) {
 			if (sector.getFaction(YT_FAC_ID) != null) {
 				sector.getFaction(YT_FAC_ID).getKnownShips().add("magellan_mothership_yellowtail");
 			}
@@ -131,14 +131,14 @@ public class MagellanReplinkerListener extends BaseCampaignEventListener {
 				if (sector.getPlayerFleet() != null && sector.getPlayerFleet().getFleetData() != null) {
 					sector.getPlayerFleet().getFleetData().removeFleetMember(mothership);
 				}
-				sector.getPlayerMemoryWithoutUpdate().set("canReceiveTMCSwap", false);
+				sector.getPlayerMemoryWithoutUpdate().set("$canReceiveTMCSwap", false);
 			}
 		}
 	}
 	
 	@Override
 	public void reportPlayerReputationChange(String faction, float delta) {
-		syncRepToMagellan();
+		if (MP_FAC_ID.equals(faction)) syncRepToMagellan();
 		if ("magellan_startigers".equals(faction)) swapMothership();
 	}
 }

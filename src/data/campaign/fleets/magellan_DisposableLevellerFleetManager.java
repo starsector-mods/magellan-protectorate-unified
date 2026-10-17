@@ -63,9 +63,6 @@ extends DisposableFleetManager {
         }
         float combat = 1.0f;
         String type = "patrolSmall";
-        if (combat > 20.0f) {
-            type = "patrolMedium";
-        }
         for (int i = 0; i < 3; ++i) {
             if (!((float)Math.random() > 0.5f)) continue;
             combat += 1.0f;
@@ -84,7 +81,11 @@ extends DisposableFleetManager {
             }
             combat += (desired - 2.0f) * (0.5f + (float)Math.random() * 0.5f) * 1.0f * timeFactor;
         }
-        FleetParamsV3 params = new FleetParamsV3((MarketAPI)null, system.getLocation(), "magellan_leveller", (Float)null, type, combat *= 10.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.6f);
+        combat *= 10.0f;
+        if (combat > 20.0f) {
+            type = "patrolMedium";
+        }
+        FleetParamsV3 params = new FleetParamsV3((MarketAPI)null, system.getLocation(), "magellan_leveller", (Float)null, type, combat, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.6f);
         params.ignoreMarketFleetSizeMult = true;
         CampaignFleetAPI fleet = FleetFactoryV3.createFleet((FleetParamsV3)params);
         if (fleet == null || fleet.isEmpty()) {

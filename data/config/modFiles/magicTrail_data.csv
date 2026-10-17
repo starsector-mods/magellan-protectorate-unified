@@ -60,8 +60,8 @@ magellan_supersolenoid_ring,magellan_supersolenoid_shot,projectile_trail_ring,10
 ,,,,,,,,,,,,,,0,,,,,,,,,,,,,,
 magellan_balefire_trail,magellan_balefire,projectile_trail_standard,10,0,0.3,1.2,18,36,"[75,40,60]","[45,45,45]",0.8,400,-400,0,-10,0.1,0.1,TRUE,FALSE,TRUE,20,60,0.2,0,0,100,true,false
 magellan_balefiresmall_trail,magellan_balefiresmall,projectile_trail_standard,10,0,0.2,0.9,18,36,"[75,40,60]","[45,45,45]",0.8,400,-400,0,-7.5,0.1,0.1,TRUE,FALSE,TRUE,20,60,0.2,0,0,100,true,false
-magellan_electroncatapult_shot_trail,magellan_electroncatapult_shot,projectile_trail_standard,10,0,0.1,0.5,24,12,"[50,50,90]","[45,45,45]",0.8,400,-400,TRUE,5,0,1,TRUE,TRUE,TRUE,0,0,0,0,0,0,FALSE,FALSE
-magellan_electroncatapult_shot_core,magellan_electroncatapult_shot,projectile_trail_standard,10,0,0.1,0.05,15,9,"[135,150,255]","[0,0,10]",1,400,-400,TRUE,10,0,1,TRUE,TRUE,TRUE,0,0,0,0,0,0,FALSE,FALSE
+magellan_electroncatapult_shot_trail,magellan_electroncatapult_shot,projectile_trail_standard,10,0,0.1,0.5,24,12,"[50,50,90]","[45,45,45]",0.8,400,-400,0,5,0,1,TRUE,TRUE,TRUE,0,0,0,0,0,0,FALSE,FALSE
+magellan_electroncatapult_shot_core,magellan_electroncatapult_shot,projectile_trail_standard,10,0,0.1,0.05,15,9,"[135,150,255]","[0,0,10]",1,400,-400,0,10,0,1,TRUE,TRUE,TRUE,0,0,0,0,0,0,FALSE,FALSE
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #magellan_flenser_builtin_tracer_shot_trail_smoke,magellan_flenser_builtin_tracer_shot,base_trail_smoke,10,0,0.05,0.075,5,10,"[150,150,150]","[120,120,120]",0.5,300,-300,TRUE,5,25,1,TRUE,FALSE,TRUE,25,50,1,0,0,35,TRUE,FALSE
 #magellan_flenser_builtin_tracer_shot_trail_core,magellan_flenser_builtin_tracer_shot,projectile_trail_standard,10,0,0,0.075,5,1,"[215,175,115]","[180,140,75]",0.8,200,200,TRUE,5,0,1,FALSE,FALSE,TRUE,0,0,0,0,0,0,FALSE,FALSE

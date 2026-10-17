@@ -10,7 +10,7 @@
 	"removeWeaponSlots":[],
 	"removeEngineSlots":[],
 	"removeBuiltInMods":["ballistic_rangefinder"],
-	"removeBuiltInWeapons":[],
+	"removeBuiltInWeapons":["WS0001", "WS0002"],
 	"weaponSlotChanges":{},
     "builtInMods":["advancedoptics"],
 	"builtInWeapons":{

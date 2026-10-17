@@ -37,9 +37,8 @@
 			"magellan_droneship":1.5,
 			"magellan_dronecarrier":0.75,
 			"magellan_droneturret":0.5,
-			"magellan_modularfrigate_std":0,
-
-			"magellan_mothership_base_std":0}
+			"magellan_modularfrigate":0,
+			"magellan_mothership_base":0}
 	},
 
 	"shipsWhenImporting":{

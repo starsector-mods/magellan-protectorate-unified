@@ -23,6 +23,7 @@ implements EveryFrameWeaponEffectPlugin {
         if (engine.isPaused() || weapon == null) {
             return;
         }
+        weapon.ensureClonedSpec();
         this.counter += amount * 2.0f;
         boolean physicalOffset = true;
         float angleMax = 20.0f;

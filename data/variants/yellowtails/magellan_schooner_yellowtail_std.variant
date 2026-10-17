@@ -1,7 +1,7 @@
 {
     "displayName": "Special",
     "fluxCapacitors": 10,
-    "fluxVents": 12,
+    "fluxVents": 10,
     "goalVariant": true,
     "hullId": "magellan_schooner_yellowtail",
     "hullMods": [

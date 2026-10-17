@@ -11,7 +11,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "magellan_diffusiongun"
+        "WS0001": "magellan_laservulcan"
       }
     }
   ]

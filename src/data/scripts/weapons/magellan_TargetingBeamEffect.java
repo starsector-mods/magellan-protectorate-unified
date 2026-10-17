@@ -87,7 +87,10 @@ public class magellan_TargetingBeamEffect implements BeamEffectPlugin, EveryFram
         if (source != null && targetEntity instanceof ShipAPI && beam.getBrightness() > 0.1f) {
             ShipAPI targetShip = (ShipAPI) targetEntity;
             if (targetShip.isAlive() && targetShip.getOwner() != source.getOwner()) {
-                PAINTED_TARGETS.put(source, targetShip);
+                ShipAPI prevTarget = PAINTED_TARGETS.put(source, targetShip);
+                if (prevTarget != null && prevTarget != targetShip) {
+                    removeTargetDebuff(prevTarget);
+                }
                 PAINTED_DURATIONS.put(source, 0.25f);
                 SOURCE_BUFF_DURATIONS.put(source, 0.25f);
                 applySourceBuff(source);

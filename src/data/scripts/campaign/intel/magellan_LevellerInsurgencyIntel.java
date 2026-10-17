@@ -146,7 +146,6 @@ public class magellan_LevellerInsurgencyIntel extends BaseIntelPlugin {
             return;
         }
         int clamped = Math.max(0, Math.min(MAX_LOGISTICS, score));
-        Global.getSector().getMemoryWithoutUpdate().set(MEMORY_KEY_LOGISTICS_SCORE, clamped);
         Global.getSector().getMemoryWithoutUpdate().set("$" + MEMORY_KEY_LOGISTICS_SCORE, clamped);
     }
 

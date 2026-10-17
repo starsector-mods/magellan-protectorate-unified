@@ -11,7 +11,8 @@
 	"removeEngineSlots":[],
 	"removeBuiltInMods":[],
 	"removeBuiltInWeapons":[
-		"WS0001"
+		"WS0001",
+		"WS0002"
 	],
 	"weaponSlotChanges":{},
     "builtInMods":[],

@@ -99,6 +99,7 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
     protected IntervalUtil defenseTracker = new IntervalUtil(15f, 25f);
     protected List<CampaignFleetAPI> activeFleets = new ArrayList<>();
     protected Random random = new Random();
+    protected float logisticsDecayAccum = 0f;
 
     public static magellan_LevellerInsurgencyManager getInstance() {
         if (Global.getSector() == null || Global.getSector().getMemoryWithoutUpdate() == null) {
@@ -691,12 +692,20 @@ public class magellan_LevellerInsurgencyManager implements EveryFrameScript {
         if (activeFleets.isEmpty() && isRosebriarOperational()) {
             int score = data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.getLogisticsScore();
             if (score > 0) {
-                float decayAmount = days; // 1 point per day
-                int newScore = (int) Math.max(0f, score - decayAmount);
-                if (newScore != score) {
-                    data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.setLogisticsScore(newScore);
+                logisticsDecayAccum += days;
+                if (logisticsDecayAccum >= 1.0f) {
+                    int decayPoints = (int) logisticsDecayAccum;
+                    logisticsDecayAccum -= decayPoints;
+                    int newScore = Math.max(0, score - decayPoints);
+                    if (newScore != score) {
+                        data.scripts.campaign.intel.magellan_LevellerInsurgencyIntel.setLogisticsScore(newScore);
+                    }
                 }
+            } else {
+                logisticsDecayAccum = 0f;
             }
+        } else {
+            logisticsDecayAccum = 0f;
         }
     }
 

@@ -53,8 +53,11 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
         dialog.getOptionPanel().addOption("\"Commander Kiderra. What's happened?\"", this);
     }
 
+    protected boolean dialogFinished = false;
+
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
+        dialogFinished = false;
         if (dialog != null && dialog.getInteractionTarget() != null) {
             this.eventMarket = dialog.getInteractionTarget().getMarket();
         }
@@ -96,16 +99,14 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            if (dialog.getPlugin() != null) {
-                dialog.getPlugin().optionSelected(null, "leave");
-            }
+            dialogFinished = true;
         }
     }
 
     @Override
     public void advance(float amount) {}
     @Override
-    public boolean isDialogFinished() { return isAccepted; }
+    public boolean isDialogFinished() { return dialogFinished; }
     @Override
     public boolean isAlwaysShow() { return false; }
     
@@ -187,7 +188,6 @@ public class magellan_Marauder3Bounty extends BaseIntelPlugin implements Portsid
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
             if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-                Global.getSector().getMemoryWithoutUpdate().set("magellan_marauder3_done", true);
                 Global.getSector().getMemoryWithoutUpdate().set("$magellan_marauder3_done", true);
             }
             if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {

@@ -70,7 +70,7 @@ public class magellan_NecksnapperManagerTest {
         verify(creditsVal).add(75000f);
         verify(cargo).addWeapons(eq("magellan_quenchgun"), eq(2));
         verify(cargo).addWeapons(eq("magellan_bonecracker"), eq(1));
-        verify(cargo).addFighters(eq("magellan_corvette_blackcollar_corvette"), eq(1));
+        verify(cargo).addFighters(eq("magellan_corvette_blackcollar_wing"), eq(1));
     }
 
     @Test
@@ -86,7 +86,7 @@ public class magellan_NecksnapperManagerTest {
 
         verify(creditsVal).add(35000f);
         verify(cargo).addWeapons(eq("magellan_medgatling"), eq(2));
-        verify(cargo).addFighters(eq("magellan_corvette_startiger_Gunship"), eq(1));
+        verify(cargo).addFighters(eq("magellan_corvette_startiger_wing"), eq(1));
     }
 
     @Test

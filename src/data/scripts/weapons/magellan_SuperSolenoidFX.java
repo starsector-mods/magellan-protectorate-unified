@@ -26,7 +26,7 @@ EveryFrameWeaponEffectPlugin {
         float weapon_facing = weapon.getCurrAngle();
         Vector2f ship_velocity = ship.getVelocity();
         Vector2f proj_location = proj.getLocation();
-        float flash_dur = weapon.getMuzzleFlashSpec().getParticleDuration() * 1.5f;
+        float flash_dur = weapon.getMuzzleFlashSpec() != null ? weapon.getMuzzleFlashSpec().getParticleDuration() * 1.5f : 0.25f;
         float chargeparticle_dist_min = 5.0f;
         String projid = projectileSpecId = proj.getProjectileSpecId();
         int n = -1;
@@ -77,11 +77,15 @@ EveryFrameWeaponEffectPlugin {
                 engine.addHitParticle(spawn_location, particle_velocity, size, 1.0f, flash_dur, FLASH_COLOR_2);
             }
         }
+        this.last_charge_level = charge_level;
         engine.spawnExplosion(proj_location, ship_velocity, FLASH_COLOR_1, flash_size, flash_dur);
         engine.spawnExplosion(proj_location, ship_velocity, FLASH_COLOR_2, flash_size / 2.0f, flash_dur * 0.6f);
     }
 
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
+        if (weapon != null) {
+            this.last_charge_level = weapon.getChargeLevel();
+        }
     }
 }
 

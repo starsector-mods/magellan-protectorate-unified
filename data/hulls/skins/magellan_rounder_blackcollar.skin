@@ -12,9 +12,12 @@
 	"removeWeaponSlots":[],
 	"removeEngineSlots":[],
 	"removeBuiltInMods":["magellan_classicshieldgen"],
-	"removeBuiltInWeapons":[
-		"WS0001"
-	],
+	"removeBuiltInWeapons":[],
+	"weaponSlotChanges":{
+		"WS0001":{
+			"type": "BUILT_IN"
+		}
+	},
     "builtInMods":["magellan_trajectory_analyzer"],
 	"builtInWeapons":{
 		"WS0001": "magellan_balefiremrm_ftr"

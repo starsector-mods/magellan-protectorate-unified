@@ -51,8 +51,11 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
         dialog.getOptionPanel().addOption("Approach the aristocratic fixer", this);
     }
 
+    protected boolean dialogFinished = false;
+
     @Override
     public void init(InteractionDialogAPI dialog, Map<String, MemoryAPI> memoryMap) {
+        dialogFinished = false;
         if (dialog != null && dialog.getInteractionTarget() != null) {
             this.eventMarket = dialog.getInteractionTarget().getMarket();
         }
@@ -95,16 +98,14 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
             dialog.getOptionPanel().clearOptions();
             dialog.getOptionPanel().addOption("Leave", "LEAVE");
         } else {
-            if (dialog.getPlugin() != null) {
-                dialog.getPlugin().optionSelected(null, "leave");
-            }
+            dialogFinished = true;
         }
     }
 
     @Override
     public void advance(float amount) {}
     @Override
-    public boolean isDialogFinished() { return isAccepted; }
+    public boolean isDialogFinished() { return dialogFinished; }
     @Override
     public boolean isAlwaysShow() { return false; }
 
@@ -132,12 +133,12 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
             targetFleet.getFleetData().setFlagship(targetFleet.getFleetData().getMembersListCopy().get(targetFleet.getFleetData().getMembersListCopy().size() - 1));
         }
         
-        targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_custom");
+        targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_support");
         targetFleet.getFleetData().addFleetMember("magellan_patroldestroyer_smuggler_attack");
         targetFleet.getFleetData().addFleetMember("magellan_cbtfreight_smuggler_attack");
-        targetFleet.getFleetData().addFleetMember("magellan_skiff_smuggler_custom");
-        targetFleet.getFleetData().addFleetMember("magellan_skiff_smuggler_custom");
-        targetFleet.getFleetData().addFleetMember("magellan_skiff_smuggler_custom");
+        targetFleet.getFleetData().addFleetMember("magellan_skiff_smuggler_attack");
+        targetFleet.getFleetData().addFleetMember("magellan_skiff_smuggler_attack");
+        targetFleet.getFleetData().addFleetMember("magellan_skiff_smuggler_attack");
         targetFleet.getFleetData().addFleetMember("magellan_skiff_theherd_std");
         targetFleet.getFleetData().addFleetMember("magellan_supportfrigate_pirate_std");
         targetFleet.getFleetData().addFleetMember("magellan_missilefrigate_theherd_std");
@@ -155,17 +156,15 @@ public class magellan_WaywardScionBounty extends BaseIntelPlugin implements Port
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
             if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-                Global.getSector().getMemoryWithoutUpdate().set("magellan_waywardscion_done", true);
                 Global.getSector().getMemoryWithoutUpdate().set("$magellan_waywardscion_done", true);
-                Global.getSector().getMemoryWithoutUpdate().set("magellan_waywardScion_done", true);
                 Global.getSector().getMemoryWithoutUpdate().set("$magellan_waywardScion_done", true);
             }
             if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {
                 Global.getSector().getPlayerFleet().getCargo().getCredits().add(200000f);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelrod_gun", 2);
                 Global.getSector().getPlayerFleet().getCargo().addWeapons("magellan_fuelscatter_flak", 2);
-                Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_solitudemini_wing", 1);
-                Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_solitudemini_wing", 1);
+                Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_solitude_wing", 1);
+                Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_solitude_wing", 1);
                 Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_interceptor_wing", 1);
                 Global.getSector().getPlayerFleet().getCargo().addFighters("magellan_interceptor_wing", 1);
                 Global.getSector().getPlayerFleet().getCargo().addSpecial(new com.fs.starfarer.api.campaign.SpecialItemData("wing_bp", "magellan_corvette_strikecraft_leveller_wing"), 1);

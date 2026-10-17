@@ -9,39 +9,28 @@ import org.lazywizard.lazylib.MathUtils;
 public class magellan_VelocityVarOnFire
 implements OnFireEffectPlugin {
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine) {
-        String projectileSpecId;
-        String projid = projectileSpecId = projectile.getProjectileSpecId();
-        int n = -1;
-        switch (projectileSpecId.hashCode()) {
-            case -1355660860: {
-                if (!projectileSpecId.equals("magellan_eflak_shot")) break;
-                n = 0;
-                break;
-            }
-            case -1183910284: {
-                if (!projectileSpecId.equals("magellan_bonesaw_shot")) break;
-                n = 1;
-                break;
-            }
-            case 227094684: {
-                if (!projectileSpecId.equals("magellan_bonegrinder_shot")) break;
-                n = 2;
-            }
-        }
-        float velocitymin_mult = 0.0f;
-        float velocitymax_mult = 0.0f;
-        switch (n) {
-            case 0: {
+        if (projectile == null || projectile.getProjectileSpecId() == null) return;
+        String projectileSpecId = projectile.getProjectileSpecId();
+        float velocitymin_mult;
+        float velocitymax_mult;
+        switch (projectileSpecId) {
+            case "magellan_eflak_shot": {
                 velocitymin_mult = 0.97f;
                 velocitymax_mult = 1.03f;
                 break;
             }
-            case 1: {
+            case "magellan_bonesaw_shot":
+            case "magellan_bonesaw_mech_shot":
+            case "magellan_boneshaker_shot":
+            case "magellan_boneshakerbattery_shot": {
                 velocitymin_mult = 0.95f;
                 velocitymax_mult = 1.05f;
                 break;
             }
-            case 2: {
+            case "magellan_bonegrinder_shot":
+            case "magellan_bonegrinder_tracershot":
+            case "magellan_bonegrinder_hvy_shot":
+            case "magellan_bonegrinder_hvy_tracershot": {
                 velocitymin_mult = 0.9f;
                 velocitymax_mult = 1.1f;
                 break;

@@ -13,12 +13,11 @@
   "removeBuiltInMods": [
     "magellan_classicshieldgen"
   ],
-  "removeBuiltInWeapons": [
-    "WS0001"
-  ],
+  "removeBuiltInWeapons": [],
   "weaponSlotChanges": {
     "WS0001": {
-      "arc": 0
+      "arc": 0,
+      "type": "BUILT_IN"
     }
   },
   "builtInMods": [],

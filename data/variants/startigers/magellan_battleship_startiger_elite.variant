@@ -56,8 +56,5 @@
             }
         }
     ],
-    "wings": [
-        "magellan_corvette_startiger_wing",
-        "magellan_corvette_startiger_wing"
-    ]
+    "wings": []
 }

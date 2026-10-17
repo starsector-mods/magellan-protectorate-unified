@@ -21,7 +21,6 @@ implements DiscoverEntityListener {
                 boolean alreadyAdded = entity.getMemoryWithoutUpdate().getBoolean(FLAG_BEACON_INTEL)
                         || entity.getMemoryWithoutUpdate().getBoolean(FLAG_BEACON_INTEL_DOLLAR);
                 if (!alreadyAdded) {
-                    entity.getMemoryWithoutUpdate().set(FLAG_BEACON_INTEL, true);
                     entity.getMemoryWithoutUpdate().set(FLAG_BEACON_INTEL_DOLLAR, true);
                     if (Global.getSector() != null && Global.getSector().getIntelManager() != null) {
                         magellan_DistressBeaconIntel intel = new magellan_DistressBeaconIntel(entity);

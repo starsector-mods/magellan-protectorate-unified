@@ -119,7 +119,6 @@ public class magellan_marauderQuestComplete extends BaseCommandPlugin {
                 Global.getLogger(this.getClass()).info("Placing person " + person.getName() + " on " + market.getName());
                 person.setMarket(market);
                 ContactIntel.addPotentialContact(1f, person, market, null);
-                Global.getSector().getMemoryWithoutUpdate().set(personCreatedKey, true);
                 Global.getSector().getMemoryWithoutUpdate().set("$" + personCreatedKey, true);
             }
         } else {

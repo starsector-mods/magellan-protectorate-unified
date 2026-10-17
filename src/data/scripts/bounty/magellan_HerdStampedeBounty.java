@@ -123,7 +123,6 @@ public class magellan_HerdStampedeBounty extends BaseIntelPlugin implements Flee
         if (reason == FleetDespawnReason.DESTROYED_BY_BATTLE) {
             isDone = true;
             if (Global.getSector() != null && Global.getSector().getMemoryWithoutUpdate() != null) {
-                Global.getSector().getMemoryWithoutUpdate().set("magellan_herdstampede_done", true);
                 Global.getSector().getMemoryWithoutUpdate().set("$magellan_herdstampede_done", true);
             }
             if (Global.getSector() != null && Global.getSector().getPlayerFleet() != null && Global.getSector().getPlayerFleet().getCargo() != null) {

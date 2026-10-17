@@ -238,7 +238,7 @@ public class KhamnConstellation {
         scrap0.setCircularOrbit((SectorEntityToken)obilot, (float)Math.random() * 360.0f, 300.0f, 90.0f);
         Misc.setDefenderOverride((SectorEntityToken)scrap0, (DefenderDataOverride)new DefenderDataOverride("magellan_derelict", 1.0f, 20.0f, 40.0f, 3, 1.0f, "derelictTurret"));
         CargoAPI extraScrap0Salvage = Global.getFactory().createCargo(true);
-        extraScrap0Salvage.addSpecial(new SpecialItemData("magellan_civ_package", (String)null), (float)(this.random.nextInt(2) - 1));
+        extraScrap0Salvage.addSpecial(new SpecialItemData("magellan_civ_package", (String)null), (float)this.random.nextInt(2));
         BaseSalvageSpecial.addExtraSalvage((CargoAPI)extraScrap0Salvage, (MemoryAPI)scrap0.getMemoryWithoutUpdate(), (float)-1.0f);
         CustomCampaignEntityAPI pirStation = system_khamn.addCustomEntity("station_obilotbase", "Port Obilo", "station_side05", "pirates");
         pirStation.setCircularOrbitWithSpin(system_khamn.getEntityById("magellan_planet_obilot"), 0.0f, 900.0f, 90.0f, 1.0f, 3.0f);
@@ -476,7 +476,7 @@ public class KhamnConstellation {
         scrap4.setCircularOrbit((SectorEntityToken)two_star, (float)Math.random() * 360.0f, radius_junk_outer + 25.0f, 300.0f);
         Misc.setDefenderOverride((SectorEntityToken)scrap4, (DefenderDataOverride)new DefenderDataOverride("magellan_derelict", 0.7f, 10.0f, 30.0f, 3, 0.5f, "derelictTurret"));
         CargoAPI extraScrap3Salvage = Global.getFactory().createCargo(true);
-        extraScrap3Salvage.addSpecial(new SpecialItemData("magellan_theherd_package", (String)null), (float)(this.random.nextInt(2) - 1));
+        extraScrap3Salvage.addSpecial(new SpecialItemData("magellan_theherd_package", (String)null), (float)this.random.nextInt(2));
         BaseSalvageSpecial.addExtraSalvage((CargoAPI)extraScrap3Salvage, (MemoryAPI)scrap4.getMemoryWithoutUpdate(), (float)-1.0f);
         SectorEntityToken scrap5 = DerelictThemeGenerator.addSalvageEntity((LocationAPI)system_two, (String)"weapons_cache_magellan", (String)"derelict");
         scrap5.setId("khamn_scrap4");

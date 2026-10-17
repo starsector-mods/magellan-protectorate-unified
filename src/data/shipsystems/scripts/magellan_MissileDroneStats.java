@@ -229,7 +229,7 @@ extends DroneStrikeStats {
     }
 
     public float getMissileSpeed() {
-        return this.weapon.getProjectileSpeed();
+        return this.weapon != null ? this.weapon.getProjectileSpeed() : 0f;
     }
 
     public void setForceNextTarget(ShipAPI forceNextTarget) {

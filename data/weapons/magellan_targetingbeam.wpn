@@ -23,7 +23,7 @@
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER],
 	"fireSoundTwo":"pd_laser_loop",
 
-	"beamEffectPlugin":"data.scripts.weapons.magellan_TargetingBeamEffect",
+	"beamEffect":"data.scripts.weapons.magellan_TargetingBeamEffect",
 	"everyFrameEffect":"data.scripts.weapons.magellan_TargetingBeamEffect"
 ,
 	"hints":["SYSTEM"]

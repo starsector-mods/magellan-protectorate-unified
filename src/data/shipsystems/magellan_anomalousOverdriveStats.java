@@ -334,7 +334,6 @@ public class magellan_anomalousOverdriveStats extends BaseShipSystemScript {
 
                 ship.setOverloadColor(SPARKS_RIFT);
                 ship.getFluxTracker().beginOverloadWithTotalBaseDuration(OVERLOAD_DUR);
-                int randomNum = ThreadLocalRandom.current().nextInt(2, ship.getAllWeapons().size());
 
                 if (ship.getFluxTracker().showFloaty() || (ship == Global.getCombatEngine().getPlayerShip())) {
                     ship.getFluxTracker().showOverloadFloatyIfNeeded("Overheat!", OVERLOAD_COLOR_TEXT, 4f, true);

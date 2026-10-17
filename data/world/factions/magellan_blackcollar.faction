@@ -53,6 +53,7 @@
 		"hulls":[
 			"magellan_battlecarrier_blackcollar",
 			"magellan_battlecruiser_blackcollar",
+			"magellan_fastdestroyer_bc",
 			"magellan_fastfrigate_blackcollar",
 			"magellan_lightcruiser_blackcollar",
 			"magellan_linedestroyer_blackcollar",
@@ -68,7 +69,7 @@
 		"hulls":[
 			"magellan_battlecruiser_blackcollar",
 			"magellan_linedestroyer_blackcollar",
-			"magellan_fastdestroyer_blackcollar",
+			"magellan_fastdestroyer_bc",
 			"magellan_lightcruiser_blackcollar",
 			"magellan_fastfrigate_blackcollar"
 		]

@@ -4,8 +4,6 @@ magellan_bonecrusher
 magellan_bonegrinder
 magellan_bonegrinder_hvy
 magellan_boneshakerbattery
-magellan_burstmaster
-magellan_bursttpc
 magellan_crackerafm
 magellan_cruisemissile_launcher
 magellan_diffusiongun
@@ -16,7 +14,6 @@ magellan_edefensor
 magellan_eflak
 magellan_electromissile_pod
 magellan_electrontorp
-magellan_electrontorp_ftr
 magellan_largebonecrusher
 magellan_ioncharge
 magellan_laservulcan
@@ -31,7 +28,6 @@ magellan_radflamer_med
 magellan_radmissile_launcher
 magellan_ripfiresrmpod
 magellan_scatterblaster
-magellan_scatterblaster_sub
 magellan_silverdart
 magellan_slamfire_single
 magellan_smgatling
@@ -43,7 +39,3 @@ magellan_supersolenoid
 magellan_supersolenoid_sm
 magellan_smpulse_laser
 magellan_tribeamlaser
-# === Magellan Content ===
-magellan_bonerattler
-magellan_largeciws
-magellan_heavylance

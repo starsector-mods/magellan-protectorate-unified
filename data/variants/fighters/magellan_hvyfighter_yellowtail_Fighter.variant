@@ -18,7 +18,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "magellan_bonesaw_ftr"
+        "WS0002": "magellan_smciws_ftr"
       }
     }
   ]

@@ -366,17 +366,12 @@
 		"fleet_flagship_recoverable": true,
 		"fleet_preset_ships": {
 			"magellan_carrier_leveller_mass":1,
-			"magellan_skipjack_levellercontra_std":1,
-			"magellan_supportdestroyer_levellercontra_std":2,
-			"magellan_patroldestroyer_levellercontra_std":2,
-
-			"magellan_linefrigate_leveller_contra":2,
-
-			"magellan_snowgoose_contra":2,
-			"magellan_leyte_contra":2,
-			"magellan_burya_contra":2,
-			"magellan_stoat_contra":2,
-			"magellan_samoyed_contra":2},
+			"magellan_skipjack_leveller_std":1,
+			"magellan_supportdestroyer_leveller_turncoat":2,
+			"magellan_patroldestroyer_leveller_turncoat":2,
+			"magellan_linefrigate_leveller_turncoat":2,
+			"magellan_patroldestroyer_smuggler_attack":2,
+			"magellan_skiff_smuggler_attack":3},
 		"fleet_preset_autofit": false,
 		"fleet_scaling_multiplier": 0.8,
 		"fleet_min_FP": 200,
@@ -441,7 +436,7 @@
 
 		"fleet_name":"Dishonored Dunerunners",
 		"fleet_faction": "ML_bounty",
-		"fleet_flagship_variant":"magellan_patroldestroyer_smuggler_custom",
+		"fleet_flagship_variant":"magellan_patroldestroyer_smuggler_attack",
 		"fleet_flagship_autofit": false,
 		"fleet_flagship_name":"Corvo",
 		"fleet_flagship_recoverable": true,

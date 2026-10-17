@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.Iterator;
 public class MagellanTrailPlugin extends BaseEveryFrameCombatPlugin implements EveryFrameWeaponEffectPlugin {
     
     private CombatEngineAPI engine;
-    private static Map<String, TrailData> TRAIL_REGISTRY = new HashMap<>();
+    private static Map<String, List<TrailData>> TRAIL_REGISTRY = new HashMap<>();
     private static boolean loaded = false;
 
     private static class TrailData {
@@ -62,7 +63,12 @@ public class MagellanTrailPlugin extends BaseEveryFrameCombatPlugin implements E
                     data.colorOut = new Color(255, 255, 255, 0);
                 }
 
-                TRAIL_REGISTRY.put(id, data);
+                List<TrailData> list = TRAIL_REGISTRY.get(id);
+                if (list == null) {
+                    list = new ArrayList<>();
+                    TRAIL_REGISTRY.put(id, list);
+                }
+                list.add(data);
             }
         } catch (Exception e) {
             Global.getLogger(MagellanTrailPlugin.class).error("Failed to load Magellan trail data", e);
@@ -88,19 +94,20 @@ public class MagellanTrailPlugin extends BaseEveryFrameCombatPlugin implements E
             for (DamagingProjectileAPI proj : engine.getProjectiles()) {
                 String specId = proj.getProjectileSpecId();
                 if (specId != null && TRAIL_REGISTRY.containsKey(specId)) {
-                    TrailData data = TRAIL_REGISTRY.get(specId);
-                    
-                    // Add a particle trail mimicking MagicLib behavior
-                    engine.addSmoothParticle(
-                        proj.getLocation(),
-                        // No innate velocity, stays where spawned
-                        new Vector2f(0f, 0f),
-                        data.sizeIn,
-                        // Brightness
-                        1f,
-                        data.duration,
-                        data.colorIn
-                    );
+                    List<TrailData> dataList = TRAIL_REGISTRY.get(specId);
+                    for (TrailData data : dataList) {
+                        // Add a particle trail mimicking MagicLib behavior
+                        engine.addSmoothParticle(
+                            proj.getLocation(),
+                            // No innate velocity, stays where spawned
+                            new Vector2f(0f, 0f),
+                            data.sizeIn,
+                            // Brightness
+                            1f,
+                            data.duration,
+                            data.colorIn
+                        );
+                    }
                 }
             }
         }

@@ -58,7 +58,7 @@ public class magellan_DiscoverEntityListenerTest {
 
             listener.reportEntityDiscovered(entityMock);
 
-            verify(memoryMock).set("magellan_beaconIntelAdded", true);
+            verify(memoryMock).set("$magellan_beaconIntelAdded", true);
             verify(intelManagerMock).addIntel(any(magellan_DistressBeaconIntel.class));
         }
     }

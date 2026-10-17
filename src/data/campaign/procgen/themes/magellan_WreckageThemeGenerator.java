@@ -267,7 +267,7 @@ extends BaseThemeGenerator {
             if (data.isPulsar() || data.isBlackHole() || data.system.hasTag("theme_remnant") || data.resourceRich.size() < 2 && data.habitable.size() < 1 && !data.isNebula()) continue;
             result.add(data);
         }
-        Collections.sort(systems, new Comparator<BaseThemeGenerator.StarSystemData>(){
+        Collections.sort(result, new Comparator<BaseThemeGenerator.StarSystemData>(){
 
             @Override
             public int compare(BaseThemeGenerator.StarSystemData o1, BaseThemeGenerator.StarSystemData o2) {

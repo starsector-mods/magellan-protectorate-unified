@@ -3,9 +3,7 @@
   "fluxCapacitors": 0,
   "fluxVents": 0,
   "hullId": "magellan_lev_lancefrig",
-  "hullMods": [
-    "auxiliarythrusters"
-  ],
+  "hullMods": [],
   "quality": 0,
   "variantId": "magellan_lev_lancefrig_std",
   "weaponGroups": [

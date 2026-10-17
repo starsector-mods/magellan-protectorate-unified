@@ -17,6 +17,9 @@
 	"removeBuiltInMods":["magellan_engineering"],
 	"removeBuiltInWeapons":[],
 	"weaponSlotChanges":{
+		"WS0002":{
+			"type": "BUILT_IN"
+		},
 		"WS0004":{
 			"type": "COMPOSITE"
 		}

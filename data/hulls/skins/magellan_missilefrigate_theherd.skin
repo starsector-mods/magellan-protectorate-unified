@@ -14,7 +14,7 @@
     "systemId":"microburn",
 	"removeWeaponSlots":[],
 	"removeEngineSlots":[],
-	"removeBuiltInMods":["magellan_engineering", "blast_doors"],
+	"removeBuiltInMods":["magellan_engineering"],
 	"removeBuiltInWeapons":[],
 	"weaponSlotChanges":{
 		"WS0001":{

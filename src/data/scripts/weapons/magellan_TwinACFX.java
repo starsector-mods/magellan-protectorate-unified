@@ -46,11 +46,15 @@ EveryFrameWeaponEffectPlugin {
                 engine.addHitParticle(spawn_location, particle_velocity, size, 1.0f, 0.3f, FLASH_CORE);
             }
         }
+        this.last_charge_level = charge_level;
         engine.addSmoothParticle(proj_location, ship_velocity, 45.0f, 1.0f, 0.3f, 0.15f, FLASH_CORE);
         engine.spawnExplosion(proj_location, ship_velocity, FLASH_FRINGE, 15.0f, 0.2f);
     }
 
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
+        if (weapon != null) {
+            this.last_charge_level = weapon.getChargeLevel();
+        }
     }
 }
 

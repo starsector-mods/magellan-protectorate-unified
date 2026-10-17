@@ -102,6 +102,7 @@
         "magellan_cruiser_startiger_elite": 2,
         "magellan_cruiser_startiger_royal": 2,
         "magellan_supportcruiser_blackcollar_elite": 1,
+        "magellan_supportcruiser_theherd_std": 8,
         "fallback": {
             "combatMedium": 1
         }

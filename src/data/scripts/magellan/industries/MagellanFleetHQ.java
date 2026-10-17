@@ -389,7 +389,7 @@ public class MagellanFleetHQ extends BaseIndustry implements RouteFleetSpawner, 
 		
 		if (reason == FleetDespawnReason.REACHED_DESTINATION) {
 			RouteData route = RouteManager.getInstance().getRoute(getRouteSourceId(), fleet);
-			if (route.getCustom() instanceof PatrolFleetData) {
+			if (route != null && route.getCustom() instanceof PatrolFleetData) {
 				PatrolFleetData custom = (PatrolFleetData) route.getCustom();
 				if (custom.spawnFP > 0) {
 					float fraction  = fleet.getFleetPoints() / custom.spawnFP;

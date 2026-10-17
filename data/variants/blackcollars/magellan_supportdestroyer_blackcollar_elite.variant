@@ -1,7 +1,7 @@
 {
     "displayName": "Elite",
     "fluxCapacitors": 16,
-    "fluxVents": 25,
+    "fluxVents": 20,
     "goalVariant": true,
     "hullId": "magellan_supportdestroyer_blackcollar",
     "hullMods": ["targetingunit"],

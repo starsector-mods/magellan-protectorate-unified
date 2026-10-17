@@ -70,7 +70,7 @@ extends BaseHullMod {
         if (fluxlevel < 0.7f) {
             jitterLevel = 0.0f;
         } else if (fluxlevel >= 0.7f) {
-            jitterLevel = MagellanUtils.lerp(0.0f, fluxlevel, -3.0f + 4.0f * hardfluxlevel);
+            jitterLevel = MagellanUtils.lerp(0.0f, fluxlevel, Math.max(0.0f, -3.0f + 4.0f * hardfluxlevel));
             if (jitterLevel > 1.0f) {
                 jitterLevel = 1.0f;
             }

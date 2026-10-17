@@ -39,7 +39,7 @@ public class BlackcollarShipMarket extends MilitarySubmarketPlugin {
 	public boolean showInFleetScreen() {
 		if (market.getFactionId() != null) {
 			String id = market.getFactionId();
-			if (id.equals("magellan_protectorate")) return true;
+			if (id.equals("magellan_protectorate") || id.equals("magellan_blackcollar")) return true;
 		}
 		return false;
 	}
@@ -48,7 +48,7 @@ public class BlackcollarShipMarket extends MilitarySubmarketPlugin {
 	public boolean showInCargoScreen() {
 		if (market.getFactionId() != null) {
 			String id = market.getFactionId();
-			if (id.equals("magellan_protectorate")) return true;
+			if (id.equals("magellan_protectorate") || id.equals("magellan_blackcollar")) return true;
 		}
 		return false;
 	}

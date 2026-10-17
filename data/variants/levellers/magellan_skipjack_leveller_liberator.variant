@@ -5,7 +5,6 @@
     "goalVariant": true,
     "hullId": "magellan_skipjack_leveller_generic",
     "hullMods": [
-        "hardenedshieldemitter",
         "targetingunit"
     ],
     "permaMods": [],
