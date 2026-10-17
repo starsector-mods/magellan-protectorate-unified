@@ -17,7 +17,7 @@
             "mode": "LINKED",
             "weapons": {
                 "WS0001": "magellan_largemortar",
-                "WS0002": "magellan_siege_mortar"
+                "WS0002": "magellan_largemortar"
             }
         },
         {
